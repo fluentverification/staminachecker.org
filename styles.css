@@ -35,6 +35,8 @@ p {
 }
 
 .banner {
+	margin: 0;
+	position: static;
 	display: block;
 	padding-left: 20%;
 	padding-right: 20%;
@@ -167,14 +169,19 @@ ul.navbar li.right {
 .footer-links table {
 	display: inline;
 	text-align: left;
-	width: 80%;
+	width: 100%;
+}
+
+.footer-links td, .footer-links th {
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .top-buffer {
 	height: 60px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
 	ul.navbar li.right,
 	ul.navbar li {
 		float: none;
@@ -187,6 +194,10 @@ ul.navbar li.right {
 	}
 	.navbar .openbutton {
 		display: block;
+	}
+	.footer-links td, .footer-links th {
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 }
 
