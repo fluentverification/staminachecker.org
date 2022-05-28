@@ -7,6 +7,11 @@
 	margin-bottom: 20px;
 	border-left: 4px solid #2e8460;
 	width: 80%;
+/* 	border-radius: 6px; */
+}
+
+.note:hover {
+	border-left: 4px solid #48ce94;
 }
 
 .inline-code {
@@ -16,6 +21,7 @@
 	font-size: 10pt;
 	background-color: #f3f3f3;
 	white-space: nowrap;
+	padding: 5px;
 }
 
 .code {
@@ -25,12 +31,16 @@
 	border-color: #969696;
 	border-style: solid;
 	border-width: 1px;
-	border-radius: 6px;
+/* 	border-radius: 6px; */
 	background-color: #f3f3f3;
 	border-left: 4px solid #969696;
 	padding: 15px;
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+.code:hover {
+	border-left: 4px solid #d9d9d9;
 }
 
 input[type=text], select, textarea {
