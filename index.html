@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="index.html">STAMINA</a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="active" id="active" href="index.html">Home</a></li>
+	<li><a class="navbutton" href="about.html">About</a></li>
+	<li>
+		<a href="javascript:void(0)" class="navbutton" class="navbutton">Get</a>
+		<!--<div class="dropdown-content">
+			<a href="download.html">Download</a>
+			<a href="https://github.com/fluentverification/stamina">Source Code</a>
+		</div>-->
+	</li>
+	<li><a class="navbutton" href="documentation.html">Documentation</a></li>
+	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a class="fluent" href="">FLUENT Verification</a></li>
+</ul>
+<div class="top-buffer" id="top-buffer"><br></div>
+<div class="banner">
+	<h1>STAMINA</h1>
+	<h2>
+		A model-truncation tool that can analyze infinite-sized models.
+	</h2>
+	<a class="button" href="https://github.com/fluentverification/stamina">&#129095; Download Latest Release (2.1)</a>
+	<a class="button" href="https://github.com/fluentverification/stamina">&#129957; Get Source Code</a>
+</div>
+<div class="content">
+<!-- CONTENT -->
+	<img src="images/staminaGraphic.svg" class="graphic">
+	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
+	<p>STAMINA is an infinite state-space model truncation tool compatible with both <a href="#">PRISM</a> and <a href="#">STORM</a>. STAMINA is a tool within the <a href="#">FLUENT</a> toolchain. It deploys a state truncation-based approach, estimating path probabilities of reaching each state on-the-fly and terminates exploration of a path when the cumulative estimated probability along such a path drops below a predefined threshold. Each terminated path is routed to an absorbing state, in order to estimate the error probability in subsequent CTMC analysis.</p>
+	<p>After all paths have been explored or truncated, transient Markov chain analysis is applied to determine the probability of a transient property of interest specified using Continuous Stochastic Logic (CSL). The calculated probability forms a lower bound on the probability, while the upper bound also includes the probability of the absorbing state. The actual probability of the CSL property is guaranteed to be within this range. If the probability bound is still too large compared to a user-provided probability precision value (default is 10<sup>-3</sup>), the PRISM version of STAMINA employs a property property-guided refinement technique to expand the state space to tighten the reported probability range incrementally.</p>
+	<h2>The STAMINA Algorithm(s)</h2>
+	<p>
+		STAMINA makes use of multiple variations on a smart breadth-first search algorithm to estimate reachability probability on-the-fly. It does not explore paths whose reachability is below a certain user-defined threshold, &kappa;, which automatically decrements until the probability window is within a certain bound. Currently there are several variations on the STAMINA algorithm.
+	</p>
+	<h3>The STAMINA 1.0 Algorithm</h3>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	<h3>The STAMINA 2.0/2.1 Algorithm</h3>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	<h4>Dynamic Programming Improvements (STAMINA 2.5)</h4>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. :
+	</p>
+	<h3>The STAMINA 3.0 Algorithm</h3>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/STORM</a></td>
+				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="#">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license.
+	</div>
+</div>
+</body>

@@ -1,4 +1,55 @@
-.button {
+.note {
+	display: inline-block;
+	color: #1e3229;
+	background-color: #b4f7d6;
+	padding: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-left: 4px solid #2e8460;
+	width: 100%;
+}
+
+.inline-code {
+	display: inline;
+	font-weight: semi-expanded;
+	font-family: monospace;
+	font-size: 10pt;
+	background-color: #f3f3f3;
+	white-space: nowrap;
+}
+
+.code {
+	font-weight: semi-expanded;
+	font-family: monospace;
+	font-size: 10pt;
+	border-color: #969696;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 6px;
+	background-color: #f3f3f3;
+	border-left: 4px solid #969696;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.form {
+	background-color: #ebebeb;
+	padding: 20px;
+}
+
+.button, input[type=submit] {
 	display: inline-block;
 	color: white;
 	text-align: center;
@@ -9,9 +60,10 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-right: 10px;
+	border: none;
 }
 
-.button:hover {
+.button:hover, input[type=submit]:hover {
 	color: white;
 	background-color: #67aa8a;
 }
@@ -170,6 +222,10 @@ ul.navbar li.right {
 	display: inline;
 	text-align: left;
 	width: 100%;
+}
+
+.footer-links table a {
+	color: #363636;
 }
 
 .footer-links td, .footer-links th {

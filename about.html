@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="index.html">STAMINA</a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="navbutton" href="index.html">Home</a></li>
+	<li><a class="active" id="active"  href="about.html">About</a></li>
+	<li>
+		<a href="javascript:void(0)" class="navbutton" class="navbutton">Get</a>
+		<!--<div class="dropdown-content">
+			<a href="download.html">Download</a>
+			<a href="https://github.com/fluentverification/stamina">Source Code</a>
+		</div>-->
+	</li>
+	<li><a class="navbutton" href="documentation.html">Documentation</a></li>
+	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a class="fluent" href="">FLUENT Verification</a></li>
+</ul>
+<div class="top-buffer" id="top-buffer"><br></div>
+<div class="content">
+<!-- CONTENT -->
+	<div id="about">
+		<h1>About STAMINA</h1>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<h1>Frequently Asked Questions</h1>
+		<h2>What model checking engines does STAMINA support?</h2>
+		<p>
+			STAMINA supports the STORM and PRISM model checking engines, and it supports models written in the PRISM language. Future work includes making STAMINA compatible with JANI and other model formats.
+		</p>
+		<h2>What types of models does STAMINA support?</h2>
+		<p>
+			Currently, STAMINA/PRISM supports only CTMCs, whereas STAMINA/STORM supports both CTMCs, and has alpha support for DTMCs through the STORM API.
+		</p>
+		<h2>Why would we want to check an infinite (or very large) model?</h2>
+		<p>
+			STAMINA was developed primarily to check models representative of chemical reaction networks in synthetic biology. Because each combination of molecules is a state, even a bounded reaction network could have an infinite or extremely large number of states, making the resulting model non-trivial for a traditional model checker such as STORM or PRISM. In order to actually extract useful information from these models, and to test them against CSL properties, STAMINA was developed.
+		</p>
+	</div>
+	<div id="contact">
+		<h1>
+			Contact the Developers of STAMINA
+		</h1>
+		<form class="form" action="TODO">
+			<label for="name">Full Name:</label>
+			<input type="text" id="name" name="name" placeholder="Your name...">
+
+			<label for="organization">Organization:</label>
+			<input type="text" id="organization" name="organization" placeholder="Your organization...">
+
+			<label for="position">Position:</label>
+			<input type="text" id="position" name="position" placeholder="Your position...">
+
+			<!-- Not sure if we need the "country" field -->
+<!--			<label for="country">Country:</label>
+			<input type="text" id="country" name="country" placeholder="Your country...">-->
+
+			<label for="orgtype">Organization Type:</label>
+			<select id="orgtype" name="orgtype">
+				<option value="academic">Academic</option>
+				<option value="research">Research</option>
+				<option value="industry">Industry</option>
+			</select>
+
+			<label for="subject">Subject</label>
+			<textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+
+			<input type="submit" value="Submit">
+
+		</form>
+	</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/STORM</a></td>
+				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="#">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license.
+	</div>
+</div>
+</body>

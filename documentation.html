@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Documentation - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="index.html">STAMINA</a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="navbutton" href="index.html">Home</a></li>
+	<li><a class="navbutton" href="about.html">About</a></li>
+	<li>
+		<a href="javascript:void(0)" class="navbutton" class="navbutton">Get</a>
+		<!--<div class="dropdown-content">
+			<a href="download.html">Download</a>
+			<a href="https://github.com/fluentverification/stamina">Source Code</a>
+		</div>-->
+	</li>
+	<li><a class="active" id="active" href="documentation.html">Documentation</a></li>
+	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a class="fluent" href="">FLUENT Verification</a></li>
+</ul>
+<div class="top-buffer" id="top-buffer"><br></div>
+<div class="content">
+<!-- CONTENT -->
+	<h1>STAMINA Documentation</h1>
+	<h2>Usage documentation</h2>
+	Documentation for the usage of STAMINA can be found at the <a href="https://github.com/fluentverification/stamina-cplusplus/wiki">wiki</a>. This includes STAMINA usage, GUI, algorithm development, and command-line option documentation. The basic syntax of invoking STAMINA via the command-line is as follows:
+	<div class="code">
+		stamina --storm $MODEL_FILE $PROPERTIES_FILE [OPTIONS]
+	</div>
+	The <div class="inline-code">--storm</div> and <div class="inline-code">--prism</div> options allow you to specify which model checker to use.
+	<div class="note">
+		STAMINA/STORM and STAMINA/PRISM have different sets of options (although there is some overlap), in order to work with their respective model checkers. The <div class="inline-code">stamina</div> executable simply passes the options you give into either STAMINA/STORM or STAMINA/PRISM, so make sure to choose the correct options.
+	</div>
+	<h3>STAMINA/STORM Usage and Options</h3>
+	<p>The following options are available for STAMINA/STORM</p>
+	<div class="code">
+&nbsp;&nbsp;-c, --const="C1=VAL,C2=VAL,C3=VAL"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comma separated values for constants
+<br>&nbsp;&nbsp;-C, --cuddMaxMem=memory&nbsp;&nbsp;&nbsp;&nbsp;Maximum CUDD memory, in the same format as PRISM
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1g)
+<br>&nbsp;&nbsp;-e, --export=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Export model to a (text) file
+<br>&nbsp;&nbsp;-f, --approxFactor=double&nbsp;&nbsp;Factor to estimate how far off our reachability
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; predictions will be (default: 2.0)
+<br>&nbsp;&nbsp;-i, --import=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import model to a (text) file
+<br>&nbsp;&nbsp;-k, --kappa=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reachability threshold for the first iteration
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1.0)
+<br>&nbsp;&nbsp;-M, --maxIterations=int&nbsp;&nbsp;&nbsp;&nbsp;Maximum iteration for solution (default: 10000)
+<br>&nbsp;&nbsp;-n, --maxApproxCount=int&nbsp;&nbsp; Maximum number of iterations in the approximation
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default 10)
+<br>&nbsp;&nbsp;-p, --property=propname&nbsp;&nbsp;&nbsp;&nbsp;Specify a certain property to check in a model
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file that contains many
+<br>&nbsp;&nbsp;-r, --reduceKappa=double&nbsp;&nbsp; Reduction factor for Reachability Threshold
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (kappa) during the refinement step (default 2.0)
+<br>&nbsp;&nbsp;-R, --noPropRefine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do not use property based refinement. If given,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the model exploration method will reduce kappa and
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do property independent definement (default: off)
+<br>&nbsp;&nbsp;-S, --exportPerimeterStates=filename
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export perimeter states to a file. Please provide
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a filename. This will append to the file if it is
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existing
+<br>&nbsp;&nbsp;-t, --exportTrans=filename Export the list of transitions and actions to a
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; specified file name, or to trans.txt if no file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name is specified.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transitions are exported in the format &lt;Source
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; State Index&gt; &lt;Destination State Index&gt; &lt;Action
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label&gt;
+<br>&nbsp;&nbsp;-T, --rankTransitions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank transitions before expanding (default: false)
+<br>
+<br>&nbsp;&nbsp;-w, --probWin=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probability window between lower and upperbound
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for termination (default: 1.0e-3)
+<br>&nbsp;&nbsp;-?, --help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Give this help list
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--usage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give a short usage message
+	</div>
+	<h3>STAMINA/PRISM Usage and Options</h3>
+	<p>The following options are available for STAMINA/PRISM</p>
+	<div class="code">
+Usage: stamina [options] &lt;model-file&gt; &lt;properties-file&gt;
+<br>
+<br>&lt;model-file&gt; .................... Prism model file. Extensions: .prism, .sm
+<br>&lt;properties-file&gt; ............... Property file. Extensions: .csl
+<br>
+<br>Options:
+<br>========
+<br>
+<br>-kappa &lt;k&gt;.......................... ReachabilityThreshold for first iteration [default: 1.0]
+<br>-reducekappa &lt;f&gt;.................... Reduction factor for ReachabilityThreshold(kappa) for refinement step.  [default: 1.25]
+<br>-approxFactor &lt;f&gt;................... Factor to estimate how far off our reachability predictions will be  [default: 2.0]
+<br>-pbwin &lt;e&gt;.......................... Probability window between lower and upperbound for termination. [default: 1.0e-3]
+<br>-maxapproxcount &lt;n&gt;................. Maximum number of approximation iteration. [default: 10]
+<br>-noproprefine ...................... Do not use property based refinement. If given, model exploration method will reduce the kappa and do the property independent refinement. [default: off]
+<br>-cuddmaxmem &lt;memory&gt;................ Maximum cudd memory. Expects the same format as prism [default: 1g]
+<br>-export &lt;filename&gt;.................. Export model to a file. Please provide a filename without an extension
+<br>-exportPerimeterStates &lt;filename&gt;... Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing
+<br>-import &lt;filename&gt;.................. Import model to a file. Please provide a filename without an extension
+<br>-property &lt;property&gt;................ Specify a specific property to check in a model file that contains many
+<br>-const &lt;vals&gt; ...................... Comma separated values for constants
+<br>-exportTrans &lt;filename&gt;............. Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified. Transitions exported in the format srcStateIndex destStateIndex actionLabel
+<br>	Examples:
+<br>	-const a=1,b=5.6,c=true
+<br>
+<br>Other Options:
+<br>========
+<br>
+<br>-rankTransitions ................... Rank transitions before expanding. [default: false]
+<br>-maxiters &lt;n&gt; ...................... Maximum iteration for solution. [default: 10000]
+<br>-power ............................. Power method
+<br>-jacobi ............................ Jacobi method
+<br>-gaussseidel ....................... Gauss-Seidel method
+	</div>
+	<h2>Development Documentation</h2>
+	<ul>
+		<li>For the STORM version, there exists <a href="#">Doxygen documentation</a>.
+		<li>For the PRISM version, there is both <a href="#">Javadoc documentation</a> as well as some <a href="https://github.com/fluentverification/stamina/tree/master/stamina/doc">markdown files</a> describing each class in the repository.
+	</ul>
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/STORM</a></td>
+				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="#">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license.
+	</div>
+</div>
+</body>
