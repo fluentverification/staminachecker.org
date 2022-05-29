@@ -45,3 +45,23 @@ function closeNav() {
 	document.getElementById("openbutton").style.display = "block";
 // 	document.getElementById("navbar").style.display = "none";
 }
+
+function copyIeee() {
+	copyCitation('ieee');
+}
+
+function copyMla() {
+	copyCitation('mla');
+}
+
+function copyCitation(id) {
+	console.log("Copying citation " + id);
+	var citation = document.getElementById(id);
+
+	// Select and copy
+
+	navigator.clipboard.writeText(citation.innerHTML);
+
+	// Alert that we have copied text
+	alert("Citation copied!");
+}

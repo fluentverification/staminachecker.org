@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Not Found - STAMINA Model Checker</title>
+	<title>Home - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
@@ -17,7 +17,7 @@
 	<li><a class="navbutton" href="index.html">Home</a></li>
 	<li><a class="navbutton" href="about.html">About</a></li>
 	<li>
-		<a href="get.html" class="navbutton" class="navbutton">Get</a>
+		<a href="get.html" class="active" id="active" class="navbutton">Get</a>
 		<!--<div class="dropdown-content">
 			<a href="download.html">Download</a>
 			<a href="https://github.com/fluentverification/stamina">Source Code</a>
@@ -30,15 +30,39 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="content">
 <!-- CONTENT -->
-	<div style="text-align: center; margin-top: 300px; margin-bottom: 300px;">
-		<h1 style="font-size: 72pt">&#9888;</h1>
-		<h1 style="font-size: 48pt"><a style="color: #40c688;">404:</a> Not Found</h1>
-		<div style="font-size: 24pt">The page you were looking for could not be found on this server.</div>
-		<h1 style="font-size: 16pt">If you followed a link elsewhere on this website, please <a href="#">contact us</a> to let us know something is broken.</h1>
-<!-- 		<h1>404: Not found</h1> -->
-		&#8708; Page<sub>Req</sub>
-		 (meaning Page<sub>Req</sub> &#8713; {STAMINA Website})
+	<h1>Get STAMINA</h1>
+	<h2>Official Releases:</h1>
+	<a class="button" href="https://github.com/fluentverification/stamina">&#129095; Download Latest Release (2.1)</a>
+	<h3>Other Releases</h3>
+	<ul>
+		<li><a href="#">STAMINA/STORM Version 0.1 alpha (non-optimized)</a></li>
+		<li><a href="#">Version 2.0 (Only PRISM Integration)</a></li>
+		<li><a href="#">Version 1.1 (Only PRISM Integration)</a></li>
+		<li><a href="#">Version 1.0 (Only PRISM Integration)</a></li>
+	</ul>
+	<h2>Source Code</h2>
+	<div class="note">
+		STAMINA is separated into three repositories: the main STAMINA repository, and two repositories included as submodules: STAMINA/STORM and STAMINA/PRISM. All three are hosted on GitHub.
 	</div>
+	<a class="button" href="https://github.com/fluentverification/stamina">&#129957; Get Source Code (Main Repository)</a>
+	<h3>Repositories</h3>
+	<ul>
+		<li><a href="https://github.com/fluentverification/stamina">Main Repository</a></li>
+		<li><a href="https://github.com/fluentverification/stamina-cplusplus">STAMINA/STORM</a></li>
+		<li><a href="https://github.com/fluentverification/stamina">STAMINA/PRISM</a></li>
+	</ul>
+	<h2>Citing Stamina</h2>
+	<p>To cite STAMINA in papers, use one of the following citations:</p>
+	<h3>IEEE</h3>
+	<div class="citation" id="ieee">
+		TODO: Put citation here
+	</div>
+	<button onclick="copyIeee()" class="copy-button">&#128203; Copy Citation</button>
+	<h3>MLA</h3>
+	<div class="citation" id="mla">
+		TODO: Put citation here
+	</div>
+	<button onclick="copyMla()" class="copy-button">&#128203; Copy Citation</button>
 </div>
 <!-- Footer -->
 <div class="footer">

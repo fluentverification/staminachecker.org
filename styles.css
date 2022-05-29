@@ -2,6 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap');
 
+.citation{
+	border-color: #969696;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #f3f3f3;
+	border-left: 4px solid #969696;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .note {
 	display: inline-block;
 	color: #1e3229;
@@ -43,7 +54,7 @@
 	margin-bottom: 20px;
 }
 
-.code:hover {
+.code:hover, .citation:hover {
 	border-left: 4px solid #d9d9d9;
 }
 
@@ -112,7 +123,7 @@ p {
 	color: #515151;
 	background-color: #ebebeb;
 	font-family: 'Noto Sans', sans-serif;
-	background-image: url("images/banner.svg");
+/* 	background-image: url("images/banner.svg"); */
 }
 
 .banner h1 {
