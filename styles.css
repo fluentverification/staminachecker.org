@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap');
+
 .note {
 	display: inline-block;
 	color: #1e3229;
@@ -17,7 +21,7 @@
 .inline-code {
 	display: inline;
 	font-weight: semi-expanded;
-	font-family: monospace;
+	font-family: 'Noto Sans Mono', monospace;
 	font-size: 10pt;
 	background-color: #f3f3f3;
 	white-space: nowrap;
@@ -26,7 +30,7 @@
 
 .code {
 	font-weight: semi-expanded;
-	font-family: monospace;
+	font-family: 'Noto Sans Mono', monospace;
 	font-size: 10pt;
 	border-color: #969696;
 	border-style: solid;
@@ -107,7 +111,7 @@ p {
 	width: 60%;
 	color: #515151;
 	background-color: #ebebeb;
-	font-family: Sans-Serif;
+	font-family: 'Noto Sans', sans-serif;
 	background-image: url("images/banner.svg");
 }
 
@@ -124,14 +128,14 @@ p {
 	margin-right: 20%;
 	width: 60%;
 	color: #363636;
-	font-family: Sans-Serif;
+	font-family: 'Noto Sans', sans-serif;
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
 
 .navbar li {
-	font-family: Sans-Serif;
+	font-family: 'Noto Sans', sans-serif;
 	display: inline;
 	float: left;
 }
@@ -214,7 +218,7 @@ ul.navbar li.right {
 	font-size: 10pt;
 	display: block;
 	position: absolute;
-	font-family: Sans-Serif;
+	font-family: 'Noto Sans', sans-serif;
 	background-color: #e1e1e1;
 	color: #363636;
 	left: 0;
