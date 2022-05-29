@@ -108,6 +108,7 @@ p {
 	color: #515151;
 	background-color: #ebebeb;
 	font-family: Sans-Serif;
+	background-image: url("images/banner.svg");
 }
 
 .banner h1 {
