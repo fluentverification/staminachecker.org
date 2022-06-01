@@ -1,0 +1,47 @@
+<!-- Message that this is unfinished -->
+<!-- TODO: delete this when finished -->
+<div>
+<script>
+function closeUnfinishedBanner() {
+	// Make the element with the id of unfinished-banner invisible
+	var banner = document.getElementById("unfinished-banner");
+	banner.style.display = "none"
+}
+</script>
+	<div id="unfinished-banner" style="
+	color: white;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #ff0051;
+	font-family: sans-serif;
+	width=100%;
+	overflow: hidden;
+	padding: 20px;
+	font-size: 11pt;
+">
+		<div class="message" style="
+		display: inline-block; padding: 10px;
+		">
+			<b>Please Note:</b> This page is UNFINISHED! You may see some Lorem Ipsum text around, missing graphics, etc.
+		</div>
+		<button class="close-button" onclick="closeUnfinishedBanner()" style="
+		display: inline-block;
+		background-color: #de004a;
+		border-style: none;
+		color: white;
+		font-weight: bold;
+		float: right;
+		border-radius: 4px;
+		padding: 10px;
+		"
+		onmouseover=this.style.backgroundColor="#8c002f"
+		onmouseout=this.style.backgroundColor="#de004a"
+		>
+			&#128473;
+			&nbsp; I understand. Close this message.
+		</button>
+	</div>
+</div>
