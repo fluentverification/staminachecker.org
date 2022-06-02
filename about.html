@@ -30,37 +30,76 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="content">
 <!-- CONTENT -->
+	<div id="contents" class="contents">
+		<h2>Contents</h2>
+		<ol>
+			<li><a href="#mission">Mission and Maintainers</a></li>
+			<li><a href="#faq">Frequently Asked Questions</a></li>
+			<li><a href="#algorithms">The STAMINA Algorithm</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ol>
+	</div>
 	<div id="about">
 		<h1>About STAMINA</h1>
-		<p>
-			STAMINA is designed to work with large or infinite state space models and truncate them so that the probability of a CSL path property holding given an initial state is bounded within a window. It is developed within Dr. Zhen Zhang's research group at Utah State University and maintained by the following people:
-		</p>
-		<h3>Current Maintainer:</h3>
-		<p>
-			<b>Josh Jeppson, BS</b><br>
-			PhD Student - Utah State University<br>
-			Email: <a href="mailto:joshua.jeppson@usu.edu">joshua.jeppson@usu.edu</a>
-		</p>
-		<h3>Past Maintainers and Code Contributors:</h3>
-		<ul>
-			<li>Riley Roberts</li>
-			<li>Bret Jepsen</li>
-			<li>Thakur Neupane</li>
-			<li>Lukas Buecherl</li>
-		</ul>
-		<h1>Frequently Asked Questions</h1>
-		<h2>What model checking engines does STAMINA support?</h2>
-		<p>
-			STAMINA supports the STORM and PRISM model checking engines, and it supports models written in the PRISM language. Future work includes making STAMINA compatible with JANI and other model formats.
-		</p>
-		<h2>What types of models does STAMINA support?</h2>
-		<p>
-			Currently, STAMINA/PRISM supports only CTMCs, whereas STAMINA/STORM supports both CTMCs, and has alpha support for DTMCs through the STORM API.
-		</p>
-		<h2>Why would we want to check an infinite (or very large) model?</h2>
-		<p>
-			STAMINA was developed primarily to check models representative of chemical reaction networks in synthetic biology. Because each combination of molecules is a state, even a bounded reaction network could have an infinite or extremely large number of states, making the resulting model non-trivial for a traditional model checker such as STORM or PRISM. In order to actually extract useful information from these models, and to test them against CSL properties, STAMINA was developed.
-		</p>
+		<div id="mission">
+			<p>
+				STAMINA is designed to work with large or infinite state space models and truncate them so that the probability of a CSL path property holding given an initial state is bounded within a window. It is developed within Dr. Zhen Zhang's research group at Utah State University and maintained by the following people:
+			</p>
+			<h3>Current Maintainer:</h3>
+			<p>
+				<b>Josh Jeppson, BS</b><br>
+				PhD Student - Utah State University<br>
+				Email: <a href="mailto:joshua.jeppson@usu.edu">joshua.jeppson@usu.edu</a>
+			</p>
+			<h3>Past Maintainers and Code Contributors:</h3>
+			<ul>
+				<li>Riley Roberts</li>
+				<li>Bret Jepsen</li>
+				<li>Thakur Neupane</li>
+				<li>Lukas Buecherl</li>
+			</ul>
+		</div>
+		<div id="faq">
+			<h1>Frequently Asked Questions</h1>
+			<h2>What model checking engines does STAMINA support?</h2>
+			<p>
+				STAMINA supports the STORM and PRISM model checking engines, and it supports models written in the PRISM language. Future work includes making STAMINA compatible with JANI and other model formats.
+			</p>
+			<h2>What types of models does STAMINA support?</h2>
+			<p>
+				Currently, STAMINA/PRISM supports only CTMCs, whereas STAMINA/STORM supports both CTMCs, and has alpha support for DTMCs through the STORM API.
+			</p>
+			<h2>Why would we want to check an infinite (or very large) model?</h2>
+			<p>
+				STAMINA was developed primarily to check models representative of chemical reaction networks in synthetic biology. Because each combination of molecules is a state, even a bounded reaction network could have an infinite or extremely large number of states, making the resulting model non-trivial for a traditional model checker such as STORM or PRISM. In order to actually extract useful information from these models, and to test them against CSL properties, STAMINA was developed.
+			</p>
+		</div>
+		<div id="algorithms">
+			<h2>The STAMINA Algorithm(s)</h2>
+			<p>
+				STAMINA makes use of multiple variations on a smart breadth-first search algorithm to estimate reachability probability on-the-fly. It does not explore paths whose reachability is below a certain user-defined threshold, &kappa;, which automatically decrements until the probability window is within a certain bound. Currently there are several variations on the STAMINA algorithm.
+			</p>
+			<h3>The STAMINA 1.0 Algorithm</h3>
+			<p>
+				STAMINA 1.0 was originally developed by several students under Dr Zhen Zhang, including [TODO]. The basic idea of the algorithm is that for each iteration of &kappa;, states are only explored if an estimated reachability value (based somewhat on the embedded DTMC). While the probability estimate window is too wide, &kappa; is progressively reduced and state exploration is continued. The problem with this was that as &kappa; was reduced, we had no way to continue exploring states we had already truncated in previous iterations.
+			</p>
+			<h3>The STAMINA 2.0/2.1 Algorithm</h3>
+			<p>
+				STAMINA 2.0 is the na&#239;ve approach to fixing the problem presented in STAMINA 1.0: simply re-explore the entire state space with the current value of &kappa;. The logic regarding performance is that model checking with PRISM was the bottleneck in the algorithm, whereas the state exploration was extremely fast, likely because the PRISM model checker spent far more time checking rather than building the model. However, when this was implemented in C++ to interface with the STORM model checker, precisely the opposite was found: that the model building and truncating were the bottleneck.
+			</p>
+			<h4>Dynamic Programming Improvements (STAMINA 2.5)</h4>
+			<p>
+				In order to make STAMINA/STORM faster, in addition to memory pooling and decreased use of <div class="inline-code">std::unordered_map</div> and <div class="inline-code">std::unordered_set</div> (which after much testing, were determined to be far slower than the Java equivalent), certain dynamic programming improvements were devised to the STAMINA 2.0 algorithm. Please note that these are implemented exclusively in the STORM integration. The improvements simply keep track of the reachability that would have been lost in previous iterations and enqueue "lost" states to be explored alongside terminal states of the last iteration, rather than either the initial state (STAMINA 2.0) or the previous terminal states (STAMINA 1.0).
+			</p>
+			<h3>The STAMINA 3.0 Algorithm</h3>
+			<p>
+				STAMINA 3.0 (not yet released) reduces complexity of the algorithm further. Rather than using &kappa; and r<sub>&kappa;</sub> to conditionally truncate states, all states, as they are explored, are inserted into a priority queue on the value &pi;[s], the estimated reachability of that state. States are explored in order of their estimated reachability. If a current state transitions into a state that is already enqueued, we do not force the queue to re-order until that state is dequeued and explored.
+			</p>
+			<h3>The STAMINA Heuristic Algorithm</h3>
+			<p>
+				The STAMINA Heuristic algorithm has not yet been implemented nor tested but would provide an alternate means of termination rather than estimated terminal reachability.
+			</p>
+		</div>
 	</div>
 	<div id="contact">
 		<h1>
@@ -93,6 +132,7 @@
 			<input type="submit" value="Submit">
 
 		</form>
+		<p style="font-size: 9pt;">This contact form has not been implemented yet. Contact us through our GitHub page instead</p>
 		<script>
 			function alertNotImplemented() {
 				alert("This contact form has not been implemented to do anything yet! Please send your query as an email.");

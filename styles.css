@@ -144,6 +144,10 @@ p {
 	margin-bottom: 50px;
 }
 
+.contents {
+	background-color: #efefef;
+	padding: 20px;
+}
 
 .navbar li {
 	font-family: 'Noto Sans', sans-serif;
