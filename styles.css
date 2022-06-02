@@ -304,3 +304,34 @@ ul.navbar li.right {
 	}
 
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #222222;
+	}
+	.content {
+		color: #ffffff;
+	}
+	.banner, .contents {
+		color: #ffffff;
+		background-color: #262626;
+	}
+	a {
+		color: #4edea0;
+	}
+
+	a:hover {
+		color: #2e8460;
+	}
+	.form, .inline-code, .code, .citation {
+		background-color: #262626;
+	}
+	.footer, .footer-links table a {
+		background-color: #363636;
+		color: #e8e8e8;
+	}
+	input, select, textarea {
+		color: #e8e8e8;
+		background-color: #222222;
+	}
+}
