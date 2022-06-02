@@ -49,7 +49,29 @@
 			<p>
 				<b>Josh Jeppson, BS</b><br>
 				PhD Student - Utah State University<br>
-				Email: <a href="mailto:joshua.jeppson@usu.edu">joshua.jeppson@usu.edu</a>
+				Email: <a id="email" onclick="showEmail()">[Click To See Email]</a>
+				<script>
+					function showEmail() {
+						let encodedEmail = "am9zaHVhLmplcHBzb25AdXN1LmVkdQ";
+						let txtPrompt = "There are four lights!"
+						var input = prompt(
+							"I know you're probably a human, but I'm trying to prevent webcrawlers from yanking my email from this website."
+							+ "So, could you please type the following text into the input prompt (case sensitive)?\n"
+							+ "\t" + txtPrompt
+						);
+						if (input == txtPrompt) {
+							var mailElement = document.getElementById("email");
+							// I don't know why this works. It should be btoa
+							var decodedEmail = atob(encodedEmail);
+							mailElement.innerHTML = decodedEmail;
+							mailElement.href = "mailto:" + decodedEmail;
+							mailElement.onclick = ""
+						}
+						else {
+							alert("Your prompt did not match what I was asking for, or you were unable to complete it.");
+						}
+					}
+				</script>
 			</p>
 			<h3>Past Maintainers and Code Contributors:</h3>
 			<ul>
