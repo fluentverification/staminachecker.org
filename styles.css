@@ -2,14 +2,11 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
-.button-icon, .button-text {
+.button-icon {
 	padding: 2px;
 	display: inline-block;
 }
 
-.button-text {
-	height: 20px;
-}
 
 .citation{
 	border-color: #969696;
