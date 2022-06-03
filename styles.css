@@ -3,8 +3,10 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
 .button-icon {
-	padding: 2px;
+/* 	padding: 2px; */
+	padding-right: 10px;
 	display: inline-block;
+	offset-position: center;
 }
 
 
@@ -84,7 +86,7 @@ input[type=text], select, textarea {
 	display: inline-block;
 	color: white;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 16px;
 	text-decoration: none;
 	background-color: #40c688;
 	border-radius: 6px;
@@ -92,6 +94,8 @@ input[type=text], select, textarea {
 	margin-bottom: 10px;
 	margin-right: 10px;
 	border: none;
+	vertical-align: middle;
+	line-height: 20px;
 }
 
 .button:hover, input[type=submit]:hover {
