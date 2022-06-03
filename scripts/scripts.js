@@ -1,3 +1,8 @@
+var darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (darkMode) {
+	setDarkMode();
+}
 /**
  * This script lets us monitor the window size and reset the navbar if it's larger than 800px
  * */
@@ -18,6 +23,81 @@ window.addEventListener('resize', function(event) {
 		closeNav();
 	}
 }, true);
+
+function toggleDarkMode() {
+	if (darkMode) {
+		setLightMode();
+	}
+	else {
+		setDarkMode();
+	}
+	darkMode = !darkMode;
+}
+
+function setDarkMode() {
+	console.log("Setting dark mode");
+	var elements = document.getElementsByClassName("content");
+	Array.prototype.forEach.call(elements, e => e.classList.add("content-dark"));
+	var elements = document.getElementsByClassName("banner");
+	Array.prototype.forEach.call(elements, e => e.classList.add("banner-dark"));
+	var elements = document.getElementsByClassName("banner-content");
+	Array.prototype.forEach.call(elements, e => e.classList.add("banner-content-dark"));
+	var elements = document.getElementsByClassName("form");
+	Array.prototype.forEach.call(elements, e => e.classList.add("form-dark"));
+	var elements = document.getElementsByClassName("inline-code");
+	Array.prototype.forEach.call(elements, e => e.classList.add("inline-code-dark"));
+	var elements = document.getElementsByClassName("code");
+	Array.prototype.forEach.call(elements, e => e.classList.add("code-dark"));
+	var elements = document.getElementsByClassName("citation");
+	Array.prototype.forEach.call(elements, e => e.classList.add("citation-dark"));
+	var elements = document.getElementsByClassName("footer");
+	Array.prototype.forEach.call(elements, e => e.classList.add("footer-dark"));
+	var elements = document.querySelectorAll(".footer-links-dark");
+	Array.prototype.forEach.call(elements, e =>
+		{ e.classList.add("footer-links-dark"); e.style.color = "#ffffff";});
+	var elements = document.querySelectorAll("a");
+	Array.prototype.forEach.call(elements, e => e.classList.add("a-dark"));
+	var elements = document.querySelectorAll("input");
+	Array.prototype.forEach.call(elements, e => e.classList.add("input-dark"));
+	var elements = document.querySelectorAll("select");
+	Array.prototype.forEach.call(elements, e => e.classList.add("select-dark"));
+	var elements = document.querySelectorAll("textarea");
+	Array.prototype.forEach.call(elements, e => e.classList.add("textarea-dark"));
+	var elements = document.querySelectorAll("body");
+	Array.prototype.forEach.call(elements, e => e.classList.add("body-dark"));
+}
+
+function setLightMode() {
+	console.log("Setting light mode");
+	var elements = document.getElementsByClassName("content");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("content-dark"));
+	var elements = document.getElementsByClassName("banner");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("banner-dark"));
+	var elements = document.getElementsByClassName("banner-content");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("banner-content-dark"));
+	var elements = document.getElementsByClassName("form");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("form-dark"));
+	var elements = document.getElementsByClassName("inline-code");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("inline-code-dark"));
+	var elements = document.getElementsByClassName("code");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("code-dark"));
+	var elements = document.getElementsByClassName("citation");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("citation-dark"));
+	var elements = document.getElementsByClassName("footer");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("footer-dark"));
+	var elements = document.querySelectorAll(".footer-links-dark table a");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("footer-links-dark"));
+	var elements = document.querySelectorAll("a");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("a-dark"));
+	var elements = document.querySelectorAll("input");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("input-dark"));
+	var elements = document.querySelectorAll("select");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("select-dark"));
+	var elements = document.querySelectorAll("textarea");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("textarea-dark"));
+	var elements = document.querySelectorAll("body");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("body-dark"));
+}
 /**
  * This function opens the navbar when the screen is less than 800px
  * */

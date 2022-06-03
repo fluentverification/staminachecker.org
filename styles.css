@@ -315,7 +315,8 @@ ul.navbar li.right {
 
 }
 
-@media (prefers-color-scheme: dark) {
+/* Old pure-css way to do dark mode */
+/*@media (prefers-color-scheme: dark) {
 	body {
 		background-color: #222222;
 	}
@@ -344,4 +345,34 @@ ul.navbar li.right {
 		color: #e8e8e8;
 		background-color: #222222;
 	}
+}*/
+
+.body-dark {
+	background-color: #222222;
+	color: #ffffff;
+}
+.content-dark {
+	color: #ffffff;
+}
+.banner-dark, .contents-dark {
+	color: #ffffff;
+	background-color: #262626;
+}
+.a-dark {
+	color: #4edea0;
+}
+
+.a-dark:hover {
+	color: #2e8460;
+}
+.form-dark, .inline-code-dark, .code-dark, .citation-dark {
+	background-color: #262626;
+}
+.footer-dark, .footer-links-dark {
+	background-color: #363636;
+	color: #e8e8e8;
+}
+.input-dark, .select-dark, .textarea-dark {
+	color: #e8e8e8;
+	background-color: #222222;
 }
