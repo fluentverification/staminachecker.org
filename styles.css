@@ -189,6 +189,16 @@ p {
 	color: #67aa8a;
 }
 
+#slogo {
+	display: inline;
+	border: 2px solid white;
+	padding: 4px;
+}
+
+#slogo:hover {
+	border: 2px solid #67aa8a;
+}
+
 .navbar .openbutton, .navbar .closebutton {
 	display: none;
 }
