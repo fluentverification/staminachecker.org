@@ -1,0 +1,66 @@
+\hypertarget{classstamina_1_1util_1_1ModelModify}{}\doxysection{stamina\+::util\+::Model\+Modify Class Reference}
+\label{classstamina_1_1util_1_1ModelModify}\index{stamina::util::ModelModify@{stamina::util::ModelModify}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_ab2f16a82b8b06221a8ddc797f72bc236}{Model\+Modify}} (std\+::string original\+Model, std\+::string original\+Properties, bool save\+Modified\+Model=true, bool save\+Modified\+Properties=true, std\+::string modified\+Model=model\+File\+Default, std\+::string modified\+Properties=prop\+File\+Default)
+\item 
+\mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_a8e5c06048ddaadfd73b94cdcf54cd111}{$\sim$\+Model\+Modify}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$ \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_afeabd93d1a0682e23e99e601da8ab622}{create\+Modified\+Model}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$ \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_abd2fbecbbbfc0a28d627570c41c35c74}{create\+Modified\+Properties}} (std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$ model\+File)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstamina_1_1util_1_1ModelModify_ab2f16a82b8b06221a8ddc797f72bc236}\label{classstamina_1_1util_1_1ModelModify_ab2f16a82b8b06221a8ddc797f72bc236}} 
+\index{stamina::util::ModelModify@{stamina::util::ModelModify}!ModelModify@{ModelModify}}
+\index{ModelModify@{ModelModify}!stamina::util::ModelModify@{stamina::util::ModelModify}}
+\doxysubsubsection{\texorpdfstring{ModelModify()}{ModelModify()}}
+{\footnotesize\ttfamily Model\+Modify\+::\+Model\+Modify (\begin{DoxyParamCaption}\item[{std\+::string}]{original\+Model,  }\item[{std\+::string}]{original\+Properties,  }\item[{bool}]{save\+Modified\+Model = {\ttfamily true},  }\item[{bool}]{save\+Modified\+Properties = {\ttfamily true},  }\item[{std\+::string}]{modified\+Model = {\ttfamily modelFileDefault},  }\item[{std\+::string}]{modified\+Properties = {\ttfamily propFileDefault} }\end{DoxyParamCaption})}
+
+Constructor for the model file modifier
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Model} & The path to the original model file \\
+\hline
+{\em original\+Properties} & The path to the original properties file \\
+\hline
+{\em save\+Modified\+Model} & Whether or not to save (or rather, not delete) the modified model file \\
+\hline
+{\em save\+Modified\+Properties} & Whether or not to save (or rather, not delete) the modified properties list \\
+\hline
+{\em modified\+Model} & The file where we store the modified model \\
+\hline
+{\em modified\+Properties} & The file where we store the modified properties \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1util_1_1ModelModify_a8e5c06048ddaadfd73b94cdcf54cd111}\label{classstamina_1_1util_1_1ModelModify_a8e5c06048ddaadfd73b94cdcf54cd111}} 
+\index{stamina::util::ModelModify@{stamina::util::ModelModify}!````~ModelModify@{$\sim$ModelModify}}
+\index{````~ModelModify@{$\sim$ModelModify}!stamina::util::ModelModify@{stamina::util::ModelModify}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModelModify()}{~ModelModify()}}
+{\footnotesize\ttfamily Model\+Modify\+::$\sim$\+Model\+Modify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The destructor for the model modifier 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1util_1_1ModelModify_afeabd93d1a0682e23e99e601da8ab622}\label{classstamina_1_1util_1_1ModelModify_afeabd93d1a0682e23e99e601da8ab622}} 
+\index{stamina::util::ModelModify@{stamina::util::ModelModify}!createModifiedModel@{createModifiedModel}}
+\index{createModifiedModel@{createModifiedModel}!stamina::util::ModelModify@{stamina::util::ModelModify}}
+\doxysubsubsection{\texorpdfstring{createModifiedModel()}{createModifiedModel()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$ Model\+Modify\+::create\+Modified\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates the modified model \mbox{\Hypertarget{classstamina_1_1util_1_1ModelModify_abd2fbecbbbfc0a28d627570c41c35c74}\label{classstamina_1_1util_1_1ModelModify_abd2fbecbbbfc0a28d627570c41c35c74}} 
+\index{stamina::util::ModelModify@{stamina::util::ModelModify}!createModifiedProperties@{createModifiedProperties}}
+\index{createModifiedProperties@{createModifiedProperties}!stamina::util::ModelModify@{stamina::util::ModelModify}}
+\doxysubsubsection{\texorpdfstring{createModifiedProperties()}{createModifiedProperties()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$ Model\+Modify\+::create\+Modified\+Properties (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$}]{model\+File }\end{DoxyParamCaption})}
+
+Creates the modified Properties 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/Model\+Modify.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/Model\+Modify.\+cpp\end{DoxyCompactItemize}

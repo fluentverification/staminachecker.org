@@ -1,0 +1,113 @@
+\hypertarget{classstamina_1_1util_1_1StateIndexArray}{}\doxysection{stamina\+::util\+::State\+Index\+Array\texorpdfstring{$<$}{<} State\+Type, Probability\+State\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classstamina_1_1util_1_1StateIndexArray}\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a03f7c4db56f3bad738f2eb608c51313a}\label{classstamina_1_1util_1_1StateIndexArray_a03f7c4db56f3bad738f2eb608c51313a}} 
+{\bfseries State\+Index\+Array} (uint8\+\_\+t block\+Size\+Exponent=15)
+\item 
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a66f913155988743d70690bcc95de00de}{clear}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a7eb9c49940ee1a40599218d1489cd7f6}{reserve}} (uint32\+\_\+t num\+To\+Reserve)
+\item 
+Probability\+State\+Type $\ast$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_abe66830fd1571838c2ac155747fd4246}{get}} (State\+Type index)
+\item 
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a85cd1281c80e11d19c7445c0ff862d17}{put}} (State\+Type index, Probability\+State\+Type $\ast$probability\+State)
+\item 
+std\+::vector$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}{get\+Perimeter\+States}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a563fe49ccfb6f3a8b49c0f3370d67601}{size\+To\+Actual\+Size}} (uint32\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a66f913155988743d70690bcc95de00de}\label{classstamina_1_1util_1_1StateIndexArray_a66f913155988743d70690bcc95de00de}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!clear@{clear}}
+\index{clear@{clear}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::clear}
+
+Clears all elements from the \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{State\+Index\+Array}} and frees all memory \mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_abe66830fd1571838c2ac155747fd4246}\label{classstamina_1_1util_1_1StateIndexArray_abe66830fd1571838c2ac155747fd4246}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!get@{get}}
+\index{get@{get}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+Probability\+State\+Type $\ast$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::get (\begin{DoxyParamCaption}\item[{State\+Type}]{index }\end{DoxyParamCaption})}
+
+Gets a pointer to the Probability\+State stored in the array. If the index does not exist, or is greater than the amount stored, returns a nullptr
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Probability\+State or nullptr if does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}\label{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!getPerimeterStates@{getPerimeterStates}}
+\index{getPerimeterStates@{getPerimeterStates}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{getPerimeterStates()}{getPerimeterStates()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+std\+::vector$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::get\+Perimeter\+States}
+
+Gets a vector of all of the terminal states in the state\+Index\+Array
+
+\begin{DoxyReturn}{Returns}
+A vector of all perimeter states 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a85cd1281c80e11d19c7445c0ff862d17}\label{classstamina_1_1util_1_1StateIndexArray_a85cd1281c80e11d19c7445c0ff862d17}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!put@{put}}
+\index{put@{put}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::put (\begin{DoxyParamCaption}\item[{State\+Type}]{index,  }\item[{Probability\+State\+Type $\ast$}]{probability\+State }\end{DoxyParamCaption})}
+
+Puts a Probability\+State in at index and if needed, expands the array to accomodate
+
+
+\begin{DoxyParams}{Parameters}
+{\em probability\+State} & The state to emplace \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a7eb9c49940ee1a40599218d1489cd7f6}\label{classstamina_1_1util_1_1StateIndexArray_a7eb9c49940ee1a40599218d1489cd7f6}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!reserve@{reserve}}
+\index{reserve@{reserve}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::reserve (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num\+To\+Reserve }\end{DoxyParamCaption})}
+
+Reserves a certain number of states into the \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{State\+Index\+Array}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+To\+Reserve} & The minimum number to reserve \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a563fe49ccfb6f3a8b49c0f3370d67601}\label{classstamina_1_1util_1_1StateIndexArray_a563fe49ccfb6f3a8b49c0f3370d67601}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!sizeToActualSize@{sizeToActualSize}}
+\index{sizeToActualSize@{sizeToActualSize}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{sizeToActualSize()}{sizeToActualSize()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+uint32\+\_\+t \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::size\+To\+Actual\+Size (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Gets a size that is a multiple of block\+Size
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size you want \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next size of a multiple of block\+Size 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/State\+Index\+Array.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/State\+Index\+Array.\+cpp\end{DoxyCompactItemize}

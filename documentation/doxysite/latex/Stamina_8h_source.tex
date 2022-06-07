@@ -1,0 +1,49 @@
+\hypertarget{Stamina_8h_source}{}\doxysection{Stamina.\+h}
+\label{Stamina_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/Stamina.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/Stamina.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STAMINA}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STAMINA}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}StaminaArgParse.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}StaminaModelChecker.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Options.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define VERSION\_MAJOR 2}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define VERSION\_MINOR 2.1}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <storm/api/storm.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <storm-\/parsers/api/storm-\/parsers.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <storm-\/parsers/parser/PrismParser.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <storm/storage/prism/Program.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <storm/storage/jani/Property.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <storm/modelchecker/results/CheckResult.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <storm/modelchecker/results/ExplicitQuantitativeCheckResult.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// \#include <storm/utility/initialize.h>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{/* MAIN STAMINA CLASS */}}
+\DoxyCodeLine{28     \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1Stamina}{Stamina}} \{}
+\DoxyCodeLine{29     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35         \mbox{\hyperlink{classstamina_1_1Stamina_a0367c2f49dcc635e7b381c96effd7d96}{Stamina}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structarguments}{arguments}} * \mbox{\hyperlink{structarguments}{arguments}});}
+\DoxyCodeLine{39         \mbox{\hyperlink{classstamina_1_1Stamina_ace59c3ff9bb602f8a71e819264d593db}{\string~Stamina}}();}
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1Stamina_a245caf00c2a2955d485bda12078a3fe8}{run}}();}
+\DoxyCodeLine{44         \textcolor{comment}{/* Data Members */}}
+\DoxyCodeLine{48         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1Stamina_a643404073a16c9c723635ae30a59480c}{initialize}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         \textcolor{comment}{/* Data Members */}}
+\DoxyCodeLine{51         std::shared\_ptr<StaminaModelChecker> modelChecker;}
+\DoxyCodeLine{52         std::shared\_ptr<storm::prism::Program> modelFile;}
+\DoxyCodeLine{53         std::shared\_ptr<std::vector<storm::jani::Property>> propertiesVector;}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STAMINA}}
+
+\end{DoxyCode}

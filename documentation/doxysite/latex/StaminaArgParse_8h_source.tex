@@ -1,0 +1,184 @@
+\hypertarget{StaminaArgParse_8h_source}{}\doxysection{Stamina\+Arg\+Parse.\+h}
+\label{StaminaArgParse_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaArgParse.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaArgParse.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef STAMINA\_ARG\_PARSE\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define STAMINA\_ARG\_PARSE\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <argp.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{static} \textcolor{keywordtype}{char} doc[] = \textcolor{stringliteral}{"{}STAMINA -\/-\/ truncates infinite CTMC state space and passes into STORM"{}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{static} \textcolor{keywordtype}{char} args\_doc[] = \textcolor{stringliteral}{"{}MODEL\_FILE PROPERTIES\_FILE"{}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{24 \textcolor{keyword}{static} \textcolor{keyword}{struct }argp\_option options[] = \{}
+\DoxyCodeLine{25     \{\textcolor{stringliteral}{"{}kappa"{}}, \textcolor{charliteral}{'k'}, \textcolor{stringliteral}{"{}double"{}}, 0,}
+\DoxyCodeLine{26         \textcolor{stringliteral}{"{}Reachability threshold for the first iteration (default: 1.0)"{}}\}}
+\DoxyCodeLine{27     , \{\textcolor{stringliteral}{"{}reduceKappa"{}}, \textcolor{charliteral}{'r'}, \textcolor{stringliteral}{"{}double"{}}, 0,}
+\DoxyCodeLine{28         \textcolor{stringliteral}{"{}Reduction factor for Reachability Threshold (kappa) during the refinement step (default 2.0)"{}}\}}
+\DoxyCodeLine{29     , \{\textcolor{stringliteral}{"{}approxFactor"{}}, \textcolor{charliteral}{'f'}, \textcolor{stringliteral}{"{}double"{}}, 0,}
+\DoxyCodeLine{30         \textcolor{stringliteral}{"{}Factor to estimate how far off our reachability predictions will be (default: 2.0)"{}}\}}
+\DoxyCodeLine{31     , \{\textcolor{stringliteral}{"{}probWin"{}}, \textcolor{charliteral}{'w'}, \textcolor{stringliteral}{"{}double"{}}, 0,}
+\DoxyCodeLine{32         \textcolor{stringliteral}{"{}Probability window between lower and upperbound for termination (default: 1.0e-\/3)"{}}\}}
+\DoxyCodeLine{33     , \{\textcolor{stringliteral}{"{}maxApproxCount"{}}, \textcolor{charliteral}{'n'}, \textcolor{stringliteral}{"{}int"{}}, 0,}
+\DoxyCodeLine{34         \textcolor{stringliteral}{"{}Maximum number of iterations in the approximation (default 10)"{}}\}}
+\DoxyCodeLine{35     , \{\textcolor{stringliteral}{"{}noPropRefine"{}}, \textcolor{charliteral}{'R'}, 0, 0,}
+\DoxyCodeLine{36         \textcolor{stringliteral}{"{}Do not use property based refinement. If given, the model exploration method will reduce kappa and do property independent definement (default: off)"{}}\}}
+\DoxyCodeLine{37     , \{\textcolor{stringliteral}{"{}cuddMaxMem"{}}, \textcolor{charliteral}{'C'}, \textcolor{stringliteral}{"{}memory"{}}, 0,}
+\DoxyCodeLine{38         \textcolor{stringliteral}{"{}Maximum CUDD memory, in the same format as PRISM (default: 1g)"{}}\}}
+\DoxyCodeLine{39     , \{\textcolor{stringliteral}{"{}export"{}}, \textcolor{charliteral}{'e'}, \textcolor{stringliteral}{"{}filename"{}}, 0,}
+\DoxyCodeLine{40         \textcolor{stringliteral}{"{}Export model to a (text) file"{}}\}}
+\DoxyCodeLine{41     , \{\textcolor{stringliteral}{"{}exportPerimeterStates"{}}, \textcolor{charliteral}{'S'}, \textcolor{stringliteral}{"{}filename"{}}, 0,}
+\DoxyCodeLine{42         \textcolor{stringliteral}{"{}Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing"{}}\}}
+\DoxyCodeLine{43     , \{\textcolor{stringliteral}{"{}import"{}}, \textcolor{charliteral}{'i'}, \textcolor{stringliteral}{"{}filename"{}}, 0,}
+\DoxyCodeLine{44         \textcolor{stringliteral}{"{}Import model to a (text) file"{}}\}}
+\DoxyCodeLine{45     , \{\textcolor{stringliteral}{"{}property"{}}, \textcolor{charliteral}{'p'}, \textcolor{stringliteral}{"{}propname"{}}, 0,}
+\DoxyCodeLine{46         \textcolor{stringliteral}{"{}Specify a certain property to check in a model file that contains many"{}}\}}
+\DoxyCodeLine{47     , \{\textcolor{stringliteral}{"{}const"{}}, \textcolor{charliteral}{'c'}, \textcolor{stringliteral}{"{}\(\backslash\)"{}C1=VAL,C2=VAL,C3=VAL\(\backslash\)"{}"{}}, 0,}
+\DoxyCodeLine{48         \textcolor{stringliteral}{"{}Comma separated values for constants"{}}\}}
+\DoxyCodeLine{49     , \{\textcolor{stringliteral}{"{}exportTrans"{}}, \textcolor{charliteral}{'t'}, \textcolor{stringliteral}{"{}filename"{}}, 0,}
+\DoxyCodeLine{50         \textcolor{stringliteral}{"{}Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified.\(\backslash\)nTransitions are exported in the format <Source State Index> <Destination State Index> <Action Label>"{}}\}}
+\DoxyCodeLine{51     \textcolor{comment}{/* Additional options. GNU argp shows args alphabetically */}}
+\DoxyCodeLine{52     , \{\textcolor{stringliteral}{"{}rankTransitions"{}}, \textcolor{charliteral}{'T'}, 0, 0,}
+\DoxyCodeLine{53         \textcolor{stringliteral}{"{}Rank transitions before expanding (default: false)"{}}\}}
+\DoxyCodeLine{54     , \{\textcolor{stringliteral}{"{}maxIterations"{}}, \textcolor{charliteral}{'M'}, \textcolor{stringliteral}{"{}int"{}}, 0,}
+\DoxyCodeLine{55         \textcolor{stringliteral}{"{}Maximum iteration for solution (default: 10000)"{}}\}}
+\DoxyCodeLine{56     , \{\textcolor{stringliteral}{"{}maxStates"{}}, \textcolor{charliteral}{'V'}, \textcolor{stringliteral}{"{}integer"{}}, 0,}
+\DoxyCodeLine{57         \textcolor{stringliteral}{"{}The maximum number of states to explore in an iteration (default 2000000)"{}}\}}
+\DoxyCodeLine{58     , \{ 0 \}}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64 \textcolor{keyword}{struct }\mbox{\hyperlink{structarguments}{arguments}} \{}
+\DoxyCodeLine{65     std::string model\_file;}
+\DoxyCodeLine{66     std::string properties\_file;}
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} kappa;}
+\DoxyCodeLine{68     \textcolor{keywordtype}{double} reduce\_kappa;}
+\DoxyCodeLine{69     \textcolor{keywordtype}{double} approx\_factor; \textcolor{comment}{// Analagous to "{}misprediction factor"{} in the Java version}}
+\DoxyCodeLine{70     \textcolor{keywordtype}{double} prob\_win;}
+\DoxyCodeLine{71     uint64\_t max\_approx\_count;}
+\DoxyCodeLine{72     \textcolor{keywordtype}{bool} no\_prop\_refine;}
+\DoxyCodeLine{73     std::string cudd\_max\_mem;}
+\DoxyCodeLine{74     std::string export\_filename;}
+\DoxyCodeLine{75     std::string export\_perimeter\_states;}
+\DoxyCodeLine{76     std::string import\_filename;}
+\DoxyCodeLine{77     std::string property;}
+\DoxyCodeLine{78     std::string consts;}
+\DoxyCodeLine{79     std::string export\_trans;}
+\DoxyCodeLine{80     \textcolor{keywordtype}{bool} rank\_transitions;}
+\DoxyCodeLine{81     uint64\_t max\_iterations;}
+\DoxyCodeLine{82     \textcolor{keywordtype}{bool} power;}
+\DoxyCodeLine{83     \textcolor{keywordtype}{bool} jacobi;}
+\DoxyCodeLine{84     \textcolor{keywordtype}{bool} gauss\_seidel;}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} backward\_gauss\_seidel;}
+\DoxyCodeLine{86     uint64\_t max\_states;}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{92 \textcolor{keyword}{static} error\_t}
+\DoxyCodeLine{93 parse\_opt(\textcolor{keywordtype}{int} key, \textcolor{keywordtype}{char} * arg, \textcolor{keyword}{struct} argp\_state * state) \{}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{struct }\mbox{\hyperlink{structarguments}{arguments}} * \mbox{\hyperlink{structarguments}{arguments}} = \textcolor{keyword}{static\_cast<}struct \mbox{\hyperlink{structarguments}{arguments}}*\textcolor{keyword}{>}(state-\/>input);}
+\DoxyCodeLine{96     \textcolor{keywordflow}{switch} (key) \{}
+\DoxyCodeLine{97         \textcolor{comment}{// kappa value}}
+\DoxyCodeLine{98         \textcolor{keywordflow}{case} \textcolor{charliteral}{'k'}:}
+\DoxyCodeLine{99             \mbox{\hyperlink{structarguments}{arguments}}-\/>kappa = (double) atof(arg);}
+\DoxyCodeLine{100             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{101         \textcolor{comment}{// kappa reduction factor}}
+\DoxyCodeLine{102         \textcolor{keywordflow}{case} \textcolor{charliteral}{'r'}:}
+\DoxyCodeLine{103             \mbox{\hyperlink{structarguments}{arguments}}-\/>reduce\_kappa = (double) atof(arg);}
+\DoxyCodeLine{104             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{105         \textcolor{comment}{// approx factor}}
+\DoxyCodeLine{106         \textcolor{keywordflow}{case} \textcolor{charliteral}{'f'}:}
+\DoxyCodeLine{107             \mbox{\hyperlink{structarguments}{arguments}}-\/>approx\_factor = (double) atof(arg);}
+\DoxyCodeLine{108             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{109         \textcolor{comment}{// probability window (difference between Pmin and Pmax)}}
+\DoxyCodeLine{110         \textcolor{keywordflow}{case} \textcolor{charliteral}{'w'}:}
+\DoxyCodeLine{111             \mbox{\hyperlink{structarguments}{arguments}}-\/>prob\_win = (double) atof(arg);}
+\DoxyCodeLine{112             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{113         \textcolor{comment}{// max number of iterations in approximation}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{case} \textcolor{charliteral}{'n'}:}
+\DoxyCodeLine{115             \mbox{\hyperlink{structarguments}{arguments}}-\/>max\_approx\_count = (uint64\_t) atoi(arg);}
+\DoxyCodeLine{116             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{117         \textcolor{comment}{// whether or not to use property based refinement}}
+\DoxyCodeLine{118         \textcolor{keywordflow}{case} \textcolor{charliteral}{'R'}:}
+\DoxyCodeLine{119             \mbox{\hyperlink{structarguments}{arguments}}-\/>no\_prop\_refine = \textcolor{keyword}{true};}
+\DoxyCodeLine{120             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{121         \textcolor{comment}{// cudd max memory limit}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{case} \textcolor{charliteral}{'C'}:}
+\DoxyCodeLine{123             \mbox{\hyperlink{structarguments}{arguments}}-\/>cudd\_max\_mem = std::string(arg);}
+\DoxyCodeLine{124             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{125         \textcolor{comment}{// filename to export to}}
+\DoxyCodeLine{126         \textcolor{keywordflow}{case} \textcolor{charliteral}{'e'}:}
+\DoxyCodeLine{127             \mbox{\hyperlink{structarguments}{arguments}}-\/>export\_filename = std::string(arg);}
+\DoxyCodeLine{128             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{129         \textcolor{comment}{// whether or not to export the perimeter states}}
+\DoxyCodeLine{130         \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}:}
+\DoxyCodeLine{131             \mbox{\hyperlink{structarguments}{arguments}}-\/>export\_perimeter\_states = \textcolor{keyword}{true};}
+\DoxyCodeLine{132             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133         \textcolor{comment}{// import model filename}}
+\DoxyCodeLine{134         \textcolor{keywordflow}{case} \textcolor{charliteral}{'i'}:}
+\DoxyCodeLine{135             \mbox{\hyperlink{structarguments}{arguments}}-\/>import\_filename = std::string(arg);}
+\DoxyCodeLine{136             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{137         \textcolor{comment}{// specific property to check}}
+\DoxyCodeLine{138         \textcolor{keywordflow}{case} \textcolor{charliteral}{'p'}:}
+\DoxyCodeLine{139             \mbox{\hyperlink{structarguments}{arguments}}-\/>property = std::string(arg);}
+\DoxyCodeLine{140             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{141         \textcolor{comment}{// constants to specify}}
+\DoxyCodeLine{142         \textcolor{keywordflow}{case} \textcolor{charliteral}{'c'}:}
+\DoxyCodeLine{143             \mbox{\hyperlink{structarguments}{arguments}}-\/>consts = std::string(arg);}
+\DoxyCodeLine{144             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{145         \textcolor{comment}{// export transitions}}
+\DoxyCodeLine{146         \textcolor{keywordflow}{case} \textcolor{charliteral}{'t'}:}
+\DoxyCodeLine{147             \mbox{\hyperlink{structarguments}{arguments}}-\/>export\_trans = std::string(arg);}
+\DoxyCodeLine{148             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{149         \textcolor{comment}{// use rank transitions before expanding}}
+\DoxyCodeLine{150         \textcolor{keywordflow}{case} \textcolor{charliteral}{'T'}:}
+\DoxyCodeLine{151             \mbox{\hyperlink{structarguments}{arguments}}-\/>rank\_transitions = \textcolor{keyword}{true};}
+\DoxyCodeLine{152             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{153         \textcolor{comment}{// max number of iterations}}
+\DoxyCodeLine{154         \textcolor{keywordflow}{case} \textcolor{charliteral}{'M'}:}
+\DoxyCodeLine{155             \mbox{\hyperlink{structarguments}{arguments}}-\/>max\_iterations = (uint64\_t) atoi(arg);}
+\DoxyCodeLine{156             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{157         \textcolor{keywordflow}{case} \textcolor{charliteral}{'V'}:}
+\DoxyCodeLine{158             \mbox{\hyperlink{structarguments}{arguments}}-\/>max\_states = (uint64\_t) atoi(arg);}
+\DoxyCodeLine{159         \textcolor{comment}{// model and properties file}}
+\DoxyCodeLine{160         \textcolor{keywordflow}{case} ARGP\_KEY\_ARG:}
+\DoxyCodeLine{161             \textcolor{comment}{// get model file}}
+\DoxyCodeLine{162             \textcolor{keywordflow}{if} (state-\/>arg\_num == 0) \{}
+\DoxyCodeLine{163                 \mbox{\hyperlink{structarguments}{arguments}}-\/>model\_file = std::string(arg);}
+\DoxyCodeLine{164             \}}
+\DoxyCodeLine{165             \textcolor{comment}{// get properties file}}
+\DoxyCodeLine{166             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state-\/>arg\_num == 1) \{}
+\DoxyCodeLine{167                 \mbox{\hyperlink{structarguments}{arguments}}-\/>properties\_file = std::string(arg);}
+\DoxyCodeLine{168             \}}
+\DoxyCodeLine{169             \textcolor{comment}{// we have too many arguments}}
+\DoxyCodeLine{170             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{171                 argp\_usage(state);}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{174         \textcolor{keywordflow}{case} ARGP\_KEY\_END:}
+\DoxyCodeLine{175             \textcolor{keywordflow}{if} (state-\/>arg\_num < 2) \{}
+\DoxyCodeLine{176                 \textcolor{comment}{/* Require at least 2 arguments */}}
+\DoxyCodeLine{177                 argp\_usage(state);}
+\DoxyCodeLine{178             \}}
+\DoxyCodeLine{179             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{180         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{181             \textcolor{keywordflow}{return} ARGP\_ERR\_UNKNOWN;}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{185 \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{190 \textcolor{keyword}{static} \textcolor{keyword}{struct }argp argp = \{options, parse\_opt, args\_doc, doc\};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{keywordtype}{void} set\_default\_values(\textcolor{keyword}{struct} \mbox{\hyperlink{structarguments}{arguments}} * \mbox{\hyperlink{structarguments}{arguments}});}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STAMINA\_ARG\_PARSE\_H}}
+
+\end{DoxyCode}

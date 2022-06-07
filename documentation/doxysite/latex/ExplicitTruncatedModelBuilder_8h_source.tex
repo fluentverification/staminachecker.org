@@ -1,0 +1,98 @@
+\hypertarget{ExplicitTruncatedModelBuilder_8h_source}{}\doxysection{Explicit\+Truncated\+Model\+Builder.\+h}
+\label{ExplicitTruncatedModelBuilder_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/ExplicitTruncatedModelBuilder.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/ExplicitTruncatedModelBuilder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STAMINA\_EXPLICITTRUNCATEDMODELBUILDER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STAMINA\_EXPLICITTRUNCATEDMODELBUILDER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <boost/container/flat\_map.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <boost/functional/hash.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <boost/variant.hpp>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}storm/models/sparse/StandardRewardModel.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}storm/builder/ExplicitModelBuilder.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}storm/logic/Formulas.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}storm/models/sparse/ChoiceLabeling.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}storm/models/sparse/Model.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}storm/models/sparse/StateLabeling.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}storm/settings/SettingsManager.h"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}storm/storage/BitVectorHashMap.h"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}storm/storage/SparseMatrix.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/ExpressionEvaluator.h"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}storm/storage/prism/Program.h"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}storm/storage/sparse/ModelComponents.h"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}storm/storage/sparse/StateStorage.h"{}}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}storm/utility/prism.h"{}}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}storm/builder/ExplorationOrder.h"{}}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}storm/generator/CompressedState.h"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}storm/generator/NextStateGenerator.h"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}storm/generator/VariableInformation.h"{}}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{using namespace }storm::utility::prism;}
+\DoxyCodeLine{44 \textcolor{keyword}{using namespace }storm::generator;}
+\DoxyCodeLine{45 \textcolor{keyword}{using namespace }storm::builder;}
+\DoxyCodeLine{46 \textcolor{keyword}{using namespace }storm;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ValueType, \textcolor{keyword}{typename} RewardModelType = storm::models::sparse::StandardRewardModel<ValueType>, \textcolor{keyword}{typename} StateType = u\textcolor{keywordtype}{int}32\_t>}
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{ExplicitTruncatedModelBuilder}} \{}
+\DoxyCodeLine{50 \textcolor{keyword}{public}:}
+\DoxyCodeLine{51     \textcolor{keyword}{struct }\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} \{}
+\DoxyCodeLine{55         \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options_a6d331b2598151e91aa2535b913be8895}{Options}}();}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// The order in which to explore the model.}}
+\DoxyCodeLine{58         ExplorationOrder explorationOrder;}
+\DoxyCodeLine{59     \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{66     \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}{ExplicitTruncatedModelBuilder}}(std::shared\_ptr<storm::generator::NextStateGenerator<ValueType, StateType>> \textcolor{keyword}{const}\& generator, \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} \textcolor{keyword}{const}\& options = \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}());}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{73     \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}{ExplicitTruncatedModelBuilder}}(storm::prism::Program \textcolor{keyword}{const}\& program,}
+\DoxyCodeLine{74                         storm::generator::NextStateGeneratorOptions \textcolor{keyword}{const}\& generatorOptions = storm::generator::NextStateGeneratorOptions(),}
+\DoxyCodeLine{75                         \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} \textcolor{keyword}{const}\& builderOptions = \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}());}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}{ExplicitTruncatedModelBuilder}}(storm::jani::Model \textcolor{keyword}{const}\& model,}
+\DoxyCodeLine{83                         storm::generator::NextStateGeneratorOptions \textcolor{keyword}{const}\& generatorOptions = storm::generator::NextStateGeneratorOptions(),}
+\DoxyCodeLine{84                         \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} \textcolor{keyword}{const}\& builderOptions = \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}());}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{93     std::shared\_ptr<storm::models::sparse::Model<ValueType, RewardModelType>> \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_ae337aec7fcfe4fa57389805ff485fa39}{build}}();}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{100     ExplicitStateLookup<StateType> \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_af35501a0307e5d41678fe5f7ae41920c}{exportExplicitStateLookup}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{private}:}
+\DoxyCodeLine{112     StateType getOrAddStateIndex(CompressedState \textcolor{keyword}{const}\& state);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} buildMatrices(storm::storage::SparseMatrixBuilder<ValueType>\& transitionMatrixBuilder,}
+\DoxyCodeLine{122                     std::vector<RewardModelBuilder<typename RewardModelType::ValueType>>\& rewardModelBuilders,}
+\DoxyCodeLine{123                     StateAndChoiceInformationBuilder\& stateAndChoiceInformationBuilder);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{130     storm::storage::sparse::ModelComponents<ValueType, RewardModelType> buildModelComponents();}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{137     storm::models::sparse::StateLabeling buildStateLabeling();}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{140     std::shared\_ptr<storm::generator::NextStateGenerator<ValueType, StateType>> generator;}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} options;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     storm::storage::sparse::StateStorage<StateType> stateStorage;}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{149     std::deque<std::pair<CompressedState, StateType>> statesToExplore;}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{153     boost::optional<std::vector<uint\_fast64\_t>> stateRemapping;}
+\DoxyCodeLine{154     uint64\_t numberOfExploredStates;}
+\DoxyCodeLine{155 \};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \}  \textcolor{comment}{// namespace stamina}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STAMINA\_EXPLICITTRUNCATEDMODELBUILDER\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

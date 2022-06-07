@@ -1,0 +1,66 @@
+\hypertarget{StaminaMessages_8h_source}{}\doxysection{Stamina\+Messages.\+h}
+\label{StaminaMessages_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaMessages.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaMessages.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STAMINA\_MESSAGES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STAMINA\_MESSAGES\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{// \#define DEBUG\_PRINTS}}
+\DoxyCodeLine{10 \textcolor{comment}{// \#define DEBUG\_PRINTS\_VERBOSE}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifdef DEBUG\_PRINTS\_VERBOSE}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{    \#define DEBUG\_PRINTS}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{// Efficient debug printing method to std::cout that can be easily turned off without having to get}}
+\DoxyCodeLine{17 \textcolor{comment}{// rid of all instances of StaminaMessages::debugPrint("{}Some message"{}) or whatever}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifdef DEBUG\_PRINTS}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{    \#define STAMINA\_DEBUG\_MESSAGE(x) std::cout << x << std::endl;}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DEBUG\_PRINTS}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{23     \textcolor{comment}{/* ERRORS WE CAN GET */}}
+\DoxyCodeLine{24     \textcolor{keyword}{enum} STAMINA\_ERRORS \{}
+\DoxyCodeLine{25         ERR\_GENERAL = 1}
+\DoxyCodeLine{26         , ERR\_SEVERE = 2}
+\DoxyCodeLine{27         , ERR\_MEMORY\_EXCEEDED = 137}
+\DoxyCodeLine{28     \};}
+\DoxyCodeLine{29     \textcolor{comment}{/* All result information */}}
+\DoxyCodeLine{30     \textcolor{keyword}{struct }\mbox{\hyperlink{structstamina_1_1ResultInformation}{ResultInformation}} \{}
+\DoxyCodeLine{31         \textcolor{keywordtype}{double} pMin;}
+\DoxyCodeLine{32         \textcolor{keywordtype}{double} pMax;}
+\DoxyCodeLine{33         uint32\_t numberStates;}
+\DoxyCodeLine{34         uint8\_t numberInitial;}
+\DoxyCodeLine{35         std::string property;}
+\DoxyCodeLine{36     \};}
+\DoxyCodeLine{37     \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1StaminaMessages}{StaminaMessages}} \{}
+\DoxyCodeLine{38     \textcolor{keyword}{public}:}
+\DoxyCodeLine{42         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaMessages_a7025769a060e62edf799447189661b76}{errorAndExit}}(std::string err, uint8\_t err\_num = STAMINA\_ERRORS::ERR\_GENERAL);}
+\DoxyCodeLine{46         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaMessages_a589e8194b1847d778e3464a28c1daa16}{error}}(std::string err, uint8\_t err\_num = STAMINA\_ERRORS::ERR\_GENERAL);}
+\DoxyCodeLine{50         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaMessages_ab1c3d3a0764d36cf237085734b7a1bb8}{warning}}(std::string warn);}
+\DoxyCodeLine{54         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaMessages_a8775114ee424fac9a4a550c8cad6b736}{info}}(std::string \mbox{\hyperlink{classstamina_1_1StaminaMessages_a8775114ee424fac9a4a550c8cad6b736}{info}});}
+\DoxyCodeLine{58         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaMessages_a32b27171c2ae5117e4bc31307c8ab1cf}{good}}(std::string \mbox{\hyperlink{classstamina_1_1StaminaMessages_a32b27171c2ae5117e4bc31307c8ab1cf}{good}});}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#ifdef DEBUG\_PRINTS}}
+\DoxyCodeLine{63         \textcolor{keyword}{static} \textcolor{keywordtype}{void} debugPrint(std::string msg);}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65         \textcolor{keyword}{static} \textcolor{keywordtype}{void} writeResults(\mbox{\hyperlink{structstamina_1_1ResultInformation}{ResultInformation}} resultInformation, std::ostream out);}
+\DoxyCodeLine{66     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{67         \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} * horizontalSeparator =}
+\DoxyCodeLine{68             \textcolor{stringliteral}{"{}========================================================================================"{}};}
+\DoxyCodeLine{69     \};}
+\DoxyCodeLine{70 \} \textcolor{comment}{// namespace stamina}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{comment}{/* Logging and debugging messages */}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#ifdef DEBUG\_PRINTS}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{    \#define STAMINA\_DEBUG\_LOG(x)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// DEBUG\_PRINTS}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STAMINA\_MESSAGES\_H}}
+
+\end{DoxyCode}

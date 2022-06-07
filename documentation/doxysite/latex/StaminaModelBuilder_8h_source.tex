@@ -1,0 +1,236 @@
+\hypertarget{StaminaModelBuilder_8h_source}{}\doxysection{Stamina\+Model\+Builder.\+h}
+\label{StaminaModelBuilder_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaModelBuilder.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StaminaModelBuilder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef STAMINAMODELBUILDER\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define STAMINAMODELBUILDER\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}Options.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}StaminaMessages.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}util/StateIndexArray.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}util/StateMemoryPool.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <boost/functional/hash.hpp>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <boost/container/flat\_map.hpp>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <boost/variant.hpp>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}storm/builder/ExplicitModelBuilder.h"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}storm/models/sparse/StandardRewardModel.h"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}storm/api/storm.h"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}storm-\/parsers/parser/PrismParser.h"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}storm-\/parsers/api/storm-\/parsers.h"{}}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}storm/api/properties.h"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}storm/storage/jani/Property.h"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}storm/modelchecker/results/CheckResult.h"{}}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}storm/modelchecker/results/ExplicitQuantitativeCheckResult.h"{}}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}storm/utility/initialize.h"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}storm-\/parsers/api/properties.h"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}storm/models/sparse/Ctmc.h"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}storm/modelchecker/csl/SparseCtmcCslModelChecker.h"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}storm/modelchecker/csl/helper/SparseCtmcCslHelper.h"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/Expression.h"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/BaseExpression.h"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/BinaryExpression.h"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/BinaryRelationExpression.h"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/VariableExpression.h"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/ExpressionManager.h"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/UnaryBooleanFunctionExpression.h"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/BinaryBooleanFunctionExpression.h"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}storm/logic/Formula.h"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}storm/storage/prism/Constant.h"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}storm/settings/SettingsManager.h"{}}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#include "{}storm/storage/expressions/Valuation.h"{}}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#include "{}storm/environment/Environment.h"{}}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#include "{}storm/modelchecker/results/CheckResult.h"{}}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#include "{}storm/builder/BuilderOptions.h"{}}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#include "{}storm/generator/VariableInformation.h"{}}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{using namespace }storm::builder;}
+\DoxyCodeLine{62     \textcolor{keyword}{using namespace }storm::utility::prism;}
+\DoxyCodeLine{63     \textcolor{keyword}{using namespace }storm::generator;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{typedef} storm::models::sparse::Ctmc<double> Ctmc;}
+\DoxyCodeLine{66     \textcolor{keyword}{typedef} storm::modelchecker::SparseCtmcCslModelChecker<Ctmc> CtmcModelChecker;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ValueType, \textcolor{keyword}{typename} RewardModelType = storm::models::sparse::StandardRewardModel<ValueType>, \textcolor{keyword}{typename} StateType = u\textcolor{keywordtype}{int}32\_t>}
+\DoxyCodeLine{69     \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{StaminaModelBuilder}} \{}
+\DoxyCodeLine{70     \textcolor{keyword}{public}:}
+\DoxyCodeLine{71         \textcolor{comment}{/* Sub-\/class for states with probabilities */}}
+\DoxyCodeLine{72         \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \{}
+\DoxyCodeLine{73         \textcolor{keyword}{public}:}
+\DoxyCodeLine{74             CompressedState state;}
+\DoxyCodeLine{75             StateType index;}
+\DoxyCodeLine{76             \textcolor{keywordtype}{bool} enqueued;}
+\DoxyCodeLine{77             uint8\_t iterationLastSeen;}
+\DoxyCodeLine{78             \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}}() \{ \textcolor{comment}{/* Intentionally left empty */} \}}
+\DoxyCodeLine{79             \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}}(}
+\DoxyCodeLine{80                 CompressedState state}
+\DoxyCodeLine{81                 , StateType index}
+\DoxyCodeLine{82                 , \textcolor{keywordtype}{double} pi = 0.0}
+\DoxyCodeLine{83                 , \textcolor{keywordtype}{bool} terminal = \textcolor{keyword}{true}}
+\DoxyCodeLine{84                 \textcolor{comment}{// , bool enqueued = true}}
+\DoxyCodeLine{85                 , uint8\_t iterationLastSeen = 0}
+\DoxyCodeLine{86             ) : state(state)}
+\DoxyCodeLine{87                 , index(index)}
+\DoxyCodeLine{88                 , pi(pi)}
+\DoxyCodeLine{89                 , terminal(terminal)}
+\DoxyCodeLine{90                 , enqueued(enqueued)}
+\DoxyCodeLine{91                 , iterationLastSeen(iterationLastSeen)}
+\DoxyCodeLine{92             \{}
+\DoxyCodeLine{93                 \textcolor{comment}{// Intentionally left empty}}
+\DoxyCodeLine{94             \}}
+\DoxyCodeLine{95             \textcolor{comment}{// Copy constructor}}
+\DoxyCodeLine{96             \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}}(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& other)}
+\DoxyCodeLine{97                 : index(other.index)}
+\DoxyCodeLine{98                 , state(other.state)}
+\DoxyCodeLine{99                 , pi(other.pi)}
+\DoxyCodeLine{100                 , terminal(other.terminal)}
+\DoxyCodeLine{101                 , enqueued(other.enqueued)}
+\DoxyCodeLine{102             \{}
+\DoxyCodeLine{103                 \textcolor{comment}{// Intentionally left empty}}
+\DoxyCodeLine{104             \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106             \textcolor{keywordtype}{double} getPi() \{}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{return} pi;}
+\DoxyCodeLine{108             \}}
+\DoxyCodeLine{109             \textcolor{keywordtype}{void} addToPi(\textcolor{keywordtype}{double} add) \{}
+\DoxyCodeLine{110                 pi += add;}
+\DoxyCodeLine{111             \}}
+\DoxyCodeLine{112             \textcolor{keywordtype}{void} setPi(\textcolor{keywordtype}{double} pi) \{}
+\DoxyCodeLine{113                 this-\/>pi = pi;}
+\DoxyCodeLine{114             \}}
+\DoxyCodeLine{115             \textcolor{keywordtype}{bool} isTerminal() \{}
+\DoxyCodeLine{116                 \textcolor{keywordflow}{return} terminal;}
+\DoxyCodeLine{117             \}}
+\DoxyCodeLine{118             \textcolor{keywordtype}{void} setTerminal(\textcolor{keywordtype}{bool} term) \{}
+\DoxyCodeLine{119                 terminal = term;}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121             \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{122                 \textcolor{keywordflow}{return} index == rhs.index;}
+\DoxyCodeLine{123             \}}
+\DoxyCodeLine{124             \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator>=(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{125                 \textcolor{keywordflow}{return} index >= rhs.index;}
+\DoxyCodeLine{126             \}}
+\DoxyCodeLine{127             \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator<=(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{128                 \textcolor{keywordflow}{return} index <= rhs.index;}
+\DoxyCodeLine{129             \}}
+\DoxyCodeLine{130             \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator>(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{return} index > rhs.index;}
+\DoxyCodeLine{132             \}}
+\DoxyCodeLine{133             \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} \& rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{134                 \textcolor{keywordflow}{return} index < rhs.index;}
+\DoxyCodeLine{135             \}}
+\DoxyCodeLine{136 \textcolor{comment}{//      private:}}
+\DoxyCodeLine{137             \textcolor{keywordtype}{double} pi;}
+\DoxyCodeLine{138             \textcolor{keywordtype}{bool} terminal;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140         \};}
+\DoxyCodeLine{141         \textcolor{keyword}{struct }\mbox{\hyperlink{structstamina_1_1StaminaModelBuilder_1_1ProbabilityStateComparison}{ProbabilityStateComparison}} \{}
+\DoxyCodeLine{142             \textcolor{keywordtype}{bool} operator() (}
+\DoxyCodeLine{143                 \textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} * first}
+\DoxyCodeLine{144                 , \textcolor{keyword}{const} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} * second}
+\DoxyCodeLine{145             )\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{return} first-\/>index > second-\/>index;}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148         \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 }
+\DoxyCodeLine{156         \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a0d646a4dacf7338ac08ed2730fb6d652}{StaminaModelBuilder}}(}
+\DoxyCodeLine{157             std::shared\_ptr<storm::generator::PrismNextStateGenerator<ValueType, StateType>> \textcolor{keyword}{const}\& generator}
+\DoxyCodeLine{158         );}
+\DoxyCodeLine{165         \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a0d646a4dacf7338ac08ed2730fb6d652}{StaminaModelBuilder}}(}
+\DoxyCodeLine{166             storm::prism::Program \textcolor{keyword}{const}\& program}
+\DoxyCodeLine{167             , storm::generator::NextStateGeneratorOptions \textcolor{keyword}{const}\& generatorOptions = storm::generator::NextStateGeneratorOptions()}
+\DoxyCodeLine{168         );}
+\DoxyCodeLine{176         std::shared\_ptr<storm::models::sparse::Model<ValueType, RewardModelType>> \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ae35731d5d50a860a6c8a290df86c6638}{build}}();}
+\DoxyCodeLine{180         StateType \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ae4f9ec744aeeca11b348bb0e464d6b5c}{getStateIndexIfKnown}}(CompressedState \textcolor{keyword}{const}\& state);}
+\DoxyCodeLine{184         \textcolor{keywordtype}{double} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a1c3f00f769ab3a3cff533f52d02e710d}{accumulateProbabilities}}();}
+\DoxyCodeLine{188         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a8be0e3f2423034c10485d416e486a6ef}{reset}}();}
+\DoxyCodeLine{193         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_add204db6a2dfdc6952b39ae48144166b}{setGenerator}}(}
+\DoxyCodeLine{194             std::shared\_ptr<storm::generator::PrismNextStateGenerator<ValueType, StateType>> generator}
+\DoxyCodeLine{195         );}
+\DoxyCodeLine{201          std::vector<StateType> \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_aa1e104992392091b2f8ac00e2ac71202}{getPerimeterStates}}();}
+\DoxyCodeLine{205         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a99aa4095541785359c878581d428faf1}{setLocalKappaToGlobal}}();}
+\DoxyCodeLine{206         \textcolor{keywordtype}{void} printStateSpaceInformation();}
+\DoxyCodeLine{207         storm::expressions::Expression * getPropertyExpression();}
+\DoxyCodeLine{215         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a9a525aa46be2632f509ea4e85884dc06}{setPropertyFormula}}(}
+\DoxyCodeLine{216             std::shared\_ptr<const storm::logic::Formula> formula}
+\DoxyCodeLine{217             , \textcolor{keyword}{const} storm::prism::Program \& modulesFile}
+\DoxyCodeLine{218         );}
+\DoxyCodeLine{219     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{223         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_acdd83702d9c970a6b54b32b4d02f073e}{loadPropertyExpressionFromFormula}}();}
+\DoxyCodeLine{231         StateType \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a2cf155886ebedb804446a52f805b1b9f}{getOrAddStateIndex}}(CompressedState \textcolor{keyword}{const}\& state);}
+\DoxyCodeLine{236         StateType \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ad71b5b195526506fae95c70d2abade43}{getStateIndexOrAbsorbing}}(CompressedState \textcolor{keyword}{const}\& state);}
+\DoxyCodeLine{240         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ac1f0520289a8688b7b33888ed96a5d32}{connectTerminalStatesToAbsorbing}}(}
+\DoxyCodeLine{241             storm::storage::SparseMatrixBuilder<ValueType>\& transitionMatrixBuilder}
+\DoxyCodeLine{242             , CompressedState terminalState}
+\DoxyCodeLine{243             , StateType stateId}
+\DoxyCodeLine{244             , std::function<StateType (CompressedState \textcolor{keyword}{const}\&)> stateToIdCallback}
+\DoxyCodeLine{245         );}
+\DoxyCodeLine{255         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a2d8df7786d80c9adb1062053f212db06}{buildMatrices}}(}
+\DoxyCodeLine{256             storm::storage::SparseMatrixBuilder<ValueType>\& transitionMatrixBuilder}
+\DoxyCodeLine{257             , std::vector<RewardModelBuilder<typename RewardModelType::ValueType>>\& rewardModelBuilders}
+\DoxyCodeLine{258             , StateAndChoiceInformationBuilder\& choiceInformationBuilder}
+\DoxyCodeLine{259             , boost::optional<storm::storage::BitVector>\& markovianChoices}
+\DoxyCodeLine{260             , boost::optional<storm::storage::sparse::StateValuationsBuilder>\& stateValuationsBuilder}
+\DoxyCodeLine{261         );}
+\DoxyCodeLine{267         storm::storage::sparse::ModelComponents<ValueType, RewardModelType> \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ac4a638d37a6010db440e7d1b4ce5ffec}{buildModelComponents}}();}
+\DoxyCodeLine{273         storm::models::sparse::StateLabeling \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_adad63127f6d1d116ec0981b95c0ed9cc}{buildStateLabeling}}();}
+\DoxyCodeLine{277         \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a9ca4d0b14a165946c1bf5bb1c0e85de6}{setUpAbsorbingState}}(}
+\DoxyCodeLine{278             storm::storage::SparseMatrixBuilder<ValueType>\& transitionMatrixBuilder}
+\DoxyCodeLine{279             , std::vector<RewardModelBuilder<typename RewardModelType::ValueType>>\& rewardModelBuilders}
+\DoxyCodeLine{280             , StateAndChoiceInformationBuilder\& choiceInformationBuilder}
+\DoxyCodeLine{281             , boost::optional<storm::storage::BitVector>\& markovianChoices}
+\DoxyCodeLine{282             , boost::optional<storm::storage::sparse::StateValuationsBuilder>\& stateValuationsBuilder}
+\DoxyCodeLine{283         );}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285     \textcolor{keyword}{private}:}
+\DoxyCodeLine{286         \textcolor{comment}{/* Data Members */}}
+\DoxyCodeLine{287         storm::expressions::Expression * propertyExpression;}
+\DoxyCodeLine{288         storm::expressions::ExpressionManager * expressionManager;}
+\DoxyCodeLine{289         std::shared\_ptr<const storm::logic::Formula> propertyFormula;}
+\DoxyCodeLine{290         storm::storage::sparse::StateStorage<StateType>\& stateStorage;}
+\DoxyCodeLine{291         std::shared\_ptr<storm::generator::PrismNextStateGenerator<ValueType, StateType>> generator;}
+\DoxyCodeLine{292         \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{util::StateMemoryPool<ProbabilityState>}} memoryPool;}
+\DoxyCodeLine{293         \textcolor{comment}{// StatePriorityQueue statesToExplore;}}
+\DoxyCodeLine{294         std::priority\_queue<ProbabilityState *, std::vector<ProbabilityState *>, \mbox{\hyperlink{structstamina_1_1StaminaModelBuilder_1_1ProbabilityStateComparison}{ProbabilityStateComparison}}> statesToExplore;}
+\DoxyCodeLine{295         boost::optional<std::vector<uint\_fast64\_t>> stateRemapping;}
+\DoxyCodeLine{296         \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{util::StateIndexArray<StateType, ProbabilityState>}} stateMap;}
+\DoxyCodeLine{297         \textcolor{comment}{// std::unordered\_map<StateType, ProbabilityState *> stateMap; // S in the QEST paper}}
+\DoxyCodeLine{298         \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{ProbabilityState}} * currentProbabilityState;}
+\DoxyCodeLine{299         CompressedState absorbingState;}
+\DoxyCodeLine{300         \textcolor{keywordtype}{bool} absorbingWasSetUp;}
+\DoxyCodeLine{301         \textcolor{keywordtype}{bool} isInit;}
+\DoxyCodeLine{302         \textcolor{keywordtype}{bool} fresh;}
+\DoxyCodeLine{303         uint8\_t iteration;}
+\DoxyCodeLine{304         \textcolor{keywordtype}{bool} firstIteration;}
+\DoxyCodeLine{305         \textcolor{keywordtype}{double} localKappa;}
+\DoxyCodeLine{306         \textcolor{keywordtype}{bool} isCtmc;}
+\DoxyCodeLine{307         \textcolor{keywordtype}{bool} formulaMatchesExpression;}
+\DoxyCodeLine{308         uint64\_t numberTerminal;}
+\DoxyCodeLine{309         uint64\_t numberStates;}
+\DoxyCodeLine{310         uint64\_t numberTransitions;}
+\DoxyCodeLine{311         uint\_fast64\_t currentRowGroup;}
+\DoxyCodeLine{312         uint\_fast64\_t currentRow;}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     \};}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316     \textcolor{comment}{// Helper method to find in unordered\_set}}
+\DoxyCodeLine{317     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StateType>}
+\DoxyCodeLine{318     \textcolor{keywordtype}{bool} set\_contains(std::unordered\_set<StateType> current\_set, StateType value);}
+\DoxyCodeLine{319 \}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STAMINAMODELBUILDER\_H}}
+
+\end{DoxyCode}
