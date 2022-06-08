@@ -2,6 +2,22 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
+.collapsible-header {
+	padding: 10px;
+	background: #f3f3f3;
+	border-radius: 6px;
+	border: #969696 solid 1px;
+}
+
+.collapsible-header:hover {
+	background: #d3d3d3;
+	border: #d3d3d3 1px solid;
+}
+
+.collapsible {
+	display: none;
+}
+
 .ack-logo {
 	display: inline-block;
 	vertical-align: center;
@@ -348,7 +364,7 @@ ul.navbar li.right {
 	a:hover {
 		color: #2e8460;
 	}
-	.form, .inline-code, .code, .citation {
+	.form, .inline-code, .code, .citation, .collabsible-header {
 		background-color: #262626;
 	}
 	.footer, .footer-links table a {

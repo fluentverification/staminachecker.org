@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/collapsible.js"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -40,47 +41,50 @@
 	<div class="note">
 		STAMINA/STORM and STAMINA/PRISM have different sets of options (although there is some overlap), in order to work with their respective model checkers. The <div class="inline-code">stamina</div> executable simply passes the options you give into either STAMINA/STORM or STAMINA/PRISM, so make sure to choose the correct options.
 	</div>
-	<h3>STAMINA/STORM Usage and Options</h3>
-	<p>The following options are available for STAMINA/STORM</p>
-	<div class="code">
-&nbsp;&nbsp;-c, --const="C1=VAL,C2=VAL,C3=VAL"
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comma separated values for constants
-<br>&nbsp;&nbsp;-C, --cuddMaxMem=memory&nbsp;&nbsp;&nbsp;&nbsp;Maximum CUDD memory, in the same format as PRISM
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1g)
-<br>&nbsp;&nbsp;-e, --export=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Export model to a (text) file
-<br>&nbsp;&nbsp;-f, --approxFactor=double&nbsp;&nbsp;Factor to estimate how far off our reachability
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; predictions will be (default: 2.0)
-<br>&nbsp;&nbsp;-i, --import=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import model to a (text) file
-<br>&nbsp;&nbsp;-k, --kappa=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reachability threshold for the first iteration
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1.0)
-<br>&nbsp;&nbsp;-M, --maxIterations=int&nbsp;&nbsp;&nbsp;&nbsp;Maximum iteration for solution (default: 10000)
-<br>&nbsp;&nbsp;-n, --maxApproxCount=int&nbsp;&nbsp; Maximum number of iterations in the approximation
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default 10)
-<br>&nbsp;&nbsp;-p, --property=propname&nbsp;&nbsp;&nbsp;&nbsp;Specify a certain property to check in a model
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file that contains many
-<br>&nbsp;&nbsp;-r, --reduceKappa=double&nbsp;&nbsp; Reduction factor for Reachability Threshold
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (kappa) during the refinement step (default 2.0)
-<br>&nbsp;&nbsp;-R, --noPropRefine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do not use property based refinement. If given,
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the model exploration method will reduce kappa and
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do property independent definement (default: off)
-<br>&nbsp;&nbsp;-S, --exportPerimeterStates=filename
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export perimeter states to a file. Please provide
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a filename. This will append to the file if it is
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existing
-<br>&nbsp;&nbsp;-t, --exportTrans=filename Export the list of transitions and actions to a
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; specified file name, or to trans.txt if no file
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name is specified.
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transitions are exported in the format &lt;Source
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; State Index&gt; &lt;Destination State Index&gt; &lt;Action
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label&gt;
-<br>&nbsp;&nbsp;-T, --rankTransitions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank transitions before expanding (default: false)
-<br>
-<br>&nbsp;&nbsp;-w, --probWin=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probability window between lower and upperbound
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for termination (default: 1.0e-3)
-<br>&nbsp;&nbsp;-?, --help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Give this help list
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--usage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give a short usage message
+	<h3 class="collapsible-header" id="sstamina-options-header" onclick="openCollapsible('sstamina-options', 'sstamina-options-header')">&#9660;&nbsp;&nbsp;STAMINA/STORM Usage and Options</h3>
+	<div class="collapsible" id="sstamina-options">
+		<p>The following options are available for STAMINA/STORM</p>
+		<div class="code">
+	&nbsp;&nbsp;-c, --const="C1=VAL,C2=VAL,C3=VAL"
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comma separated values for constants
+	<br>&nbsp;&nbsp;-C, --cuddMaxMem=memory&nbsp;&nbsp;&nbsp;&nbsp;Maximum CUDD memory, in the same format as PRISM
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1g)
+	<br>&nbsp;&nbsp;-e, --export=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Export model to a (text) file
+	<br>&nbsp;&nbsp;-f, --approxFactor=double&nbsp;&nbsp;Factor to estimate how far off our reachability
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; predictions will be (default: 2.0)
+	<br>&nbsp;&nbsp;-i, --import=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import model to a (text) file
+	<br>&nbsp;&nbsp;-k, --kappa=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reachability threshold for the first iteration
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1.0)
+	<br>&nbsp;&nbsp;-M, --maxIterations=int&nbsp;&nbsp;&nbsp;&nbsp;Maximum iteration for solution (default: 10000)
+	<br>&nbsp;&nbsp;-n, --maxApproxCount=int&nbsp;&nbsp; Maximum number of iterations in the approximation
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default 10)
+	<br>&nbsp;&nbsp;-p, --property=propname&nbsp;&nbsp;&nbsp;&nbsp;Specify a certain property to check in a model
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file that contains many
+	<br>&nbsp;&nbsp;-r, --reduceKappa=double&nbsp;&nbsp; Reduction factor for Reachability Threshold
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (kappa) during the refinement step (default 2.0)
+	<br>&nbsp;&nbsp;-R, --noPropRefine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do not use property based refinement. If given,
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the model exploration method will reduce kappa and
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do property independent definement (default: off)
+	<br>&nbsp;&nbsp;-S, --exportPerimeterStates=filename
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export perimeter states to a file. Please provide
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a filename. This will append to the file if it is
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existing
+	<br>&nbsp;&nbsp;-t, --exportTrans=filename Export the list of transitions and actions to a
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; specified file name, or to trans.txt if no file
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name is specified.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transitions are exported in the format &lt;Source
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; State Index&gt; &lt;Destination State Index&gt; &lt;Action
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label&gt;
+	<br>&nbsp;&nbsp;-T, --rankTransitions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank transitions before expanding (default: false)
+	<br>
+	<br>&nbsp;&nbsp;-w, --probWin=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probability window between lower and upperbound
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for termination (default: 1.0e-3)
+	<br>&nbsp;&nbsp;-?, --help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Give this help list
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--usage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give a short usage message
+		</div>
 	</div>
-	<h3>STAMINA/PRISM Usage and Options</h3>
+	<h3 class="collapsible-header" id="pstamina-options-header" onclick="openCollapsible('pstamina-options', 'pstamina-options-header')">&#9660;&nbsp;&nbsp;STAMINA/PRISM Usage and Options</h3>
+<div class="collapsible" id="pstamina-options">
 	<p>The following options are available for STAMINA/PRISM</p>
 	<div class="code">
 Usage: stamina [options] &lt;model-file&gt; &lt;properties-file&gt;
@@ -116,6 +120,7 @@ Usage: stamina [options] &lt;model-file&gt; &lt;properties-file&gt;
 <br>-jacobi ............................ Jacobi method
 <br>-gaussseidel ....................... Gauss-Seidel method
 	</div>
+</div>
 	<h2>Development Documentation</h2>
 	<ul>
 		<li>For the STORM version, there exists <a href="documentation/stamina-storm/html/index.html">Doxygen documentation</a>.
