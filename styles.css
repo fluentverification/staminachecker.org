@@ -367,6 +367,9 @@ ul.navbar li.right {
 	.form, .inline-code, .code, .citation, .collapsible-header {
 		background-color: #262626;
 	}
+	.collapsible-header {
+		background-color: #363636;
+	}
 	.footer, .footer-links table a {
 		background-color: #363636;
 		color: #e8e8e8;
