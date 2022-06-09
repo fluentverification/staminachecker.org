@@ -4,7 +4,7 @@ function closeCollapsible(id, headerId) {
 	let header = document.getElementById(headerId);
 	collapsible.style.display = "none";
 	var txtValue = header.innerHTML;
-	header.innerHTML = "&#9660;" + txtValue.slice(1, txtValue.length);
+	header.innerHTML = "&#9776;" + txtValue.slice(1, txtValue.length);
 	header.onclick = () => openCollapsible(id, headerId);
 }
 
@@ -13,6 +13,6 @@ function openCollapsible(id, headerId) {
 	let header = document.getElementById(headerId);
 	collapsible.style.display = "block";
 	var txtValue = header.innerHTML;
-	header.innerHTML = "&#9650;" + txtValue.slice(1, txtValue.length);
+	header.innerHTML = "&times;" + txtValue.slice(1, txtValue.length);
 	header.onclick = () => closeCollapsible(id, headerId);
 }

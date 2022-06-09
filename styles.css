@@ -6,6 +6,7 @@
 	padding: 20px;
 	background: #f3f3f3;
 	border-bottom: #969696 solid 2px;
+	cursor: pointer;
 }
 
 .collapsible-header:hover {
