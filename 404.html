@@ -4,9 +4,462 @@
 	<title>Not Found - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="styles.css">
+	<!-- Rather than import JS and CSS we copy them into this file. The reason for this is a weird quirk with github pages. -->
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@400;800&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
+
+.collapsible-header {
+	padding: 20px;
+	background: #f3f3f3;
+	border-bottom: #969696 solid 2px;
+	cursor: pointer;
+}
+
+.collapsible-header:hover {
+	background: #d3d3d3;
+	border-bottom: #d9d9d9 solid 2px;
+}
+
+.collapsible {
+	display: none;
+}
+
+.ack-logo {
+	display: inline-block;
+	vertical-align: center;
+}
+
+.button-icon {
+/* 	padding: 2px; */
+	padding-right: 10px;
+	display: inline-block;
+	offset-position: center;
+}
+
+
+.citation{
+	border-color: #969696;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #f3f3f3;
+	border-left: 4px solid #969696;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.note {
+	display: block;
+	color: #1e3229;
+	background-color: #b4f7d6;
+	padding: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-left: 4px solid #2e8460;
+	width: 80%;
+/* 	border-radius: 6px; */
+}
+
+.note:hover {
+	border-left: 4px solid #48ce94;
+}
+
+.inline-code {
+	display: inline;
+	font-weight: semi-expanded;
+	font-family: 'Noto Sans Mono', monospace;
+	font-size: 10pt;
+	background-color: #f3f3f3;
+	white-space: nowrap;
+	padding: 5px;
+}
+
+.code {
+	font-weight: semi-expanded;
+	font-family: 'Noto Sans Mono', monospace;
+	font-size: 10pt;
+	border-color: #969696;
+	border-style: solid;
+	border-width: 1px;
+/* 	border-radius: 6px; */
+	background-color: #f3f3f3;
+	border-left: 4px solid #969696;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.code:hover, .citation:hover {
+	border-left: 4px solid #d9d9d9;
+}
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.form {
+	background-color: #ebebeb;
+	padding: 20px;
+}
+
+.button, input[type=submit] {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 16px;
+	text-decoration: none;
+	background-color: #40c688;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	border: none;
+	vertical-align: middle;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.button:hover, input[type=submit]:hover {
+	color: white;
+	background-color: #67aa8a;
+}
+.graphic {
+	float: right;
+	margin: 10px;
+	padding: 20px;
+}
+
+a {
+	color: #2e8460;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #4edea0;
+}
+
+p {
+	text-align: justify;
+}
+
+.banner {
+	margin: 0;
+	position: static;
+	display: block;
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 200px;
+	padding-bottom: 200px;
+	width: 60%;
+	color: #515151;
+	background-color: #ebebeb;
+	font-family: 'Noto Sans', sans-serif;
+/* 	background-image: url("images/banner.svg"); */
+}
+
+.banner h1 {
+	font-size: 32pt;
+}
+
+.banner h2 {
+	font-size: 24pt;
+}
+
+.content {
+	margin-left: 20%;
+	margin-right: 20%;
+	width: 60%;
+	color: #363636;
+	font-family: 'Noto Sans', sans-serif;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.contents {
+	background-color: #efefef;
+	padding: 20px;
+}
+
+.navbar li {
+	font-family: 'Noto Sans', sans-serif;
+	display: inline;
+	float: left;
+}
+
+.navbar li a, .dropbtn {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 20px 16px;
+	text-decoration: none;
+}
+
+#stamina {
+	font-weight: bold;
+	padding-left: 40px;
+	padding-right: 40px;
+	background-color: #141414;
+}
+
+#stamina:hover {
+	color: #67aa8a;
+}
+
+#slogo {
+	display: inline;
+	border: 2px solid white;
+	padding: 4px;
+}
+
+#slogo:hover {
+	border: 2px solid #67aa8a;
+}
+
+.navbar .openbutton, .navbar .closebutton {
+	display: none;
+}
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #141414;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.navbar li a:hover, .dropdown:hover, .stamina-name:hover {
+	background-color: #67aa8a;
+}
+
+.active, .fluent {
+	background-color: #40c688;
+}
+
+ul.navbar li.right {
+	float: right;
+}
+
+/*li.dropdown {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f0f0f0;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #74bfa2;}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}*/
+
+.footer {
+	font-size: 10pt;
+	display: block;
+	position: absolute;
+	font-family: 'Noto Sans', sans-serif;
+	background-color: #e1e1e1;
+	color: #363636;
+	left: 0;
+	right: 0;
+	width: 80%;
+	text-align: center;
+	padding: 40px 0;
+	padding-left: 10%;
+	padding-right: 10%;
+	z-index: -1;
+}
+
+.footer a {
+	color: #2e8460;
+	text-decoration: none;
+}
+
+.footer-links table {
+	display: inline;
+	text-align: left;
+	width: 100%;
+}
+
+.footer-links table a {
+	color: #363636;
+}
+
+.footer-links td, .footer-links th {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.top-buffer {
+	height: 60px;
+}
+
+@media screen and (max-width: 850px) {
+	ul.navbar li.right,
+	ul.navbar li {
+		float: none;
+		z-index: 1;
+	}
+/*	.top-buffer {
+		height: 300px;
+	}*/
+	ul.navbar a {
+		display: none;
+	}
+	.navbar .openbutton {
+		display: block;
+	}
+	.footer-links td, .footer-links th {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.graphic {
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	.content {
+		margin-left: 10%;
+		margin-right: 10%;
+		width: 80%;
+	}
+
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #222222;
+	}
+	.content {
+		color: #ffffff;
+	}
+	.banner, .contents {
+		color: #ffffff;
+		background-color: #262626;
+	}
+	a {
+		color: #4edea0;
+	}
+
+	a:hover {
+		color: #2e8460;
+	}
+	.form, .inline-code, .code, .citation, .collapsible-header {
+		background-color: #262626;
+	}
+	.collapsible-header:hover {
+		background-color: #363636;
+	}
+	.footer, .footer-links table a {
+		background-color: #363636;
+		color: #e8e8e8;
+	}
+	input, select, textarea {
+		color: #e8e8e8;
+		background-color: #222222;
+	}
+}
+
+	</style>
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
-	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript">
+/**
+ * This script lets us monitor the window size and reset the navbar if it's larger than 800px
+ * */
+console.log("Adding event listener for window");
+window.addEventListener('resize', function(event) {
+	console.log(screen.width);
+	if (screen.width > 850) {
+		console.log("Setting navbar to normal full-width");
+		let elements = document.getElementsByClassName("navbutton");
+		console.log(elements);
+		Array.prototype.forEach.call(elements, e => e.style.display = "block");
+		document.getElementById("active").style.display = "block";
+		document.getElementById("navbar").style.display = "block";
+		document.getElementById("openbutton").style.display = "none";
+		document.getElementById("closebutton").style.display = "none";
+	}
+	else {
+		closeNav();
+	}
+}, true);
+/**
+ * This function opens the navbar when the screen is less than 800px
+ * */
+function openNav() {
+	console.log("Opening navbar");
+	let elements = document.getElementsByClassName("navbutton");
+	console.log(elements);
+	// This little "=>" operator is the coolest JavaScript thing ever
+	Array.prototype.forEach.call(elements, e => e.style.display = "block");
+	document.getElementById("active").style.display = "block";
+	document.getElementById("closebutton").style.display = "block";
+	document.getElementById("openbutton").style.display = "none";
+	document.getElementById("navbar").style.display = "block";
+}
+/**
+ * This function closes the navbar when the screen is less than 800px
+ * */
+function closeNav() {
+	console.log("Closing navbar");
+	let elements = document.getElementsByClassName("navbutton");
+	console.log(elements);
+	Array.prototype.forEach.call(elements, e => e.style.display = "none");
+	document.getElementById("active").style.display = "none";
+	document.getElementById("closebutton").style.display = "none";
+	document.getElementById("openbutton").style.display = "block";
+// 	document.getElementById("navbar").style.display = "none";
+}
+
+function copyIeee() {
+	copyCitation('ieee');
+}
+
+function copyMla() {
+	copyCitation('mla');
+}
+
+function copyCitation(id) {
+	console.log("Copying citation " + id);
+	var citation = document.getElementById(id);
+
+	// Select and copy
+
+	navigator.clipboard.writeText(citation.innerHTML);
+
+	// Alert that we have copied text
+	alert("Citation copied!");
+}
+	</script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -30,8 +483,8 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="content">
 <!-- CONTENT -->
-	<div style="text-align: center; margin-top: 300px; margin-bottom: 300px;">
-		<h1 style="font-size: 72pt">&#9888;</h1>
+	<div style="text-align: center; margin-top: 200px; margin-bottom: 200px;">
+<!-- 		<h1 style="font-size: 120pt;">&#9888;</h1> -->
 		<h1 style="font-size: 48pt"><a style="color: #40c688;">404:</a> Not Found</h1>
 		<div style="font-size: 24pt">The page you were looking for could not be found on this server.</div>
 		<h1 style="font-size: 16pt">If you followed a link elsewhere on this website, please <a href="#">contact us</a> to let us know something is broken.</h1>
