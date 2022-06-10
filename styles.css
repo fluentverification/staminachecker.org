@@ -2,6 +2,10 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
+body {
+	margin: 0px;
+}
+
 .collapsible-header {
 	padding: 20px;
 	background: #f3f3f3;
