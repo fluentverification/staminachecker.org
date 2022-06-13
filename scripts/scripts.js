@@ -36,6 +36,8 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
+	var elements = document.querySelectorAll("a");
+	Array.prototype.forEach.call(elements, e => e.classList.add("a-dark"));
 	var elements = document.getElementsByClassName("content");
 	Array.prototype.forEach.call(elements, e => e.classList.add("content-dark"));
 	var elements = document.getElementsByClassName("banner");
@@ -55,8 +57,6 @@ function setDarkMode() {
 	var elements = document.querySelectorAll(".footer-links-dark");
 	Array.prototype.forEach.call(elements, e =>
 		{ e.classList.add("footer-links-dark"); e.style.color = "#ffffff";});
-	var elements = document.querySelectorAll("a");
-	Array.prototype.forEach.call(elements, e => e.classList.add("a-dark"));
 	var elements = document.querySelectorAll("input");
 	Array.prototype.forEach.call(elements, e => e.classList.add("input-dark"));
 	var elements = document.querySelectorAll("select");
