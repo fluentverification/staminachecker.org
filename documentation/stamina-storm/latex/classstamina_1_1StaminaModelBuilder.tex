@@ -1,0 +1,270 @@
+\hypertarget{classstamina_1_1StaminaModelBuilder}{}\doxysection{stamina\+::Stamina\+Model\+Builder\texorpdfstring{$<$}{<} Value\+Type, Reward\+Model\+Type, State\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classstamina_1_1StaminaModelBuilder}\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_1_1ProbabilityState}{Probability\+State}}
+\item 
+struct \mbox{\hyperlink{structstamina_1_1StaminaModelBuilder_1_1ProbabilityStateComparison}{Probability\+State\+Comparison}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a0d646a4dacf7338ac08ed2730fb6d652}{Stamina\+Model\+Builder}} (std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Prism\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$ const \&generator)
+\item 
+\mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_aea4eadc9b55892b87e579cf52490f71f}{Stamina\+Model\+Builder}} (storm\+::prism\+::\+Program const \&program, storm\+::generator\+::\+Next\+State\+Generator\+Options const \&generator\+Options=storm\+::generator\+::\+Next\+State\+Generator\+Options())
+\item 
+std\+::shared\+\_\+ptr$<$ storm\+::models\+::sparse\+::\+Model$<$ Value\+Type, Reward\+Model\+Type $>$ $>$ \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ae35731d5d50a860a6c8a290df86c6638}{build}} ()
+\item 
+State\+Type \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ae4f9ec744aeeca11b348bb0e464d6b5c}{get\+State\+Index\+If\+Known}} (Compressed\+State const \&state)
+\item 
+double \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a1c3f00f769ab3a3cff533f52d02e710d}{accumulate\+Probabilities}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a8be0e3f2423034c10485d416e486a6ef}{reset}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_add204db6a2dfdc6952b39ae48144166b}{set\+Generator}} (std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Prism\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$ generator)
+\item 
+std\+::vector$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_aa1e104992392091b2f8ac00e2ac71202}{get\+Perimeter\+States}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a99aa4095541785359c878581d428faf1}{set\+Local\+Kappa\+To\+Global}} ()
+\item 
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a3e913566e7387784dadf226fc94d0124}\label{classstamina_1_1StaminaModelBuilder_a3e913566e7387784dadf226fc94d0124}} 
+void {\bfseries print\+State\+Space\+Information} ()
+\item 
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ae7af1f6c288763356803289161eaca74}\label{classstamina_1_1StaminaModelBuilder_ae7af1f6c288763356803289161eaca74}} 
+storm\+::expressions\+::\+Expression $\ast$ {\bfseries get\+Property\+Expression} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a9a525aa46be2632f509ea4e85884dc06}{set\+Property\+Formula}} (std\+::shared\+\_\+ptr$<$ const storm\+::logic\+::\+Formula $>$ formula, const storm\+::prism\+::\+Program \&modules\+File)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_acdd83702d9c970a6b54b32b4d02f073e}{load\+Property\+Expression\+From\+Formula}} ()
+\item 
+State\+Type \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a2cf155886ebedb804446a52f805b1b9f}{get\+Or\+Add\+State\+Index}} (Compressed\+State const \&state)
+\item 
+State\+Type \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ad71b5b195526506fae95c70d2abade43}{get\+State\+Index\+Or\+Absorbing}} (Compressed\+State const \&state)
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ac1f0520289a8688b7b33888ed96a5d32}{connect\+Terminal\+States\+To\+Absorbing}} (storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&transition\+Matrix\+Builder, Compressed\+State terminal\+State, State\+Type state\+Id, std\+::function$<$ State\+Type(Compressed\+State const \&)$>$ state\+To\+Id\+Callback)
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a2d8df7786d80c9adb1062053f212db06}{build\+Matrices}} (storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&transition\+Matrix\+Builder, std\+::vector$<$ Reward\+Model\+Builder$<$ typename Reward\+Model\+Type\+::\+Value\+Type $>$ $>$ \&reward\+Model\+Builders, State\+And\+Choice\+Information\+Builder \&choice\+Information\+Builder, boost\+::optional$<$ storm\+::storage\+::\+Bit\+Vector $>$ \&markovian\+Choices, boost\+::optional$<$ storm\+::storage\+::sparse\+::\+State\+Valuations\+Builder $>$ \&state\+Valuations\+Builder)
+\item 
+storm\+::storage\+::sparse\+::\+Model\+Components$<$ Value\+Type, Reward\+Model\+Type $>$ \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_ac4a638d37a6010db440e7d1b4ce5ffec}{build\+Model\+Components}} ()
+\item 
+storm\+::models\+::sparse\+::\+State\+Labeling \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_adad63127f6d1d116ec0981b95c0ed9cc}{build\+State\+Labeling}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder_a9ca4d0b14a165946c1bf5bb1c0e85de6}{set\+Up\+Absorbing\+State}} (storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&transition\+Matrix\+Builder, std\+::vector$<$ Reward\+Model\+Builder$<$ typename Reward\+Model\+Type\+::\+Value\+Type $>$ $>$ \&reward\+Model\+Builders, State\+And\+Choice\+Information\+Builder \&choice\+Information\+Builder, boost\+::optional$<$ storm\+::storage\+::\+Bit\+Vector $>$ \&markovian\+Choices, boost\+::optional$<$ storm\+::storage\+::sparse\+::\+State\+Valuations\+Builder $>$ \&state\+Valuations\+Builder)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a0d646a4dacf7338ac08ed2730fb6d652}\label{classstamina_1_1StaminaModelBuilder_a0d646a4dacf7338ac08ed2730fb6d652}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!StaminaModelBuilder@{StaminaModelBuilder}}
+\index{StaminaModelBuilder@{StaminaModelBuilder}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{StaminaModelBuilder()}{StaminaModelBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+Stamina\+Model\+Builder\+::\+Stamina\+Model\+Builder (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Prism\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$ const \&}]{generator }\end{DoxyParamCaption})}
+
+Constructs a \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{Stamina\+Model\+Builder}} with a given storm\+::generator\+::\+Prism\+Next\+State\+Generator
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & The generator we are going to use. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_aea4eadc9b55892b87e579cf52490f71f}\label{classstamina_1_1StaminaModelBuilder_aea4eadc9b55892b87e579cf52490f71f}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!StaminaModelBuilder@{StaminaModelBuilder}}
+\index{StaminaModelBuilder@{StaminaModelBuilder}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{StaminaModelBuilder()}{StaminaModelBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+Stamina\+Model\+Builder\+::\+Stamina\+Model\+Builder (\begin{DoxyParamCaption}\item[{storm\+::prism\+::\+Program const \&}]{program,  }\item[{storm\+::generator\+::\+Next\+State\+Generator\+Options const \&}]{generator\+Options = {\ttfamily storm\+:\+:generator\+:\+:NextStateGeneratorOptions()} }\end{DoxyParamCaption})}
+
+Constructs a \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{Stamina\+Model\+Builder}} with a PRISM program and generator\+Options
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & The PRISM program we are going to use to build the model with. \\
+\hline
+{\em generator\+Options} & \mbox{\hyperlink{classstamina_1_1Options}{Options}} for the storm\+::generator\+::\+Prism\+Next\+State\+Generator we are going to use. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a1c3f00f769ab3a3cff533f52d02e710d}\label{classstamina_1_1StaminaModelBuilder_a1c3f00f769ab3a3cff533f52d02e710d}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!accumulateProbabilities@{accumulateProbabilities}}
+\index{accumulateProbabilities@{accumulateProbabilities}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{accumulateProbabilities()}{accumulateProbabilities()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+double Stamina\+Model\+Builder\+::accumulate\+Probabilities}
+
+Accumulates all probabilities in T Map and returns \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ae35731d5d50a860a6c8a290df86c6638}\label{classstamina_1_1StaminaModelBuilder_ae35731d5d50a860a6c8a290df86c6638}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!build@{build}}
+\index{build@{build}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+std\+::shared\+\_\+ptr$<$ storm\+::models\+::sparse\+::\+Model$<$ Value\+Type, Reward\+Model\+Type $>$ $>$ Stamina\+Model\+Builder\+::build}
+
+Creates a model with a truncated state space for the program provided during construction. State space is truncated during this method using the STAMINA II truncation method described by Riley Roberts and Zhen Zhang, and corresponding to the same algorithm used in the Java version of STAMINA.
+
+\begin{DoxyReturn}{Returns}
+The truncated model. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a2d8df7786d80c9adb1062053f212db06}\label{classstamina_1_1StaminaModelBuilder_a2d8df7786d80c9adb1062053f212db06}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!buildMatrices@{buildMatrices}}
+\index{buildMatrices@{buildMatrices}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{buildMatrices()}{buildMatrices()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void Stamina\+Model\+Builder\+::build\+Matrices (\begin{DoxyParamCaption}\item[{storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&}]{transition\+Matrix\+Builder,  }\item[{std\+::vector$<$ Reward\+Model\+Builder$<$ typename Reward\+Model\+Type\+::\+Value\+Type $>$ $>$ \&}]{reward\+Model\+Builders,  }\item[{State\+And\+Choice\+Information\+Builder \&}]{choice\+Information\+Builder,  }\item[{boost\+::optional$<$ storm\+::storage\+::\+Bit\+Vector $>$ \&}]{markovian\+Choices,  }\item[{boost\+::optional$<$ storm\+::storage\+::sparse\+::\+State\+Valuations\+Builder $>$ \&}]{state\+Valuations\+Builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Builds transition matrix of truncated state space for the given program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em transition\+Matrix\+Builder} & The builder of the transition matrix. \\
+\hline
+{\em reward\+Model\+Builders} & The builders for the selected reward models. \\
+\hline
+{\em choice\+Information\+Builder} & The builder for the requested information of the choices \\
+\hline
+{\em markovian\+Choices} & is set to a bit vector storing whether a choice is Markovian (is only set if the model type requires this information). \\
+\hline
+{\em state\+Valuations\+Builder} & if not boost\+::none, we insert valuations for the corresponding states \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ac4a638d37a6010db440e7d1b4ce5ffec}\label{classstamina_1_1StaminaModelBuilder_ac4a638d37a6010db440e7d1b4ce5ffec}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!buildModelComponents@{buildModelComponents}}
+\index{buildModelComponents@{buildModelComponents}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{buildModelComponents()}{buildModelComponents()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+storm\+::storage\+::sparse\+::\+Model\+Components$<$ Value\+Type, Reward\+Model\+Type $>$ Stamina\+Model\+Builder\+::build\+Model\+Components\hspace{0.3cm}{\ttfamily [protected]}}
+
+Explores state space and truncates the model
+
+\begin{DoxyReturn}{Returns}
+The components of the truncated model 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_adad63127f6d1d116ec0981b95c0ed9cc}\label{classstamina_1_1StaminaModelBuilder_adad63127f6d1d116ec0981b95c0ed9cc}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!buildStateLabeling@{buildStateLabeling}}
+\index{buildStateLabeling@{buildStateLabeling}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{buildStateLabeling()}{buildStateLabeling()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+storm\+::models\+::sparse\+::\+State\+Labeling Stamina\+Model\+Builder\+::build\+State\+Labeling\hspace{0.3cm}{\ttfamily [protected]}}
+
+Builds state labeling for our program
+
+\begin{DoxyReturn}{Returns}
+State labeling for our program 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ac1f0520289a8688b7b33888ed96a5d32}\label{classstamina_1_1StaminaModelBuilder_ac1f0520289a8688b7b33888ed96a5d32}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!connectTerminalStatesToAbsorbing@{connectTerminalStatesToAbsorbing}}
+\index{connectTerminalStatesToAbsorbing@{connectTerminalStatesToAbsorbing}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{connectTerminalStatesToAbsorbing()}{connectTerminalStatesToAbsorbing()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void Stamina\+Model\+Builder\+::connect\+Terminal\+States\+To\+Absorbing (\begin{DoxyParamCaption}\item[{storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&}]{transition\+Matrix\+Builder,  }\item[{Compressed\+State}]{terminal\+State,  }\item[{State\+Type}]{state\+Id,  }\item[{std\+::function$<$ State\+Type(Compressed\+State const \&)$>$}]{state\+To\+Id\+Callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Connects all terminal states to the absorbing state \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a2cf155886ebedb804446a52f805b1b9f}\label{classstamina_1_1StaminaModelBuilder_a2cf155886ebedb804446a52f805b1b9f}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!getOrAddStateIndex@{getOrAddStateIndex}}
+\index{getOrAddStateIndex@{getOrAddStateIndex}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{getOrAddStateIndex()}{getOrAddStateIndex()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+State\+Type Stamina\+Model\+Builder\+::get\+Or\+Add\+State\+Index (\begin{DoxyParamCaption}\item[{Compressed\+State const \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Gets the state ID of a current state, or adds it to the internal state storage. Performs state exploration and state space truncation from that state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Pointer to the state we are looking it \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair with the state id and whether or not it was already discovered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_aa1e104992392091b2f8ac00e2ac71202}\label{classstamina_1_1StaminaModelBuilder_aa1e104992392091b2f8ac00e2ac71202}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!getPerimeterStates@{getPerimeterStates}}
+\index{getPerimeterStates@{getPerimeterStates}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{getPerimeterStates()}{getPerimeterStates()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+std\+::vector$<$ State\+Type $>$ Stamina\+Model\+Builder\+::get\+Perimeter\+States}
+
+Creates and returns a vector of all perimeter states
+
+\begin{DoxyReturn}{Returns}
+a vector of all perimeter states 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ae4f9ec744aeeca11b348bb0e464d6b5c}\label{classstamina_1_1StaminaModelBuilder_ae4f9ec744aeeca11b348bb0e464d6b5c}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!getStateIndexIfKnown@{getStateIndexIfKnown}}
+\index{getStateIndexIfKnown@{getStateIndexIfKnown}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{getStateIndexIfKnown()}{getStateIndexIfKnown()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type  = storm\+::models\+::sparse\+::\+Standard\+Reward\+Model$<$\+Value\+Type$>$, typename State\+Type  = uint32\+\_\+t$>$ \\
+State\+Type \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{stamina\+::\+Stamina\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::get\+State\+Index\+If\+Known (\begin{DoxyParamCaption}\item[{Compressed\+State const \&}]{state }\end{DoxyParamCaption})}
+
+Gets the state ID of a state known to already exist. This does NOT perform state-\/space truncation for future states \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_ad71b5b195526506fae95c70d2abade43}\label{classstamina_1_1StaminaModelBuilder_ad71b5b195526506fae95c70d2abade43}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!getStateIndexOrAbsorbing@{getStateIndexOrAbsorbing}}
+\index{getStateIndexOrAbsorbing@{getStateIndexOrAbsorbing}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{getStateIndexOrAbsorbing()}{getStateIndexOrAbsorbing()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+State\+Type Stamina\+Model\+Builder\+::get\+State\+Index\+Or\+Absorbing (\begin{DoxyParamCaption}\item[{Compressed\+State const \&}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Alterate state ID grabber. Returns state ID if exists. If it does not, returns the absorbing state This is used as an alternative callback function for terminal (perimeter) states \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_acdd83702d9c970a6b54b32b4d02f073e}\label{classstamina_1_1StaminaModelBuilder_acdd83702d9c970a6b54b32b4d02f073e}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!loadPropertyExpressionFromFormula@{loadPropertyExpressionFromFormula}}
+\index{loadPropertyExpressionFromFormula@{loadPropertyExpressionFromFormula}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{loadPropertyExpressionFromFormula()}{loadPropertyExpressionFromFormula()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void Stamina\+Model\+Builder\+::load\+Property\+Expression\+From\+Formula\hspace{0.3cm}{\ttfamily [protected]}}
+
+Creates and loads the property expression from the formula \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a8be0e3f2423034c10485d416e486a6ef}\label{classstamina_1_1StaminaModelBuilder_a8be0e3f2423034c10485d416e486a6ef}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!reset@{reset}}
+\index{reset@{reset}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{stamina\+::\+Stamina\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::reset}
+
+Resets stuff to \char`\"{}fresh\char`\"{} state. \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_add204db6a2dfdc6952b39ae48144166b}\label{classstamina_1_1StaminaModelBuilder_add204db6a2dfdc6952b39ae48144166b}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!setGenerator@{setGenerator}}
+\index{setGenerator@{setGenerator}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{setGenerator()}{setGenerator()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{stamina\+::\+Stamina\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::set\+Generator (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Prism\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$}]{generator }\end{DoxyParamCaption})}
+
+Sets the generator while deleting the old one 
+\begin{DoxyParams}{Parameters}
+{\em generator} & The new generator \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a99aa4095541785359c878581d428faf1}\label{classstamina_1_1StaminaModelBuilder_a99aa4095541785359c878581d428faf1}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!setLocalKappaToGlobal@{setLocalKappaToGlobal}}
+\index{setLocalKappaToGlobal@{setLocalKappaToGlobal}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{setLocalKappaToGlobal()}{setLocalKappaToGlobal()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{stamina\+::\+Stamina\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::set\+Local\+Kappa\+To\+Global}
+
+Sets the value of {$\kappa$} in \mbox{\hyperlink{classstamina_1_1Options}{Options}} to what we have stored locally here \mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a9a525aa46be2632f509ea4e85884dc06}\label{classstamina_1_1StaminaModelBuilder_a9a525aa46be2632f509ea4e85884dc06}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!setPropertyFormula@{setPropertyFormula}}
+\index{setPropertyFormula@{setPropertyFormula}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{setPropertyFormula()}{setPropertyFormula()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void Stamina\+Model\+Builder\+::set\+Property\+Formula (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ const storm\+::logic\+::\+Formula $>$}]{formula,  }\item[{const storm\+::prism\+::\+Program \&}]{modules\+File }\end{DoxyParamCaption})}
+
+Sets the property formula for state space truncation optimization. Does not load or create an expression from the formula.
+
+
+\begin{DoxyParams}{Parameters}
+{\em formula} & The formula to set \\
+\hline
+{\em modules\+File} & The modules file which contains the expressionmanager \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelBuilder_a9ca4d0b14a165946c1bf5bb1c0e85de6}\label{classstamina_1_1StaminaModelBuilder_a9ca4d0b14a165946c1bf5bb1c0e85de6}} 
+\index{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!setUpAbsorbingState@{setUpAbsorbingState}}
+\index{setUpAbsorbingState@{setUpAbsorbingState}!stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::StaminaModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{setUpAbsorbingState()}{setUpAbsorbingState()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+void Stamina\+Model\+Builder\+::set\+Up\+Absorbing\+State (\begin{DoxyParamCaption}\item[{storm\+::storage\+::\+Sparse\+Matrix\+Builder$<$ Value\+Type $>$ \&}]{transition\+Matrix\+Builder,  }\item[{std\+::vector$<$ Reward\+Model\+Builder$<$ typename Reward\+Model\+Type\+::\+Value\+Type $>$ $>$ \&}]{reward\+Model\+Builders,  }\item[{State\+And\+Choice\+Information\+Builder \&}]{choice\+Information\+Builder,  }\item[{boost\+::optional$<$ storm\+::storage\+::\+Bit\+Vector $>$ \&}]{markovian\+Choices,  }\item[{boost\+::optional$<$ storm\+::storage\+::sparse\+::\+State\+Valuations\+Builder $>$ \&}]{state\+Valuations\+Builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sets up the initial state in the transition matrix 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Model\+Builder.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Model\+Builder.\+cpp\end{DoxyCompactItemize}

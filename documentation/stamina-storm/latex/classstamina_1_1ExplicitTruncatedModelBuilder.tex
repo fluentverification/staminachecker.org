@@ -1,0 +1,96 @@
+\hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder}{}\doxysection{stamina\+::Explicit\+Truncated\+Model\+Builder\texorpdfstring{$<$}{<} Value\+Type, Reward\+Model\+Type, State\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classstamina_1_1ExplicitTruncatedModelBuilder}\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}{Explicit\+Truncated\+Model\+Builder}} (std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$ const \&generator, \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&options=\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}())
+\item 
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_aec22494ed18efd7ee09e8324d0e0c284}{Explicit\+Truncated\+Model\+Builder}} (storm\+::prism\+::\+Program const \&program, storm\+::generator\+::\+Next\+State\+Generator\+Options const \&generator\+Options=storm\+::generator\+::\+Next\+State\+Generator\+Options(), \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&builder\+Options=\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}())
+\item 
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_a7fcaab922862be3cb6559f6fd62495ab}{Explicit\+Truncated\+Model\+Builder}} (storm\+::jani\+::\+Model const \&model, storm\+::generator\+::\+Next\+State\+Generator\+Options const \&generator\+Options=storm\+::generator\+::\+Next\+State\+Generator\+Options(), \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&builder\+Options=\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}())
+\item 
+std\+::shared\+\_\+ptr$<$ storm\+::models\+::sparse\+::\+Model$<$ Value\+Type, Reward\+Model\+Type $>$ $>$ \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_ae337aec7fcfe4fa57389805ff485fa39}{build}} ()
+\item 
+Explicit\+State\+Lookup$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder_af35501a0307e5d41678fe5f7ae41920c}{export\+Explicit\+State\+Lookup}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}\label{classstamina_1_1ExplicitTruncatedModelBuilder_a6ec3ff8f74a0580851a39704fa165d44}} 
+\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}}
+\index{ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}!stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{ExplicitTruncatedModelBuilder()}{ExplicitTruncatedModelBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{stamina\+::\+Explicit\+Truncated\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::\+Explicit\+Truncated\+Model\+Builder (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::generator\+::\+Next\+State\+Generator$<$ Value\+Type, State\+Type $>$ $>$ const \&}]{generator,  }\item[{\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&}]{options = {\ttfamily \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}()} }\end{DoxyParamCaption})}
+
+Creates an explicit model builder that uses the provided generator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & The generator to use. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder_aec22494ed18efd7ee09e8324d0e0c284}\label{classstamina_1_1ExplicitTruncatedModelBuilder_aec22494ed18efd7ee09e8324d0e0c284}} 
+\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}}
+\index{ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}!stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{ExplicitTruncatedModelBuilder()}{ExplicitTruncatedModelBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{stamina\+::\+Explicit\+Truncated\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::\+Explicit\+Truncated\+Model\+Builder (\begin{DoxyParamCaption}\item[{storm\+::prism\+::\+Program const \&}]{program,  }\item[{storm\+::generator\+::\+Next\+State\+Generator\+Options const \&}]{generator\+Options = {\ttfamily storm\+:\+:generator\+:\+:NextStateGeneratorOptions()},  }\item[{\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&}]{builder\+Options = {\ttfamily \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}()} }\end{DoxyParamCaption})}
+
+Creates an explicit model builder for the given PRISM program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & The program for which to build the model. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder_a7fcaab922862be3cb6559f6fd62495ab}\label{classstamina_1_1ExplicitTruncatedModelBuilder_a7fcaab922862be3cb6559f6fd62495ab}} 
+\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}}
+\index{ExplicitTruncatedModelBuilder@{ExplicitTruncatedModelBuilder}!stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{ExplicitTruncatedModelBuilder()}{ExplicitTruncatedModelBuilder()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+\mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{stamina\+::\+Explicit\+Truncated\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::\+Explicit\+Truncated\+Model\+Builder (\begin{DoxyParamCaption}\item[{storm\+::jani\+::\+Model const \&}]{model,  }\item[{storm\+::generator\+::\+Next\+State\+Generator\+Options const \&}]{generator\+Options = {\ttfamily storm\+:\+:generator\+:\+:NextStateGeneratorOptions()},  }\item[{\mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}} const \&}]{builder\+Options = {\ttfamily \mbox{\hyperlink{structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options}{Options}}()} }\end{DoxyParamCaption})}
+
+Creates an explicit model builder for the given JANI model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & The JANI model for which to build the model. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder_ae337aec7fcfe4fa57389805ff485fa39}\label{classstamina_1_1ExplicitTruncatedModelBuilder_ae337aec7fcfe4fa57389805ff485fa39}} 
+\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!build@{build}}
+\index{build@{build}!stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+std\+::shared\+\_\+ptr$<$ storm\+::models\+::sparse\+::\+Model$<$ Value\+Type, Reward\+Model\+Type $>$ $>$ \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{stamina\+::\+Explicit\+Truncated\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::build}
+
+Convert the program given at construction time to an abstract model. The type of the model is the one specified in the program. The given reward model name selects the rewards that the model will contain.
+
+\begin{DoxyReturn}{Returns}
+The explicit model that was given by the probabilistic program as well as additional information (if requested). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstamina_1_1ExplicitTruncatedModelBuilder_af35501a0307e5d41678fe5f7ae41920c}\label{classstamina_1_1ExplicitTruncatedModelBuilder_af35501a0307e5d41678fe5f7ae41920c}} 
+\index{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}!exportExplicitStateLookup@{exportExplicitStateLookup}}
+\index{exportExplicitStateLookup@{exportExplicitStateLookup}!stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$@{stamina::ExplicitTruncatedModelBuilder$<$ ValueType, RewardModelType, StateType $>$}}
+\doxysubsubsection{\texorpdfstring{exportExplicitStateLookup()}{exportExplicitStateLookup()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Reward\+Model\+Type , typename State\+Type $>$ \\
+Explicit\+State\+Lookup$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{stamina\+::\+Explicit\+Truncated\+Model\+Builder}}$<$ Value\+Type, Reward\+Model\+Type, State\+Type $>$\+::export\+Explicit\+State\+Lookup}
+
+Export a wrapper that contains (a copy of) the internal information that maps states to ids. This wrapper can be helpful to find states in later stages. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Explicit\+Truncated\+Model\+Builder.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Explicit\+Truncated\+Model\+Builder.\+cpp\end{DoxyCompactItemize}

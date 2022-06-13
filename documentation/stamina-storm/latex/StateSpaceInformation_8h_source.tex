@@ -1,0 +1,29 @@
+\hypertarget{StateSpaceInformation_8h_source}{}\doxysection{State\+Space\+Information.\+h}
+\label{StateSpaceInformation_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StateSpaceInformation.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/StateSpaceInformation.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STATESPACEINFORMATION\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STATESPACEINFORMATION\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <storm/storage/BitVector.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <storm/generator/VariableInformation.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{9     \textcolor{keyword}{typedef} storm::storage::BitVector CompressedState;}
+\DoxyCodeLine{10     \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1StateSpaceInformation}{StateSpaceInformation}} \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \textcolor{keyword}{static} std::string  stateToString(CompressedState \& state, \textcolor{keywordtype}{double} pi);}
+\DoxyCodeLine{13         \textcolor{keyword}{static} std::string stateToBase64String(CompressedState \& state, \textcolor{keywordtype}{double} pi);}
+\DoxyCodeLine{14         \textcolor{keyword}{static} \textcolor{keywordtype}{void} printStateAsString(CompressedState \& state, \textcolor{keywordtype}{double} pi);}
+\DoxyCodeLine{15         \textcolor{keyword}{static} \textcolor{keywordtype}{void} printStateAsBase64String(CompressedState \& state, \textcolor{keywordtype}{double} pi);}
+\DoxyCodeLine{16         \textcolor{keyword}{static} \textcolor{keywordtype}{void} setVariableInformation(storm::generator::VariableInformation varInformation);}
+\DoxyCodeLine{17         \textcolor{keyword}{static} \textcolor{keywordtype}{void} printVariableNames();}
+\DoxyCodeLine{18     \textcolor{keyword}{private}:}
+\DoxyCodeLine{19         \textcolor{keyword}{inline} \textcolor{keyword}{static} storm::generator::VariableInformation variableInformation;}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 \} \textcolor{comment}{// namespace stamina}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATESPACEINFORMATION\_H}}
+
+\end{DoxyCode}

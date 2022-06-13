@@ -1,0 +1,77 @@
+\hypertarget{classstamina_1_1StaminaMessages}{}\doxysection{stamina\+::Stamina\+Messages Class Reference}
+\label{classstamina_1_1StaminaMessages}\index{stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classstamina_1_1StaminaMessages_a7025769a060e62edf799447189661b76}{error\+And\+Exit}} (std\+::string err, uint8\+\_\+t err\+\_\+num=STAMINA\+\_\+\+ERRORS\+::\+ERR\+\_\+\+GENERAL)
+\item 
+static void \mbox{\hyperlink{classstamina_1_1StaminaMessages_a589e8194b1847d778e3464a28c1daa16}{error}} (std\+::string err, uint8\+\_\+t err\+\_\+num=STAMINA\+\_\+\+ERRORS\+::\+ERR\+\_\+\+GENERAL)
+\item 
+static void \mbox{\hyperlink{classstamina_1_1StaminaMessages_ab1c3d3a0764d36cf237085734b7a1bb8}{warning}} (std\+::string warn)
+\item 
+static void \mbox{\hyperlink{classstamina_1_1StaminaMessages_a8775114ee424fac9a4a550c8cad6b736}{info}} (std\+::string info)
+\item 
+static void \mbox{\hyperlink{classstamina_1_1StaminaMessages_a32b27171c2ae5117e4bc31307c8ab1cf}{good}} (std\+::string good)
+\item 
+\mbox{\Hypertarget{classstamina_1_1StaminaMessages_a44a30b6ceeb8d45009ce0e703d850762}\label{classstamina_1_1StaminaMessages_a44a30b6ceeb8d45009ce0e703d850762}} 
+static void {\bfseries write\+Results} (\mbox{\hyperlink{structstamina_1_1ResultInformation}{Result\+Information}} result\+Information, std\+::ostream out)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr char $\ast$ \mbox{\hyperlink{classstamina_1_1StaminaMessages_a1f89e866b10d3e459a72d34c3272530a}{horizontal\+Separator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaMessages_a589e8194b1847d778e3464a28c1daa16}\label{classstamina_1_1StaminaMessages_a589e8194b1847d778e3464a28c1daa16}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!error@{error}}
+\index{error@{error}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void Stamina\+Messages\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{err,  }\item[{uint8\+\_\+t}]{err\+\_\+num = {\ttfamily STAMINA\+\_\+ERRORS\+:\+:ERR\+\_\+GENERAL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Errors without exiting \mbox{\Hypertarget{classstamina_1_1StaminaMessages_a7025769a060e62edf799447189661b76}\label{classstamina_1_1StaminaMessages_a7025769a060e62edf799447189661b76}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!errorAndExit@{errorAndExit}}
+\index{errorAndExit@{errorAndExit}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{errorAndExit()}{errorAndExit()}}
+{\footnotesize\ttfamily void Stamina\+Messages\+::error\+And\+Exit (\begin{DoxyParamCaption}\item[{std\+::string}]{err,  }\item[{uint8\+\_\+t}]{err\+\_\+num = {\ttfamily STAMINA\+\_\+ERRORS\+:\+:ERR\+\_\+GENERAL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Errors and exits program \mbox{\Hypertarget{classstamina_1_1StaminaMessages_a32b27171c2ae5117e4bc31307c8ab1cf}\label{classstamina_1_1StaminaMessages_a32b27171c2ae5117e4bc31307c8ab1cf}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!good@{good}}
+\index{good@{good}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{good()}{good()}}
+{\footnotesize\ttfamily void Stamina\+Messages\+::good (\begin{DoxyParamCaption}\item[{std\+::string}]{good }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints a (good) message (i.\+e., we finished) \mbox{\Hypertarget{classstamina_1_1StaminaMessages_a8775114ee424fac9a4a550c8cad6b736}\label{classstamina_1_1StaminaMessages_a8775114ee424fac9a4a550c8cad6b736}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!info@{info}}
+\index{info@{info}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void Stamina\+Messages\+::info (\begin{DoxyParamCaption}\item[{std\+::string}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints an info message \mbox{\Hypertarget{classstamina_1_1StaminaMessages_ab1c3d3a0764d36cf237085734b7a1bb8}\label{classstamina_1_1StaminaMessages_ab1c3d3a0764d36cf237085734b7a1bb8}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!warning@{warning}}
+\index{warning@{warning}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily void Stamina\+Messages\+::warning (\begin{DoxyParamCaption}\item[{std\+::string}]{warn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints a warning 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaMessages_a1f89e866b10d3e459a72d34c3272530a}\label{classstamina_1_1StaminaMessages_a1f89e866b10d3e459a72d34c3272530a}} 
+\index{stamina::StaminaMessages@{stamina::StaminaMessages}!horizontalSeparator@{horizontalSeparator}}
+\index{horizontalSeparator@{horizontalSeparator}!stamina::StaminaMessages@{stamina::StaminaMessages}}
+\doxysubsubsection{\texorpdfstring{horizontalSeparator}{horizontalSeparator}}
+{\footnotesize\ttfamily constexpr char$\ast$ stamina\+::\+Stamina\+Messages\+::horizontal\+Separator\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{            \textcolor{stringliteral}{"{}========================================================================================"{}}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Messages.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Messages.\+cpp\end{DoxyCompactItemize}

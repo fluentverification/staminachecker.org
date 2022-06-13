@@ -1,0 +1,51 @@
+\hypertarget{ModelModify_8h_source}{}\doxysection{Model\+Modify.\+h}
+\label{ModelModify_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/ModelModify.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/ModelModify.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MODELMODIFY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MODELMODIFY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <storm/api/storm.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <storm-\/parsers/api/storm-\/parsers.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <storm-\/parsers/parser/PrismParser.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <storm/storage/prism/Program.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <storm/storage/jani/Property.h>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}storm/storage/jani/Property.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}storm/storage/prism/Program.h"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{16     \textcolor{keyword}{namespace }util \{}
+\DoxyCodeLine{17         \textcolor{keyword}{const} std::string modelFileDefault = \textcolor{stringliteral}{"{}stamina\_modified\_model\_file.prism"{}};}
+\DoxyCodeLine{18         \textcolor{keyword}{const} std::string propFileDefault = \textcolor{stringliteral}{"{}stamina\_modified\_prop\_file.csl"{}};}
+\DoxyCodeLine{19         \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1util_1_1ModelModify}{ModelModify}} \{}
+\DoxyCodeLine{20         \textcolor{keyword}{public}:}
+\DoxyCodeLine{32             \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_ab2f16a82b8b06221a8ddc797f72bc236}{ModelModify}}(}
+\DoxyCodeLine{33                 std::string originalModel}
+\DoxyCodeLine{34                 , std::string originalProperties}
+\DoxyCodeLine{35                 , \textcolor{keywordtype}{bool} saveModifiedModel = \textcolor{keyword}{true}}
+\DoxyCodeLine{36                 , \textcolor{keywordtype}{bool} saveModifiedProperties = \textcolor{keyword}{true}}
+\DoxyCodeLine{37                 , std::string modifiedModel = modelFileDefault}
+\DoxyCodeLine{38                 , std::string modifiedProperties = propFileDefault}
+\DoxyCodeLine{39             );}
+\DoxyCodeLine{43             \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_a8e5c06048ddaadfd73b94cdcf54cd111}{\string~ModelModify}}();}
+\DoxyCodeLine{47             std::shared\_ptr<storm::prism::Program> \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_afeabd93d1a0682e23e99e601da8ab622}{createModifiedModel}}();}
+\DoxyCodeLine{51             std::shared\_ptr<std::vector<storm::jani::Property>> \mbox{\hyperlink{classstamina_1_1util_1_1ModelModify_abd2fbecbbbfc0a28d627570c41c35c74}{createModifiedProperties}}(}
+\DoxyCodeLine{52                 std::shared\_ptr<storm::prism::Program> modelFile}
+\DoxyCodeLine{53             );}
+\DoxyCodeLine{54         \textcolor{keyword}{private}:}
+\DoxyCodeLine{55             std::string originalModel;}
+\DoxyCodeLine{56             std::string modifiedModel;}
+\DoxyCodeLine{57             std::string originalProperties;}
+\DoxyCodeLine{58             std::string modifiedProperties;}
+\DoxyCodeLine{59             \textcolor{keywordtype}{bool} saveModifiedModel;}
+\DoxyCodeLine{60             \textcolor{keywordtype}{bool} saveModifiedProperties;}
+\DoxyCodeLine{61         \};}
+\DoxyCodeLine{62     \} \textcolor{comment}{// namespace util}}
+\DoxyCodeLine{63 \} \textcolor{comment}{// namespace stamina}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MODEL\_MODIFY\_H}}
+
+\end{DoxyCode}

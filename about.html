@@ -7,11 +7,12 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script src="https://kwesforms.com/v2/kwes-script.js" defer></script>
 </head>
 <body>
 <!-- Navigation Bar -->
 <ul class="navbar" id="navbar">
-	<li><a class="stamina-name" id="stamina" href="index.html">STAMINA</a></li>
+	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA</div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
 	<li><a class="navbutton" href="index.html">Home</a></li>
@@ -128,15 +129,18 @@
 		<h1>
 			Contact the Developers of STAMINA
 		</h1>
-		<form class="form" action="alertNotImplemented()">
+		<form class="form kwes-form" action="https://kwesforms.com/api/foreign/forms/e61ViUdP78rw3AYqc0qy">
 			<label for="name">Full Name:</label>
-			<input type="text" id="name" name="name" placeholder="Your name...">
+			<input type="text" id="name" name="name" placeholder="Your name..." rules="required|max:255">
 
 			<label for="organization">Organization:</label>
-			<input type="text" id="organization" name="organization" placeholder="Your organization...">
+			<input type="text" id="organization" name="organization" placeholder="Your organization..." rules="required|max:255">
+
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email" placeholder="Your email..." rules="required|email|max:255">
 
 			<label for="position">Position:</label>
-			<input type="text" id="position" name="position" placeholder="Your position...">
+			<input type="text" id="position" name="position" placeholder="Your position..." rules="required|max:255">
 
 			<!-- Not sure if we need the "country" field -->
 <!--			<label for="country">Country:</label>
@@ -150,12 +154,11 @@
 			</select>
 
 			<label for="subject">Subject</label>
-			<textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+			<textarea id="subject" name="subject" placeholder="Write something..." style="height:200px" rules="required"></textarea>
 
 			<input type="submit" value="Submit">
 
 		</form>
-		<p style="font-size: 9pt;">This contact form has not been implemented yet. Contact us through our GitHub page instead</p>
 		<script>
 			function alertNotImplemented() {
 				alert("This contact form has not been implemented to do anything yet! Please send your query as an email.");
@@ -173,25 +176,25 @@
 				<th>Papers and Research</th>
 			</tr>
 			<tr>
-				<td><a href="#">STAMINA/STORM</a></td>
+				<td><a href="https://github.com/fluentverification/stamina-cplusplus">STAMINA/STORM</a></td>
 				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
-				<td><a href="#">Google Scholar</a></td>
+				<td><a href="https://scholar.google.com/citations?hl=en&user=1bpMdpUAAAAJ">Google Scholar</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">STAMINA/PRISM</a></td>
+				<td><a href="https://github.com/fluentverification/stamina">STAMINA/PRISM</a></td>
 				<td><a href="#">Property-Directed Reachability</a></td>
 			</tr>
 			<tr>
-				<td><a href="#">Contact Developers</a></td>
+				<td><a href="about.html#contact">Contact Developers</a></td>
 				<td><a href="#">Counterexample Generation</a></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><a href="#">Fluent Website</a></td>
+				<td><a href="fluentverification.github.io">Fluent Website</a></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><a href="#">Contact Fluent</a></td>
+				<td><a href="https://fluentverification.github.io/contact/">Contact Fluent</a></td>
 			</tr>
 		</table>
 	</div>

@@ -1,0 +1,60 @@
+\hypertarget{classstamina_1_1util_1_1StateMemoryPool}{}\doxysection{stamina\+::util\+::State\+Memory\+Pool\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classstamina_1_1util_1_1StateMemoryPool}\index{stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a1e871b0153e8be6e0eec8009a4eaa3f0}{State\+Memory\+Pool}} (uint8\+\_\+t block\+Size=13)
+\item 
+\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a769a9ea69a6647811a58856900ef0ab0}{$\sim$\+State\+Memory\+Pool}} ()
+\item 
+T $\ast$ \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a11073ad552bf75cbe107f232b778bd69}{allocate}} (uint32\+\_\+t number=1)
+\item 
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_ac6a4618dfc91ab63d12e55ebcd1decbd}{free\+All}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateMemoryPool_a1e871b0153e8be6e0eec8009a4eaa3f0}\label{classstamina_1_1util_1_1StateMemoryPool_a1e871b0153e8be6e0eec8009a4eaa3f0}} 
+\index{stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}!StateMemoryPool@{StateMemoryPool}}
+\index{StateMemoryPool@{StateMemoryPool}!stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{StateMemoryPool()}{StateMemoryPool()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{stamina\+::util\+::\+State\+Memory\+Pool}}$<$ T $>$\+::\+State\+Memory\+Pool (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{block\+Size = {\ttfamily 13} }\end{DoxyParamCaption})}
+
+Constructor. Creates the first block of the pool
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Size} & Exponent on 2 of \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateMemoryPool_a769a9ea69a6647811a58856900ef0ab0}\label{classstamina_1_1util_1_1StateMemoryPool_a769a9ea69a6647811a58856900ef0ab0}} 
+\index{stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}!````~StateMemoryPool@{$\sim$StateMemoryPool}}
+\index{````~StateMemoryPool@{$\sim$StateMemoryPool}!stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$StateMemoryPool()}{~StateMemoryPool()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{stamina\+::util\+::\+State\+Memory\+Pool}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{State\+Memory\+Pool}}}
+
+Destructor. Frees all of the memory allocated by the memory pool 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateMemoryPool_a11073ad552bf75cbe107f232b778bd69}\label{classstamina_1_1util_1_1StateMemoryPool_a11073ad552bf75cbe107f232b778bd69}} 
+\index{stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}!allocate@{allocate}}
+\index{allocate@{allocate}!stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T $\ast$ \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{stamina\+::util\+::\+State\+Memory\+Pool}}$<$ T $>$\+::allocate (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{number = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Allocates a T value and returns a pointer to it \mbox{\Hypertarget{classstamina_1_1util_1_1StateMemoryPool_ac6a4618dfc91ab63d12e55ebcd1decbd}\label{classstamina_1_1util_1_1StateMemoryPool_ac6a4618dfc91ab63d12e55ebcd1decbd}} 
+\index{stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}!freeAll@{freeAll}}
+\index{freeAll@{freeAll}!stamina::util::StateMemoryPool$<$ T $>$@{stamina::util::StateMemoryPool$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{freeAll()}{freeAll()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{stamina\+::util\+::\+State\+Memory\+Pool}}$<$ T $>$\+::free\+All}
+
+Clears all memory 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/State\+Memory\+Pool.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/util/State\+Memory\+Pool.\+cpp\end{DoxyCompactItemize}

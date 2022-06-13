@@ -1,0 +1,43 @@
+\hypertarget{Options_8h_source}{}\doxysection{Options.\+h}
+\label{Options_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/Options.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/Options.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef OPTIONS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define OPTIONS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}StaminaArgParse.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{14     \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1Options}{Options}} \{}
+\DoxyCodeLine{15     \textcolor{keyword}{public}:}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{23         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classstamina_1_1Options_a99c1f4e37898e5a471472adfdba68d90}{checkOptions}}();}
+\DoxyCodeLine{29         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1Options_a5dc236ec9904b364c77c4735af77c9d5}{setArgs}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structarguments}{arguments}} * \mbox{\hyperlink{structarguments}{arguments}});}
+\DoxyCodeLine{30         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string model\_file;}
+\DoxyCodeLine{31         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string properties\_file;}
+\DoxyCodeLine{32         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} kappa;}
+\DoxyCodeLine{33         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} reduce\_kappa;}
+\DoxyCodeLine{34         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} approx\_factor; \textcolor{comment}{// Misprediction factor}}
+\DoxyCodeLine{35         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} prob\_win;}
+\DoxyCodeLine{36         \textcolor{keyword}{inline} \textcolor{keyword}{static} uint64\_t max\_approx\_count;}
+\DoxyCodeLine{37         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} no\_prop\_refine;}
+\DoxyCodeLine{38         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string cudd\_max\_mem;}
+\DoxyCodeLine{39         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string export\_filename;}
+\DoxyCodeLine{40         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string export\_perimeter\_states;}
+\DoxyCodeLine{41         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string import\_filename;}
+\DoxyCodeLine{42         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string property;}
+\DoxyCodeLine{43         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string consts;}
+\DoxyCodeLine{44         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::string export\_trans;}
+\DoxyCodeLine{45         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} rank\_transitions;}
+\DoxyCodeLine{46         \textcolor{keyword}{inline} \textcolor{keyword}{static} uint64\_t max\_iterations;}
+\DoxyCodeLine{47         \textcolor{keyword}{inline} \textcolor{keyword}{static} uint64\_t max\_states;}
+\DoxyCodeLine{48     \};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacestamina_a821f0f9936d8dfb3daa60460cdf1721d}{endsWith}}(std::string full, std::string end);}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// OPTIONS\_H}}
+
+\end{DoxyCode}

@@ -2,6 +2,31 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
+body {
+	margin: 0px;
+}
+
+.collapsible-header {
+	padding: 20px;
+	background: #f3f3f3;
+	border-bottom: #969696 solid 2px;
+	cursor: pointer;
+}
+
+.collapsible-header:hover {
+	background: #d3d3d3;
+	border-bottom: #d9d9d9 solid 2px;
+}
+
+.collapsible {
+	display: none;
+}
+
+.ack-logo {
+	display: inline-block;
+	vertical-align: center;
+}
+
 .button-icon {
 /* 	padding: 2px; */
 	padding-right: 10px;
@@ -96,6 +121,7 @@ input[type=text], select, textarea {
 	border: none;
 	vertical-align: middle;
 	line-height: 20px;
+	cursor: pointer;
 }
 
 .button:hover, input[type=submit]:hover {
@@ -182,6 +208,16 @@ p {
 
 #stamina:hover {
 	color: #67aa8a;
+}
+
+#slogo {
+	display: inline;
+	border: 2px solid white;
+	padding: 4px;
+}
+
+#slogo:hover {
+	border: 2px solid #67aa8a;
 }
 
 .navbar .openbutton, .navbar .closebutton {
@@ -334,8 +370,11 @@ ul.navbar li.right {
 	a:hover {
 		color: #2e8460;
 	}
-	.form, .inline-code, .code, .citation {
+	.form, .inline-code, .code, .citation, .collapsible-header {
 		background-color: #262626;
+	}
+	.collapsible-header:hover {
+		background-color: #363636;
 	}
 	.footer, .footer-links table a {
 		background-color: #363636;

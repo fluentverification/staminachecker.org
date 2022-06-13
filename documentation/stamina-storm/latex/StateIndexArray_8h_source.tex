@@ -1,0 +1,45 @@
+\hypertarget{StateIndexArray_8h_source}{}\doxysection{State\+Index\+Array.\+h}
+\label{StateIndexArray_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/StateIndexArray.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/StateIndexArray.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STATEINDEXARRAY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STATEINDEXARRAY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <boost/pool/object\_pool.hpp>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{18     \textcolor{comment}{// Pool pointer is not within the util namespace}}
+\DoxyCodeLine{19     \textcolor{comment}{/* template <typename T, typename P = boost::object\_pool<T>>}}
+\DoxyCodeLine{20 \textcolor{comment}{    struct poolDeleter \{}}
+\DoxyCodeLine{21 \textcolor{comment}{}}
+\DoxyCodeLine{22 \textcolor{comment}{    private:}}
+\DoxyCodeLine{23 \textcolor{comment}{        P \& pool;}}
+\DoxyCodeLine{24 \textcolor{comment}{    \}; */}}
+\DoxyCodeLine{25     \textcolor{keyword}{namespace }util \{}
+\DoxyCodeLine{26         \textcolor{keyword}{template} <\textcolor{keyword}{typename} StateType, \textcolor{keyword}{typename} ProbabilityStateType>}
+\DoxyCodeLine{27         \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{StateIndexArray}} \{}
+\DoxyCodeLine{28         \textcolor{keyword}{public}:}
+\DoxyCodeLine{29             \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{StateIndexArray}}(uint8\_t blockSizeExponent = 15); \textcolor{comment}{// 2 \string^ 15}}
+\DoxyCodeLine{30             \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{\string~StateIndexArray}}();}
+\DoxyCodeLine{34             \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a66f913155988743d70690bcc95de00de}{clear}}();}
+\DoxyCodeLine{40             \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a7eb9c49940ee1a40599218d1489cd7f6}{reserve}}(uint32\_t numToReserve);}
+\DoxyCodeLine{49             ProbabilityStateType * \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_abe66830fd1571838c2ac155747fd4246}{get}}(StateType index);}
+\DoxyCodeLine{55             \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a85cd1281c80e11d19c7445c0ff862d17}{put}}(StateType index, ProbabilityStateType * probabilityState);}
+\DoxyCodeLine{61             std::vector<StateType> \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}{getPerimeterStates}}();}
+\DoxyCodeLine{62         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{69             uint32\_t \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a563fe49ccfb6f3a8b49c0f3370d67601}{sizeToActualSize}}(uint32\_t size);}
+\DoxyCodeLine{70         \textcolor{keyword}{private}:}
+\DoxyCodeLine{71             uint32\_t numElements;}
+\DoxyCodeLine{72             uint32\_t blockSize;}
+\DoxyCodeLine{73             std::vector<std::shared\_ptr<ProbabilityStateType *>> stateArray;}
+\DoxyCodeLine{74         \};}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATEINDEXARRAY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,77 @@
+\hypertarget{classstamina_1_1StaminaModelChecker}{}\doxysection{stamina\+::Stamina\+Model\+Checker Class Reference}
+\label{classstamina_1_1StaminaModelChecker}\index{stamina::StaminaModelChecker@{stamina::StaminaModelChecker}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstamina_1_1StaminaModelChecker_a375249ab96e0619ddf29aa2d5effd172}{Stamina\+Model\+Checker}} (std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$ modules\+File=nullptr, std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$ properties\+Vector=nullptr)
+\item 
+\mbox{\hyperlink{classstamina_1_1StaminaModelChecker_a80441fb1151e351d389451695ad294fc}{$\sim$\+Stamina\+Model\+Checker}} ()
+\item 
+void \mbox{\hyperlink{classstamina_1_1StaminaModelChecker_a43cd01791ecdcfe7b7ae917d7e278eb0}{initialize}} (std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$ modules\+File=nullptr, std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$ properties\+Vector=nullptr)
+\item 
+std\+::unique\+\_\+ptr$<$ storm\+::modelchecker\+::\+Check\+Result $>$ \mbox{\hyperlink{classstamina_1_1StaminaModelChecker_a8416a26df51f9720aac74e2860d30fbe}{model\+Check\+Property}} (storm\+::jani\+::\+Property prop\+Min, storm\+::jani\+::\+Property prop\+Max, storm\+::prism\+::\+Program const \&modules\+File)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelChecker_a375249ab96e0619ddf29aa2d5effd172}\label{classstamina_1_1StaminaModelChecker_a375249ab96e0619ddf29aa2d5effd172}} 
+\index{stamina::StaminaModelChecker@{stamina::StaminaModelChecker}!StaminaModelChecker@{StaminaModelChecker}}
+\index{StaminaModelChecker@{StaminaModelChecker}!stamina::StaminaModelChecker@{stamina::StaminaModelChecker}}
+\doxysubsubsection{\texorpdfstring{StaminaModelChecker()}{StaminaModelChecker()}}
+{\footnotesize\ttfamily Stamina\+Model\+Checker\+::\+Stamina\+Model\+Checker (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$}]{modules\+File = {\ttfamily nullptr},  }\item[{std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$}]{properties\+Vector = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+Constructor for \mbox{\hyperlink{classstamina_1_1StaminaModelChecker}{Stamina\+Model\+Checker}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em modules\+File} & Pointer to the Modules file \\
+\hline
+{\em properties\+Vector} & Pointer to the Properties vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelChecker_a80441fb1151e351d389451695ad294fc}\label{classstamina_1_1StaminaModelChecker_a80441fb1151e351d389451695ad294fc}} 
+\index{stamina::StaminaModelChecker@{stamina::StaminaModelChecker}!````~StaminaModelChecker@{$\sim$StaminaModelChecker}}
+\index{````~StaminaModelChecker@{$\sim$StaminaModelChecker}!stamina::StaminaModelChecker@{stamina::StaminaModelChecker}}
+\doxysubsubsection{\texorpdfstring{$\sim$StaminaModelChecker()}{~StaminaModelChecker()}}
+{\footnotesize\ttfamily Stamina\+Model\+Checker\+::$\sim$\+Stamina\+Model\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Standard destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelChecker_a43cd01791ecdcfe7b7ae917d7e278eb0}\label{classstamina_1_1StaminaModelChecker_a43cd01791ecdcfe7b7ae917d7e278eb0}} 
+\index{stamina::StaminaModelChecker@{stamina::StaminaModelChecker}!initialize@{initialize}}
+\index{initialize@{initialize}!stamina::StaminaModelChecker@{stamina::StaminaModelChecker}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Stamina\+Model\+Checker\+::initialize (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ storm\+::prism\+::\+Program $>$}]{modules\+File = {\ttfamily nullptr},  }\item[{std\+::shared\+\_\+ptr$<$ std\+::vector$<$ storm\+::jani\+::\+Property $>$ $>$}]{properties\+Vector = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+Initializes the \mbox{\hyperlink{classstamina_1_1StaminaModelChecker}{Stamina\+Model\+Checker}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em properties\+Vector} & A vector to the list of JANI properties \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstamina_1_1StaminaModelChecker_a8416a26df51f9720aac74e2860d30fbe}\label{classstamina_1_1StaminaModelChecker_a8416a26df51f9720aac74e2860d30fbe}} 
+\index{stamina::StaminaModelChecker@{stamina::StaminaModelChecker}!modelCheckProperty@{modelCheckProperty}}
+\index{modelCheckProperty@{modelCheckProperty}!stamina::StaminaModelChecker@{stamina::StaminaModelChecker}}
+\doxysubsubsection{\texorpdfstring{modelCheckProperty()}{modelCheckProperty()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ storm\+::modelchecker\+::\+Check\+Result $>$ Stamina\+Model\+Checker\+::model\+Check\+Property (\begin{DoxyParamCaption}\item[{storm\+::jani\+::\+Property}]{prop\+Min,  }\item[{storm\+::jani\+::\+Property}]{prop\+Max,  }\item[{storm\+::prism\+::\+Program const \&}]{modules\+File }\end{DoxyParamCaption})}
+
+Model checks a specific property
+
+
+\begin{DoxyParams}{Parameters}
+{\em prop} & Property to check \\
+\hline
+{\em modules\+File} & The modules file to work with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the result of the model checking 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Model\+Checker.\+h\item 
+/home/josh/\+Documents/\+Work/stamina-\/cplusplus/src/stamina/Stamina\+Model\+Checker.\+cpp\end{DoxyCompactItemize}

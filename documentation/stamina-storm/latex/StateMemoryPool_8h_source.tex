@@ -1,0 +1,38 @@
+\hypertarget{StateMemoryPool_8h_source}{}\doxysection{State\+Memory\+Pool.\+h}
+\label{StateMemoryPool_8h_source}\index{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/StateMemoryPool.h@{/home/josh/Documents/Work/stamina-\/cplusplus/src/stamina/util/StateMemoryPool.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STATEMEMORYPOOL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STATEMEMORYPOOL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{// \#include <deque>}}
+\DoxyCodeLine{5 \textcolor{comment}{// \#include <ordered\_set>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{29 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacestamina}{stamina}} \{}
+\DoxyCodeLine{30     \textcolor{keyword}{namespace }util \{}
+\DoxyCodeLine{31         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{32         \textcolor{keyword}{class }\mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool}{StateMemoryPool}} \{}
+\DoxyCodeLine{33         \textcolor{keyword}{public}:}
+\DoxyCodeLine{39             \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a1e871b0153e8be6e0eec8009a4eaa3f0}{StateMemoryPool}}(uint8\_t blockSize = 13); \textcolor{comment}{// 2 \string^ 12}}
+\DoxyCodeLine{43 \textcolor{comment}{}            \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a769a9ea69a6647811a58856900ef0ab0}{\string~StateMemoryPool}}();}
+\DoxyCodeLine{47             T * \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_a11073ad552bf75cbe107f232b778bd69}{allocate}}(uint32\_t number = 1);}
+\DoxyCodeLine{51             \textcolor{keywordtype}{void} \mbox{\hyperlink{classstamina_1_1util_1_1StateMemoryPool_ac6a4618dfc91ab63d12e55ebcd1decbd}{freeAll}}();}
+\DoxyCodeLine{52             \textcolor{comment}{// Methods that will be implemented when defragmentation is added}}
+\DoxyCodeLine{53             \textcolor{comment}{// void free(T * address); // knows the number used}}
+\DoxyCodeLine{54             \textcolor{comment}{// void defrag();}}
+\DoxyCodeLine{55         \textcolor{keyword}{private}:}
+\DoxyCodeLine{56             \textcolor{keyword}{const} uint32\_t blockSize;}
+\DoxyCodeLine{57             uint32\_t usedThisBlock;}
+\DoxyCodeLine{58             std::vector<T *> blocks;}
+\DoxyCodeLine{59             \textcolor{comment}{// Will be used when defragmentation is implemented}}
+\DoxyCodeLine{60             \textcolor{comment}{// std::deque<std::pair<T*, uint32\_t>> deletedBlocks; // Blocks which have been deleted}}
+\DoxyCodeLine{61             \textcolor{comment}{// std::ordered\_set<std::pair<T*, uint32\_t>> nonSingleBlocks; // Blocks of arrays}}
+\DoxyCodeLine{62         \};}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// STATEMEMORYPOOL\_H}}
+
+\end{DoxyCode}

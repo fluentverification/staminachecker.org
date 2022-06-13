@@ -1,0 +1,106 @@
+\hypertarget{namespacestamina}{}\doxysection{stamina Namespace Reference}
+\label{namespacestamina}\index{stamina@{stamina}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classstamina_1_1ExplicitTruncatedModelBuilder}{Explicit\+Truncated\+Model\+Builder}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1Options}{Options}}
+\item 
+struct \mbox{\hyperlink{structstamina_1_1ResultInformation}{Result\+Information}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1Stamina}{Stamina}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1StaminaMessages}{Stamina\+Messages}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1StaminaModelBuilder}{Stamina\+Model\+Builder}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1StaminaModelChecker}{Stamina\+Model\+Checker}}
+\item 
+class \mbox{\hyperlink{classstamina_1_1StateSpaceInformation}{State\+Space\+Information}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacestamina_aa9ba1bb37683744675d7ddc107bdbb1b}\label{namespacestamina_aa9ba1bb37683744675d7ddc107bdbb1b}} 
+typedef storm\+::models\+::sparse\+::\+Ctmc$<$ double $>$ {\bfseries Ctmc}
+\item 
+\mbox{\Hypertarget{namespacestamina_ac93b4e3130a7bcf14b5b226e8f360a4c}\label{namespacestamina_ac93b4e3130a7bcf14b5b226e8f360a4c}} 
+typedef storm\+::modelchecker\+::\+Sparse\+Ctmc\+Csl\+Model\+Checker$<$ Ctmc $>$ {\bfseries Ctmc\+Model\+Checker}
+\item 
+\mbox{\Hypertarget{namespacestamina_ae78d4f3dac92b35b4a71f2a715bae8a9}\label{namespacestamina_ae78d4f3dac92b35b4a71f2a715bae8a9}} 
+typedef storm\+::storage\+::\+Bit\+Vector {\bfseries Compressed\+State}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacestamina_afd5b1297509153d2b00f75cb3be7c4c8}\label{namespacestamina_afd5b1297509153d2b00f75cb3be7c4c8}} 
+enum {\bfseries STAMINA\+\_\+\+ERRORS} \{ {\bfseries ERR\+\_\+\+GENERAL} = 1
+, {\bfseries ERR\+\_\+\+SEVERE} = 2
+, {\bfseries ERR\+\_\+\+MEMORY\+\_\+\+EXCEEDED} = 137
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacestamina_a821f0f9936d8dfb3daa60460cdf1721d}{ends\+With}} (std\+::string full, std\+::string end)
+\item 
+\mbox{\Hypertarget{namespacestamina_ab996c68839a5a5afbb68a7e640c60c48}\label{namespacestamina_ab996c68839a5a5afbb68a7e640c60c48}} 
+{\footnotesize template$<$typename State\+Type $>$ }\\bool {\bfseries set\+\_\+contains} (std\+::unordered\+\_\+set$<$ State\+Type $>$ current\+\_\+set, State\+Type value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacestamina_ad12b893ffe2499293070ba5a5345cb7d}\label{namespacestamina_ad12b893ffe2499293070ba5a5345cb7d}} 
+const uint32\+\_\+t {\bfseries absorbing\+State\+Index} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A copy of storm\+::builder\+::\+Explicit\+Model\+Builder with a max number of states to explore for debugging purposes
+
+\mbox{\hyperlink{classstamina_1_1Stamina}{Stamina}} Model Builder Class Created by Josh Jeppson on 8/17/2021
+
+If you look closely, you\textquotesingle{}ll see this is fairly similar to storm\+::builder\+::\+Explicit\+Model\+Builder
+
+Because state indecies are generally assigned in order, it is more efficient to allocate a linear array which guarantees a O(1) lookup time and has an (at worst) O(n / block\+Size) insert.
+
+Blocksizes are assumed to be large
+
+Implementation for Stamina\+Memory\+Pool methods
+
+This file created by Josh Jeppson on May 27, 2022
+
+\mbox{\hyperlink{classstamina_1_1Stamina}{Stamina}} Memory Pool allocator
+
+Because STAMINA/\+STORM allocates thousands or millions of states, and in C++ each call to {\ttfamily new} invokes a system-\/call, dynamic allocation of memory for stamina\+::\+Stamina\+Model\+Builder\+::\+Probability\+States are very slow. This allocates a pool of larger blocks to reduce the number of system-\/calls (since each call to malloc() -- invoked by new -- is a system call to ask for more memory)
+
+This memory pool makes a few assumptions to increase performance\+:
+\begin{DoxyEnumerate}
+\item All states are assumed to be in memory from allocation-\/time until the program. The STAMINA memory pool allows for dynamic deletion, but defragmentation must be explicitly invoked using the defrag() method and is not automatically called.
+\item For now, defrag() has not been implemented, requiring
+\end{DoxyEnumerate}
+
+Future work\+:
+\begin{DoxyEnumerate}
+\item Offload excess memory to a swapfile which is deleted on State\+Memory\+Pool destruction
+\end{DoxyEnumerate}
+
+This file created by Josh Jeppson on May 27, 2022 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacestamina_a821f0f9936d8dfb3daa60460cdf1721d}\label{namespacestamina_a821f0f9936d8dfb3daa60460cdf1721d}} 
+\index{stamina@{stamina}!endsWith@{endsWith}}
+\index{endsWith@{endsWith}!stamina@{stamina}}
+\doxysubsubsection{\texorpdfstring{endsWith()}{endsWith()}}
+{\footnotesize\ttfamily bool stamina\+::ends\+With (\begin{DoxyParamCaption}\item[{std\+::string}]{full,  }\item[{std\+::string}]{end }\end{DoxyParamCaption})}
+
+Tells us if a string ends with another
+
+
+\begin{DoxyParams}{Parameters}
+{\em full} & Full string to check \\
+\hline
+{\em end} & Ending of the string \\
+\hline
+\end{DoxyParams}
