@@ -6,15 +6,30 @@ body {
 	margin: 0px;
 }
 
+.cookie-banner {
+	font-family: 'Noto Sans', sans-serif;
+	display: block;
+	position: fixed;
+	background-color: #b4f7d6;
+	border-top: 4px solid #2e8460;
+	color: #363636;
+	bottom: 20px;
+	left: 20px;
+	padding: 30px;
+	font-size: 10pt;
+	width: 50%;
+	display: none;
+}
+
 .collapsible-header {
 	padding: 20px;
-	background: #f3f3f3;
+/* 	background: #f3f3f3; */
 	border-bottom: #969696 solid 2px;
 	cursor: pointer;
 }
 
 .collapsible-header:hover {
-	background: #d3d3d3;
+/* 	background: #d3d3d3; */
 	border-bottom: #d9d9d9 solid 2px;
 }
 
@@ -62,7 +77,7 @@ body {
 	border-left: 4px solid #48ce94;
 }
 
-.inline-code {
+.inline-code, .inline-code-note {
 	display: inline;
 	font-weight: semi-expanded;
 	font-family: 'Noto Sans Mono', monospace;

@@ -30,6 +30,22 @@
 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li>
 </ul>
 <div class="top-buffer" id="top-buffer"><br></div>
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner">
+	<table>
+		<tr>
+		<td>
+	The STAMINA Website saves only <i>one</i> cookie on your browser with the purpose of remembering whether you prefer dark or light mode. Naturally, <b>we do not track you</b>, store excessive cookies, advertise on this site, or anything of the sort. That would be extremely unprofessional of us. If you are seeing this message, it means the cookie with your preferred color scheme is being stored this session, and you will not see this message on future visits.
+	</td><td>
+	<a style="color:black; padding: 10px; font-size: 20pt; cursor: pointer;" onclick="closeCookieBanner()">&times;</a></td><tr>
+	</table>
+	<script>
+		function closeCookieBanner() {
+			let cookieBanner = document.getElementById('cookie-banner');
+			cookieBanner.style.display = "none";
+		}
+	</script>
+</div>
 <div class="content">
 <!-- CONTENT -->
 	<div id="contents" class="contents">

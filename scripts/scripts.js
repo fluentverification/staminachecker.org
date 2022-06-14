@@ -1,11 +1,24 @@
-var darkMode = (document.cookie == "color-scheme=dark") || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+var darkMode = (document.cookie.includes("color-scheme=dark")) || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+var showCookieInfo = document.cookie == "";
+
+var expirationDate = new Date();
+expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+var expireCookie = "expires=" + expirationDate.toUTCString();
 
 window.onload = function() {
 	if (darkMode) {
-	setDarkMode();
+		setDarkMode();
 	}
 	else {
-		document.cookie = "color-scheme=light";
+		document.cookie = "color-scheme=light " + expireCookie;
+	}
+	// If showCookieInfo
+	if (showCookieInfo) {
+		let cookieBanner = document.getElementById('cookie-banner');
+		if (cookieBanner != null) {
+			cookieBanner.style.display = "block";
+		}
 	}
 }
 /**
@@ -41,12 +54,14 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	document.cookie = "color-scheme=dark";
+	document.cookie = "color-scheme=dark " + expireCookie;
 	var elements = document.querySelectorAll("a");
 	Array.prototype.forEach.call(elements, e =>
 		{if (!(e.classList.contains('navbar') || e.classList.contains('button')
 			|| e.classList.contains('navbutton') || e.classList.contains('footer-links')
-			|| e.classList.contains('fluent') || e.classList.contains('active')) ){
+			|| e.classList.contains('fluent') || e.classList.contains('active')
+			|| e.classList.contains('openbutton') || e.classList.contains('closebutton')
+		) ){
 			e.classList.add("a-dark");
 		}}
 	);
@@ -60,7 +75,14 @@ function setDarkMode() {
 	Array.prototype.forEach.call(elements, e => e.classList.add("form-dark"));
 	var elements = document.getElementsByClassName("inline-code");
 	Array.prototype.forEach.call(elements, e =>
-	{ if (!e.classList.contains('note')) { e.classList.add("inline-code-dark"); }}
+	{ 	if (!e.classList.contains('inline-code-note'))
+		{ e.classList.add("inline-code-dark"); }
+		else {
+			console.log("Making " + e + " regular color scheme since it's in 'notes'");
+			e.style.color = "black";
+			e.style.backgroundColor = "#f3f3f3";
+		}
+	}
 	);
 	var elements = document.getElementsByClassName("code");
 	Array.prototype.forEach.call(elements, e => e.classList.add("code-dark"));
@@ -92,7 +114,7 @@ function setDarkMode() {
 
 function setLightMode() {
 	console.log("Setting light mode");
-	document.cookie = "color-scheme=light";
+	document.cookie = "color-scheme=light " + expireCookie;
 	var elements = document.getElementsByClassName("content");
 	Array.prototype.forEach.call(elements, e => e.classList.remove("content-dark"));
 	var elements = document.getElementsByClassName("banner");
