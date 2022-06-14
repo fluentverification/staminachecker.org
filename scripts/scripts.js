@@ -46,7 +46,7 @@ function setDarkMode() {
 	Array.prototype.forEach.call(elements, e =>
 		{if (!(e.classList.contains('navbar') || e.classList.contains('button')
 			|| e.classList.contains('navbutton') || e.classList.contains('footer-links')
-			|| e.classList.contains('fluent')) ){
+			|| e.classList.contains('fluent') || e.classList.contains('active')) ){
 			e.classList.add("a-dark");
 		}}
 	);
@@ -59,7 +59,9 @@ function setDarkMode() {
 	var elements = document.getElementsByClassName("form");
 	Array.prototype.forEach.call(elements, e => e.classList.add("form-dark"));
 	var elements = document.getElementsByClassName("inline-code");
-	Array.prototype.forEach.call(elements, e => e.classList.add("inline-code-dark"));
+	Array.prototype.forEach.call(elements, e =>
+	{ if (!e.classList.contains('note')) { e.classList.add("inline-code-dark"); }}
+	);
 	var elements = document.getElementsByClassName("code");
 	Array.prototype.forEach.call(elements, e => e.classList.add("code-dark"));
 	var elements = document.getElementsByClassName("citation");
@@ -83,6 +85,8 @@ function setDarkMode() {
 	if (element != null) {
 		element.classList.add("contents-dark");
 	}
+	let usuLogo = document.getElementById('usu-logo');
+	if (usuLogo != null) { usuLogo.src = "images/u-state-white.png"; }
 // 	Array.prototype.forEach.call(elements, e => e.classList.add("contents-dark"));
 }
 
@@ -126,6 +130,8 @@ function setLightMode() {
 	if (element != null) {
 		element.classList.remove("contents-dark");
 	}
+	let usuLogo = document.getElementById('usu-logo');
+	if (usuLogo != null) { usuLogo.src = "images/u-state-aggie-blue.png"; }
 }
 /**
  * This function opens the navbar when the screen is less than 800px

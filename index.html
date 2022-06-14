@@ -53,7 +53,7 @@
 		</div>
 		<script>
 			// Assume someone isn't going to change their color scheme preference mid-session
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || darkMode) {
 				let usuLogo = document.getElementById('usu-logo');
 				usuLogo.src = "images/u-state-white.png";
 			}
