@@ -27,7 +27,7 @@ window.onload = function() {
 console.log("Adding event listener for window");
 window.addEventListener('resize', function(event) {
 	console.log(screen.width);
-	if (screen.width > 850) {
+	if (screen.width > 900) {
 		console.log("Setting navbar to normal full-width");
 		let elements = document.getElementsByClassName("navbutton");
 		console.log(elements);
