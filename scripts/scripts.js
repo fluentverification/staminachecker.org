@@ -1,7 +1,12 @@
-var darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+var darkMode = (document.cookie == "color-scheme=dark") || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-if (darkMode) {
+window.onload = function() {
+	if (darkMode) {
 	setDarkMode();
+	}
+	else {
+		document.cookie = "color-scheme=light";
+	}
 }
 /**
  * This script lets us monitor the window size and reset the navbar if it's larger than 800px
@@ -36,10 +41,12 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
+	document.cookie = "color-scheme=dark";
 	var elements = document.querySelectorAll("a");
 	Array.prototype.forEach.call(elements, e =>
 		{if (!(e.classList.contains('navbar') || e.classList.contains('button')
-			|| e.classList.contains('navbutton') || e.classList.contains('footer-links')) ){
+			|| e.classList.contains('navbutton') || e.classList.contains('footer-links')
+			|| e.classList.contains('fluent')) ){
 			e.classList.add("a-dark");
 		}}
 	);
@@ -73,12 +80,15 @@ function setDarkMode() {
 	var elements = document.querySelectorAll("collapsible-header");
 	Array.prototype.forEach.call(elements, e => e.classList.add("collapsible-header-dark"));
 	var element = document.getElementById("contents");
-	element.classList.add("contents-dark");
+	if (element != null) {
+		element.classList.add("contents-dark");
+	}
 // 	Array.prototype.forEach.call(elements, e => e.classList.add("contents-dark"));
 }
 
 function setLightMode() {
 	console.log("Setting light mode");
+	document.cookie = "color-scheme=light";
 	var elements = document.getElementsByClassName("content");
 	Array.prototype.forEach.call(elements, e => e.classList.remove("content-dark"));
 	var elements = document.getElementsByClassName("banner");
@@ -97,7 +107,7 @@ function setLightMode() {
 	Array.prototype.forEach.call(elements, e => e.classList.remove("footer-dark"));
 	var elements = document.querySelectorAll(".footer-links a");
 	Array.prototype.forEach.call(elements, e =>
-		{ e.classList.remove("footer-links-dark"); e.style.color = "#363636;"; });
+		{ e.classList.remove("footer-links-dark"); e.style.color = "#363636"; });
 	var elements = document.querySelectorAll("a");
 	Array.prototype.forEach.call(elements, e => e.classList.remove("a-dark"));
 	var elements = document.querySelectorAll("input");
@@ -113,7 +123,9 @@ function setLightMode() {
 	var elements = document.querySelectorAll("contents");
 	Array.prototype.forEach.call(elements, e => e.classList.remove("contents-dark"));
 	var element = document.getElementById("contents");
-	element.classList.remove("contents-dark");
+	if (element != null) {
+		element.classList.remove("contents-dark");
+	}
 }
 /**
  * This function opens the navbar when the screen is less than 800px
