@@ -366,8 +366,9 @@ ul.navbar li.right {
 
 }
 
-/* Old pure-css way to do dark mode */
-/*@media (prefers-color-scheme: dark) {
+/* Old pure-css way to do dark mode.
+This is kept to make the delay on browsers that report preferring dark colors before it appears to be none */
+@media (prefers-color-scheme: dark) {
 	body {
 		background-color: #222222;
 	}
@@ -399,7 +400,7 @@ ul.navbar li.right {
 		color: #e8e8e8;
 		background-color: #222222;
 	}
-}*/
+}
 
 .body-dark {
 	background-color: #222222;
