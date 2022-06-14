@@ -37,7 +37,11 @@ function toggleDarkMode() {
 function setDarkMode() {
 	console.log("Setting dark mode");
 	var elements = document.querySelectorAll("a");
-	Array.prototype.forEach.call(elements, e => e.classList.add("a-dark"));
+	Array.prototype.forEach.call(elements, e =>
+		{if (!(e.classList.contains('navbar') || e.classList.contains('button') ) ){
+			e.classList.add("a-dark");
+		}}
+	);
 	var elements = document.getElementsByClassName("content");
 	Array.prototype.forEach.call(elements, e => e.classList.add("content-dark"));
 	var elements = document.getElementsByClassName("banner");
@@ -54,7 +58,7 @@ function setDarkMode() {
 	Array.prototype.forEach.call(elements, e => e.classList.add("citation-dark"));
 	var elements = document.getElementsByClassName("footer");
 	Array.prototype.forEach.call(elements, e => e.classList.add("footer-dark"));
-	var elements = document.querySelectorAll(".footer-links-dark");
+	var elements = document.querySelectorAll(".footer-links");
 	Array.prototype.forEach.call(elements, e =>
 		{ e.classList.add("footer-links-dark"); e.style.color = "#ffffff";});
 	var elements = document.querySelectorAll("input");
@@ -65,6 +69,8 @@ function setDarkMode() {
 	Array.prototype.forEach.call(elements, e => e.classList.add("textarea-dark"));
 	var elements = document.querySelectorAll("body");
 	Array.prototype.forEach.call(elements, e => e.classList.add("body-dark"));
+	var elements = document.querySelectorAll("collapsible-header");
+	Array.prototype.forEach.call(elements, e => e.classList.add("collapsible-header-dark"));
 }
 
 function setLightMode() {
@@ -97,6 +103,8 @@ function setLightMode() {
 	Array.prototype.forEach.call(elements, e => e.classList.remove("textarea-dark"));
 	var elements = document.querySelectorAll("body");
 	Array.prototype.forEach.call(elements, e => e.classList.remove("body-dark"));
+	var elements = document.querySelectorAll("collapsible-header");
+	Array.prototype.forEach.call(elements, e => e.classList.remove("collapsible-header-dark"));
 }
 /**
  * This function opens the navbar when the screen is less than 800px

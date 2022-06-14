@@ -407,7 +407,7 @@ ul.navbar li.right {
 .form-dark, .inline-code-dark, .code-dark, .citation-dark {
 	background-color: #262626;
 }
-.footer-dark, .footer-links-dark {
+.footer-dark, .footer-links-dark, .collapsible-header-dark {
 	background-color: #363636;
 	color: #e8e8e8;
 }
