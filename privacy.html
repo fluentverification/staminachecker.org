@@ -14,7 +14,7 @@
 	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA</div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
-	<li><a class="active" id="active" href="index.html">Home</a></li>
+	<li><a class="navbutton" id="navbutton" href="index.html">Home</a></li>
 	<li><a class="navbutton" href="about.html">About</a></li>
 	<li>
 		<a href="get.html" class="navbutton" class="navbutton">Get</a>
@@ -29,14 +29,6 @@
 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li>
 </ul>
 <div class="top-buffer" id="top-buffer"><br></div>
-<div class="banner">
-	<h1>STAMINA</h1>
-	<h2>
-		A model-truncation tool that can analyze infinite-sized models.
-	</h2>
-	<a class="button" href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v2.2.5-alpha"><img class="button-icon" src="images/icons/download.svg" height="20px"> Download Latest Release (2.2.5)</a>
-	<a class="button" href="https://github.com/fluentverification/stamina"><img class="button-icon" src="images/icons/github_mark.svg" height="20px"> Get Source Code</a>
-</div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
 <img src="images/icons/up.svg" height=20px>&nbsp;&nbsp;Back to Top</a>
@@ -59,7 +51,7 @@ if (bttButton != null) {
 	<table>
 		<tr>
 		<td>
-	The STAMINA Website saves only <i>one</i> cookie on your browser with the purpose of remembering whether you prefer dark or light mode. Naturally, <b>we do not track you</b>, store excessive cookies, advertise on this site, or anything of the sort. That would be extremely unprofessional of us. If you are seeing this message, it means the cookie with your preferred color scheme is being stored this session, and you will not see this message on future visits. <a href="privacy.html">More...</a>
+	The STAMINA Website saves only <i>one</i> cookie on your browser with the purpose of remembering whether you prefer dark or light mode. Naturally, <b>we do not track you</b>, store excessive cookies, advertise on this site, or anything of the sort. That would be extremely unprofessional of us. If you are seeing this message, it means the cookie with your preferred color scheme is being stored this session, and you will not see this message on future visits.
 	</td><td>
 	<a style="color:black; padding: 10px; font-size: 20pt; cursor: pointer;" onclick="closeCookieBanner()">&times;</a></td><tr>
 	</table>
@@ -72,27 +64,22 @@ if (bttButton != null) {
 </div>
 <div class="content">
 <!-- CONTENT -->
-	<img src="images/staminaGraphic.svg" class="graphic">
-	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
+	<h1>Privacy Policy</h1>
 	<p>
-		STAMINA can analyze unbounded and infinite-sized models, as well as models with very large state spaces, and provide an accurate bound of probabilities for CSL properties. It has been tested on genetic circuit and biological models, and has been the subject of multiple papers.
+		We don't store any data about you, track you, or include any cross-site trackers. We do include fonts from the Google font API and use Kwes as our form backend on <a href="about.html">the about page</a>, and although we tried to choose these services such that they will respect your privacy as well, we can't guarantee that they aren't tracking you either.
 	</p>
-	<a class="button" href="about.html"><img class="button-icon" src="images/icons/learn_more.svg" height="20px"> Learn More</a>
-	<div id="acknowledgements">
-		<h2>Acknowledgements</h2>
-		The development of STAMINA (and all FLUENT projects) is generously funded by grants 1856733, 1856740, and 1900542 from the National Science Foundation. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. STAMINA is developed at the Utah State University College of Engineering, in the Electrical and Computer Engineering Department.<br>
-		<div class="logos" style="vertical-align: center; padding-top: 20px;">
-			<a href="https://www.nsf.gov/"><img height=100px class="ack-logo" src="images/nsfLogo.svg"></a>
-			<a href="https://www.usu.edu/"><img height=60px id="usu-logo" class="ack-logo" style="padding: 20px;" src="images/u-state-aggie-blue.png"></a>
-		</div>
-		<script>
-			// Assume someone isn't going to change their color scheme preference mid-session
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || darkMode) {
-				let usuLogo = document.getElementById('usu-logo');
-				usuLogo.src = "images/u-state-white.png";
-			}
-		</script>
-	</div>
+	<p>
+		Additionally, this website is hosted on <a href="https://pages.github.com/">GitHub Pages</a>, which has a privacy policy that can be accessed <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">here</a>. Again, since this is a third-party service, we cannot guarantee that they aren't tracking you. Because we care about your online privacy, we'd like to include some tips for online privacy that you can use.
+	</p>
+	<h1>Tips for Online Privacy</h1>
+	The following are Josh's tips for online privacy:
+	<ul>
+		<li>Use an open-source privacy respecting web browser, such as Firefox, Librewolf (an open source fork of Firefox without the telemetry!), or Ungoogled Chromium. Even a browser such as Midori or Falkon that are included with smaller Linux distributions are more private than mainstream browsers like Chrome or Edge.</li>
+		<li>Configure your browser to erase cookies and cache data periodically. (I do it on browser exit).</li>
+		<li>Install <a href="https://ublockorigin.com/">uBlock Origin</a>. Seriously. This thing is S-tier. I personally use it to disable scripting on all sites except for sites which I whitelist.</li>
+		<li>Check your browser's fingerprint on EFF's <a href="https://coveryourtracks.eff.org/">Cover Your Tracks</a> website. EFF is an interest group that fights for online privacy. Your browser will probably have a unique fingerprint, but virtually all modern browsers do.</li>
+		<li>To see what types of cookies a website is storing about you, open up your <a href="https://www.geeksforgeeks.org/console-in-javascript/">JavaScript console</a>, and enter <code class="inline-code">document.cookie</code> into the console. The cookie element is a string that is space-delimited and contains values in the format <code class="inline-code">name=value</code>. For this site, your cookie will look something like this: <code class="inline-code"> "color-scheme=dark expires=Fri, 16 Jun 2023 23:02:44 GMT" </code>
+	</ul>
 </div>
 <!-- Footer -->
 <div class="footer">
