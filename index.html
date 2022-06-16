@@ -37,6 +37,23 @@
 	<a class="button" href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v2.2.5-alpha"><img class="button-icon" src="images/icons/download.svg" height="20px"> Download Latest Release (2.2.5)</a>
 	<a class="button" href="https://github.com/fluentverification/stamina"><img class="button-icon" src="images/icons/github_mark.svg" height="20px"> Get Source Code</a>
 </div>
+<!-- Back to top button -->
+<a class="btt-button" id="btt-button" href="#" style="color: white;">
+<img src="images/icons/up.svg" height=20px>&nbsp;&nbsp;Back to Top</a>
+<script>
+let bttButton = document.getElementById('btt-button');
+
+if (bttButton != null) {
+	window.onscroll = function() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			bttButton.style.display = "block";
+		}
+		else {
+			bttButton.style.display = "none";
+		}
+	}
+}
+</script>
 <!-- Cookie Banner -->
 <div class="cookie-banner" id="cookie-banner">
 	<table>
