@@ -46,12 +46,30 @@
 		}
 	</script>
 </div>
+<!-- Back to top button -->
+<a class="btt-button" id="btt-button" href="#" style="color: white;">
+<img src="images/icons/up.svg" height=20px>&nbsp;&nbsp;Back to Top</a>
+<script>
+let bttButton = document.getElementById('btt-button');
+
+if (bttButton != null) {
+	window.onscroll = function() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			bttButton.style.display = "block";
+		}
+		else {
+			bttButton.style.display = "none";
+		}
+	}
+}
+</script>
 <div class="content">
 <!-- CONTENT -->
 	<div id="contents" class="contents">
 		<h2>Contents</h2>
 		<ol>
 			<li><a href="#mission">Mission and Maintainers</a></li>
+			<li><a href="#introduction">Introduction to STAMINA</a></li>
 			<li><a href="#faq">Frequently Asked Questions</a></li>
 			<li><a href="#algorithms">The STAMINA Algorithm</a></li>
 			<li><a href="#contact">Contact</a></li>
@@ -65,7 +83,7 @@
 			</p>
 			<h3>Current Maintainer:</h3>
 			<p>
-				<b>Josh Jeppson, BS</b><br>
+				<b>Josh Jeppson, B.Sc.</b><br>
 				PhD Student - Utah State University<br>
 				Email: <a id="email" onclick="showEmail()">[Click To See Email]</a>
 				<script>
@@ -99,6 +117,11 @@
 				<li>Lukas Buecherl</li>
 			</ul>
 		</div>
+		<div id="introduction">
+			<h1>Introduction to STAMINA</h1>
+			<p>STAMINA is an infinite state-space model truncation tool compatible with both <a href="https://prismmodelchecker.org">PRISM</a> and <a href="https://stormchecker.org">STORM</a>. STAMINA is a tool within the <a href="https://fluentverification.github.io">FLUENT</a> toolchain. It deploys a state truncation-based approach, estimating path probabilities of reaching each state on-the-fly and terminates exploration of a path when the cumulative estimated probability along such a path drops below a predefined threshold. Each terminated path is routed to an absorbing state, in order to estimate the error probability in subsequent CTMC analysis.</p>
+			<p>After all paths have been explored or truncated, transient Markov chain analysis is applied to determine the probability of a transient property of interest specified using Continuous Stochastic Logic (CSL). The calculated probability forms a lower bound on the probability, while the upper bound also includes the probability of the absorbing state. The actual probability of the CSL property is guaranteed to be within this range. If the probability bound is still too large compared to a user-provided probability precision value (default is 10<sup>-3</sup>), the PRISM version of STAMINA employs a property property-guided refinement technique to expand the state space to tighten the reported probability range incrementally.</p>
+		</div>
 		<div id="faq">
 			<h1>Frequently Asked Questions</h1>
 			<h2>What model checking engines does STAMINA support?</h2>
@@ -121,7 +144,7 @@
 			</p>
 			<h3>The STAMINA 1.0 Algorithm</h3>
 			<p>
-				STAMINA 1.0 was originally developed by several students under Dr Zhen Zhang, including [TODO]. The basic idea of the algorithm is that for each iteration of &kappa;, states are only explored if an estimated reachability value (based somewhat on the embedded DTMC). While the probability estimate window is too wide, &kappa; is progressively reduced and state exploration is continued. The problem with this was that as &kappa; was reduced, we had no way to continue exploring states we had already truncated in previous iterations.
+				STAMINA 1.0 was originally developed by several students under Dr Zhen Zhang, including Thakur Neupane. The basic idea of the algorithm is that for each iteration of &kappa;, states are only explored if an estimated reachability value (based somewhat on the embedded DTMC). While the probability estimate window is too wide, &kappa; is progressively reduced and state exploration is continued. The problem with this was that as &kappa; was reduced, we had no way to continue exploring states we had already truncated in previous iterations.
 			</p>
 			<h3>The STAMINA 2.0/2.1 Algorithm</h3>
 			<p>

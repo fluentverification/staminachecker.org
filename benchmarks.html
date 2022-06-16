@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/collapsible.js"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -29,6 +30,23 @@
 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li>
 </ul>
 <div class="top-buffer" id="top-buffer"><br></div>
+<!-- Back to top button -->
+<a class="btt-button" id="btt-button" href="#" style="color: white;">
+<img src="images/icons/up.svg" height=20px>&nbsp;&nbsp;Back to Top</a>
+<script>
+let bttButton = document.getElementById('btt-button');
+
+if (bttButton != null) {
+	window.onscroll = function() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			bttButton.style.display = "block";
+		}
+		else {
+			bttButton.style.display = "none";
+		}
+	}
+}
+</script>
 <!-- Cookie Banner -->
 <div class="cookie-banner" id="cookie-banner">
 	<table>
@@ -49,7 +67,7 @@
 <!-- CONTENT -->
 	<h1>Benchmarks</h1>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		In most cases, STAMINA/STORM performed better in general than STAMINA/PRISM, even without the dynamic programming. However, with dynamic programming, many of the runtimes STAMINA/STORM has are substantially better than STAMINA/PRISM.
 	</p>
 	<div class="note">
 		Benchmarking was done on an NZXT computer running Debian 11 (Linux 5.10) with the following properties:<br>
@@ -59,12 +77,55 @@
 			<li> Graphics Card: SAPPHIRE</li>
 		</ul>
 	</div>
+	You may also <a onclick="expandAll()">expand all</a> or <a onclick="collapseAll()">collapse all</a>.
+	<script>
+		function expandAll() {
+			openCollapsible('runtimes', 'runtimes-header');
+			openCollapsible('results', 'results-header');
+			openCollapsible('states', 'states-header');
+		}
+		function collapseAll() {
+			closeCollapsible('runtimes', 'runtimes-header');
+			closeCollapsible('results', 'results-header');
+			closeCollapsible('states', 'states-header');
+		}
+	</script>
+	<h3 class="collapsible-header" id="runtimes-header" onclick="openCollapsible('runtimes', 'runtimes-header')">
+		<div id="runtimes-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
+		STAMINA Runtimes vs. Other Model Checkers
+	</h3>
+	<div class="collapsible" id="runtimes">
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</p>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</p>
+	</div>
+	<h3 class="collapsible-header" id="results-header" onclick="openCollapsible('results', 'results-header')">
+		<div id="results-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
+		STAMINA Probability Results vs. Other Model Checkers
+	</h3>
+	<div class="collapsible" id="results">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	</div>
+	<h3 class="collapsible-header" id="states-header" onclick="openCollapsible('states', 'states-header')">
+		<div id="states-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
+		STAMINA Number of States Generated vs. Other Model Checkers
+	</h3>
+	<div class="collapsible" id="states">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</p>
+	</div>
 </div>
 <!-- Message that this is unfinished -->
 <!-- TODO: delete this when finished -->

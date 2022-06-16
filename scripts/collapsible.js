@@ -18,3 +18,4 @@ function openCollapsible(id, headerId) {
 	headerIcon.innerHTML = "&times;" + txtValue.slice(1, txtValue.length);
 	header.onclick = () => closeCollapsible(id, headerId);
 }
+

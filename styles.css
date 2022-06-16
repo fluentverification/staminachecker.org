@@ -6,6 +6,25 @@ body {
 	margin: 0px;
 }
 
+.btt-button {
+	display: none;
+	background: #48ce94;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 12pt;
+	color: white;
+	cursor: pointer;
+	padding: 20px;
+	border-radius: 6pt;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+}
+
+.btt-button:hover {
+	background: #2e8460;
+}
+
 .cookie-banner {
 	font-family: 'Noto Sans', sans-serif;
 	display: block;
