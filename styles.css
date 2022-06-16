@@ -10,11 +10,12 @@ body {
 	width: 100%;
 	overflow: hidden;
 	border-collapse: collapse;
+	font-size: 10pt;
 }
 
 .table th, .table td {
-	padding: 20px;
-	margin: 20px;
+	padding: 10px;
+	margin: 10px;
 	border-bottom: 1px solid #ddd;
 	overflow: hidden;
 }
