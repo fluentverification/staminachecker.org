@@ -6,6 +6,28 @@ body {
 	margin: 0px;
 }
 
+.table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+}
+
+.table th, .table td {
+	padding: 20px;
+	margin: 20px;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+}
+.table th {
+	background-color: #48ce9455;
+}
+
+.table tr:nth-child(even) {
+	background-color: #a2a2a255;
+}
+.table tr:hover {
+	background-color: #48ce9455;
+}
 .btt-button {
 	display: none;
 	background: #48ce94;
