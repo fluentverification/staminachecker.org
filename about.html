@@ -169,6 +169,13 @@ if (bttButton != null) {
 			Contact the Developers of STAMINA
 		</h1>
 		<form class="form kwes-form" action="https://kwesforms.com/api/foreign/forms/e61ViUdP78rw3AYqc0qy">
+			<!-- Override the dumb Kwes stuff that breaks our stylesheet -->
+			<style>
+				.kw-alert {
+					width: auto;
+					border-radius: 4px;
+				}
+			</style>
 			<label for="name">Full Name:</label>
 			<input type="text" id="name" name="name" placeholder="Your name..." rules="required|max:255">
 
