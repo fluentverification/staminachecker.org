@@ -55,58 +55,14 @@ function toggleDarkMode() {
 function setDarkMode() {
 	console.log("Setting dark mode");
 	document.cookie = "color-scheme=dark " + expireCookie;
-	var elements = document.querySelectorAll("a");
-	Array.prototype.forEach.call(elements, e =>
-		{if (!(e.classList.contains('navbar') || e.classList.contains('button')
-			|| e.classList.contains('navbutton') || e.classList.contains('footer-links')
-			|| e.classList.contains('fluent') || e.classList.contains('active')
-			|| e.classList.contains('openbutton') || e.classList.contains('closebutton')
-		) ){
-			e.classList.add("a-dark");
-		}}
-	);
-	var elements = document.getElementsByClassName("content");
-	Array.prototype.forEach.call(elements, e => e.classList.add("content-dark"));
-	var elements = document.getElementsByClassName("banner");
-	Array.prototype.forEach.call(elements, e => e.classList.add("banner-dark"));
-	var elements = document.getElementsByClassName("banner-content");
-	Array.prototype.forEach.call(elements, e => e.classList.add("banner-content-dark"));
-	var elements = document.getElementsByClassName("form");
-	Array.prototype.forEach.call(elements, e => e.classList.add("form-dark"));
-	var elements = document.getElementsByClassName("inline-code");
-	Array.prototype.forEach.call(elements, e =>
-	{ 	if (!e.classList.contains('inline-code-note'))
-		{ e.classList.add("inline-code-dark"); }
-		else {
-			console.log("Making " + e + " regular color scheme since it's in 'notes'");
-			e.style.color = "black";
-			e.style.backgroundColor = "#f3f3f3";
-		}
-	}
-	);
-	var elements = document.getElementsByClassName("code");
-	Array.prototype.forEach.call(elements, e => e.classList.add("code-dark"));
-	var elements = document.getElementsByClassName("citation");
-	Array.prototype.forEach.call(elements, e => e.classList.add("citation-dark"));
-	var elements = document.getElementsByClassName("footer");
-	Array.prototype.forEach.call(elements, e => e.classList.add("footer-dark"));
-	var elements = document.querySelectorAll(".footer-links a");
-	Array.prototype.forEach.call(elements, e =>
-		{ e.classList.add("footer-links-dark"); e.style.color = "#ffffff";});
-	var elements = document.querySelectorAll("input");
-	Array.prototype.forEach.call(elements, e => e.classList.add("input-dark"));
-	var elements = document.querySelectorAll("select");
-	Array.prototype.forEach.call(elements, e => e.classList.add("select-dark"));
-	var elements = document.querySelectorAll("textarea");
-	Array.prototype.forEach.call(elements, e => e.classList.add("textarea-dark"));
-	var elements = document.querySelectorAll("body");
-	Array.prototype.forEach.call(elements, e => e.classList.add("body-dark"));
-	var elements = document.querySelectorAll("collapsible-header");
-	Array.prototype.forEach.call(elements, e => e.classList.add("collapsible-header-dark"));
-	var element = document.getElementById("contents");
-	if (element != null) {
-		element.classList.add("contents-dark");
-	}
+	var rt = document.querySelector(':root');
+	rt.style.setProperty('--color', 'white');
+	rt.style.setProperty('--color-two', '#f7f7f7');
+	rt.style.setProperty('--background', '#222222');
+	rt.style.setProperty('--background-two', '#262626');
+	rt.style.setProperty('--background-three', '#363636');
+	rt.style.setProperty('--link-base', 'var(--accent-medium)');
+
 	let usuLogo = document.getElementById('usu-logo');
 	if (usuLogo != null) { usuLogo.src = "images/u-state-white.png"; }
 // 	Array.prototype.forEach.call(elements, e => e.classList.add("contents-dark"));
@@ -115,43 +71,14 @@ function setDarkMode() {
 function setLightMode() {
 	console.log("Setting light mode");
 	document.cookie = "color-scheme=light " + expireCookie;
-	var elements = document.getElementsByClassName("content");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("content-dark"));
-	var elements = document.getElementsByClassName("banner");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("banner-dark"));
-	var elements = document.getElementsByClassName("banner-content");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("banner-content-dark"));
-	var elements = document.getElementsByClassName("form");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("form-dark"));
-	var elements = document.getElementsByClassName("inline-code");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("inline-code-dark"));
-	var elements = document.getElementsByClassName("code");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("code-dark"));
-	var elements = document.getElementsByClassName("citation");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("citation-dark"));
-	var elements = document.getElementsByClassName("footer");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("footer-dark"));
-	var elements = document.querySelectorAll(".footer-links a");
-	Array.prototype.forEach.call(elements, e =>
-		{ e.classList.remove("footer-links-dark"); e.style.color = "#363636"; });
-	var elements = document.querySelectorAll("a");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("a-dark"));
-	var elements = document.querySelectorAll("input");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("input-dark"));
-	var elements = document.querySelectorAll("select");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("select-dark"));
-	var elements = document.querySelectorAll("textarea");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("textarea-dark"));
-	var elements = document.querySelectorAll("body");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("body-dark"));
-	var elements = document.querySelectorAll("collapsible-header");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("collapsible-header-dark"));
-	var elements = document.querySelectorAll("contents");
-	Array.prototype.forEach.call(elements, e => e.classList.remove("contents-dark"));
-	var element = document.getElementById("contents");
-	if (element != null) {
-		element.classList.remove("contents-dark");
-	}
+	var rt = document.querySelector(':root');
+	rt.style.setProperty('--color', '#363636');
+	rt.style.setProperty('--color-two', '#515151');
+	rt.style.setProperty('--background', '#ffffff');
+	rt.style.setProperty('--background-two', '#efefef');
+	rt.style.setProperty('--background-three', '#ebebeb');
+	rt.style.setProperty('--link-base', 'var(--accent-dark)');
+
 	let usuLogo = document.getElementById('usu-logo');
 	if (usuLogo != null) { usuLogo.src = "images/u-state-aggie-blue.png"; }
 }
