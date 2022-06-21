@@ -3,6 +3,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
 :root {
+	--navbar-background: #141414;
 	/* Green Accent Colors */
 	--accent-light: #b4f7d6;
 	--accent-medium: #48ce94;
@@ -10,15 +11,20 @@
 	--accent-low-sat: #67aa8a;
 	--accent-low-sat-light: #7bcba5;
 	--accent-hover: #16f5bd;
-	--navbar-background: #141414;
 	/* Blue Accent Colors */
 	/* --accent-light: #b4cef7;
 	--accent-medium: #487bce;
 	--accent-dark: #2e4f84;
 	--accent-low-sat: #6781aa;
 	--accent-low-sat-light: #7b9acb;
-	--accent-hover: #166cf5;
-	--navbar-background: #141414; */
+	--accent-hover: #166cf5; */
+	/* Orange Accent Colors */
+	/* --accent-light: #f7cab4;
+	--accent-medium: #ce7548;
+	--accent-dark: #844b2e;
+	--accent-low-sat: #aa7e67;
+	--accent-low-sat-light: #cb967b;
+	--accent-hover: #f56016; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -175,7 +181,7 @@ body {
 	background-color: #efefef;
 }
 
-code, .code {
+.code {
 	border-color: #969696;
 	font-weight: semi-expanded;
 	font-family: 'Noto Sans Mono', monospace;
