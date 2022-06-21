@@ -133,9 +133,9 @@ body {
 
 .citation{
 	border-color: #969696;
-	border-left: 4px solid #969696;
 	border-style: solid;
 	border-width: 1px;
+	border-left: 4px solid #969696;
 	background-color: var(--background-two);
 	padding: 15px;
 	margin-top: 20px;
