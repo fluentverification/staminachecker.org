@@ -214,7 +214,7 @@ input[type=text], select, textarea {
 }
 
 .form {
-	background-color: var(--background-three);
+	background-color: var(--background-two);
 	padding: 20px;
 }
 
@@ -268,7 +268,7 @@ p {
 	padding-bottom: 200px;
 	width: 60%;
 	color: var(--color-two);
-	background-color: var(--background-three);
+	background-color: var(--background-two);
 	font-family: 'Noto Sans', sans-serif;
 /* 	background-image: url("images/banner.svg"); */
 }
