@@ -301,10 +301,10 @@ if (bttButton != null) {
 	</h3>
 	<div class="collapsible" id="results">
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		STAMINA/STORM was able to consistently and accurately predict probability windows for CSL properties for all tests in the preliminary testing. Again, when full testing is complete (i.e., comparison against other model estimation tools including <a href=https://www.modestchecker.net/>MODEST</a> and <a href=https://www.academia.edu/994229/INFAMY_An_infinite_state_Markov_model_checker>INFAMY</a>), they will be published in a paper, probably sometime in Fall 2022.
 	</p>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Full results will be published here after testing is complete.
 	</p>
 	</div>
 	<h3 class="collapsible-header" id="states-header" onclick="openCollapsible('states', 'states-header')">
@@ -313,10 +313,10 @@ if (bttButton != null) {
 	</h3>
 	<div class="collapsible" id="states">
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		According to the preliminary results, the state-counts were fairly similar between STAMINA/STORM and STAMINA/PRISM, however, STAMINA/STORM was able to explore more states quicker and with less memory impact than STAMINA/PRISM. Additionally, because STAMINA/STORM builds the transition matrix within its own code (relying on STORM classes to do so), rather than requiring the STORM API to do so, even within STAMINA/STORM, the same number of states can be explored with less work than STAMINA/PRISM.
 	</p>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Full results will be published here after testing is complete.
 	</p>
 	</div>
 </div>
@@ -337,7 +337,7 @@ function closeUnfinishedBanner() {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: #ff0051;
+	background-color: #314836;
 	font-family: sans-serif;
 	width=100%;
 	overflow: hidden;
@@ -347,11 +347,11 @@ function closeUnfinishedBanner() {
 		<div class="message" style="
 		display: inline-block; padding: 10px;
 		">
-			<b>Please Note:</b> This page is UNFINISHED! You may see some Lorem Ipsum text around, missing graphics, etc.
+			<b>Please Note:</b> Results on this page are preliminary. Full results and comparisons have not been published yet.
 		</div>
 		<button class="close-button" onclick="closeUnfinishedBanner()" style="
 		display: inline-block;
-		background-color: #de004a;
+		background-color: #43c171;
 		border-style: none;
 		color: white;
 		font-weight: bold;
@@ -359,8 +359,8 @@ function closeUnfinishedBanner() {
 		border-radius: 4px;
 		padding: 10px;
 		"
-		onmouseover=this.style.backgroundColor="#8c002f"
-		onmouseout=this.style.backgroundColor="#de004a"
+		onmouseover=this.style.backgroundColor="#3e7c2c"
+		onmouseout=this.style.backgroundColor="#56aa3c"
 		>
 			&times;
 			&nbsp; I understand. Close this message.
