@@ -48,6 +48,11 @@ body {
 	background: var(--background);
 }
 
+.icon {
+	margin-right: 10px;
+	font-size: 16pt;
+}
+
 .table {
 	width: 100%;
 	overflow: hidden;
@@ -227,6 +232,7 @@ input[type=text], select, textarea {
 	vertical-align: middle;
 	line-height: 20px;
 	cursor: pointer;
+	vertical-align: center;
 }
 
 .button:hover, input[type=submit]:hover {

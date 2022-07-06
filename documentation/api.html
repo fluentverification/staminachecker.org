@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
+	<script type="text/javascript" src="../scripts/scripts.js"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="../index.html"><div id="slogo">STAMINA</div></a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="navbutton" id="active" href="../index.html">Home</a></li>
+	<li><a class="navbutton" href="../about.html">About</a></li>
+	<li>
+		<a href="../get.html" class="navbutton" class="navbutton">Get</a>
+		<!--<div class="dropdown-content">
+			<a href="download.html">Download</a>
+			<a href="https://github.com/fluentverification/stamina">Source Code</a>
+		</div>-->
+	</li>
+	<li><a class="navbutton" href="../documentation.html">Documentation</a></li>
+	<li><a class="navbutton" href="../benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li>
+</ul>
+<div class="top-buffer" id="top-buffer"><br></div>
+<div class="content">
+<!-- CONTENT -->
+	<div id="graphic" style="text-align: center; font-size: 72pt; font-family: 'Noto Sans Mono', Monospace; margin-top: 50px; margin-bottom: 50px;">
+		{stamina}
+	</div>
+	<h1>Welcome to the front page for STAMINA API Documentation</h1>
+	<p>
+		The STAMINA codebases are fairly modestly sized, but we still have documentation for both STAMINA/PRISM and STAMINA/STORM.
+	</p>
+	<a class="button" href="stamina-storm/html/index.html">STAMINA/STORM Documentation</a>
+	<a class="button" href="stamina-prism/html/index.html">STAMINA/PRISM Documentation</a>
+	<p>
+		Please submit any issue requests regarding the code on GitHub. Additionally, if you would like to contribute, you may create pull requests which may be merged on GitHub.
+	</p>
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/STORM</a></td>
+				<td><a href="../index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="#">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license.
+	</div>
+</div>
+</body>
