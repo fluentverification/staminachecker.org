@@ -27,6 +27,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 	tableFile.open("GET", requestURL, true);
 	table.innerHTML += "<tbody>";
 	tableFile.onreadystatechange = function() {
+		console.log("Loading file...");
 		if (tableFile.readyState === FILE_PARSE_READY && tableFile.status === FILE_FOUND) {
 			// Parse the data
 			rawTextData = tableFile.responseText;
