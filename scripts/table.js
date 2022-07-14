@@ -30,6 +30,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 		if (tableFile.readyState === FILE_PARSE_READY && tableFile.status === FILE_FOUND) {
 			// Parse the data
 			rawTextData = tableFile.responseText;
+			console.log(rawTextData);
 			lines = rawTextData.split('\n');
 			table.innerHTML += (
 				lines.map(line =>
