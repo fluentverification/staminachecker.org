@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
 	<script type="text/javascript" src="scripts/collapsible.js"></script>
+	<script type="text/javascript" src="scripts/table.js"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -102,197 +103,27 @@ if (bttButton != null) {
 		The results below are <i>preliminary</i> results, and don't yet include the Hazard Circuit models, which are the most interesting as they are the largest and often have nested properties. However, even with the existing results, it is evident that STAMINA/STORM 2.5 is substantially faster in general than STAMINA/PRISM or even STAMINA/STORM 2.0. We plan to include full results against all models we will test against in a paper that will be submitted to VMCAI in September.
 	</p>
 	<h4>Runtimes Against Other STAMINA Algorithms (in Seconds)</h4>
+
+	<select id="times-select">
+		<option value="hazard">Hazard Circuit</option>
+		<option value="jackson">Jackson Circuit</option>
+		<option value="polling">Polling System</option>
+		<option value="robot">Robot World</option>
+		<option value="tandem">Tandem Queue</option>
+		<option value="toggle">Toggle Switch</option>
+		<option value="toy">Toy Model</option>
+	</select>
+	<script>
+function putTimesInTable() {
+	let s = document.getElementById("times-select");
+	var url = "data/results/preliminary/" + s.value + "/times.csv";
+	getCSVDataAndAppendToTable(url, "times-table", ["STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0"]);
+}
+	</script>
+	<button class="button" onclick="putTimesInTable()">Update</button>
+
 	<p style="font-size: 9pt">Please note that these results are <i>preliminary</i>. Full results are expected to be published in a paper this fall.</p>
-	<table class="table table-bordered table-hover table-condensed">
-		<thead><tr><th title="Model">Model</th>
-		<th title="STAMINA/STORM 2.0">STAMINA/ STORM 2.0</th>
-		<th title="STAMINA/STORM 2.5">STAMINA/ STORM 2.5</th>
-		<th title="STAMINA/PRISM 2.0">STAMINA/ PRISM 2.0</th>
-		<th title="STAMINA/PRISM 1.0">STAMINA/ PRISM 1.0</th>
-		<th title="Best Time">Best Time</th>
-		<th title="Winning Checker">Winning Checker</th>
-		</tr></thead>
-		<tbody><tr>
-		<td>Toy Model A</td>
-		<td>0.3779</td>
-		<td>0.0678</td>
-		<td>1.6765</td>
-		<td>1.6742</td>
-		<td>0.0678</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model B</td>
-		<td>0.3604</td>
-		<td>0.0720</td>
-		<td>1.6757</td>
-		<td>1.6916</td>
-		<td>0.0720</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model C</td>
-		<td>0.4134</td>
-		<td>0.0667</td>
-		<td>1.6478</td>
-		<td>1.6806</td>
-		<td>0.0667</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model D</td>
-		<td>0.3516</td>
-		<td>0.0679</td>
-		<td>1.6777</td>
-		<td>1.3596</td>
-		<td>0.0679</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model E</td>
-		<td>0.3575</td>
-		<td>0.0682</td>
-		<td>1.6704</td>
-		<td>1.3761</td>
-		<td>0.0682</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model F</td>
-		<td>0.3662</td>
-		<td>0.0685</td>
-		<td>1.3544</td>
-		<td>1.6721</td>
-		<td>0.0685</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toy Model G</td>
-		<td>0.3702</td>
-		<td>0.0692</td>
-		<td>1.5202</td>
-		<td>1.6693</td>
-		<td>0.0692</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Tandem 2047</td>
-		<td>3.1880</td>
-		<td>2.2897</td>
-		<td>27.2219</td>
-		<td>1.3628</td>
-		<td>1.3628</td>
-		<td>STAMINA 1.0</td>
-		</tr>
-		<tr>
-		<td>Tandem 4095</td>
-		<td>  6.4998</td>
-		<td> 5.17292</td>
-		<td>88.83944</td>
-		<td> 1.6825</td>
-		<td> 1.6825</td>
-		<td>STAMINA 1.0</td>
-		</tr>
-		<tr>
-		<td>Polling A</td>
-		<td>23.4711</td>
-		<td>19.9237</td>
-		<td>98.9228</td>
-		<td>90.7476</td>
-		<td>19.9237</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Polling B</td>
-		<td> 647.6426</td>
-		<td> 588.7583</td>
-		<td>2145.4297</td>
-		<td>1758.6040</td>
-		<td> 588.7583</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Polling C</td>
-		<td>15632.2825</td>
-		<td>16607.7543</td>
-		<td>11164.8453</td>
-		<td> 2097.9948</td>
-		<td> 2097.9948</td>
-		<td>STAMINA 1.0</td>
-		</tr>
-		<tr>
-		<td>Robot World 64</td>
-		<td> 50.5007</td>
-		<td> 15.1147</td>
-		<td>349.2168</td>
-		<td>557.3100</td>
-		<td> 15.1147</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Robot World 32</td>
-		<td> 38.8424</td>
-		<td> 14.4914</td>
-		<td>165.5544</td>
-		<td>142.4049</td>
-		<td> 14.4914</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Jackson N=4</td>
-		<td>150.3980</td>
-		<td> 81.1106</td>
-		<td> 96.9009</td>
-		<td>1421.5796</td>
-		<td> 81.1106</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Jackson N=5</td>
-		<td>1118.8482</td>
-		<td> 856.2510</td>
-		<td> 500.7877</td>
-		<td>1269.8520</td>
-		<td> 500.7877</td>
-		<td>STAMINA 2.0 (PRISM)</td>
-		</tr>
-		<tr>
-		<td>Toggle IPTG 0</td>
-		<td>1.0772</td>
-		<td>0.4224</td>
-		<td>2.6749</td>
-		<td>1.4013</td>
-		<td>0.4224</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Toggle IPTG 100</td>
-		<td>1.7157</td>
-		<td>0.9214</td>
-		<td>4.2458</td>
-		<td>3.9066</td>
-		<td>0.9214</td>
-		<td>STAMINA 2.5</td>
-		</tr>
-		<tr>
-		<td>Hazard Circuit 0x8E Flat</td>
-		<td>24.5535</td>
-		<td>23.8164</td>
-		<td>17.8686</td>
-		<td>15.0934</td>
-		<td>15.0934</td>
-		<td>STAMINA 1.0</td>
-		</tr>
-		<tr>
-		<td>Hazard Circuit 0x8E</td>
-		<td> 822.7276</td>
-		<td>1052.9828</td>
-		<td>5248.1372</td>
-		<td>4395.7493</td>
-		<td> 822.7276</td>
-		<td>STAMINA 2.0 (STORM)</td>
-		</tr>
-		</tbody>
+	<table class="table table-bordered table-hover table-condensed" id="times-table">
 	</table>
 	</div>
 	<h3 class="collapsible-header" id="results-header" onclick="openCollapsible('results', 'results-header')">
@@ -302,6 +133,15 @@ if (bttButton != null) {
 	<div class="collapsible" id="results">
 	<p>
 		STAMINA/STORM was able to consistently and accurately predict probability windows for CSL properties for all tests in the preliminary testing. Again, when full testing is complete (i.e., comparison against other model estimation tools including <a href=https://www.modestchecker.net/>MODEST</a> and <a href=https://www.academia.edu/994229/INFAMY_An_infinite_state_Markov_model_checker>INFAMY</a>), they will be published in a paper, probably sometime in Fall 2022.
+	<select id="results-select">
+		<option value="hazard">Hazard Circuit</option>
+		<option value="jackson">Jackson Circuit</option>
+		<option value="polling">Polling System</option>
+		<option value="robot">Robot World</option>
+		<option value="tandem">Tandem Queue</option>
+		<option value="toggle">Toggle Switch</option>
+		<option value="toy">Toy Model</option>
+	</select>
 	</p>
 	<p>
 		Full results will be published here after testing is complete.
