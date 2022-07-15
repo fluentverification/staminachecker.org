@@ -41,6 +41,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 			// Some cleanup
 			table.innerHTML = table.innerHTML.replace(/,/g, "");
 			table.innerHTML = table.innerHTML.replace("/<tbody><\/tbody>/g", "");
+			table.innerHTML = table.innerHTML.replace("/<td><\/td>/g", "");
 		}
 		else {
 			console.log("Could not find file at URL: " + requestURL + "!");
