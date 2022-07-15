@@ -279,6 +279,7 @@ p {
 	background-color: var(--background-two);
 	font-family: 'Noto Sans', sans-serif;
 	background-image: url("images/banner.png");
+	text-shadow: 0 0 2px black;
 }
 
 .banner h1 {
