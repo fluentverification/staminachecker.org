@@ -45,4 +45,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 	}
 	tableFile.open("GET", requestURL, true);
 	tableFile.send();
+	// Some cleanup
+	table.innerHTML = table.innerHTML.replace(/,/g, "");
+	table.innerHTML = table.innerHTML.replace("/<tbody><\/tbody>/g", "");
 }
