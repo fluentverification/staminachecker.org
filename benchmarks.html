@@ -117,7 +117,7 @@ if (bttButton != null) {
 function putTimesInTable() {
 	let s = document.getElementById("times-select");
 	var url = "data/results/preliminary/" + s.value + "/times.csv";
-	getCSVDataAndAppendToTable(url, "times-table", ["STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0"]);
+	getCSVDataAndAppendToTable(url, "times-table", ["Model", "STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0", "Winning Checker"]);
 }
 	</script>
 	<button class="button" onclick="putTimesInTable()">Update</button>
@@ -147,7 +147,7 @@ function putTimesInTable() {
 function putResultsInTable() {
 	let s = document.getElementById("results-select");
 	var url = "data/results/preliminary/" + s.value + "/windows.csv";
-	getCSVDataAndAppendToTable(url, "results-table", ["STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0"]);
+	getCSVDataAndAppendToTable(url, "results-table", ["Model", "STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0"]);
 }
 	</script>
 	</p>
