@@ -83,7 +83,7 @@ body {
 }
 .btt-button {
 	display: none;
-	background: var(--accent-medium);
+/* 	background: var(--accent-medium); */
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
@@ -91,14 +91,14 @@ body {
 	color: white;
 	cursor: pointer;
 	padding: 20px;
-	border-radius: 6pt;
+/* 	border-radius: 6pt; */
 	font-family: 'Noto Sans', sans-serif;
 	font-weight: bold;
 }
 
-.btt-button:hover {
+/*.btt-button:hover {
 	background: var(--accent-dark);
-}
+}*/
 
 .cookie-banner {
 	font-family: 'Noto Sans', sans-serif;
@@ -223,14 +223,14 @@ input[type=text], select, textarea {
 	padding: 20px;
 }
 
-.button, input[type=submit] {
+.button, input[type=submit], .btt-button {
 	display: inline-block;
 	color: white;
 	text-align: center;
 	padding: 16px;
 	text-decoration: none;
 	background-color: var(--accent-medium);
-	border-radius: 6px;
+/* 	border-radius: 6px; */
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-right: 10px;
@@ -239,9 +239,11 @@ input[type=text], select, textarea {
 	line-height: 20px;
 	cursor: pointer;
 	vertical-align: center;
+	border-left: 4px solid var(--accent-low-sat);
+	font-variant: small-caps;
 }
 
-.button:hover, input[type=submit]:hover {
+.button:hover, input[type=submit]:hover, .btt-button:hover {
 	color: white;
 	background-color: var(--accent-low-sat);
 }
@@ -314,6 +316,7 @@ p {
 	text-align: center;
 	padding: 20px 16px;
 	text-decoration: none;
+	font-variant: small-caps;
 }
 
 #stamina {
