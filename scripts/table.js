@@ -45,6 +45,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 		}
 		else {
 			console.log("Could not find file at URL: " + requestURL + "!");
+			table.innerHTML += "<div class='error'>Could not load table from " + requestURL + "!</div>";
 		}
 	}
 	tableFile.open("GET", requestURL, true);
