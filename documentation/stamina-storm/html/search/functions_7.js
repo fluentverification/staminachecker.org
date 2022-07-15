@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['info_0',['info',['../classstamina_1_1StaminaMessages.html#a8775114ee424fac9a4a550c8cad6b736',1,'stamina::StaminaMessages']]],
-  ['initialize_1',['initialize',['../classstamina_1_1Stamina.html#a643404073a16c9c723635ae30a59480c',1,'stamina::Stamina::initialize()'],['../classstamina_1_1StaminaModelChecker.html#a43cd01791ecdcfe7b7ae917d7e278eb0',1,'stamina::StaminaModelChecker::initialize()']]]
+  ['info_0',['info',['../classstamina_1_1core_1_1StaminaMessages.html#a2be999fc7fdb96abe06b628f10502c35',1,'stamina::core::StaminaMessages']]],
+  ['initialize_1',['initialize',['../classstamina_1_1core_1_1StaminaModelChecker.html#a6c88e780bf275d3bdd243afb4f90bf3a',1,'stamina::core::StaminaModelChecker::initialize()'],['../classstamina_1_1Stamina.html#a70add037bc9739fbca5c5a546e059210',1,'stamina::Stamina::initialize()']]],
+  ['insertoperand_2',['insertOperand',['../classstamina_1_1gui_1_1PropertyWizard.html#a3f0c818fff3db6b492c3cbba0fcb8d7a',1,'stamina::gui::PropertyWizard']]],
+  ['iterativeexplorationthread_3',['IterativeExplorationThread',['../classstamina_1_1builder_1_1threads_1_1IterativeExplorationThread.html#a2937673bbeaacf5abaa233cbfa8e2bb6',1,'stamina::builder::threads::IterativeExplorationThread']]]
 ];

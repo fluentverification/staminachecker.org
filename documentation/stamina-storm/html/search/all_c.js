@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['reserve_0',['reserve',['../classstamina_1_1util_1_1StateIndexArray.html#a7eb9c49940ee1a40599218d1489cd7f6',1,'stamina::util::StateIndexArray']]],
-  ['reset_1',['reset',['../classstamina_1_1StaminaModelBuilder.html#a8be0e3f2423034c10485d416e486a6ef',1,'stamina::StaminaModelBuilder']]],
-  ['resultinformation_2',['ResultInformation',['../structstamina_1_1ResultInformation.html',1,'stamina']]],
-  ['run_3',['run',['../classxstamina_1_1XStamina.html#a1edc59e0510cb7b8218068c631edcb7a',1,'xstamina.XStamina.run()'],['../classstamina_1_1Stamina.html#a245caf00c2a2955d485bda12078a3fe8',1,'stamina::Stamina::run()']]]
+  ['mainloop_0',['mainLoop',['../classstamina_1_1builder_1_1threads_1_1BaseThread.html#ad680cd3f87ea02b38517b0ccfb304771',1,'stamina::builder::threads::BaseThread::mainLoop()'],['../classstamina_1_1builder_1_1threads_1_1ControlThread.html#a3fe8cc892e7a7b32264c31884446f676',1,'stamina::builder::threads::ControlThread::mainLoop()'],['../classstamina_1_1builder_1_1threads_1_1ExplorationThread.html#ae8111e2ddd8d669d62cad0681da3a747',1,'stamina::builder::threads::ExplorationThread::mainLoop()']]],
+  ['mainwindow_1',['MainWindow',['../classstamina_1_1gui_1_1MainWindow.html',1,'stamina::gui::MainWindow'],['../classUi_1_1MainWindow.html',1,'Ui::MainWindow']]],
+  ['modelbuilding_2',['ModelBuilding',['../structstamina_1_1gui_1_1PrefInfo_1_1ModelBuilding.html',1,'stamina::gui::PrefInfo']]],
+  ['modelchecking_3',['ModelChecking',['../structstamina_1_1gui_1_1PrefInfo_1_1ModelChecking.html',1,'stamina::gui::PrefInfo']]],
+  ['modelcheckproperty_4',['modelCheckProperty',['../classstamina_1_1core_1_1StaminaModelChecker.html#aff73e131ae11e83fc4a06f6d4506c4f7',1,'stamina::core::StaminaModelChecker']]],
+  ['modelmodify_5',['ModelModify',['../classstamina_1_1util_1_1ModelModify.html#ab2f16a82b8b06221a8ddc797f72bc236',1,'stamina::util::ModelModify::ModelModify()'],['../classstamina_1_1util_1_1ModelModify.html',1,'stamina::util::ModelModify']]],
+  ['moreoptions_6',['MoreOptions',['../classMoreOptions_1_1MoreOptions.html',1,'MoreOptions']]]
 ];

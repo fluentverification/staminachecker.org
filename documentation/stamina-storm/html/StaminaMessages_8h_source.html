@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>STAMINA/STORM: /home/josh/Documents/Work/stamina-cplusplus/src/stamina/StaminaMessages.h Source File</title>
+<title>STAMINA/STORM: /home/josh/Documents/Work/stamina-cplusplus/src/stamina/core/StaminaMessages.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" width=200px src="staminaLogo.svg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="staminaLogo.svg"/></td>
   <td id="projectalign">
    <div id="projectname">STAMINA/STORM<span id="projectnumber">&#160;0.1</span>
    </div>
@@ -65,15 +65,15 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_94a74d1cf16bc10cfb13d2f771d4aabe.html">stamina</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_94a74d1cf16bc10cfb13d2f771d4aabe.html">stamina</a></li><li class="navelem"><a class="el" href="dir_a8f220b4ddb0e0897f4832695cc16c20.html">core</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">StaminaMessages.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STAMINA_MESSAGES_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STAMINA_MESSAGES_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STAMINA_CORE_STAMINAMESSAGES_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STAMINA_CORE_STAMINAMESSAGES_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
@@ -94,52 +94,54 @@ $(function() {
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">// DEBUG_PRINTS</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestamina.html">stamina</a> {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment">/* ERRORS WE CAN GET */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">enum</span> STAMINA_ERRORS {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        ERR_GENERAL = 1</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        , ERR_SEVERE = 2</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        , ERR_MEMORY_EXCEEDED = 137</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">/* All result information */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structstamina_1_1ResultInformation.html">   30</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structstamina_1_1ResultInformation.html">ResultInformation</a> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">double</span> pMin;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">double</span> pMax;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        uint32_t numberStates;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        uint8_t numberInitial;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::string property;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    };</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classstamina_1_1StaminaMessages.html">   37</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classstamina_1_1StaminaMessages.html">StaminaMessages</a> {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a7025769a060e62edf799447189661b76">errorAndExit</a>(std::string err, uint8_t err_num = STAMINA_ERRORS::ERR_GENERAL);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a589e8194b1847d778e3464a28c1daa16">error</a>(std::string err, uint8_t err_num = STAMINA_ERRORS::ERR_GENERAL);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#ab1c3d3a0764d36cf237085734b7a1bb8">warning</a>(std::string warn);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a8775114ee424fac9a4a550c8cad6b736">info</a>(std::string <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a8775114ee424fac9a4a550c8cad6b736">info</a>);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a32b27171c2ae5117e4bc31307c8ab1cf">good</a>(std::string <a class="code hl_function" href="classstamina_1_1StaminaMessages.html#a32b27171c2ae5117e4bc31307c8ab1cf">good</a>);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#ifdef DEBUG_PRINTS</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> debugPrint(std::string msg);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> writeResults(<a class="code hl_struct" href="structstamina_1_1ResultInformation.html">ResultInformation</a> resultInformation, std::ostream out);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> * horizontalSeparator =</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="stringliteral">&quot;========================================================================================&quot;</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>} <span class="comment">// namespace stamina</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/* Logging and debugging messages */</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#ifdef DEBUG_PRINTS</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">    #define STAMINA_DEBUG_LOG(x)</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">// DEBUG_PRINTS</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">// STAMINA_MESSAGES_H</span></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html">stamina::StaminaMessages</a></div><div class="ttdef"><b>Definition:</b> StaminaMessages.h:37</div></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html_a32b27171c2ae5117e4bc31307c8ab1cf"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html#a32b27171c2ae5117e4bc31307c8ab1cf">stamina::StaminaMessages::good</a></div><div class="ttdeci">static void good(std::string good)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:40</div></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html_a589e8194b1847d778e3464a28c1daa16"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html#a589e8194b1847d778e3464a28c1daa16">stamina::StaminaMessages::error</a></div><div class="ttdeci">static void error(std::string err, uint8_t err_num=STAMINA_ERRORS::ERR_GENERAL)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:23</div></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html_a7025769a060e62edf799447189661b76"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html#a7025769a060e62edf799447189661b76">stamina::StaminaMessages::errorAndExit</a></div><div class="ttdeci">static void errorAndExit(std::string err, uint8_t err_num=STAMINA_ERRORS::ERR_GENERAL)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:15</div></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html_a8775114ee424fac9a4a550c8cad6b736"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html#a8775114ee424fac9a4a550c8cad6b736">stamina::StaminaMessages::info</a></div><div class="ttdeci">static void info(std::string info)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:35</div></div>
-<div class="ttc" id="aclassstamina_1_1StaminaMessages_html_ab1c3d3a0764d36cf237085734b7a1bb8"><div class="ttname"><a href="classstamina_1_1StaminaMessages.html#ab1c3d3a0764d36cf237085734b7a1bb8">stamina::StaminaMessages::warning</a></div><div class="ttdeci">static void warning(std::string warn)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:30</div></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">namespace </span>core {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">/* ERRORS WE CAN GET */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">enum</span> STAMINA_ERRORS {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            ERR_GENERAL = 1</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            , ERR_SEVERE = 2</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            , ERR_MEMORY_EXCEEDED = 137</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        };</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">/* All result information */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structstamina_1_1core_1_1ResultInformation.html">   31</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structstamina_1_1core_1_1ResultInformation.html">ResultInformation</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordtype">double</span> pMin;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordtype">double</span> pMax;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            uint32_t numberStates;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            uint8_t numberInitial;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::string property;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        };</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classstamina_1_1core_1_1StaminaMessages.html">   38</a></span>        <span class="keyword">class </span><a class="code hl_class" href="classstamina_1_1core_1_1StaminaMessages.html">StaminaMessages</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#a0b6eda017a5d615a4d7b3d1de202a254">errorAndExit</a>(std::string err, uint8_t err_num = STAMINA_ERRORS::ERR_GENERAL);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#a85889f0264979e45ed23f38069e27ddf">error</a>(std::string err, uint8_t err_num = STAMINA_ERRORS::ERR_GENERAL);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#ab4d1a725b78b56a47d0d80a253f87c8e">warning</a>(std::string warn);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#a2be999fc7fdb96abe06b628f10502c35">info</a>(std::string <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#a2be999fc7fdb96abe06b628f10502c35">info</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#ad6f7351e138ca5b97abe6ff871b4620f">good</a>(std::string <a class="code hl_function" href="classstamina_1_1core_1_1StaminaMessages.html#ad6f7351e138ca5b97abe6ff871b4620f">good</a>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">    #ifdef DEBUG_PRINTS</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> debugPrint(std::string msg);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keyword">static</span> <span class="keywordtype">void</span> writeResults(<a class="code hl_struct" href="structstamina_1_1core_1_1ResultInformation.html">ResultInformation</a> resultInformation, std::ostream out);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keyword">static</span> <span class="keyword">const</span> std::string horizontalSeparator;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        };</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    } <span class="comment">// namespace core</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">typedef</span> <a class="code hl_class" href="classstamina_1_1core_1_1StaminaMessages.html">core::StaminaMessages</a> <a class="code hl_class" href="classstamina_1_1core_1_1StaminaMessages.html">StaminaMessages</a>; <span class="comment">// Allow users to use messages without the `core` namespace</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>} <span class="comment">// namespace stamina</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/* Logging and debugging messages */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#ifdef DEBUG_PRINTS</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">    #define STAMINA_DEBUG_LOG(x)</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">// DEBUG_PRINTS</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif </span><span class="comment">// STAMINA_CORE_STAMINAMESSAGES_H</span></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html">stamina::core::StaminaMessages</a></div><div class="ttdef"><b>Definition:</b> StaminaMessages.h:38</div></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html_a0b6eda017a5d615a4d7b3d1de202a254"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html#a0b6eda017a5d615a4d7b3d1de202a254">stamina::core::StaminaMessages::errorAndExit</a></div><div class="ttdeci">static void errorAndExit(std::string err, uint8_t err_num=STAMINA_ERRORS::ERR_GENERAL)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:18</div></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html_a2be999fc7fdb96abe06b628f10502c35"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html#a2be999fc7fdb96abe06b628f10502c35">stamina::core::StaminaMessages::info</a></div><div class="ttdeci">static void info(std::string info)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:38</div></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html_a85889f0264979e45ed23f38069e27ddf"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html#a85889f0264979e45ed23f38069e27ddf">stamina::core::StaminaMessages::error</a></div><div class="ttdeci">static void error(std::string err, uint8_t err_num=STAMINA_ERRORS::ERR_GENERAL)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:26</div></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html_ab4d1a725b78b56a47d0d80a253f87c8e"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html#ab4d1a725b78b56a47d0d80a253f87c8e">stamina::core::StaminaMessages::warning</a></div><div class="ttdeci">static void warning(std::string warn)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:33</div></div>
+<div class="ttc" id="aclassstamina_1_1core_1_1StaminaMessages_html_ad6f7351e138ca5b97abe6ff871b4620f"><div class="ttname"><a href="classstamina_1_1core_1_1StaminaMessages.html#ad6f7351e138ca5b97abe6ff871b4620f">stamina::core::StaminaMessages::good</a></div><div class="ttdeci">static void good(std::string good)</div><div class="ttdef"><b>Definition:</b> StaminaMessages.cpp:43</div></div>
 <div class="ttc" id="anamespacestamina_html"><div class="ttname"><a href="namespacestamina.html">stamina</a></div><div class="ttdef"><b>Definition:</b> ExplicitTruncatedModelBuilder.cpp:40</div></div>
-<div class="ttc" id="astructstamina_1_1ResultInformation_html"><div class="ttname"><a href="structstamina_1_1ResultInformation.html">stamina::ResultInformation</a></div><div class="ttdef"><b>Definition:</b> StaminaMessages.h:30</div></div>
+<div class="ttc" id="astructstamina_1_1core_1_1ResultInformation_html"><div class="ttname"><a href="structstamina_1_1core_1_1ResultInformation.html">stamina::core::ResultInformation</a></div><div class="ttdef"><b>Definition:</b> StaminaMessages.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

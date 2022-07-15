@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadpropertyexpressionfromformula_0',['loadPropertyExpressionFromFormula',['../classstamina_1_1StaminaModelBuilder.html#acdd83702d9c970a6b54b32b4d02f073e',1,'stamina::StaminaModelBuilder']]]
+  ['join_0',['join',['../classstamina_1_1builder_1_1threads_1_1BaseThread.html#a4db8812ecbea2603dc2669113c1cfedf',1,'stamina::builder::threads::BaseThread']]]
 ];

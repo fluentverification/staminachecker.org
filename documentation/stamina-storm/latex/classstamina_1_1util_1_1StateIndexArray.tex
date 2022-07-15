@@ -15,6 +15,8 @@ Probability\+State\+Type $\ast$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIn
 void \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a85cd1281c80e11d19c7445c0ff862d17}{put}} (State\+Type index, Probability\+State\+Type $\ast$probability\+State)
 \item 
 std\+::vector$<$ State\+Type $>$ \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}{get\+Perimeter\+States}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray_a64653e80161dc20d3d6d41583326506f}{get\+Number\+Terminal}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -48,7 +50,14 @@ Gets a pointer to the Probability\+State stored in the array. If the index does 
 \begin{DoxyReturn}{Returns}
 The Probability\+State or nullptr if does not exist 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}\label{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}} 
+\mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a64653e80161dc20d3d6d41583326506f}\label{classstamina_1_1util_1_1StateIndexArray_a64653e80161dc20d3d6d41583326506f}} 
+\index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!getNumberTerminal@{getNumberTerminal}}
+\index{getNumberTerminal@{getNumberTerminal}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
+\doxysubsubsection{\texorpdfstring{getNumberTerminal()}{getNumberTerminal()}}
+{\footnotesize\ttfamily template$<$typename State\+Type , typename Probability\+State\+Type $>$ \\
+uint32\+\_\+t \mbox{\hyperlink{classstamina_1_1util_1_1StateIndexArray}{stamina\+::util\+::\+State\+Index\+Array}}$<$ State\+Type, Probability\+State\+Type $>$\+::get\+Number\+Terminal}
+
+Gets the actual number of terminal states in the map \mbox{\Hypertarget{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}\label{classstamina_1_1util_1_1StateIndexArray_a3695dc56d2a1227129f4b20d33e78eab}} 
 \index{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}!getPerimeterStates@{getPerimeterStates}}
 \index{getPerimeterStates@{getPerimeterStates}!stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$@{stamina::util::StateIndexArray$<$ StateType, ProbabilityStateType $>$}}
 \doxysubsubsection{\texorpdfstring{getPerimeterStates()}{getPerimeterStates()}}

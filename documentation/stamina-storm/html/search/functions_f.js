@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['warning_0',['warning',['../classstamina_1_1StaminaMessages.html#ab1c3d3a0764d36cf237085734b7a1bb8',1,'stamina::StaminaMessages']]]
+  ['trace_0',['trace',['../classxstamina_1_1XStamina.html#a4e986d1a2b6eab9b5d506a9ecb082a55',1,'xstamina::XStamina']]]
 ];

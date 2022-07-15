@@ -21,7 +21,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" width=200px src="staminaLogo.svg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="staminaLogo.svg"/></td>
   <td id="projectalign">
    <div id="projectname">STAMINA/STORM<span id="projectnumber">&#160;0.1</span>
    </div>
@@ -72,19 +72,19 @@ $(function() {
   <div class="headertitle"><div class="title">Stamina.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STAMINA</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STAMINA</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef STAMINA_STAMINA</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define STAMINA_STAMINA</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;StaminaArgParse.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;StaminaModelChecker.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;Options.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;core/StaminaModelChecker.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;core/Options.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define VERSION_MAJOR 2</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define VERSION_MINOR 2.1</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define VERSION_MINOR 2.5</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;storm/api/storm.h&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;storm-parsers/api/storm-parsers.h&gt;</span></div>
@@ -101,27 +101,27 @@ $(function() {
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">/* MAIN STAMINA CLASS */</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classstamina_1_1Stamina.html">   28</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classstamina_1_1Stamina.html">Stamina</a> {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_function" href="classstamina_1_1Stamina.html#a0367c2f49dcc635e7b381c96effd7d96">Stamina</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structarguments.html">arguments</a> * <a class="code hl_struct" href="structarguments.html">arguments</a>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_function" href="classstamina_1_1Stamina.html#ace59c3ff9bb602f8a71e819264d593db">~Stamina</a>();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1Stamina.html#a245caf00c2a2955d485bda12078a3fe8">run</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_function" href="classstamina_1_1Stamina.html#aa0c97dc914b27d5147289514c5f76647">Stamina</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structarguments.html">arguments</a> * <a class="code hl_struct" href="structarguments.html">arguments</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_function" href="classstamina_1_1Stamina.html#ad1710a7c84d5a0c4c7d10c412f5bbf3f">~Stamina</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1Stamina.html#ae249b88a0dcf7bd063b2a3bc215cfd7f">run</a>();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">/* Data Members */</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1Stamina.html#a643404073a16c9c723635ae30a59480c">initialize</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classstamina_1_1Stamina.html#a70add037bc9739fbca5c5a546e059210">initialize</a>();</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">/* Data Members */</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::shared_ptr&lt;StaminaModelChecker&gt; modelChecker;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        std::shared_ptr&lt;core::StaminaModelChecker&gt; modelChecker;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        std::shared_ptr&lt;storm::prism::Program&gt; modelFile;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        std::shared_ptr&lt;std::vector&lt;storm::jani::Property&gt;&gt; propertiesVector;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    };</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">// STAMINA</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif </span><span class="comment">// STAMINA_STAMINA</span></div>
 <div class="ttc" id="aclassstamina_1_1Stamina_html"><div class="ttname"><a href="classstamina_1_1Stamina.html">stamina::Stamina</a></div><div class="ttdef"><b>Definition:</b> Stamina.h:28</div></div>
-<div class="ttc" id="aclassstamina_1_1Stamina_html_a0367c2f49dcc635e7b381c96effd7d96"><div class="ttname"><a href="classstamina_1_1Stamina.html#a0367c2f49dcc635e7b381c96effd7d96">stamina::Stamina::Stamina</a></div><div class="ttdeci">Stamina(struct arguments *arguments)</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:23</div></div>
-<div class="ttc" id="aclassstamina_1_1Stamina_html_a245caf00c2a2955d485bda12078a3fe8"><div class="ttname"><a href="classstamina_1_1Stamina.html#a245caf00c2a2955d485bda12078a3fe8">stamina::Stamina::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:42</div></div>
-<div class="ttc" id="aclassstamina_1_1Stamina_html_a643404073a16c9c723635ae30a59480c"><div class="ttname"><a href="classstamina_1_1Stamina.html#a643404073a16c9c723635ae30a59480c">stamina::Stamina::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:61</div></div>
-<div class="ttc" id="aclassstamina_1_1Stamina_html_ace59c3ff9bb602f8a71e819264d593db"><div class="ttname"><a href="classstamina_1_1Stamina.html#ace59c3ff9bb602f8a71e819264d593db">stamina::Stamina::~Stamina</a></div><div class="ttdeci">~Stamina()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:37</div></div>
+<div class="ttc" id="aclassstamina_1_1Stamina_html_a70add037bc9739fbca5c5a546e059210"><div class="ttname"><a href="classstamina_1_1Stamina.html#a70add037bc9739fbca5c5a546e059210">stamina::Stamina::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:63</div></div>
+<div class="ttc" id="aclassstamina_1_1Stamina_html_aa0c97dc914b27d5147289514c5f76647"><div class="ttname"><a href="classstamina_1_1Stamina.html#aa0c97dc914b27d5147289514c5f76647">stamina::Stamina::Stamina</a></div><div class="ttdeci">Stamina(struct arguments *arguments)</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:25</div></div>
+<div class="ttc" id="aclassstamina_1_1Stamina_html_ad1710a7c84d5a0c4c7d10c412f5bbf3f"><div class="ttname"><a href="classstamina_1_1Stamina.html#ad1710a7c84d5a0c4c7d10c412f5bbf3f">stamina::Stamina::~Stamina</a></div><div class="ttdeci">~Stamina()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:39</div></div>
+<div class="ttc" id="aclassstamina_1_1Stamina_html_ae249b88a0dcf7bd063b2a3bc215cfd7f"><div class="ttname"><a href="classstamina_1_1Stamina.html#ae249b88a0dcf7bd063b2a3bc215cfd7f">stamina::Stamina::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> Stamina.cpp:44</div></div>
 <div class="ttc" id="anamespacestamina_html"><div class="ttname"><a href="namespacestamina.html">stamina</a></div><div class="ttdef"><b>Definition:</b> ExplicitTruncatedModelBuilder.cpp:40</div></div>
-<div class="ttc" id="astructarguments_html"><div class="ttname"><a href="structarguments.html">arguments</a></div><div class="ttdef"><b>Definition:</b> StaminaArgParse.h:64</div></div>
+<div class="ttc" id="astructarguments_html"><div class="ttname"><a href="structarguments.html">arguments</a></div><div class="ttdef"><b>Definition:</b> StaminaArgParse.h:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['put_0',['put',['../classstamina_1_1util_1_1StateIndexArray.html#a85cd1281c80e11d19c7445c0ff862d17',1,'stamina::util::StateIndexArray']]]
+  ['options_0',['Options',['../structstamina_1_1builder_1_1ExplicitTruncatedModelBuilder_1_1Options.html#adce8b0d1475bdc4c12169b2b029e2376',1,'stamina::builder::ExplicitTruncatedModelBuilder::Options']]]
 ];

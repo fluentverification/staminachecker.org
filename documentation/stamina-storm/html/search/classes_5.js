@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['probabilitystate_0',['ProbabilityState',['../classstamina_1_1StaminaModelBuilder_1_1ProbabilityState.html',1,'stamina::StaminaModelBuilder']]],
-  ['probabilitystatecomparison_1',['ProbabilityStateComparison',['../structstamina_1_1StaminaModelBuilder_1_1ProbabilityStateComparison.html',1,'stamina::StaminaModelBuilder']]]
+  ['highlighter_0',['Highlighter',['../classstamina_1_1gui_1_1addons_1_1highlighter_1_1Highlighter.html',1,'stamina::gui::addons::highlighter']]],
+  ['highlightingrule_1',['HighlightingRule',['../structstamina_1_1gui_1_1addons_1_1highlighter_1_1Highlighter_1_1HighlightingRule.html',1,'stamina::gui::addons::highlighter::Highlighter']]]
 ];

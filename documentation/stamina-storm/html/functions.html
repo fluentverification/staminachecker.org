@@ -21,7 +21,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" width=200px src="staminaLogo.svg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="staminaLogo.svg"/></td>
   <td id="projectalign">
    <div id="projectname">STAMINA/STORM<span id="projectnumber">&#160;0.1</span>
    </div>
@@ -73,7 +73,7 @@ $(function() {
 
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>accumulateProbabilities()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a1c3f00f769ab3a3cff533f52d02e710d">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>accumulateProbabilities()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#aac107088d29fdcfced50b47841f22e05">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 <li>addFormButtons()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#aef6adcc48ffd03ee0ba7c9409b929b41">xstamina.XStamina</a></li>
 <li>addRowWithBrowse()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#a90c196e31b117b03231fc742a3141b5e">xstamina.XStamina</a></li>
 <li>allocate()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateMemoryPool.html#a11073ad552bf75cbe107f232b778bd69">stamina::util::StateMemoryPool&lt; T &gt;</a></li>
@@ -81,32 +81,40 @@ $(function() {
 
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>build()&#160;:&#160;<a class="el" href="classstamina_1_1ExplicitTruncatedModelBuilder.html#ae337aec7fcfe4fa57389805ff485fa39">stamina::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1StaminaModelBuilder.html#ae35731d5d50a860a6c8a290df86c6638">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>buildMatrices()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a2d8df7786d80c9adb1062053f212db06">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>buildModelComponents()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#ac4a638d37a6010db440e7d1b4ce5ffec">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>buildStateLabeling()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#adad63127f6d1d116ec0981b95c0ed9cc">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>BaseThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1BaseThread.html#a5050d69988e64ccf1931627e4be555f3">stamina::builder::threads::BaseThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>build()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1ExplicitTruncatedModelBuilder.html#a87dd982e59e1318057ad7b399503f091">stamina::builder::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ad2d0e5a7f51b4669dc15e99dc1376a52">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>buildMatrices()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#a0a1416e4aacf1bc6039f63704168ede9">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ab14d5255951c4c463397204616ed83a0">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaPriorityModelBuilder.html#aceae2bad01d042b30c8af27e89d055f5">stamina::builder::StaminaPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaReExploringModelBuilder.html#a0c66ebc223db65099ecfeafbc9a8a39b">stamina::builder::StaminaReExploringModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaThreadedIterativeModelBuilder.html#a629f9214e70339d09a441b426aadb2bf">stamina::builder::StaminaThreadedIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaThreadedPriorityModelBuilder.html#ae908c8bb6b1e098e5ae38ca7c9bc7954">stamina::builder::StaminaThreadedPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>buildModelComponents()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#aa2e7a8482e46d3375cb90ee94ab873fa">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ae9c6fdde6e09904687074674a5ffd6ef">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaPriorityModelBuilder.html#a96444a9e40c12752bb409ef3cf358779">stamina::builder::StaminaPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaReExploringModelBuilder.html#afc688b2540bca7c7e7b57f796e3e3367">stamina::builder::StaminaReExploringModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>buildStateLabeling()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a63064af683c8d8edf1adc764bc407c28">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>checkOptions()&#160;:&#160;<a class="el" href="classstamina_1_1Options.html#a99c1f4e37898e5a471472adfdba68d90">stamina::Options</a></li>
+<li>checkOptions()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1Options.html#a6c1fe0d62d13a6bf9274751f172cbac7">stamina::core::Options</a></li>
 <li>clear()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a66f913155988743d70690bcc95de00de">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
-<li>connectTerminalStatesToAbsorbing()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#ac1f0520289a8688b7b33888ed96a5d32">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>connectAllTerminalStatesToAbsorbing()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#a20f982ae32496d0a1bca370d8ca7f513">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>connectTerminalStatesToAbsorbing()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ac002abe0274ed8c2b9c6c75a41f53d27">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>ControlThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#a82844edcc42d8a1c8825f9acc57e1134">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
 <li>createExtensionMask()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#a5eaea9805ec7cc823c68860610a196b7">xstamina.XStamina</a></li>
 <li>createModifiedModel()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1ModelModify.html#afeabd93d1a0682e23e99e601da8ab622">stamina::util::ModelModify</a></li>
 <li>createModifiedProperties()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1ModelModify.html#abd2fbecbbbfc0a28d627570c41c35c74">stamina::util::ModelModify</a></li>
+<li>createTransition()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a64a1c9a1194b269304e1684b8fb5fe14">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>error()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaMessages.html#a589e8194b1847d778e3464a28c1daa16">stamina::StaminaMessages</a></li>
-<li>errorAndExit()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaMessages.html#a7025769a060e62edf799447189661b76">stamina::StaminaMessages</a></li>
-<li>ExplicitTruncatedModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1ExplicitTruncatedModelBuilder.html#a6ec3ff8f74a0580851a39704fa165d44">stamina::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>exportExplicitStateLookup()&#160;:&#160;<a class="el" href="classstamina_1_1ExplicitTruncatedModelBuilder.html#af35501a0307e5d41678fe5f7ae41920c">stamina::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>emplace_back()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread_1_1LockableDeque.html#aeff755d4228f34bf0e1d3cb0be57418b">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;::LockableDeque</a></li>
+<li>error()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaMessages.html#a85889f0264979e45ed23f38069e27ddf">stamina::core::StaminaMessages</a></li>
+<li>errorAndExit()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaMessages.html#a0b6eda017a5d615a4d7b3d1de202a254">stamina::core::StaminaMessages</a></li>
+<li>ExplicitTruncatedModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1ExplicitTruncatedModelBuilder.html#abfcb6974079d7e52803a34bfed5c26f7">stamina::builder::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>ExplorationThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ExplorationThread.html#aa6e3fba0f44e806888b28818258722bd">stamina::builder::threads::ExplorationThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>exportExplicitStateLookup()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1ExplicitTruncatedModelBuilder.html#a795bc331470eac7a0519b679a1ef4ca6">stamina::builder::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>flushStatesTerminated()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#aff6a56310b0c853949d1665da196aca9">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>flushToTransitionMatrix()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a3d7e18f1c16879711dd12d47c99fc0fa">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 <li>freeAll()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateMemoryPool.html#ac6a4618dfc91ab63d12e55ebcd1decbd">stamina::util::StateMemoryPool&lt; T &gt;</a></li>
 </ul>
 
@@ -115,33 +123,48 @@ $(function() {
 <li>get()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#abe66830fd1571838c2ac155747fd4246">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
 <li>getExportFilePath()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#ac719af1f5002f1f5477d2e691eeb0327">xstamina.XStamina</a></li>
 <li>getImportFilePath()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#abad261742c705625ed588b20b16bbbed">xstamina.XStamina</a></li>
-<li>getOrAddStateIndex()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a2cf155886ebedb804446a52f805b1b9f">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>getPerimeterStates()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#aa1e104992392091b2f8ac00e2ac71202">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a3695dc56d2a1227129f4b20d33e78eab">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
-<li>getStateIndexIfKnown()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#ae4f9ec744aeeca11b348bb0e464d6b5c">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>getStateIndexOrAbsorbing()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#ad71b5b195526506fae95c70d2abade43">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>good()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaMessages.html#a32b27171c2ae5117e4bc31307c8ab1cf">stamina::StaminaMessages</a></li>
+<li>getNumberTerminal()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a64653e80161dc20d3d6d41583326506f">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
+<li>getOrAddStateIndex()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#a23346634c526d397d85fad4d976072b7">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ac6d1934259f931420574318e71793640">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaPriorityModelBuilder.html#ab9ce88102e3e2a5d1d78ec6abaec232d">stamina::builder::StaminaPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1StaminaReExploringModelBuilder.html#a458f1fd0c4937df8917c4ea1f0eb3041">stamina::builder::StaminaReExploringModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>getParent()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1BaseThread.html#aaa79bdb584836026bc0e03e624e6f68f">stamina::builder::threads::BaseThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>getPerimeterStates()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a07c806df0d4808dcff9abcee161eb6af">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a>, <a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a3695dc56d2a1227129f4b20d33e78eab">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
+<li>getStateIndexIfKnown()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a437772fea8c697eda2bbe190f335fddd">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>getStateIndexOrAbsorbing()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a77f1f2e9df1188aa7d12279957cbb0ae">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>good()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaMessages.html#ad6f7351e138ca5b97abe6ff871b4620f">stamina::core::StaminaMessages</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>info()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaMessages.html#a8775114ee424fac9a4a550c8cad6b736">stamina::StaminaMessages</a></li>
-<li>initialize()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#a643404073a16c9c723635ae30a59480c">stamina::Stamina</a>, <a class="el" href="classstamina_1_1StaminaModelChecker.html#a43cd01791ecdcfe7b7ae917d7e278eb0">stamina::StaminaModelChecker</a></li>
+<li>info()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaMessages.html#a2be999fc7fdb96abe06b628f10502c35">stamina::core::StaminaMessages</a></li>
+<li>initialize()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaModelChecker.html#a6c88e780bf275d3bdd243afb4f90bf3a">stamina::core::StaminaModelChecker</a>, <a class="el" href="classstamina_1_1Stamina.html#a70add037bc9739fbca5c5a546e059210">stamina::Stamina</a></li>
+<li>insertOperand()&#160;:&#160;<a class="el" href="classstamina_1_1gui_1_1PropertyWizard.html#a3f0c818fff3db6b492c3cbba0fcb8d7a">stamina::gui::PropertyWizard</a></li>
+<li>IterativeExplorationThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1IterativeExplorationThread.html#a2937673bbeaacf5abaa233cbfa8e2bb6">stamina::builder::threads::IterativeExplorationThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+</ul>
+
+
+<h3><a id="index_j" name="index_j"></a>- j -</h3><ul>
+<li>join()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1BaseThread.html#a4db8812ecbea2603dc2669113c1cfedf">stamina::builder::threads::BaseThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+</ul>
+
+
+<h3><a id="index_k" name="index_k"></a>- k -</h3><ul>
+<li>kappa&#160;:&#160;<a class="el" href="structstamina_1_1gui_1_1PrefInfo_1_1ModelBuilding.html#a7e609dcf9cad39aab2fd46f3fe25e505">stamina::gui::PrefInfo::ModelBuilding</a></li>
 </ul>
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>loadPropertyExpressionFromFormula()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#acdd83702d9c970a6b54b32b4d02f073e">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>loadPropertyExpressionFromFormula()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ab2387b8377aa79b6537104e96e90eaa2">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>modelCheckProperty()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelChecker.html#a8416a26df51f9720aac74e2860d30fbe">stamina::StaminaModelChecker</a></li>
+<li>mainLoop()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1BaseThread.html#ad680cd3f87ea02b38517b0ccfb304771">stamina::builder::threads::BaseThread&lt; StateType, RewardModelType, ValueType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#a3fe8cc892e7a7b32264c31884446f676">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a>, <a class="el" href="classstamina_1_1builder_1_1threads_1_1ExplorationThread.html#ae8111e2ddd8d669d62cad0681da3a747">stamina::builder::threads::ExplorationThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>modelCheckProperty()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaModelChecker.html#aff73e131ae11e83fc4a06f6d4506c4f7">stamina::core::StaminaModelChecker</a></li>
 <li>ModelModify()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1ModelModify.html#ab2f16a82b8b06221a8ddc797f72bc236">stamina::util::ModelModify</a></li>
 </ul>
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>Options()&#160;:&#160;<a class="el" href="structstamina_1_1ExplicitTruncatedModelBuilder_1_1Options.html#a6d331b2598151e91aa2535b913be8895">stamina::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;::Options</a></li>
+<li>Options()&#160;:&#160;<a class="el" href="structstamina_1_1builder_1_1ExplicitTruncatedModelBuilder_1_1Options.html#adce8b0d1475bdc4c12169b2b029e2376">stamina::builder::ExplicitTruncatedModelBuilder&lt; ValueType, RewardModelType, StateType &gt;::Options</a></li>
 </ul>
 
 
@@ -151,23 +174,33 @@ $(function() {
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>requestCrossExploration()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ExplorationThread.html#a3e307f7070f48f008cb22a90afebbb34">stamina::builder::threads::ExplorationThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>requestCrossExplorationFromThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#aa2491df2275bcbc95354bcd779ef92ce">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>requestInsertTransition()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#acb11d48e61c73d2eb2f98f5ca4dd7d92">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>requestOwnership()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#ab21962436cfb47f9f5341eb20f9479fc">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
 <li>reserve()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a7eb9c49940ee1a40599218d1489cd7f6">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
-<li>reset()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a8be0e3f2423034c10485d416e486a6ef">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>run()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#a245caf00c2a2955d485bda12078a3fe8">stamina::Stamina</a>, <a class="el" href="classxstamina_1_1XStamina.html#a1edc59e0510cb7b8218068c631edcb7a">xstamina.XStamina</a></li>
+<li>reset()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#af149939903e5de102cba614c0589a623">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>run()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#ae249b88a0dcf7bd063b2a3bc215cfd7f">stamina::Stamina</a>, <a class="el" href="classxstamina_1_1XStamina.html#a1edc59e0510cb7b8218068c631edcb7a">xstamina.XStamina</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>setArgs()&#160;:&#160;<a class="el" href="classstamina_1_1Options.html#a5dc236ec9904b364c77c4735af77c9d5">stamina::Options</a></li>
-<li>setGenerator()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#add204db6a2dfdc6952b39ae48144166b">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>setLocalKappaToGlobal()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a99aa4095541785359c878581d428faf1">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>setPropertyFormula()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a9a525aa46be2632f509ea4e85884dc06">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>setUpAbsorbingState()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a9ca4d0b14a165946c1bf5bb1c0e85de6">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>setArgs()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1Options.html#a3cd2392732fc0abe3fb9b10d9d948321">stamina::core::Options</a></li>
+<li>setGenerator()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a29206811a00f917843adc932e83edb65">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>setLocalKappaToGlobal()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a71db83617212f87ee4e43bcee5e661ab">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>setPropertyFormula()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a31319ed8b0f75627ebd0d0a121d14b42">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>setUpAbsorbingState()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#a4894e7d73894099bcb18d22fc171c337">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
 <li>showMoreOptions()&#160;:&#160;<a class="el" href="classxstamina_1_1XStamina.html#ab3d6ef77fd8b67960b4dd6554b7b6d5b">xstamina.XStamina</a></li>
 <li>sizeToActualSize()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateIndexArray.html#a563fe49ccfb6f3a8b49c0f3370d67601">stamina::util::StateIndexArray&lt; StateType, ProbabilityStateType &gt;</a></li>
-<li>Stamina()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#a0367c2f49dcc635e7b381c96effd7d96">stamina::Stamina</a></li>
-<li>StaminaModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelBuilder.html#a0d646a4dacf7338ac08ed2730fb6d652">stamina::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
-<li>StaminaModelChecker()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelChecker.html#a375249ab96e0619ddf29aa2d5effd172">stamina::StaminaModelChecker</a></li>
+<li>Stamina()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#aa0c97dc914b27d5147289514c5f76647">stamina::Stamina</a></li>
+<li>StaminaIterativeModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaIterativeModelBuilder.html#a7ea61ae9a20cd9c194697bcb4dd15af4">stamina::builder::StaminaIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>StaminaModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaModelBuilder.html#ad9d538e0871bfe08845c67149e9cfe63">stamina::builder::StaminaModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>StaminaModelChecker()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaModelChecker.html#a421e5e0816543f5a6a2b21319f8c1951">stamina::core::StaminaModelChecker</a></li>
+<li>StaminaPriorityModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaPriorityModelBuilder.html#aeb61fa54d96873d06ee1c13fa8c47e87">stamina::builder::StaminaPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>StaminaReExploringModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaReExploringModelBuilder.html#a4622a64384440359f8240eb9ed4ebf0f">stamina::builder::StaminaReExploringModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>StaminaThreadedIterativeModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaThreadedIterativeModelBuilder.html#ac33b00232ba57532ab6a559664ab4b2f">stamina::builder::StaminaThreadedIterativeModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>StaminaThreadedPriorityModelBuilder()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1StaminaThreadedPriorityModelBuilder.html#aea16f29cabcdb1cfa5391a3d7027d607">stamina::builder::StaminaThreadedPriorityModelBuilder&lt; ValueType, RewardModelType, StateType &gt;</a></li>
+<li>startThread()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1BaseThread.html#ace56908223efd3fbd5295d4568398c9c">stamina::builder::threads::BaseThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
 <li>StateMemoryPool()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateMemoryPool.html#a1e871b0153e8be6e0eec8009a4eaa3f0">stamina::util::StateMemoryPool&lt; T &gt;</a></li>
 </ul>
 
@@ -178,14 +211,16 @@ $(function() {
 
 
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>warning()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaMessages.html#ab1c3d3a0764d36cf237085734b7a1bb8">stamina::StaminaMessages</a></li>
+<li>warning()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaMessages.html#ab4d1a725b78b56a47d0d80a253f87c8e">stamina::core::StaminaMessages</a></li>
+<li>whatIsIndex()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#a2b7ef0cfbe027b7f6253e13aa7327fff">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
+<li>whoOwns()&#160;:&#160;<a class="el" href="classstamina_1_1builder_1_1threads_1_1ControlThread.html#acd2a00128579dc6e1563d089c478d0f4">stamina::builder::threads::ControlThread&lt; StateType, RewardModelType, ValueType &gt;</a></li>
 </ul>
 
 
 <h3><a id="index__7E" name="index__7E"></a>- ~ -</h3><ul>
 <li>~ModelModify()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1ModelModify.html#a8e5c06048ddaadfd73b94cdcf54cd111">stamina::util::ModelModify</a></li>
-<li>~Stamina()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#ace59c3ff9bb602f8a71e819264d593db">stamina::Stamina</a></li>
-<li>~StaminaModelChecker()&#160;:&#160;<a class="el" href="classstamina_1_1StaminaModelChecker.html#a80441fb1151e351d389451695ad294fc">stamina::StaminaModelChecker</a></li>
+<li>~Stamina()&#160;:&#160;<a class="el" href="classstamina_1_1Stamina.html#ad1710a7c84d5a0c4c7d10c412f5bbf3f">stamina::Stamina</a></li>
+<li>~StaminaModelChecker()&#160;:&#160;<a class="el" href="classstamina_1_1core_1_1StaminaModelChecker.html#aa632f93a6fb4793e38799f797861254e">stamina::core::StaminaModelChecker</a></li>
 <li>~StateMemoryPool()&#160;:&#160;<a class="el" href="classstamina_1_1util_1_1StateMemoryPool.html#a769a9ea69a6647811a58856900ef0ab0">stamina::util::StateMemoryPool&lt; T &gt;</a></li>
 </ul>
 </div><!-- contents -->
