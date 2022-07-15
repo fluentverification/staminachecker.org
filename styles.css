@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@400;600;800&display=swap');
 
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@300&display=swap'); */
 
@@ -316,7 +316,6 @@ p {
 	text-align: center;
 	padding: 20px 16px;
 	text-decoration: none;
-	font-variant: small-caps;
 }
 
 #stamina {
@@ -354,6 +353,8 @@ p {
 	left: 0;
 	right: 0;
 	width: 100%;
+	font-weight: 800;
+	font-variant: small-caps;
 }
 
 .navbar li a:hover, .dropdown:hover, .stamina-name:hover {
