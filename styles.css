@@ -275,10 +275,10 @@ p {
 	padding-top: 200px;
 	padding-bottom: 200px;
 	width: 60%;
-	color: var(--color-two);
+	color: white; /*var(--color-two);*/
 	background-color: var(--background-two);
 	font-family: 'Noto Sans', sans-serif;
-/* 	background-image: url("images/banner.svg"); */
+	background-image: url("images/banner.png");
 }
 
 .banner h1 {
