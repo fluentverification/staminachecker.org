@@ -279,7 +279,7 @@ p {
 	background-color: var(--background-two);
 	font-family: 'Noto Sans', sans-serif;
 	background-image: url("images/banner.png");
-	text-shadow: 0 0 2px black;
+	text-shadow: 0 0 4px black;
 }
 
 .banner h1 {
@@ -288,6 +288,10 @@ p {
 
 .banner h2 {
 	font-size: 24pt;
+}
+
+.banner .button {
+	text-shadow: 0 0 2px #00000000;
 }
 
 .content {
