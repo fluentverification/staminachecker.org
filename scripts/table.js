@@ -24,24 +24,25 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 	console.log("Appending data at url " + requestURL);
 	// Get the data from that URL
 	var tableFile = new XMLHttpRequest();
-	tableFile.open("GET", requestURL, true);
 	table.innerHTML += "<tbody>";
-	console.log("Loading file...");
-	if (tableFile.readyState === FILE_PARSE_READY && tableFile.status === FILE_FOUND) {
-		// Parse the data
-		rawTextData = tableFile.responseText;
-		console.log(rawTextData);
-		lines = rawTextData.split('\n');
-		table.innerHTML += (
-			lines.map(line =>
-				"<tr>" + line.split(',').map(td => "<td>" + td + "</td>") + "</tr>"
-			)
-		);
+	tableFile.onreadystatechange = function() {
+		console.log("Loading file...");
+		if (tableFile.readyState === FILE_PARSE_READY && tableFile.status === FILE_FOUND) {
+			// Parse the data
+			rawTextData = tableFile.responseText;
+			console.log(rawTextData);
+			lines = rawTextData.split('\n');
+			table.innerHTML += (
+				lines.map(line =>
+					"<tr>" + line.split(',').map(td => "<td>" + td + "</td>") + "</tr>"
+				)
+			);
+		}
+		else {
+			console.log("Could not find file at URL: " + requestURL + "!");
+		}
+		table.innerHTML += "</tbody>";
 	}
-	else {
-		console.log("Could not find file at URL: " + requestURL + "!");
-	}
-// 	tableFile.onreadystatechange = function() {
-// 	}
-	table.innerHTML += "</tbody>";
+	tableFile.open("GET", requestURL, true);
+	tableFile.send();
 }
