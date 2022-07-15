@@ -34,7 +34,7 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 			lines = rawTextData.split('\n');
 			table.innerHTML += (
 				lines.map(line =>
-					"<tr>" + line.split(',').map(td => if (td != "") { return "<td>" + td + "</td>"; } ) + "</tr>"
+					"<tr>" + line.split(',').map(td => "<td>" + td + "</td>") + "</tr>"
 				)
 			);
 			table.innerHTML += "</tbody>";
