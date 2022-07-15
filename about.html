@@ -151,9 +151,15 @@ if (bttButton != null) {
 			<p>
 				STAMINA 2.0 is the na&#239;ve approach to fixing the problem presented in STAMINA 1.0: simply re-explore the entire state space with the current value of &kappa;. The logic regarding performance is that model checking with PRISM was the bottleneck in the algorithm, whereas the state exploration was extremely fast, likely because the PRISM model checker spent far more time checking rather than building the model. However, when this was implemented in C++ to interface with the STORM model checker, precisely the opposite was found: that the model building and truncating were the bottleneck.
 			</p>
+			<p>
+				However, the entirety of STAMINA 2.0 was far from na&#239;ve. STAMINA 2.0 introduced a new means of keeping track of state reachability, solving another problem in STAMINA 1.0: when a state had been explored, its reachability probability was zeroed out, allowing state re-exploration, and multiple paths to a state to contribute to a state's estimated reachability. This novelty earned it a spot in VMCAI'22.
+			</p>
 			<h4>Dynamic Programming Improvements (STAMINA 2.5)</h4>
 			<p>
-				In order to make STAMINA/STORM faster, in addition to memory pooling and decreased use of <div class="inline-code">std::unordered_map</div> and <div class="inline-code">std::unordered_set</div> (which after much testing, were determined to be far slower than the Java equivalent), certain dynamic programming improvements were devised to the STAMINA 2.0 algorithm. Please note that these are implemented exclusively in the STORM integration. The improvements simply keep track of the reachability that would have been lost in previous iterations and enqueue "lost" states to be explored alongside terminal states of the last iteration, rather than either the initial state (STAMINA 2.0) or the previous terminal states (STAMINA 1.0).
+				In order to make STAMINA/STORM faster, in addition to memory pooling and decreased use of <span class="inline-code">std::unordered_map</span> and <span class="inline-code">std::unordered_set</span> (which after much testing, were determined to be far slower than the Java equivalent), certain dynamic programming improvements were devised to the STAMINA 2.0 algorithm. Please note that these are implemented exclusively in the STORM integration. The improvements simply keep track of the reachability that would have been lost in previous iterations and enqueue "lost" states to be explored alongside terminal states of the last iteration, rather than either the initial state (STAMINA 2.0) or the previous terminal states (STAMINA 1.0).
+			</p>
+			<p>
+				Another major novel improvement slated to be released with STAMINA 2.5 is the use of multi-threading, and a custom protocol for the control thread to grant access without having to store mutual-exclusions for every state (extremely memory intensive), or having to lock all or part of the state space every time a thread requests control of a state (reduces the improvement of multithreading). This new protocol is among the improvements we are looking to include in a paper this fall.
 			</p>
 			<h3>The STAMINA 3.0 Algorithm</h3>
 			<p>
