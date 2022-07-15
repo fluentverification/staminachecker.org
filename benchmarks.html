@@ -144,7 +144,8 @@ function putTimesInTable() {
 		<option value="toggle">Toggle Switch</option>
 		<option value="toy">Toy Model</option>
 	</select>
-	<button class="button" onclick="putResultsInTable()">Update</button>
+	<button class="button" onclick="putResultsInTable()">Update</button><br>
+	The values in this table are the probability windows, i.e., <i>P<sub>MAX</sub> - P<sub>MIN</sub></i>. The closer they are to 0.0, the more accurate bound STAMINA was able to produce.
 	<script>
 function putResultsInTable() {
 	let s = document.getElementById("results-select");
