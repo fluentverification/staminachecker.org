@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home - STAMINA Model Checker</title>
+	<title>Search Results - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
@@ -18,7 +18,7 @@
 	<li><a class="navbutton" href="index.html">Home</a></li>
 	<li><a class="navbutton" href="about.html">About</a></li>
 	<li>
-		<a href="get.html" class="active" id="active" class="navbutton">Get</a>
+		<a href="get.html" class="navbutton" class="navbutton">Get</a>
 		<!--<div class="dropdown-content">
 			<a href="download.html">Download</a>
 			<a href="https://github.com/fluentverification/stamina">Source Code</a>
@@ -27,7 +27,6 @@
 	<li><a class="navbutton" href="documentation.html">Documentation</a></li>
 	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
 	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
-<!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
 	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 	<form action="javascript:search()">
 	<input type="text" id="search" class="search-bar" placeholder="Search...">
@@ -88,42 +87,11 @@ if (bttButton != null) {
 </div>
 <div class="content">
 <!-- CONTENT -->
-	<h1>Get STAMINA</h1>
-	<h2>Official Releases</h1>
-	<a class="button" href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v2.2.5-alpha"><i class="icon icon_edit-download"></i>Download Latest Release (2.2.5)</a>
-	<h3>Other Releases</h3>
-	<ul>
-		<li><a href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v2.2.1-beta">STAMINA/STORM 2.2.1</a></li>
-		<li><a href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v0.0.1-alpha">STAMINA/STORM Version 0.1 alpha (non-optimized)</a></li>
-		<li><a href="https://github.com/fluentverification/stamina/releases/tag/VMCAI2022">Version 2.0 (Only PRISM Integration)</a></li>
-		<li><a href="https://github.com/fluentverification/stamina/releases/tag/ACSSynBio21">Version 1.1 (Only PRISM Integration)</a></li>
-	</ul>
-	<h2>Source Code</h2>
-	<div class="note">
-		STAMINA is separated into three repositories: the main STAMINA repository, and two repositories included as submodules: STAMINA/STORM and STAMINA/PRISM. All three are hosted on GitHub.
+	<h1>Search Results</h1>
+	<h2 id="query">Query: </h2>
+	<div class="search-results">
+		TODO: Add Google custom search API
 	</div>
-	<a class="button" href="https://github.com/fluentverification/stamina"><img class="button-icon" src="images/icons/github_mark.svg" height="15px"> Get Source Code (Main Repository)</a>
-	<h3>Repositories</h3>
-	<ul>
-		<li><a href="https://github.com/fluentverification/stamina">Main Repository</a></li>
-		<li><a href="https://github.com/fluentverification/stamina-cplusplus">STAMINA/STORM</a></li>
-		<li><a href="https://github.com/fluentverification/stamina">STAMINA/PRISM</a></li>
-	</ul>
-	<h2>Citing Stamina</h2>
-	<p>To cite STAMINA in papers, use one of the following citations:</p>
-	<h3>To cite STAMINA 2.0, please use the tool paper from VMCAI'22:</h3>
-	<div class="citation" id="ieee">
-		Roberts R., Neupane T., Buecherl L., Myers C.J., Zhang Z. (2022) STAMINA 2.0: Improving Scalability of Infinite-State Stochastic Model Checking. In: Bernd F., Wies, T. (eds) Verification, Model Checking, and Abstract Interpretation. VMCAI 2022. Lecture Notes in Computer Science, Springer, Cham. Download link: https://link.springer.com/chapter/10.1007/978-3-030-94583-1_16
-	</div>
-	<button onclick="copyIeee()" class="button"><i class="icon icon_edit-copy"></i>Copy Citation</button>
-	<h3>To cite STAMINA 1.0, please use the tool paper from CAV'19:</h3>
-	<div class="citation" id="mla">
-		Neupane T., Myers C.J., Madsen C., Zheng H., Zhang Z. (2019) STAMINA: STochastic Approximate Model-Checker for INfinite-State Analysis. In: Dillig I., Tasiran S. (eds) Computer Aided Verification. CAV 2019. Lecture Notes in Computer Science, vol 11561. Springer, Cham. Download link: https://link.springer.com/chapter/10.1007/978-3-030-25540-4_31
-	</div>
-	<button onclick="copyMla()" class="button"><i class="icon icon_edit-copy"></i>Copy Citation</button>
-	<p style="font-size: 10pt">
-		STAMINA 2.5 and STAMINA 3.0 don't yet have papers published about them as they are currently under development. When they do have papers, they will be placed here.
-	</p>
 </div>
 <!-- Footer -->
 <div class="footer">
