@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -33,25 +34,7 @@
 	<input type="text" id="search" class="search-bar" placeholder="Search...">
 	</form>
 </ul>
-<script>
-function showSearchBar() {
-	let search = document.getElementById('search');
-	let searchIcon = document.getElementById('search-icon');
-	if (search.style.display == "block") {
-		search.style.display = "none";
-		searchIcon.classList.remove("icon_go-next");
-		searchIcon.classList.add("icon_edit-find");
-	}
-	else {
-		search.style.display = "block";
-		searchIcon.classList.add("icon_go-next");
-		searchIcon.classList.remove("icon_edit-find");
-	}
-}
-function search() {
-	alert("Search not implemented yet!");
-}
-</script>
+<script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
