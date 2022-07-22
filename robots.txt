@@ -4,4 +4,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: http://staminachecker.org/sitemap.xml
+Sitemap: https://staminachecker.org/sitemap.xml
