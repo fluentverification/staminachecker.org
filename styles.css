@@ -459,5 +459,10 @@ ul.navbar li.right {
 		margin-right: 10%;
 		width: 80%;
 	}
+	.search-bar {
+		width: 80%;
+		left: 10%;
+		top: 382px;
+	}
 
 }
