@@ -56,7 +56,7 @@ body {
 
 .search-overlay {
 	background-color: var(--navbar-background);
-	position: absolute;
+	position: fixed;
 	padding: 12px;
 	right: 0px;
 	display: none;
@@ -66,9 +66,9 @@ body {
 	color: black;
 /* 	height: 100%; */
 	display: block;
-	position: absolute;
-	padding: 7px;
-	right: 40px;
+	position: fixed;
+	padding: 10px;
+	right: 20px;
 }
 
 .search-bar {
@@ -83,7 +83,6 @@ body {
 /* 	position: absolute; */
 	top: 12px;
 	right: 110px;
-/* 	display: none; */
 }
 
 .icon {
@@ -468,15 +467,19 @@ ul.navbar li.right {
 		top: 0;
 		left: 0;
 		position: fixed;
-		background-color: #00000055;
+		background-color: #000000cc;
 	}
 	.search-overlay a {
-		right: 70px;
+		position: fixed;
+		top: 50px;
+		color: white;
 	}
 	.search-bar {
+		position: fixed;
 		width: 80%;
 		right: 5%;
-		top: 382px;
+		top: 100px;
+/* 		top: 382px; */
 	}
 }
 
