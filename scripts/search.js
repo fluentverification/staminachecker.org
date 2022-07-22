@@ -1,5 +1,5 @@
 function showSearchBar() {
-	let search = document.getElementById('search');
+	let search = document.getElementById('search-overlay');
 	let searchIcon = document.getElementById('search-icon');
 	if (search.style.display == "block") {
 		search.style.display = "none";

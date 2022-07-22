@@ -29,11 +29,14 @@
 	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
 	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()" class="navbutton"><img src="images/icons/darkLight.svg" height="15px"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
-	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
-	<form action="javascript:search()">
-	<input type="text" id="search" class="search-bar" placeholder="Search...">
-	</form>
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 </ul>
+<div class="search-overlay" id="search-overlay">
+	<a onclick="showSearchBar()">&times;</a>
+	<form action="javascript:search()">
+	<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search...">
+	</form>
+</div>
 <script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
