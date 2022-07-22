@@ -86,6 +86,13 @@ qElem.innerHTML += q;
 	<div class="gcse-searchresults-only"></div>
 	<p>Search results provided by Google</p>
 </div>
+<script>
+// Try to remove the google ads:
+let adElements = document.querySelectorAll('gsc-adBlock');
+for (var i = 0; i < adElements; ++i) {
+	adElements[i].remove();
+}
+</script>
 <!-- Footer -->
 <div class="footer">
 	<div class="footer-links">
