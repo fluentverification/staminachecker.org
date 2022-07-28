@@ -404,6 +404,16 @@ ul.navbar li.right {
 	float: right;
 }
 
+.dropdown-content {
+	display: none;
+	position: fixed;
+	background-color: var(--navbar-background);
+}
+
+#get:hover #get-dropdown {
+	display: block;
+}
+
 .footer {
 	font-size: 10pt;
 	display: block;
