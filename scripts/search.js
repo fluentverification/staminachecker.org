@@ -12,8 +12,8 @@ function showSearchBar() {
 		searchIcon.classList.remove("icon_edit-find");
 	}
 }
-function search() {
-	let query = document.getElementById('search').value;
+function search(id='search') {
+	let query = document.getElementById(id).value;
 	console.log("Searching for " + query);
 	document.location.assign("https://staminachecker.org/search.html?q=" + query);
 }
