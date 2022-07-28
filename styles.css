@@ -396,11 +396,13 @@ p {
 .navbar li a:hover, .dropdown:hover, .stamina-name:hover {
 /* 	background-color: var(--accent-low-sat); */
 	border-bottom: 4px solid var(--accent-medium);
+	color: var(--accent-medium);
 }
 
 #active, .active, .fluent {
 /* 	background-color: var(--accent-medium); */
 	border-bottom: 4px solid var(--accent-medium);
+	color: var(--accent-medium);
 }
 
 ul.navbar li.right {
