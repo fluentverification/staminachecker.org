@@ -11,7 +11,7 @@ window.onload = function() {
 		setDarkMode();
 	}
 	else {
-		document.cookie = "color-scheme=light " + expireCookie;
+		document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure";
 	}
 	// If showCookieInfo
 	if (showCookieInfo) {
@@ -54,7 +54,7 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	document.cookie = "color-scheme=dark " + expireCookie;
+	document.cookie = "color-scheme=dark " + expireCookie + " SameSite=none Secure";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', 'white');
 	rt.style.setProperty('--color-two', '#f7f7f7');
@@ -70,7 +70,7 @@ function setDarkMode() {
 
 function setLightMode() {
 	console.log("Setting light mode");
-	document.cookie = "color-scheme=light " + expireCookie;
+	document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', '#363636');
 	rt.style.setProperty('--color-two', '#515151');
