@@ -31,15 +31,28 @@
 	background-color: var(--background-color);
 	border: none;
 	float: right;
-	padding: 10px;
+	padding: 5px;
 	position: relative;
 	right: 10px;
 	top: 8px;
 	border-radius: 6px;
+	cursor: pointer;
 }
 .copy-button:hover {
 	background-color: var(--background-three);
-	border: 1px solid var(--color-two);
+/* 	border: 1px solid var(--color-two); */
+}
+
+.back-button {
+	cursor: pointer;
+	color: var(--color);
+	background-color: var(--background-color);
+	border: none;
+	padding: 5px;
+}
+
+.back-button:hover {
+	background-color: var(--background-three);
 }
 
 	</style>
@@ -51,17 +64,20 @@
 		<h1>Which version of STAMINA do you want?</h1>
 		<a class="button" href="https://github.com/fluentverification/stamina-cplusplus"><i class="icon icon_gnumeric-link-url"></i>STAMINA/STORM</a>
 		<a class="button" href="https://github.com/fluentverification/stamina"><i class="icon icon_gnumeric-link-url"></i>STAMINA/PRISM</a>
+		<p style="font-size: 9pt">
+			Please note that both of these links are external. They will take you to our GitHub pages.
+		</p>
 		<p>
 			To get STAMINA/STORM, please clone the following GitHub URL:
 		</p>
-		<button class="copy-button" onclick="copyCitation('sstamina-source')"><i class="icon icon_edit-copy"></i></button>
+		<button class="copy-button" onclick="copyCitation('sstamina-source')"><i class="icon icon_edit-copy just-icon""></i></button>
 		<div class="code" id="sstamina-source">
 			git clone https://github.com/fluentverification/stamina-cplusplus stamina-storm
 		</div>
 		<p>
 			To get STAMINA/PRISM, please clone the following GitHub URL:
 		</p>
-		<button class="copy-button" onclick="copyCitation('pstamina-source')"><i class="icon icon_edit-copy"></i></button>
+		<button class="copy-button" onclick="copyCitation('pstamina-source')"><i class="icon icon_edit-copy just-icon"></i></button>
 		<div class="code" id="pstamina-source">
 			git clone https://github.com/fluentverification/stamina stamina-prism
 		</div>
@@ -71,9 +87,12 @@
 		<p>
 			<b>STAMINA/PRISM</b> is the legacy version of STAMINA, integrating with the PRISM model checker. It is written in Java and supports the STAMINA 1.0 and 2.0 algorithms.
 		</p>
-		<p style="font-size: 9pt">
-			Please note that both of these links are external. They will take you to our GitHub pages.
-		</p>
+		<button class="back-button" onclick="window.history.back()">
+			<i class="icon icon_go-previous"></i>Go Back
+		</button>
+		<button class="back-button" onclick="window.location = 'https://staminachecker.org'">
+			<i class="icon icon_go-home"></i>Go to Homepage
+		</button>
 	</div>
 </div>
 </body>

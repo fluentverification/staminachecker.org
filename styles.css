@@ -257,6 +257,10 @@ body {
 	resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
+.just-icon {
+	margin-right: 0px;
+}
+
 .form {
 	background-color: var(--background-two);
 	padding: 20px;
