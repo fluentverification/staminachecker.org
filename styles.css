@@ -352,6 +352,7 @@ p {
 	text-align: center;
 	padding: 20px 16px;
 	text-decoration: none;
+	border-bottom: 4px solid var(--navbar-background);
 }
 
 #stamina {
@@ -393,11 +394,13 @@ p {
 }
 
 .navbar li a:hover, .dropdown:hover, .stamina-name:hover {
-	background-color: var(--accent-low-sat);
+/* 	background-color: var(--accent-low-sat); */
+	border-bottom: 4px solid var(--accent-medium);
 }
 
-.active, .fluent {
-	background-color: var(--accent-medium);
+#active, .active, .fluent {
+/* 	background-color: var(--accent-medium); */
+	border-bottom: 4px solid var(--accent-medium);
 }
 
 ul.navbar li.right {
@@ -408,6 +411,10 @@ ul.navbar li.right {
 	display: none;
 	position: fixed;
 	background-color: var(--navbar-background);
+}
+
+.dropdown-content a {
+	border-bottom: 4px solid var(--navbar-background);
 }
 
 #get:hover #get-dropdown {
