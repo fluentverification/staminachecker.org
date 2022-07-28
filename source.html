@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get Source Code - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<style>
+.source-overlay {
+	border: 1px solid var(--background-three);
+	padding: 30px;
+}
+
+.close {
+	color: var(--color);
+	background-color: var(--background-color);
+	border: none;
+	float: right;
+	padding: 10px;
+}
+
+.close:hover {
+	background-color: var(--background-three);
+}
+
+.copy-button {
+	color: var(--color);
+	background-color: var(--background-color);
+	border: none;
+	float: right;
+	padding: 10px;
+	position: relative;
+	right: 10px;
+	top: 8px;
+	border-radius: 6px;
+}
+.copy-button:hover {
+	background-color: var(--background-three);
+	border: 1px solid var(--color-two);
+}
+
+	</style>
+</head>
+<body>
+<div class="content">
+	<div class="source-overlay" id="source-overlay">
+		<button class="close" onclick="window.history.back()">&times;</button>
+		<h1>Which version of STAMINA do you want?</h1>
+		<a class="button" href="https://github.com/fluentverification/stamina-cplusplus"><i class="icon icon_gnumeric-link-url"></i>STAMINA/STORM</a>
+		<a class="button" href="https://github.com/fluentverification/stamina"><i class="icon icon_gnumeric-link-url"></i>STAMINA/PRISM</a>
+		<p>
+			To get STAMINA/STORM, please clone the following GitHub URL:
+		</p>
+		<button class="copy-button" onclick="copyCitation('sstamina-source')"><i class="icon icon_edit-copy"></i></button>
+		<div class="code" id="sstamina-source">
+			git clone https://github.com/fluentverification/stamina-cplusplus stamina-storm
+		</div>
+		<p>
+			To get STAMINA/PRISM, please clone the following GitHub URL:
+		</p>
+		<button class="copy-button" onclick="copyCitation('pstamina-source')"><i class="icon icon_edit-copy"></i></button>
+		<div class="code" id="pstamina-source">
+			git clone https://github.com/fluentverification/stamina stamina-prism
+		</div>
+		<p>
+			<b>STAMINA/STORM</b> is the newest version of STAMINA, integrating with the STORM model checker. It supports the STAMINA 2.0, 2.5, and will soon support 3.0 and multithreading.
+		</p>
+		<p>
+			<b>STAMINA/PRISM</b> is the legacy version of STAMINA, integrating with the PRISM model checker. It is written in Java and supports the STAMINA 1.0 and 2.0 algorithms.
+		</p>
+		<p style="font-size: 9pt">
+			Please note that both of these links are external. They will take you to our GitHub pages.
+		</p>
+	</div>
+</div>
+</body>
+</html>

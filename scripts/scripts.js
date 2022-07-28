@@ -127,5 +127,5 @@ function copyCitation(id) {
 	navigator.clipboard.writeText(citation.innerHTML);
 
 	// Alert that we have copied text
-	alert("Citation copied!");
+	alert("Copied!");
 }
