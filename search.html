@@ -7,8 +7,9 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/searchIndex.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
-	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
+<!-- 	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script> -->
 <style>
 .submit-search {
 	color: var(--color);
@@ -28,6 +29,27 @@
 
 #query {
 	border-radius: 20px;
+}
+
+.search-result {
+	display: block;
+	color: var(--color-two);
+	background-color: var(--background-two);
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.search-result:hover {
+	color: var(--color-two);
+	background-color: var(--background-three);
+}
+
+.search-result h2 {
+	color: var(--link-base);
+}
+
+.search-results p {
+	color: var(--color);
 }
 </style>
 </head>
@@ -101,16 +123,18 @@ if (bttButton != null) {
 	</form>
 		<button class="submit-search" onclick="search('query')"><i class="icon icon_edit-find just-icon" id="search-icon"></i></button>
 	<h1>Search Results</h1>
-	<p>
+<!--	<p>
 		Unfortunately, since we use the Google custom search API, we can't control whether or not Google shows ads in these search results. This is the <i>only</i> place on this website you will see ads. Sorry :(.
-	</p>
+	</p>-->
+	<div id="search-results"></div>
 <script>
 let q = getParameterByName('q');
 let qElem = document.getElementById('query');
 qElem.value = q;
+searchCustom(q);
 </script>
-	<div class="gcse-searchresults-only"></div>
-	<p>Search results provided by Google</p>
+<!-- 	<div class="gcse-searchresults-only"></div> -->
+<!-- 	<p>Search results provided by Google</p> -->
 </div>
 <script>
 // Try to remove the google ads:
