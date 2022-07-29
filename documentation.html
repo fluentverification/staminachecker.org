@@ -30,13 +30,15 @@
 	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
 	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
-</ul>
-<div class="search-overlay" id="search-overlay">
-	<a onclick="showSearchBar()">&times;</a>
-	<form action="javascript:search()">
-	<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search...">
-	</form>
-</div>
+<li>
+	<div class="search-overlay" id="search-overlay">
+		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
+		<form action="javascript:search()">
+		<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search...">
+		</form>
+	</div>
+</li>
+	</ul>
 <script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
@@ -90,44 +92,56 @@ if (bttButton != null) {
 	</h3>
 	<div class="collapsible" id="sstamina-options">
 		<p>The following options are available for STAMINA/STORM</p>
-		<div class="code">
-	&nbsp;&nbsp;-c, --const="C1=VAL,C2=VAL,C3=VAL"
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comma separated values for constants
-	<br>&nbsp;&nbsp;-C, --cuddMaxMem=memory&nbsp;&nbsp;&nbsp;&nbsp;Maximum CUDD memory, in the same format as PRISM
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1g)
-	<br>&nbsp;&nbsp;-e, --export=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Export model to a (text) file
-	<br>&nbsp;&nbsp;-f, --approxFactor=double&nbsp;&nbsp;Factor to estimate how far off our reachability
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; predictions will be (default: 2.0)
-	<br>&nbsp;&nbsp;-i, --import=filename&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import model to a (text) file
-	<br>&nbsp;&nbsp;-k, --kappa=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reachability threshold for the first iteration
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default: 1.0)
-	<br>&nbsp;&nbsp;-M, --maxIterations=int&nbsp;&nbsp;&nbsp;&nbsp;Maximum iteration for solution (default: 10000)
-	<br>&nbsp;&nbsp;-n, --maxApproxCount=int&nbsp;&nbsp; Maximum number of iterations in the approximation
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (default 10)
-	<br>&nbsp;&nbsp;-p, --property=propname&nbsp;&nbsp;&nbsp;&nbsp;Specify a certain property to check in a model
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; file that contains many
-	<br>&nbsp;&nbsp;-r, --reduceKappa=double&nbsp;&nbsp; Reduction factor for Reachability Threshold
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (kappa) during the refinement step (default 2.0)
-	<br>&nbsp;&nbsp;-R, --noPropRefine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do not use property based refinement. If given,
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the model exploration method will reduce kappa and
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do property independent definement (default: off)
-	<br>&nbsp;&nbsp;-S, --exportPerimeterStates=filename
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Export perimeter states to a file. Please provide
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a filename. This will append to the file if it is
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; existing
-	<br>&nbsp;&nbsp;-t, --exportTrans=filename Export the list of transitions and actions to a
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; specified file name, or to trans.txt if no file
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name is specified.
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Transitions are exported in the format &lt;Source
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; State Index&gt; &lt;Destination State Index&gt; &lt;Action
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Label&gt;
-	<br>&nbsp;&nbsp;-T, --rankTransitions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rank transitions before expanding (default: false)
-	<br>
-	<br>&nbsp;&nbsp;-w, --probWin=double&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probability window between lower and upperbound
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for termination (default: 1.0e-3)
-	<br>&nbsp;&nbsp;-?, --help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Give this help list
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--usage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give a short usage message
-		</div>
+<pre class="code" style="white-space: pre-wrap;">
+Usage: sstamina [OPTION...] MODEL_FILE PROPERTIES_FILE
+STAMINA -- truncates infinite CTMC state space and passes into STORM
+
+  -c, --const="C1=VAL,C2=VAL,C3=VAL"
+                             Comma separated values for constants
+  -C, --cuddMaxMem=memory    Maximum CUDD memory, in the same format as PRISM
+                             (default: 1g)
+  -e, --export=filename      Export model to a (text) file
+  -f, --approxFactor=double  Factor to estimate how far off our reachability
+                             predictions will be (default: 2.0)
+  -i, --import=filename      Import model to a (text) file
+  -I, --iterative            Use the STAMINA 2.5 method (iterative)
+  -J, --reExploring          Use the STAMINA 2.0 method (the method in
+                             STAMINA/PRISM)
+  -k, --kappa=double         Reachability threshold for the first iteration
+                             (default: 1.0)
+  -M, --maxIterations=int    Maximum iteration for solution (default: 10000)
+  -n, --maxApproxCount=int   Maximum number of iterations in the approximation
+                             (default 10)
+  -p, --property=propname    Specify a certain property to check in a model
+                             file that contains many
+  -P, --priority             Use the STAMINA 3.0 method (priority)
+  -r, --reduceKappa=double   Reduction factor for Reachability Threshold
+                             (kappa) during the refinement step (default 2.0)
+  -R, --noPropRefine         Do not use property based refinement. If given,
+                             the model exploration method will reduce kappa and
+                             do property independent definement (default: off)
+  -S, --exportPerimeterStates=filename
+                             Export perimeter states to a file. Please provide
+                             a filename. This will append to the file if it is
+                             existing
+  -t, --exportTrans=filename Export the list of transitions and actions to a
+                             specified file name, or to trans.txt if no file
+                             name is specified.
+                             Transitions are exported in the format &lt;Source
+                             State Index&gt; &lt;Destination State Index&gt; &lt;Action
+                             Label&gt;
+  -T, --rankTransitions      Rank transitions before expanding (default: false)
+                            
+  -V, --maxStates=integer    The maximum number of states to explore in an
+                             iteration (default 2000000)
+  -w, --probWin=double       Probability window between lower and upperbound
+                             for termination (default: 1.0e-3)
+  -?, --help                 Give this help list
+      --usage                Give a short usage message
+
+Mandatory or optional arguments to long options are also mandatory or optional
+for any corresponding short options.
+</pre>
 	</div>
 	<h3 class="collapsible-header" id="pstamina-options-header" onclick="openCollapsible('pstamina-options', 'pstamina-options-header')">
 		<div id="pstamina-options-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
@@ -135,40 +149,40 @@ if (bttButton != null) {
 		</h3>
 <div class="collapsible" id="pstamina-options">
 	<p>The following options are available for STAMINA/PRISM</p>
-	<div class="code">
+	<pre class="code" style="white-space: pre-wrap;">
 Usage: stamina [options] &lt;model-file&gt; &lt;properties-file&gt;
-<br>
-<br>&lt;model-file&gt; .................... Prism model file. Extensions: .prism, .sm
-<br>&lt;properties-file&gt; ............... Property file. Extensions: .csl
-<br>
-<br>Options:
-<br>========
-<br>
-<br>-kappa &lt;k&gt;.......................... ReachabilityThreshold for first iteration [default: 1.0]
-<br>-reducekappa &lt;f&gt;.................... Reduction factor for ReachabilityThreshold(kappa) for refinement step.  [default: 1.25]
-<br>-approxFactor &lt;f&gt;................... Factor to estimate how far off our reachability predictions will be  [default: 2.0]
-<br>-pbwin &lt;e&gt;.......................... Probability window between lower and upperbound for termination. [default: 1.0e-3]
-<br>-maxapproxcount &lt;n&gt;................. Maximum number of approximation iteration. [default: 10]
-<br>-noproprefine ...................... Do not use property based refinement. If given, model exploration method will reduce the kappa and do the property independent refinement. [default: off]
-<br>-cuddmaxmem &lt;memory&gt;................ Maximum cudd memory. Expects the same format as prism [default: 1g]
-<br>-export &lt;filename&gt;.................. Export model to a file. Please provide a filename without an extension
-<br>-exportPerimeterStates &lt;filename&gt;... Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing
-<br>-import &lt;filename&gt;.................. Import model to a file. Please provide a filename without an extension
-<br>-property &lt;property&gt;................ Specify a specific property to check in a model file that contains many
-<br>-const &lt;vals&gt; ...................... Comma separated values for constants
-<br>-exportTrans &lt;filename&gt;............. Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified. Transitions exported in the format srcStateIndex destStateIndex actionLabel
-<br>	Examples:
-<br>	-const a=1,b=5.6,c=true
-<br>
-<br>Other Options:
-<br>========
-<br>
-<br>-rankTransitions ................... Rank transitions before expanding. [default: false]
-<br>-maxiters &lt;n&gt; ...................... Maximum iteration for solution. [default: 10000]
-<br>-power ............................. Power method
-<br>-jacobi ............................ Jacobi method
-<br>-gaussseidel ....................... Gauss-Seidel method
-	</div>
+
+&lt;model-file&gt; .................... Prism model file. Extensions: .prism, .sm
+&lt;properties-file&gt; ............... Property file. Extensions: .csl
+
+Options:
+========
+
+-kappa &lt;k&gt;.......................... ReachabilityThreshold for first iteration [default: 1.0]
+-reducekappa &lt;f&gt;.................... Reduction factor for ReachabilityThreshold(kappa) for refinement step.  [default: 1.25]
+-approxFactor &lt;f&gt;................... Factor to estimate how far off our reachability predictions will be  [default: 2.0]
+-pbwin &lt;e&gt;.......................... Probability window between lower and upperbound for termination. [default: 1.0e-3]
+-maxapproxcount &lt;n&gt;................. Maximum number of approximation iteration. [default: 10]
+-noproprefine ...................... Do not use property based refinement. If given, model exploration method will reduce the kappa and do the property independent refinement. [default: off]
+-cuddmaxmem &lt;memory&gt;................ Maximum cudd memory. Expects the same format as prism [default: 1g]
+-export &lt;filename&gt;.................. Export model to a file. Please provide a filename without an extension
+-exportPerimeterStates &lt;filename&gt;... Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing
+-import &lt;filename&gt;.................. Import model to a file. Please provide a filename without an extension
+-property &lt;property&gt;................ Specify a specific property to check in a model file that contains many
+-const &lt;vals&gt; ...................... Comma separated values for constants
+-exportTrans &lt;filename&gt;............. Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified. Transitions exported in the format srcStateIndex destStateIndex actionLabel
+	Examples:
+	-const a=1,b=5.6,c=true
+
+Other Options:
+========
+
+-rankTransitions ................... Rank transitions before expanding. [default: false]
+-maxiters &lt;n&gt; ...................... Maximum iteration for solution. [default: 10000]
+-power ............................. Power method
+-jacobi ............................ Jacobi method
+-gaussseidel ....................... Gauss-Seidel method
+	</pre>
 </div>
 	<h2>Development Documentation</h2>
 	<ul>
