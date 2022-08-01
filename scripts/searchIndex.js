@@ -1,9 +1,13 @@
 function grabData() {
-	return fetch("./scripts/searchIndex.json")
-	.then(response => response.json());
+	return fetch("./scripts/searchIndex.json").then(response => response.json());
 }
 
-let pages = grabData();
+async function getPages() {
+	let pages = await grabData();
+	return pages;
+}
+
+let pages = getPages();
 
 let createHTML = function (article, id, query="") {
 	console.log("Q:" + query);
