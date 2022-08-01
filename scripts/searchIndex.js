@@ -52,7 +52,7 @@ let createHTML = function (article, id, query="") {
 	else {
 		let qIndex = article.content.indexOf(query);
 		console.log("Index is " + qIndex);
-		contentSlice += "..." + article.content.slice(qIndex - 4, qIndex);
+		contentSlice += "..." + article.content.slice(qIndex - 25, qIndex);
 		contentSlice += "<b>" + article.content.slice(qIndex, qIndex + query.length);
 		contentSlice += "</b>" + article.content.slice(qIndex + query.length, 100 + qIndex + query.length);
 	}
