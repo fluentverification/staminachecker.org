@@ -7,7 +7,7 @@ async function getPages() {
 	return await pages;
 }
 
-let pages = getPages();
+let pages = await getPages();
 
 let createHTML = function (article, id, query="") {
 	console.log("Q:" + query);
