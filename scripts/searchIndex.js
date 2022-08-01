@@ -44,17 +44,19 @@ title:"Benchmarks - STAMINA Model Checker"
 ];
 
 let createHTML = function (article, id, query="") {
+	console.log("Q:" + query);
 	let contentSlice = "";
 	if (query == "") {
 		contentSlice = article.content.slice(0, 150);
 	}
 	else {
 		let qIndex = article.content.indexOf(query);
+		console.log("Index is " + qIndex);
 		contentSlice += "..." + article.content.slice(qIndex - 4, qIndex);
 		contentSlice += "<b>" + article.content.slice(qIndex, qIndex + query.length);
 		contentSlice += "</b>" + article.content.slice(qIndex + query.length, 100 + qIndex + query.length);
 	}
-	
+	console.log(contentSlice)
 	let html =
 	'<div id="search-result-' + id + '">' +
 	'<a class="search-result" href="' + article.url + '">' +
@@ -77,7 +79,7 @@ function displayResults(results, query="") {
 		return;
 	}
 	let html = '<p>Found ' + results.length + ' matching results</p>';
-	html += results.map(function (article, index, query) {
+	html += results.map(function (article, index) {
 		return createHTML(article, index, query);
 	}).join('');
 	
