@@ -477,6 +477,18 @@ ul.navbar li.right {
 }
 
 @media screen and (max-width: 900px) {
+	.navbar {
+		border-bottom: 4px solid var(--accent-medium);
+	}
+	
+	#openbutton {
+		color: var(--accent-medium);
+	}
+	
+	#openbutton:hover, #search-overlay-button:hover {
+		border-bottom: 4px solid var(--navbar-background);
+	}
+
 	ul.navbar li.right,
 	ul.navbar li {
 		float: none;
