@@ -25,7 +25,11 @@ def getTitle(openedFile):
 def getAllContents(openedFile):
 	openedFile.seek(0, 0)
 	soup = BeautifulSoup(openedFile.read(), features="lxml")
-	text = soup.get_text().replace('\n', '').replace('\t', '')
+	content = soup.find(class_="content")
+	if content is not None:
+		text = content.get_text().replace('\n', ' ').replace('\t', ' ')
+	else:
+		text = soup.get_text()
 	text = text.replace('☰', '').replace('×', '')
 	text = text.replace('"', '\\"')
 	return text
