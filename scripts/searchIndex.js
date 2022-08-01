@@ -7,7 +7,7 @@ async function getPages() {
 	return await pages;
 }
 
-let pages = await getPages();
+
 
 let createHTML = function (article, id, query="") {
 	console.log("Q:" + query);
@@ -52,11 +52,13 @@ function displayResults(results, query="") {
 	resultsDiv.innerHTML = html;
 }
 
-function searchCustom(query) {
+async function searchCustom(query) {
 	console.log("Searching for query: " + query);
 	let reg = new RegExp(query, 'gi');
 	let titlePriority = [];
 	let bodyPriority = [];
+	
+	let pages = await getPages();
 	
 	// Actually perform search
 	pages.forEach(function (article) {
