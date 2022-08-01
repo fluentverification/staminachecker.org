@@ -41,7 +41,7 @@ function displayResults(results, query="") {
 	let resultsDiv = document.getElementById('search-results');
 	// Show results
 	if (results.length < 1) {
-		resultsDiv.innerHTML += "<div class='error'>No results</div>";
+		resultsDiv.innerHTML += "<div class='error-small'>No results</div>";
 		return;
 	}
 	let html = '<p>Found ' + results.length + ' matching results</p>';
