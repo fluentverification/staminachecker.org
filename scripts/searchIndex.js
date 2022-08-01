@@ -4,7 +4,7 @@ function grabData() {
 
 async function getPages() {
 	let pages = await grabData().then(function(result) { return result; });
-	return pages;
+	return await pages;
 }
 
 let pages = getPages();
