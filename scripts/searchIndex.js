@@ -43,7 +43,18 @@ title:"Benchmarks - STAMINA Model Checker"
 }
 ];
 
-let createHTML = function (article, id) {
+let createHTML = function (article, id, query="") {
+	let contentSlice = "";
+	if (query == "") {
+		contentSlice = article.content.slice(0, 150);
+	}
+	else {
+		let qIndex = article.content.indexOf(query);
+		contentSlice += "..." + article.content.slice(qIndex - 4, qIndex);
+		contentSlice += "<b>" + article.content.slice(qIndex, qIndex + query.length);
+		contentSlice += "</b>" + article.content.slice(qIndex + query.length, 100 + qIndex + query.length);
+	}
+	
 	let html =
 	'<div id="search-result-' + id + '">' +
 	'<a class="search-result" href="' + article.url + '">' +
@@ -51,14 +62,14 @@ let createHTML = function (article, id) {
 	article.date +
 	'</span>' +
 	'<h2>' + article.title + '</h2>' +
-	article.content.slice(0, 150) + '...<br><br><span style="color: var(--accent-low-sat);">' +
+	contentSlice + '...<br><br><span style="color: var(--accent-low-sat);">' +
 	article.url +
 	'</span></a>' +
 	'</div>';
 	return html;
 };
 
-function displayResults(results) {
+function displayResults(results, query="") {
 	let resultsDiv = document.getElementById('search-results');
 	// Show results
 	if (results.length < 1) {
@@ -66,8 +77,8 @@ function displayResults(results) {
 		return;
 	}
 	let html = '<p>Found ' + results.length + ' matching results</p>';
-	html += results.map(function (article, index) {
-		return createHTML(article, index);
+	html += results.map(function (article, index, query) {
+		return createHTML(article, index, query);
 	}).join('');
 	
 	resultsDiv.innerHTML = html;
@@ -88,5 +99,5 @@ function searchCustom(query) {
 	// Combine the results
 	let results = [].concat(titlePriority, bodyPriority);
 	
-	displayResults(results);
+	displayResults(results, query);
 }
