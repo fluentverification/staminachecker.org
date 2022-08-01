@@ -41,7 +41,7 @@ def searchFile(filename, out=sys.stdout):
 	print(f"{qu}title{qu}:\"{getTitle(f)}\"", file=out)
 	print(f", {qu}date{qu}:\"{time.ctime(os.path.getmtime(filename))}\"", file=out)
 	print(f", {qu}url{qu}:\"{baseURL}/{filename}\"", file=out)
-	print(f", {qu}contents{qu}:\"{getAllContents(f)}\"", file=out)
+	print(f", {qu}content{qu}:\"{getAllContents(f)}\"", file=out)
 	if json:
 		print("}", file=out)
 	else:
