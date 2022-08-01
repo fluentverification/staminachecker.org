@@ -39,9 +39,9 @@ def searchFile(filename, out=sys.stdout):
 	else:
 		print(", [", file=out)
 	print(f"{qu}title{qu}:\"{getTitle(f)}\"", file=out)
-	print(f"{qu}date{qu}:\"{time.ctime(os.path.getmtime(filename))}\"", file=out)
-	print(f"{qu}url{qu}:\"{baseURL}/{filename}\"", file=out)
-	print(f"{qu}contents{qu}:\"{getAllContents(f)}\"", file=out)
+	print(f", {qu}date{qu}:\"{time.ctime(os.path.getmtime(filename))}\"", file=out)
+	print(f", {qu}url{qu}:\"{baseURL}/{filename}\"", file=out)
+	print(f", {qu}contents{qu}:\"{getAllContents(f)}\"", file=out)
 	if json:
 		print("}", file=out)
 	else:
@@ -65,3 +65,5 @@ if __name__=='__main__':
 		print("\t--recurse/-r:   Recurses subdirectories")
 		print("\t--help/-h:      Shows this message")
 		print("\t--json/-j:      Exports in JSON")
+		
+# https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
