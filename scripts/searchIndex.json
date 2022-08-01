@@ -7,24 +7,6 @@
 	, "content":" STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis STAMINA can analyze unbounded and infinite-sized models, as well as models with very large state spaces, and provide an accurate bound of probabilities for CSL properties. It has been tested on genetic circuit and biological models, and has been the subject of multiple papers. Learn More Acknowledgements The development of STAMINA (and all FLUENT projects) is generously funded by grants 1856733, 1856740, and 1900542 from the National Science Foundation. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. STAMINA is developed at the Utah State University College of Engineering, in the Electrical and Computer Engineering Department. "
 	}
 	, {
-	"title":"Not Found - STAMINA Model Checker"
-	, "date":"Fri Jul 29 11:15:07 2022"
-	, "url":"https://staminachecker.org/404.html"
-	, "content":" 404: Not Found The page you were looking for could not be found on this server. If you followed a link elsewhere on this website, please contact us to let us know something is broken. ∄ PageReq (meaning PageReq ∉ {STAMINA Website}) "
-	}
-	, {
-	"title":"Search Results - STAMINA Model Checker"
-	, "date":"Mon Aug 1 10:12:08 2022"
-	, "url":"https://staminachecker.org/search.html"
-	, "content":" Search Results "
-	}
-	, {
-	"title":"Home - STAMINA Model Checker"
-	, "date":"Fri Jul 29 11:16:18 2022"
-	, "url":"https://staminachecker.org/template.html"
-	, "content":" "
-	}
-	, {
 	"title":"Get Source Code - STAMINA Model Checker"
 	, "date":"Thu Jul 28 14:24:14 2022"
 	, "url":"https://staminachecker.org/source.html"
@@ -53,30 +35,6 @@
 	, "date":"Fri Jul 29 13:26:58 2022"
 	, "url":"https://staminachecker.org/documentation.html"
 	, "content":" STAMINA Documentation Usage documentation Documentation for the usage of STAMINA can be found at the wiki. This includes STAMINA usage, GUI, algorithm development, and command-line option documentation. The basic syntax of invoking STAMINA via the command-line is as follows: stamina --storm $MODEL_FILE $PROPERTIES_FILE [OPTIONS] The --storm and --prism options allow you to specify which model checker to use. STAMINA/STORM and STAMINA/PRISM have different sets of options (although there is some overlap), in order to work with their respective model checkers. The stamina executable simply passes the options you give into either STAMINA/STORM or STAMINA/PRISM, so make sure to choose the correct options. STAMINA/STORM Usage and Options The following options are available for STAMINA/STORM Usage: sstamina [OPTION...] MODEL_FILE PROPERTIES_FILE STAMINA -- truncates infinite CTMC state space and passes into STORM -c, --const=\"C1=VAL,C2=VAL,C3=VAL\" Comma separated values for constants -C, --cuddMaxMem=memory Maximum CUDD memory, in the same format as PRISM (default: 1g) -e, --export=filename Export model to a (text) file -f, --approxFactor=double Factor to estimate how far off our reachability predictions will be (default: 2.0) -i, --import=filename Import model to a (text) file -I, --iterative Use the STAMINA 2.5 method (iterative) -J, --reExploring Use the STAMINA 2.0 method (the method in STAMINA/PRISM) -k, --kappa=double Reachability threshold for the first iteration (default: 1.0) -M, --maxIterations=int Maximum iteration for solution (default: 10000) -n, --maxApproxCount=int Maximum number of iterations in the approximation (default 10) -p, --property=propname Specify a certain property to check in a model file that contains many -P, --priority Use the STAMINA 3.0 method (priority) -r, --reduceKappa=double Reduction factor for Reachability Threshold (kappa) during the refinement step (default 2.0) -R, --noPropRefine Do not use property based refinement. If given, the model exploration method will reduce kappa and do property independent definement (default: off) -S, --exportPerimeterStates=filename Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing -t, --exportTrans=filename Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified. Transitions are exported in the format <Source State Index> <Destination State Index> <Action Label> -T, --rankTransitions Rank transitions before expanding (default: false) -V, --maxStates=integer The maximum number of states to explore in an iteration (default 2000000) -w, --probWin=double Probability window between lower and upperbound for termination (default: 1.0e-3) -?, --help Give this help list --usage Give a short usage message Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options. STAMINA/PRISM Usage and Options The following options are available for STAMINA/PRISM Usage: stamina [options] <model-file> <properties-file> <model-file> .................... Prism model file. Extensions: .prism, .sm <properties-file> ............... Property file. Extensions: .csl Options: ======== -kappa <k>.......................... ReachabilityThreshold for first iteration [default: 1.0] -reducekappa <f>.................... Reduction factor for ReachabilityThreshold(kappa) for refinement step. [default: 1.25] -approxFactor <f>................... Factor to estimate how far off our reachability predictions will be [default: 2.0] -pbwin <e>.......................... Probability window between lower and upperbound for termination. [default: 1.0e-3] -maxapproxcount <n>................. Maximum number of approximation iteration. [default: 10] -noproprefine ...................... Do not use property based refinement. If given, model exploration method will reduce the kappa and do the property independent refinement. [default: off] -cuddmaxmem <memory>................ Maximum cudd memory. Expects the same format as prism [default: 1g] -export <filename>.................. Export model to a file. Please provide a filename without an extension -exportPerimeterStates <filename>... Export perimeter states to a file. Please provide a filename. This will append to the file if it is existing -import <filename>.................. Import model to a file. Please provide a filename without an extension -property <property>................ Specify a specific property to check in a model file that contains many -const <vals> ...................... Comma separated values for constants -exportTrans <filename>............. Export the list of transitions and actions to a specified file name, or to trans.txt if no file name is specified. Transitions exported in the format srcStateIndex destStateIndex actionLabel Examples: -const a=1,b=5.6,c=true Other Options: ======== -rankTransitions ................... Rank transitions before expanding. [default: false] -maxiters <n> ...................... Maximum iteration for solution. [default: 10000] -power ............................. Power method -jacobi ............................ Jacobi method -gaussseidel ....................... Gauss-Seidel method Development Documentation For the STORM version, there exists Doxygen documentation. For the PRISM version, there is both Javadoc documentation as well as some markdown files describing each class in the repository. "
-	}
-	, {
-	"title":"No Title"
-	, "date":"Fri Jul 22 15:19:03 2022"
-	, "url":"https://staminachecker.org/google5b39a9d754703325.html"
-	, "content":"google-site-verification: google5b39a9d754703325.html"
-	}
-	, {
-	"title":"No Title"
-	, "date":"Thu Jul 21 11:02:23 2022"
-	, "url":"https://staminachecker.org/unfinished_banner.html"
-	, "content":"
-
-
-
-	Please Note: This page is UNFINISHED! You may see some Lorem Ipsum text around, missing graphics, etc.
-
-
-
-							I understand. Close this message.
-
-
-
-	"
 	}
 	, {
 	"title":"Benchmarks - STAMINA Model Checker"
