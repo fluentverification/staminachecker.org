@@ -58,7 +58,7 @@ async function searchCustom(query) {
 	let titlePriority = [];
 	let bodyPriority = [];
 	
-	let pages = await getPages();
+	let pages = (await getPages()).search;
 	
 	// Actually perform search
 	pages.forEach(function (article) {
