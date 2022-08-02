@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home - STAMINA Model Checker</title>
+	<title>Wiki Home - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keywords" content="STAMINA, Model-Checker, Infinite-State">
-	<link rel="stylesheet" href="styles.css">
-	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
-	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="wiki/wikistyles.css">
+	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
+	<script type="text/javascript" src="../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../scripts/search.js"></script>
+	<script type="text/javascript" src="wiki/scripts/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
 <ul class="navbar" id="navbar">
-	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA</div></a></li>
+	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA<span class="wiki-text">Wiki</span></div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
-	<li><a class="active" id="active" href="index.html">Home</a></li>
-	<li><a class="navbutton" href="about.html">About</a></li>
+	<li><a class="navbutton" href="/index.html">Home</a></li>
+	<li><a class="navbutton" href="/about.html">About</a></li>
 	<li id="get">
 		<a href="get.html" class="navbutton" class="navbutton">Get</a>
 		<div class="dropdown-content" id="get-dropdown">
@@ -25,9 +28,9 @@
 			<a href="source.html">Source Code</a>
 		</div>
 	</li>
-	<li><a class="navbutton" href="documentation.html">Documentation</a></li>
-	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
-	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
+	<li><a class="navbutton" href="/documentation.html">Documentation</a></li>
+	<li><a class="navbutton" href="/benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="../images/icons/darkLight.svg" height="15px"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
 	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 <li>
@@ -41,14 +44,14 @@
 </ul>
 <script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
-<div class="banner">
-	<h1>STAMINA</h1>
-	<h2>
-		A state-space truncation tool that can analyze infinite-sized models.
-	</h2>
-	<a class="button" href="https://github.com/fluentverification/stamina-cplusplus/releases/tag/v2.2.5-alpha">
-		<i class="icon icon_edit-download"></i>Download Latest Release (2.2.5)</a>
-	<a class="button" href="source.html"><i class="icon icon_format-text-code"></i>Get Source Code</a>
+<div class="side-nav" id="side-nav">
+	<a id="go-home" class="quick-nav" href="/documentation/wiki.html"><i class="icon icon_go-home"></i><span class="quick-nav-label">Wiki Home</span></a>
+	<a id="go-back" class="quick-nav" href="/documentation/wiki.html"><i class="icon icon_media-seek-backward"></i><span class="quick-nav-label">Go Back</span></a>
+	<a id="go-back" class="quick-nav" href="/documentation/wiki.html"><i class="icon icon_edit-find"></i><span class="quick-nav-label">Search Wiki</span></a>
+	<ul id="side-nav-list">
+		<li id="nav-list-title"><b>Wiki Navigation</b></li>
+	</ul>
+	<a id="toggle-sidenav" onclick="toggleNav()"><i id="toggle-icon" class="icon icon_sidebar-collapse-left"></i><span class="quick-nav-label">Close Navbar</span></a> <!--  icon_sidebar-expand-left -->
 </div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
@@ -83,29 +86,32 @@ if (bttButton != null) {
 		}
 	</script>
 </div>
+<noscript>
+<div class="noscript">
+	<b>Alert!</b>
+	This page requires JavaScript to function properly.
+</div>
+</noscript>
 <div class="content">
 <!-- CONTENT -->
-	<img src="images/staminaGraphic.svg" class="graphic">
-	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
+	<h1>STAMINA Wiki</h1>
 	<p>
-		STAMINA can analyze unbounded and infinite-sized models, as well as models with very large state spaces, and provide an accurate bound of probabilities for CSL properties. It has been tested on genetic circuit and biological models, and has been the subject of multiple papers.
+		Welcome to the STAMINA Wiki. Here you will find information about using STAMINA, developing with STAMINA, and STAMINA use cases. Additionally, you will find information about building models, the types of models STAMINA works well for, and information about the hazard circuit systems we used to test it.
 	</p>
-	<a class="button" href="about.html"><i class="icon icon_go-jump" height="20px"></i> Learn More</a>
-	<div id="acknowledgements">
-		<h2>Acknowledgements</h2>
-		The development of STAMINA (and all FLUENT projects) is generously funded by grants 1856733, 1856740, and 1900542 from the National Science Foundation. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. STAMINA is developed at the Utah State University College of Engineering, in the Electrical and Computer Engineering Department.<br>
-		<div class="logos" style="vertical-align: center; padding-top: 20px;">
-			<a href="https://www.nsf.gov/"><img height=100px class="ack-logo" src="images/nsfLogo.svg"></a>
-			<a href="https://www.usu.edu/"><img height=60px id="usu-logo" class="ack-logo" style="padding: 20px;" src="images/u-state-aggie-blue.png"></a>
-		</div>
-		<script>
-			// Assume someone isn't going to change their color scheme preference mid-session
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || darkMode) {
-				let usuLogo = document.getElementById('usu-logo');
-				usuLogo.src = "images/u-state-white.png";
-			}
-		</script>
+	<p>
+		This wiki is <i>not</i> API documentation. STAMINA does have API docs, which are located <a href="#">here</a> for STAMINA/STORM and <a href="#">here</a> for STAMINA/PRISM. However, those docs are generated using Doxygen, which is a slightly bloated and inefficient system. This wiki is written in vanilla HTML, CSS, and JavaScript, and so it should be faster and more efficient than those.
+	</p>
+	<div class="note">
+		STAMINA/STORM and STAMINA/PRISM are completely different codebases. Despite similar purposes, functionalities, and naming conventions, they are two entirely different pieces of software.
 	</div>
+	STAMINA/STORM integrates with the STORM model checker, and therefore uses it's API to both read models and explore states. STAMINA/PRISM operates likewise on top of the PRISM model checker's API. While we have tried to create a unified frontend for both model checkers, not only do they have different options, there may be slight nuanced differences in how they interpret models and the order in which they explore states.
+	<h2>Getting Started</h2>
+	<p>You may be interested in one of the following common pages:</p>
+	<ul class="padlist">
+		<li><a href="#">Building STAMINA/STORM from source<i class="icon icon_go-jump right-icon"></i></a></li>
+		<li><a href="#">Building STAMINA/PRISM from source<i class="icon icon_go-jump right-icon"></i></a></li>
+		<li><a href="#">An introduction to PRISM models<i class="icon icon_go-jump right-icon"></i></a></li>
+	</ul>
 </div>
 <!-- Footer -->
 <div class="footer">

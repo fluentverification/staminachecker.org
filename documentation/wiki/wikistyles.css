@@ -1,0 +1,112 @@
+:root {
+	--sidebar-width: 200px;
+	--sidebar-width-padded: 250px;
+}
+ 
+.side-nav {
+	font-family: "Noto Sans", sans-serif;
+	display: block;
+	position: fixed;
+	background-color: var(--background-two);
+	height: 100%;
+	overflow-x: hidden;
+	padding-top: 30px;
+	border-right: 1px solid var(--background-three);
+	z-index: 1;
+	width: var(--sidebar-width);
+}
+
+.side-nav ul {
+/* 	width: var(--sidebar-width); */
+}
+.side-nav ul li {
+	padding: 10px;
+	list-style: none;
+	color: var(--color);
+}
+
+#nav-list-title {
+	padding-top: 0px;
+	padding-bottom: 20px;
+}
+
+.side-nav ul li a, .quick-nav {
+	display: block;
+	color: var(--color);
+}
+
+.side-nav ul li a:hover, #toggle-sidenav:hover {
+	color: var(--link-base);
+}
+
+.quick-nav, #toggle-sidenav {
+	display: block;
+	color: var(--color);
+	cursor: pointer;
+	padding: 15px;
+}
+
+#toggle-sidenav, .toggle-sidenav {
+	bottom: 20px;
+	width: var(--sidebar-width);
+	float: right;
+	position: fixed;
+}
+
+.quick-nav:hover, #toggle-sidenav:hover {
+	background-color: var(--accent-medium);
+	color: var(--color);
+}
+
+.navbar {
+	z-index: 500;
+}
+
+.noscript {
+	position: fixed;
+	width: 100%;
+	color: #140505;
+	background-color: #e08d8d;
+	border-top: 4px solid #c83737;
+	bottom: 0px;
+	z-index: 500;
+	padding: 30px;
+	font-family: "Noto Sans", sans-serif;
+}
+
+.wiki-text {
+	padding-left: 5px;
+	font-style: italic;
+}
+
+.padlist {
+	display: block;
+}
+
+.padlist li {
+	list-style: none;
+	display: block;
+	padding: 20px;
+	background-color: var(--background-two);
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.padlist li a {
+	display: block;
+	color: var(--color);
+}
+
+.right-icon {
+	position: relative;
+	float: right;
+/* 	right: 20px; */
+}
+
+.padlist li:hover {
+	background-color: var(--accent-light);
+}
+
+.padlist li:hover a {
+	color: #222222;
+}
