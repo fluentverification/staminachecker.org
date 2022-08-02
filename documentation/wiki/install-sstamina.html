@@ -116,7 +116,19 @@ sudo apt-get install build-essential libboost-all-dev git cmake </pre>
 	<h3>Installing STAMINA</h3>
 	Once all dependencies (including STORM) have been installed, STAMINA is ready to be installed. You may obtain the source code from the <span class="inline-code">master</span> branch by directly cloning the GitHub repository or you may download a specific release from GitHub as well.
 	<pre class="code">git clone https://github.com/fluentverification/stamina-cplusplus stamina-storm</pre>
-	Afterwards
+	Afterwards, you will need to invoke CMake to create a makefile and build STAMINA:
+	<pre class="code">cd stamina-storm
+mkdir build && cd build
+export STAMINA_HOME=$(pwd)
+cmake .. -DCMAKE_CXX_COMPILER=$(which clang++) -DSTORM_PATH=$STORM_DIR
+make -j$(nproc -all)</pre>
+<div class="note">
+	The environment variable <span class="inline-code-note">STORM_DIR</span> should be set during the STORM install process. If not, it is just the root directory of STORM.
+</div>
+	<h3>Adding STAMINA to your <span class="inline-code">PATH</span> Variable</h3>
+	In order to access the <span class="inline-code">sstamina</span> executable from anywhere, you will have to add it to your user's "path" variable. The easiest way to do this is to add the following line to your shells resource file (generally <span class="inline-code">.bashrc</span> for Bash, and <span class="inline-code">.zshrc</span> for ZSH):
+	<pre class="code">export STAMINA_HOME=path/to/stamina
+export PATH=$PATH:$STAMINA_HOME/build</pre>
 </div>
 <!-- Footer -->
 <div class="footer">
