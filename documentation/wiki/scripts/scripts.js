@@ -45,4 +45,12 @@ function toggleNav() {
 	}
 }
 
+function searchWiki() {
+	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+}
+
+function wikiTree() {
+	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+}
+
 window.onload = function () { closeSidebar(); }
