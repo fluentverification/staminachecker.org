@@ -102,6 +102,10 @@ if (bttButton != null) {
 	<p>
 		STAMINA/PRISM is written in Java and depends on the <a href="https://prismmodelchecker.org">PRISM Model Checker</a>. Multiple methods of auto-installing STAMINA/STORM have been created. Unfortunately, we have not yet migrated STAMINA/PRISM to <span class="inline-code">gradle</span>, like we have with the <span class="inline-code">imsam</span> package.
 	</p>
+	<p>
+		Regardless of the method you use, you will need to install the dependencies first. The following command will install them on Debian 11+/Ubuntu 22+:
+	</p>
+	<pre class="code">sudo apt-get update && sudo apt-get -y install openjdk-11-jre openjdk-11-jdk git build-essential</pre>
 	<h2>Method 1: The Shell Script (Recommended)</h2>
 	Simply clone the GitHub repository and run the provided install script:
 	<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
@@ -113,6 +117,23 @@ chmod +x install.sh && install.sh</pre>
 	<pre class="code">perl -e "$(curl https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl)"</pre>
 	Using <span class="inline-code">wget</span>:
 	<pre class="code">wget https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl && perl install.pl && rm install.pl</pre>
+	<h2>Method 3: Installing Manually</h2>
+	First, you will need to install PRISM. STAMINA <i>requires</i> the installed version of PRISM to be version 4.5.
+	<pre class="code">git clone https://github.com/prismmodelchecker/prism prism
+cd prism/prism
+git checkout v4.5
+make -j$(nproc --all)
+make install
+export PRISM_HOME=$(pwd)</pre>
+After you have installed PRISM, you are ready to install STAMINA:
+<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
+cd stamina-prism/stamina
+make PRISM_HOME=$PRISM_HOME</pre>
+Finally, you must create a <span class="inline-code">.staminarc</span> file in your home directory so STAMINA knows where to find classes:
+<pre class="code">touch ~/.staminarc
+echo "export_JAVA_OPTIONS=-Xmx12288m" >> ~/.staminarc
+echo "export PRISM_HOME=$PRISM_HOME" >> ~/.staminarc
+echo "export STAMINA_HOME=$(pwd)/stamina" >> ~/.staminarc</pre>
 </div>
 <!-- Footer -->
 <div class="footer">
