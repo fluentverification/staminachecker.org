@@ -12,9 +12,7 @@ function closeSidebar() {
 	closeButtonIcon.classList.add('icon_sidebar-expand-left');
 	r.style.setProperty("--sidebar-width", "50px");
 	r.style.setProperty("--sidebar-width-padded", "100px");
-// 	closeButtonLabel.style.display = "none";
-	let quickNavs = document.getElementsByClassName('quick-nav-label');
-	Array.prototype.forEach.call(quickNavs, function (element) { element.style.display = "none"; });
+	r.style.setProperty("--label-display", "none");
 	navOpen = false;
 }
 
@@ -30,9 +28,7 @@ function openSidebar() {
 	closeButtonIcon.classList.remove('icon_sidebar-expand-left');
 	r.style.setProperty("--sidebar-width", "200px");
 	r.style.setProperty("--sidebar-width-padded", "250px");
-// 	closeButtonLabel.style.display = "inline-block";
-	let quickNavs = document.getElementsByClassName('quick-nav-label');
-	Array.prototype.forEach.call(quickNavs, function (element) { element.style.display = "inline"; });
+	r.style.setProperty("--label-display", "inline");
 	navOpen = true;
 }
 

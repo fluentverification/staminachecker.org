@@ -1,6 +1,7 @@
 :root {
 	--sidebar-width: 200px;
 	--sidebar-width-padded: 250px;
+	--label-display: inline;
 }
  
 .side-nav {
@@ -122,10 +123,50 @@
 	border-bottom: 1px solid var(--background-three);
 }
 
+.quick-nav-label {
+	display: var(--label-display);
+	padding-left: 10px;
+}
+
+.disabled {
+	opacity: 0.44;
+}
+
+.disabled:hover {
+	background-color: var(--background-two);
+}
+
 pre {
-	white-space: pre-wrap;       /* css-3 */
-	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	white-space: -pre-wrap;      /* Opera 4-6 */
-	white-space: -o-pre-wrap;    /* Opera 7 */
-	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	white-space: pre-wrap;
+}
+
+@media screen and (max-width: 900px) {
+	.quick-nav-label {
+		display: none;
+	}
+	
+	#toggle-sidenav {
+		display: none;
+	}
+	
+	/* Put the side nav on the bottom on mobile */
+	.side-nav {
+		height: auto;
+		bottom: 0px;
+		width: 100%;
+		padding-top: 0px;
+		border-top: 1px solid var(--background-three);
+	}
+	/* Hide quick nav tree on mobile */
+	.side-nav ul {
+		display: none;
+	}
+	.quick-nav {
+		display: inline-block;
+		width: auto;
+	}
+	
+	.btt-button {
+		bottom: 75px;
+	}
 }
