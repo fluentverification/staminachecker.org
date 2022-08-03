@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Installing STAMINA/PRISM - STAMINA Model Checker</title>
+	<title>Model Files - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../styles.css">
 	<link rel="stylesheet" href="wikistyles.css">
+	<link rel="stylesheet" href="code.css">
 	<link rel="icon" type="image/x-icon" href="../../images/favicon.svg">
 	<script type="text/javascript" src="../../scripts/scripts.js"></script>
 	<script type="text/javascript" src="../../scripts/search.js"></script>
@@ -45,11 +46,11 @@
 <script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="side-nav" id="side-nav">
-<div class="quick-buttons">
+	<div class="quick-buttons">
 	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon icon_view-list-tree just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
-	<a id="go-back" class="quick-nav" href="install-sstamina.html"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
+	<a id="go-back" class="quick-nav" href="install-pstamina.html"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
 	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="icon icon_go-home just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
-	<a id="go-forward" class="quick-nav" href="model-files.html"><i class="icon icon_media-seek-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
+	<a id="go-forward" class="quick-nav" href="install-sstamina.html"><i class="icon icon_media-seek-forward just-icon disabled"></i><span class="quick-nav-label">Go Forward</span></a>
 	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="icon icon_edit-find just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
 	</div>
 	<ul id="side-nav-list">
@@ -98,42 +99,45 @@ if (bttButton != null) {
 </noscript>
 <div class="content">
 <!-- CONTENT -->
-	<h1>Installing STAMINA/PRISM</h1>
+	<h1>Model Files</h1>
 	<p>
-		STAMINA/PRISM is written in Java and depends on the <a href="https://prismmodelchecker.org">PRISM Model Checker</a>. Multiple methods of auto-installing STAMINA/STORM have been created. Unfortunately, we have not yet migrated STAMINA/PRISM to <span class="inline-code">gradle</span>, like we have with the <span class="inline-code">imsam</span> package.
+		<i>Model files</i> are specifications for state-spaces based on real-life interactions between elements within a system. Model files may implicitly create state spaces, such as PRISM files and JANI files, or explicitly instantiate every state with values, such as in transition files. These model formats may be <i>bounded or unbounded</i> and may be <i>deterministic or nondeterministic</i>. They may be in one of the following model types:
+	</p>
+	<ol>
+		<li>CTMC: Continuous-time Markov Chains</li>
+		<li>DTMC: Discrete-time Markov Chains</li>
+		<li>MDP: Markov Decision Processes</li>
+		<li>MA: Markov Automaton</li>
+		<li>And more...</li>
+	</ol>
+	<p>STAMINA/STORM supports both CTMC and DTMC models, and STAMINA/PRISM only supports CTMCs. Both versions of STAMINA support bounded and unbounded models, as well as only deterministic models. Nondeterministic models will throw an error.</p>
+	<h2>PRISM Models</h2>
+	<p>
+		PRISM models are a type of model format designed for the <a href="https://prismmodelchecker.org">PRISM model checker <i class="icon icon_map-globe icon-tiny"></i></a>. They allow for many types of models to be specified, and are composed of modules and variables. PRISM has documentation for the entire language specification, located <a href="https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction">here <i class="icon icon_map-globe icon-tiny"></i></a>.
 	</p>
 	<p>
-		Regardless of the method you use, you will need to install the dependencies first. The following command will install them on Debian 11+/Ubuntu 22+:
+		Because full documentation for the PRISM language exists on their website, STAMINA will only provide a brief overview of the syntax. All PRISM models must <i>first</i> contain a line which says what type of model they are. For STAMINA, that line is most likely to be <span class="inline-code">ctmc</span>. From there, globally-accessible variables and modules may be declared from the supported types. Modules are a way of encapsulating certain elements of a model. Generally a module contains a variable, and all of the reactions that can affect that variable. <i>Reactions</i> are in the format:
 	</p>
-	<pre class="code">sudo apt-get update && sudo apt-get -y install openjdk-11-jre openjdk-11-jdk git build-essential</pre>
-	<h2>Method 1: The Shell Script (Recommended)</h2>
-	Simply clone the GitHub repository and run the provided install script:
-	<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
-cd stamina-prism
-chmod +x install.sh && install.sh</pre>
-	<h2>Method 2: The Perl Script (Legacy)</h2>
-	The Perl script clones both STAMINA and PRISM, so it should be directly passed into the Perl executable from <span class="inline-code">curl</span> or <span class="inline-code">wget</span>.<br>
-	Using <span class="inline-code">curl</span>:
-	<pre class="code">perl -e "$(curl https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl)"</pre>
-	Using <span class="inline-code">wget</span>:
-	<pre class="code">wget https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl && perl install.pl && rm install.pl</pre>
-	<h2>Method 3: Installing Manually</h2>
-	First, you will need to install PRISM. STAMINA <i>requires</i> the installed version of PRISM to be version 4.5.
-	<pre class="code">git clone https://github.com/prismmodelchecker/prism prism
-cd prism/prism
-git checkout v4.5
-make -j$(nproc --all)
-make install
-export PRISM_HOME=$(pwd)</pre>
-After you have installed PRISM, you are ready to install STAMINA:
-<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
-cd stamina-prism/stamina
-make PRISM_HOME=$PRISM_HOME</pre>
-Finally, you must create a <span class="inline-code">.staminarc</span> file in your home directory so STAMINA knows where to find classes:
-<pre class="code">touch ~/.staminarc
-echo "export_JAVA_OPTIONS=-Xmx12288m" >> ~/.staminarc
-echo "export PRISM_HOME=$PRISM_HOME" >> ~/.staminarc
-echo "export STAMINA_HOME=$(pwd)/stamina" >> ~/.staminarc</pre>
+	<pre class="code">[action] guard -> prob1 : (var1'=var1+value1) + prob2 : (var1'=var1+value2)</pre>
+	<p>The expression immediately following the probability is the <i>update expression</i>, specifying the new value for <span class="inline-code">var1</span> using the <span class="inline-code">var1'</span> syntax.</p>
+	<p>
+		As an example of a simple PRISM model
+	</p>
+<div class="code">
+<span class="keyword">ctmc</span><br>
+<br>
+<span class="comment">// We define our variables and their reactions in a module</span><br>
+<span class="keyword">module</span> SpeciesA_Def
+<div class="indent">
+<span class="comment">// This variable is "bounded"</span><br>
+[<span class="number">0..100</span>] SpeciesA <span class="keyword">init</span> 0;<br><br>
+<span class="comment">// We cannot decrement in species A</span><br>
+</div>
+<span class="keyword">endmodule</span>
+</div>
+<div class="error">
+TODO: This page is incomplete.
+</div>
 </div>
 <!-- Footer -->
 <div class="footer">

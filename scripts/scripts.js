@@ -32,7 +32,11 @@ window.addEventListener('resize', function(event) {
 		let elements = document.getElementsByClassName("navbutton");
 		console.log(elements);
 		Array.prototype.forEach.call(elements, e => e.style.display = "block");
-		document.getElementById("active").style.display = "block";
+		// active may be null
+		let ac = document.getElementById("active");
+		if (ac != null) {
+			ac.style.display = "block";
+		}
 		document.getElementById("navbar").style.display = "block";
 		document.getElementById("openbutton").style.display = "none";
 		document.getElementById("closebutton").style.display = "none";
@@ -91,7 +95,11 @@ function openNav() {
 	console.log(elements);
 	// This little "=>" operator is the coolest JavaScript thing ever
 	Array.prototype.forEach.call(elements, e => e.style.display = "block");
-	document.getElementById("active").style.display = "block";
+	// active may be null
+	let ac = document.getElementById("active");
+	if (ac != null) {
+		ac.style.display = "block";
+	}
 	document.getElementById("closebutton").style.display = "block";
 	document.getElementById("openbutton").style.display = "none";
 	document.getElementById("navbar").style.display = "block";
@@ -104,7 +112,11 @@ function closeNav() {
 	let elements = document.getElementsByClassName("navbutton");
 	console.log(elements);
 	Array.prototype.forEach.call(elements, e => e.style.display = "none");
-	document.getElementById("active").style.display = "none";
+	// active may be null
+	let ac = document.getElementById("active");
+	if (ac != null) {
+		ac.style.display = "none";
+	}
 	document.getElementById("closebutton").style.display = "none";
 	document.getElementById("openbutton").style.display = "block";
 // 	document.getElementById("navbar").style.display = "none";

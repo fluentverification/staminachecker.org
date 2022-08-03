@@ -1,0 +1,16 @@
+/* Classes for code syntax highlighting. Should look good regardless of color scheme */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;600;800&display=swap');
+.keyword { 
+	color: #0a55e5;
+	font-weight: bold;
+	opacity: 75%;
+}
+.comment { 
+	color: var(--color);
+	opacity: 50%;
+}
+.number { color: #ff3300; }
+
+.indent {
+	padding-left: 30px;
+}

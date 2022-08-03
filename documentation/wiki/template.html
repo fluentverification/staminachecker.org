@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Installing STAMINA/PRISM - STAMINA Model Checker</title>
+	<title>Wiki Home - STAMINA Model Checker</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../styles.css">
@@ -45,11 +45,11 @@
 <script type="text/javascript" src="scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="side-nav" id="side-nav">
-<div class="quick-buttons">
+	<div class="quick-buttons">
 	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon icon_view-list-tree just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
-	<a id="go-back" class="quick-nav" href="install-sstamina.html"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
+	<a id="go-back" class="quick-nav disabled" onclick="window.history.back()"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
 	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="icon icon_go-home just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
-	<a id="go-forward" class="quick-nav" href="model-files.html"><i class="icon icon_media-seek-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
+	<a id="go-forward" class="quick-nav" href="install-sstamina.html"><i class="icon icon_media-seek-forward just-icon disabled"></i><span class="quick-nav-label">Go Forward</span></a>
 	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="icon icon_edit-find just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
 	</div>
 	<ul id="side-nav-list">
@@ -98,42 +98,7 @@ if (bttButton != null) {
 </noscript>
 <div class="content">
 <!-- CONTENT -->
-	<h1>Installing STAMINA/PRISM</h1>
-	<p>
-		STAMINA/PRISM is written in Java and depends on the <a href="https://prismmodelchecker.org">PRISM Model Checker</a>. Multiple methods of auto-installing STAMINA/STORM have been created. Unfortunately, we have not yet migrated STAMINA/PRISM to <span class="inline-code">gradle</span>, like we have with the <span class="inline-code">imsam</span> package.
-	</p>
-	<p>
-		Regardless of the method you use, you will need to install the dependencies first. The following command will install them on Debian 11+/Ubuntu 22+:
-	</p>
-	<pre class="code">sudo apt-get update && sudo apt-get -y install openjdk-11-jre openjdk-11-jdk git build-essential</pre>
-	<h2>Method 1: The Shell Script (Recommended)</h2>
-	Simply clone the GitHub repository and run the provided install script:
-	<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
-cd stamina-prism
-chmod +x install.sh && install.sh</pre>
-	<h2>Method 2: The Perl Script (Legacy)</h2>
-	The Perl script clones both STAMINA and PRISM, so it should be directly passed into the Perl executable from <span class="inline-code">curl</span> or <span class="inline-code">wget</span>.<br>
-	Using <span class="inline-code">curl</span>:
-	<pre class="code">perl -e "$(curl https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl)"</pre>
-	Using <span class="inline-code">wget</span>:
-	<pre class="code">wget https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl && perl install.pl && rm install.pl</pre>
-	<h2>Method 3: Installing Manually</h2>
-	First, you will need to install PRISM. STAMINA <i>requires</i> the installed version of PRISM to be version 4.5.
-	<pre class="code">git clone https://github.com/prismmodelchecker/prism prism
-cd prism/prism
-git checkout v4.5
-make -j$(nproc --all)
-make install
-export PRISM_HOME=$(pwd)</pre>
-After you have installed PRISM, you are ready to install STAMINA:
-<pre class="code">git clone https://github.com/fluentverification/stamina stamina-prism
-cd stamina-prism/stamina
-make PRISM_HOME=$PRISM_HOME</pre>
-Finally, you must create a <span class="inline-code">.staminarc</span> file in your home directory so STAMINA knows where to find classes:
-<pre class="code">touch ~/.staminarc
-echo "export_JAVA_OPTIONS=-Xmx12288m" >> ~/.staminarc
-echo "export PRISM_HOME=$PRISM_HOME" >> ~/.staminarc
-echo "export STAMINA_HOME=$(pwd)/stamina" >> ~/.staminarc</pre>
+	Place content here
 </div>
 <!-- Footer -->
 <div class="footer">
