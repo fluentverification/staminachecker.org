@@ -1,4 +1,5 @@
 let navOpen = true;
+let wikiTreePopulated = false;
 
 function closeSidebar() {
 	console.log("Closing sidebar");
@@ -45,8 +46,27 @@ function searchWiki() {
 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
 }
 
-function wikiTree() {
+function grabTree() {
+	return fetch("./wikiTree.json").then(response => response.json());
+}
+
+async function getTreeJSON() {
+	let pages = await grabTree().then(function(result) { return result; });
+	return await pages;
+}
+
+async function wikiTree() {
 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+	if (wikiTreePopulated) {
+		return;
+	}
+	const treeJson = (await getTreeJSON());
+	let wikiTreeUL = document.getElementById('nav-list-title');
+	// Iterate over all key-value pairs of the dictionary in wikiTree.json
+	Object.keys(treeJson).forEach(function(htmlFile) {
+		let pageTitle = treeJson[htmlFile];
+		wikiTreeUL.innerHTML += "<li><a href='" + htmlFile + "'>" + pageTitle + "</a></li>";
+	});
 }
 
 window.onload = function () { closeSidebar(); }
