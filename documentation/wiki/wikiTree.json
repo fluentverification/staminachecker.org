@@ -1,5 +1,8 @@
 {
-	"index.html":{}
-	, "install-sstamina.html":{}
-	, "install-pstamina.html":{}
+	"index.html":"Wiki Home"
+	, "install-sstamina.html":"Installing STAMINA/STORM"
+	, "install-pstamina.html":"Installing STAMINA/PRISM"
+	, "model-files.html":"Model Files"
+	, "properties-files.html":"Properties Files"
+	, "algorithm.html":"The STAMINA Algorithm(s)"
 }
