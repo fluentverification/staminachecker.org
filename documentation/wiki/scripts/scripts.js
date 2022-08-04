@@ -39,6 +39,7 @@ function toggleNav() {
 	}
 	else {
 		openSidebar();
+		wikiTree();
 	}
 }
 
@@ -56,7 +57,7 @@ async function getTreeJSON() {
 }
 
 async function wikiTree() {
-	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+// 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
 	if (wikiTreePopulated) {
 		return;
 	}
