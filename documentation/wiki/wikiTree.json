@@ -5,4 +5,6 @@
 	, "model-files.html":"Model Files"
 	, "properties-files.html":"Properties Files"
 	, "algorithm.html":"The STAMINA Algorithm(s)"
+	, "options.html":"Options"
+	, "cli-args.html":"Command-Line Arguments"
 }

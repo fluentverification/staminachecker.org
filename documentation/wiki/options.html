@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Options - STAMINA Wiki</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../styles.css">
+	<link rel="stylesheet" href="wikistyles.css">
+	<link rel="icon" type="image/x-icon" href="../../images/favicon.svg">
+	<script type="text/javascript" src="../../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../../scripts/search.js"></script>
+	<script type="text/javascript" src="../../scripts/collapsible.js"></script>
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA<span class="wiki-text">Wiki</span></div></a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="navbutton" href="/index.html">Home</a></li>
+	<li><a class="navbutton" href="/about.html">About</a></li>
+	<li id="get">
+		<a href="/get.html" class="navbutton" class="navbutton">Get</a>
+		<div class="dropdown-content" id="get-dropdown">
+			<a href="/get.html#download">Download</a>
+			<a href="/source.html">Source Code</a>
+		</div>
+	</li>
+	<li id="documentation">
+		<a class="navbutton" href="/documentation.html">Documentation</a>
+		<div class="dropdown-content" id="documentation-dropdown">
+			<a href="/documentation/wiki/index.html">Wiki</a>
+			<a href="/documentation/api.html">API Documentation</a>
+		</div>
+	</li>
+	<li><a class="navbutton" href="/benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="../../images/icons/darkLight.svg" height="15px"></a></li>
+<!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
+<li>
+	<div class="search-overlay" id="search-overlay">
+		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
+		<form action="javascript:search()">
+		<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search entire website...">
+		</form>
+	</div>
+</li>
+</ul>
+<script type="text/javascript" src="scripts/search.js"></script>
+<div class="top-buffer" id="top-buffer"><br></div>
+<div class="side-nav" id="side-nav">
+	<div class="quick-buttons">
+	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon icon_view-list-tree just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
+	<a id="go-back" class="quick-nav" href="algorithm.html"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
+	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="icon icon_go-home just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
+	<a id="go-forward" class="quick-nav" href="cli-args.html"><i class="icon icon_media-seek-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
+	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="icon icon_edit-find just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
+	</div>
+	<ul id="side-nav-list">
+		<li id="nav-list-title"><b>Wiki Navigation</b></li>
+	</ul>
+	<a id="toggle-sidenav" onclick="toggleNav()"><i id="toggle-icon" class="icon icon_sidebar-collapse-left"></i><span class="quick-nav-label">Close Navbar</span></a> <!--  icon_sidebar-expand-left -->
+</div>
+<!-- Back to top button -->
+<a class="btt-button" id="btt-button" href="#" style="color: white;">
+<i class="icon  icon_go-up-skip just-icon"></i></a>
+<script>
+let bttButton = document.getElementById('btt-button');
+
+if (bttButton != null) {
+	window.onscroll = function() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			bttButton.style.display = "block";
+		}
+		else {
+			bttButton.style.display = "none";
+		}
+	}
+}
+</script>
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner">
+	<table>
+		<tr>
+		<td>
+	The STAMINA Website saves only <i>one</i> cookie on your browser with the purpose of remembering whether you prefer dark or light mode. Naturally, <b>we do not track you</b>, store excessive cookies, advertise on this site, or anything of the sort. That would be extremely unprofessional of us. You will not see this message on future visits. <a href="privacy.html">More...</a>
+	</td><td>
+	<a style="color:black; padding: 10px; font-size: 20pt; cursor: pointer;" onclick="closeCookieBanner()">&times;</a></td><tr>
+	</table>
+	<script>
+		function closeCookieBanner() {
+			let cookieBanner = document.getElementById('cookie-banner');
+			cookieBanner.style.display = "none";
+		}
+	</script>
+</div>
+<noscript>
+<div class="noscript">
+	<b>Alert!</b>
+	This page requires JavaScript to function properly.
+</div>
+</noscript>
+<div class="content">
+<!-- CONTENT -->
+<h1>Options</h1>
+<p>The following options are user-specifiable and will affect how the STAMINA algorithm runs. You will learn how to set these via the CLI options in the next page.</p>
+<h2 id="reachability-threshold-&kappa;">Reachability Threshold (&kappa;)</h2>
+<div class="note">
+<p>The reachability threshold is passed into STAMINA via the <code class="inline-code-note">kappa</code> command line argument.</p>
+</div>
+<p><strong>Definition:</strong> The threshold probability that a particular state must be at to be considered “reachable”. Since we are in a Continuous Time Markov Chain, transitions are represented by a “rate” rather than a flat probability, meaning that a rate of 0.0 is undefined for a state transition. However, the number of states that the “reduced” state space model can reach is determined by this threshold. In the reachability analysis method of the <code class="inline-code">StaminaModelBuilder</code> classes (STAMINA/STORM) or the <code class="inline-code">InfCTMCModelGenerator()</code> class (STAMINA/PRISM), a truncated state space is created, based on this reachability threshold.</p>
+<p>STAMINA only includes states where the probability mass is clustered, starting breadth-first from the initial state. This means that states less likely to be chosen and included in the truncated model if:</p>
+<ol type="1">
+<li>They are farther away from the initial state.</li>
+<li>There is a low transition rate to that state.</li>
+</ol>
+<div class="warning">
+<b>WARNING</b>:
+<p>The probability threshold is the probabilistic state search termination value; i.e., the lower the reachability threshold, the more states are to be explored, and the longer the simulation could take. If the probability threshold is set too low, then very little state space truncation could occur, causing the system to run out of resources. Do <em>not</em> set the value of the reachability threshold to 0, as this will result in an <em>infinite</em> (and therefore uncomputable) state space.</p>
+</div>
+<h2 id="kappa-&kappa;-reduction-factor-r&kappa;">Kappa (&kappa;) reduction factor (r<sub>&kappa;</sub>)</h2>
+<p><strong>Definition:</strong> the kappa reduction factor is the reduction factor on the reachability threshold, <code class="inline-code">kappa</code> (see above). It defines how much the reachability threshold is reduced by: &kappa;<sub>min</sub> = &kappa; / r<sub>&kappa;</sub>. As mentioned above, too low of a reachability threshold could cause overuse of system resources, meaning that the kappa reduction factor ought not to be excessively high.</p>
+<p>The &kappa; reduction factor is used to compute the lower bound probability P<sub>min</sub>, the lower bound of the probability that Φ, the state formula, being satisfied within the state space.</p>
+<h2 id="misprediction-factor-m">Misprediction Factor (m)</h2>
+<p><strong>Definition:</strong> This is used in determining the termination of the exploration. If Π is the probability we are in a terminal state, then exploration is terminated when Π &lt; w / m. Additionally, if the bound between P<sub>max</sub> and P<sub>min</sub> is greater than the window, the misprediction factor will be updated accordingly. This updating is done in <code class="inline-code">StaminaModelBuilder::buildMatrices()</code> (STAMINA/STORM) or <code class="inline-code">InfCTMCModelGenerator.doReachabilityAnalysis()</code> (STAMINA/PRISM).</p>
+<h2 id="max-approximate-count">Max Approximate Count</h2>
+<p><strong>Definition:</strong> The maximum number of approximation iterations (the second-outermost <code class="inline-code">while</code> loop in the algorithm).</p>
+<h2 id="max-refinement-count">Max Refinement Count</h2>
+<p><strong>Definition:</strong> The maximum number of refinement iterations used in computing the upper and lower bounds of the probabilities of reaching a certain state, P<sub>max</sub> and P<sub>min</sub>.</p>
+<h2 id="probability-error-window-w">Probability Error Window (w)</h2>
+<p><strong>Definition:</strong> The defined maximum difference between P<sub>max</sub> and P<sub>min</sub>. This is user specified, and affects the computation of the misprediction factor, m.</p>
+<h2 id="no-property-refining">No Property Refining</h2>
+<p><strong>Definition:</strong> Whether or not to use property based refinement.</p>
+<h2 id="rank-transitions">Rank Transitions</h2>
+<p><strong>Definition:</strong> a boolean representing whether or not rank transitions will be used.</p>
+<h2 id="cudd-memory-limit">CUDD Memory Limit</h2>
+<p><strong>Definition:</strong> A string representing the memory limit available to STAMINA and the associated PRISM model we are building.</p>
+<div class="warning">
+<b>WARNING</b>
+<p>Problems could arise if there are more states needed to be built than memory available, so make sure that the reachability threshold and its reduction factor are reflective of your memory limits. STAMINA will terminate if a memory limit is hit, regardless of whether or not the probability window is found tight enough.</p>
+</div>
+<h2 id="export-model">Export Model</h2>
+<p><strong>Definition:</strong> a boolean representing whether or not we are going to export the model.</p>
+<h2 id="export-filename">Export Filename</h2>
+<p><strong>Definition:</strong> If we are going to export the model, to what filename will we export it?</p>
+<h2 id="export-perimeter-states">Export Perimeter States</h2>
+<p><strong>Definition:</strong> A boolean representing whether or not we are going to export the perimeter states to file.</p>
+<h2 id="export-perimeter-filename">Export Perimeter Filename</h2>
+<p><strong>Definition:</strong> if we are going to export the perimeter states to a file, what shall be the filename?</p>
+<h2 id="import-model">Import Model</h2>
+<p><strong>Definition:</strong> a boolean representing whether or not we are going to import a model file from PRISM. Acceptable file extensions are <code class="inline-code">.pm</code>, <code class="inline-code">.prism</code>, and others associated with the PRISM modelling system. However, this tool <em>does not</em> check the file extension, or its contents before trying to import, so importing an incompatible file will raise a <code class="inline-code">PrismException</code>.</p>
+<p><strong>Associated methods:</strong></p>
+<h2 id="import-filename">Import Filename</h2>
+<p><strong>Definition:</strong> The name of the file whose models STAMINA is going to import.</p>
+<h2 id="specific-property">Specific Property</h2>
+<p><strong>Definition:</strong> Whether or not this is associated with a specific property.</p>
+<h2 id="property-name">Property Name</h2>
+<p><strong>Definition:</strong> The name of the specific property associated with these options.</p>
+<h2 id="export-transitions-to-file">Export Transitions to File</h2>
+<p><strong>Definition:</strong> The filename where the export transitions will be sent.</p>
+
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="https://github.com/fluentverification/stamina-cplusplus">STAMINA/STORM</a></td>
+				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="https://scholar.google.com/citations?hl=en&user=1bpMdpUAAAAJ">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="https://github.com/fluentverification/stamina">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="about.html#contact">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="https://fluentverification.github.io">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="https://fluentverification.github.io/contact/">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license. This website uses the <a href="https://develop.kde.org/frameworks/breeze-icons/">Breeze Icons</a> from KDE licensed under the GPL3.
+	</div>
+</div>
+</body>

@@ -192,7 +192,7 @@ body {
 	margin-bottom: 20px;
 }
 
-.note, .error {
+.note, .error, .warning {
 	display: block;
 	padding: 40px;
 	margin-top: 20px;
@@ -210,6 +210,12 @@ body {
 	color: #1e3229;
 	background-color: var(--accent-light);
 	border-left: 4px solid var(--accent-dark);
+}
+
+.warning {
+	color: #1B1B1B;
+	background-color: #ffdc74;
+	border-left: 4px solid #8e5c26;
 }
 
 .error, .error-small {
