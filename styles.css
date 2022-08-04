@@ -445,7 +445,7 @@ ul.navbar li.right {
 	border-bottom: 4px solid var(--navbar-background);
 }
 
-#get:hover #get-dropdown {
+#get:hover #get-dropdown, #documentation:hover #documentation-dropdown {
 	display: block;
 }
 
