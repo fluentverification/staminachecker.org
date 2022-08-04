@@ -145,13 +145,21 @@ pre {
 	white-space: pre-wrap;
 }
 
+#wiki-tree, #sidebar-light-dark {
+	display: none;
+}
+
 @media screen and (max-width: 900px) {
 	.quick-nav-label {
 		display: none;
 	}
-	
+
 	#toggle-sidenav {
 		display: none;
+	}
+
+	#wiki-tree, #sidebar-light-dark {
+		display: inline-block;
 	}
 	
 	/* Put the side nav on the bottom on mobile */
@@ -170,7 +178,7 @@ pre {
 		display: inline-block;
 		width: auto;
 	}
-	
+
 	.btt-button {
 		bottom: 75px;
 	}
