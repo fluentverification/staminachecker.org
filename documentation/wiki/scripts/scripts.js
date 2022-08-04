@@ -38,8 +38,8 @@ function toggleNav() {
 		closeSidebar();
 	}
 	else {
-		openSidebar();
-		wikiTree();
+// 		openSidebar();
+		wikiTree(); // Also opens the sidebar
 	}
 }
 
@@ -69,6 +69,7 @@ async function wikiTree() {
 		wikiTreeUL.innerHTML += "<li><a href='" + htmlFile + "'>" + pageTitle + "</a></li>";
 	});
 	wikiTreePopulated = true;
+	openSidebar();
 }
 
 window.onload = function () { closeSidebar(); }
