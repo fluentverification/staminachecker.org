@@ -45,7 +45,6 @@
 	color: var(--color);
 	cursor: pointer;
 	padding: 15px;
-	padding-right: 0px;
 }
 
 #toggle-sidenav, .toggle-sidenav {
@@ -53,6 +52,7 @@
 	width: var(--sidebar-width);
 	float: right;
 	position: fixed;
+	padding-right: 0px;
 	background-color: var(--background-two);
 	border: 1px solid var(--background-three);
 }
