@@ -50,7 +50,7 @@
 	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon icon_view-list-tree just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
 	<a id="go-back" class="quick-nav" href="install-pstamina.html"><i class="icon icon_media-seek-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
 	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="icon icon_go-home just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
-	<a id="go-forward" class="quick-nav" href="install-sstamina.html"><i class="icon icon_media-seek-forward just-icon disabled"></i><span class="quick-nav-label">Go Forward</span></a>
+	<a id="go-forward" class="quick-nav" href="properties-files.html"><i class="icon icon_media-seek-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
 	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="icon icon_edit-find just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
 	</div>
 	<ul id="side-nav-list">
@@ -121,7 +121,7 @@ if (bttButton != null) {
 	<pre class="code">[action] guard -> prob1 : (var1'=var1+value1) + prob2 : (var1'=var1+value2)</pre>
 	<p>The expression immediately following the probability is the <i>update expression</i>, specifying the new value for <span class="inline-code">var1</span> using the <span class="inline-code">var1'</span> syntax.</p>
 	<p>
-		As an example of a simple PRISM model
+		As an example of a simple PRISM model, let us create a simple two-species network, with one unbounded variable, and one bounded variable:
 	</p>
 <div class="code">
 <span class="keyword">ctmc</span><br>
@@ -130,13 +130,40 @@ if (bttButton != null) {
 <span class="keyword">module</span> SpeciesA_Def
 <div class="indent">
 <span class="comment">// This variable is "bounded"</span><br>
-[<span class="number">0..100</span>] SpeciesA <span class="keyword">init</span> 0;<br><br>
-<span class="comment">// We cannot decrement in species A</span><br>
+[<span class="number">0..100</span>] SpeciesA <span class="keyword">init</span> <span class="number">0</span>;<br><br>
+<span class="comment">// We cannot decrement in species A if the value is 0<br>
+// This basically says "if SpeciesA is equal to 0, you may choose from two transitions:
+<br>// 1. Increment by 1 with transition rate 5, or,<br>
+// 2. Increment by 5 with transition rate 1.</span><br>
+[] (SpeciesA = <span class="number">0</span>) -> <span class="number">5</span> : (SpeciesA'=SpeciesA+<span class="number">1</span>) + <span class="number">1</span> : (SpeciesA'=SpeciesA+<span class="number">5</span>);<br><br>
+<span class="comment">// However, if there is a nonzero amount of SpeciesA, we have one more transition: we can decrement by 1 with transition rate 2.</span><br>
+[] (SpeciesA > <span class="number">0</span>) -> <span class="number">5</span> : (SpeciesA'=SpeciesA+<span class="number">1</span>) + <span class="number">1</span> : (SpeciesA'=SpeciesA+<span class="number">5</span>) + <span class="number">2</span> : (SpeciesA'=SpeciesA-<span class="number">1</span>);<br>
+</div>
+<span class="keyword">endmodule</span><br><br>
+<span class="keyword">module</span> SpeciesB_Def
+<div class="indent">
+<span class="comment">// This variable is "unbounded"</span><br>
+<span class="keyword">int</span> SpeciesB <span class="keyword">init</span> <span class="number">0</span>;<br><br>
+<span class="comment">// This species has only one increment and one decrement</span><br>
+[] (SpeciesB = <span class="number">0</span>) -> <span class="number">1</span> : (SpeciesB'=SpeciesB+<span class="number">1</span>);<br><br>
+<span class="comment">// Again, if there is a nonzero amount of this species, there can be a decrement.</span><br>
+[] (SpeciesB > <span class="number">0</span>) -> <span class="number">1</span> : (SpeciesB'=SpeciesB+<span class="number">1</span>) + <span class="number">0.5</span> : (SpeciesB'=SpeciesB-<span class="number">1</span>)<br>
 </div>
 <span class="keyword">endmodule</span>
 </div>
+<div class="note">
+	<b>Note</b>: as soon as <i>any</i> variable in a model file is unbounded (i.e., any numerical data type), the model becomes unbounded. STAMINA was created specifically to deal with unbounded models, but if you try to check an unbounded model with pure PRISM or STORM, they will either throw an error or run indefinitely.
+</div>
+<p>
+	This model will create an infinite-state CTMC with deterministic choices for probabilistic transitions. This would be a prime example of a model that would be perfect for STAMINA.
+</p>
+<h2>JANI Model Files</h2>
+<p>
+	<a href="https://jani-spec.org/">JANI <i class="icon icon_map-globe icon-tiny"></i></a> is a JSON-based model-specification language designed to be easily parsable and versatile. STAMINA/PRISM currently does not support JANI, but STAMINA/STORM is slated to use STORM's JANI-parser to add support in the next major release.
+</p>
+<p>JANI provides a complete language specification which is easy to read and understand. We recommend you view that <a href="https://docs.google.com/document/d/1BDQIzPBtscxJFFlDUEPIo8ivKHgXT8_X6hz5quq7jK0/edit">here <i class="icon icon_map-globe icon-tiny"></i></a>.</p>
 <div class="error">
-TODO: This page is incomplete.
+Currently, no version of STAMINA supports JANI, but STAMINA/STORM will support it (by making use of STORM's already-built JANI parser) in STAMINA v3.0. If you need to check a JANI model, it is recommended to bound all variables and check in pure STORM, or use STORM's JANI-to-PRISM converter before sending the model to STAMINA.
 </div>
 </div>
 <!-- Footer -->
