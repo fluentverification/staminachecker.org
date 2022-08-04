@@ -68,6 +68,7 @@ async function wikiTree() {
 		let pageTitle = treeJson[htmlFile];
 		wikiTreeUL.innerHTML += "<li><a href='" + htmlFile + "'>" + pageTitle + "</a></li>";
 	});
+	wikiTreePopulated = true;
 }
 
 window.onload = function () { closeSidebar(); }
