@@ -158,7 +158,7 @@ function fixIconsOnMacAndIos() {
 
 	if ((isMacLike || isIOS) && !isFirefoxLike) {
 		// Fix le icons
-		var styles = ".icon:before { position: relative; top: 250px;} #search-icon:before { position: fixed; top: 212px;} @media screen and (max-width: 900px) { #search-icon:before { top: 500px;} }";
+		var styles = ".icon:before { position: relative; top: 250px;} #search-icon:before { position: fixed; top: 212px;} @media screen and (max-width: 900px) { #search-icon:before { position: relative; } }";
 		var styleSheet = document.createElement("style")
 		styleSheet.innerText = styles;
 		document.head.appendChild(styleSheet);
