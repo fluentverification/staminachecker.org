@@ -107,6 +107,10 @@ if (bttButton != null) {
 <!-- CONTENT -->
 	<h1>Properties Files</h1>
 	<p>Properties files are specified in <i>Continuous Stochastic Logic</i>, a format allowing for both <i>state formulas</i> and <i>path formulas</i>. PRISM provides documentation which is both easy to understand, and extensive. It is recommended to reference that page <a href="https://www.prismmodelchecker.org/manual/PropertySpecification/Introduction">here</a>.</p>
+	<h2>The types of properties STAMINA supports</h2>
+	<p>Because the STAMINA algorithm estimates state reachability using cumulative path probability, it lends itself well to most types of CSL properties. In most of the testing examples we use, the properties tested were <i>bounded path probability formulas</i>, i.e., "what is the probability that state formula &Phi; holds for all states for a path from time <i>0 s</i> to <i>t s</i>?" If we reference our example model file from the previous page, an example of a property like this would be as follows:</p>
+	<pre class="code">P=? [true U[0,1000] (SpeciesA > 10 & SpeciesB < 30) ]</pre>
+	<p>This property asks <i>"what is probability that from time 0 to 1000 s that all states satisfy SpeciesA &gt; 10 and SpeciesB &lt; 30?"</i></p>
 </div>
 <!-- Footer -->
 <div class="footer">
