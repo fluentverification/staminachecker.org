@@ -60,6 +60,7 @@ async function wikiTree() {
 // 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
 	if (wikiTreePopulated && navOpen) {
 		closeSidebar();
+		return;
 	}
 	else if (wikiTreePopulated) {
 		openSidebar();
