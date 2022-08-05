@@ -49,6 +49,11 @@
 	}
 }
 
+/*.icon:before {
+	top: 250px;
+	position: relative;
+}*/
+
 body {
 	margin: 0px;
 	background: var(--background);

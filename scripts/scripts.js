@@ -141,3 +141,28 @@ function copyCitation(id) {
 	// Alert that we have copied text
 	alert("Copied!");
 }
+
+/**
+ * Grrrrr.......damn you Tim Cook!
+ *
+ * Some explanation: basically, MacOS's font-rendering is wack, and so in order to
+ * get the breeze icons to render properly, we have to add a bunch of wack margins
+ * and change position and stuff. This "fix" is hackey, but it should kind of work.
+ *
+ * The bug only appears on MacOS/iOS and ONLY if NOT using Firefox.
+ * */
+function fixIconsOnMacAndIos() {
+	var isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+	var isIOS = /(iPhone|iPod|iPad)/i.test(navigator.platform);
+	var isFirefoxLike = $.browser.mozilla;
+
+	if ((isMacLike || isIOS) && !isFirefoxLike) {
+		// Fix le icons
+		var styles = ".icon:before { position: relative; top: 250px;} #search-icon:before { position: fixed; top: 212px;}";
+		var styleSheet = document.createElement("style")
+		styleSheet.innerText = styles;
+		document.head.appendChild(styleSheet);
+	}
+}
+
+fixIconsOnMacAndIos();
