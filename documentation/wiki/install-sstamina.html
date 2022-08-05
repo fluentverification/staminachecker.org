@@ -115,11 +115,11 @@ if (bttButton != null) {
 	(Please note that most of these are also dependencies for STORM, hence why they are required)
 	<h4>Debian 11+/Ubuntu 22.04+ (or derivative)</h4>
 	<pre class="code">sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install build-essential libboost-all-dev git cmake </pre>
+sudo apt-get install build-essential libboost-all-dev git cmake clang </pre>
 	<h4>Arch Linux/Manjaro/EndeavorOS</h4>
-	<pre class="code">sudo pacman -Syuu base-devel git cmake boost-libs</pre>
+	<pre class="code">sudo pacman -Syuu base-devel git cmake boost-libs clang</pre>
 <h4>MacOS 10.12+</h4>
-<pre class="code">brew install cln ginac automake cmake boost glibc</pre>
+<pre class="code">brew install cln ginac automake cmake boost glibc clang</pre>
 	<h4>Manually Installing STORM (Required)</h4>
 	<p>
 		STORM must be installed manually for STAMINA to compile. This is so that STAMINA knows where to find the STORM shared objects and link against them. Please follow the guide <a href="https://www.stormchecker.org/documentation/obtain-storm/build.html">here <i class="icon icon_map-globe icon-tiny"></i></a> to install STORM.
