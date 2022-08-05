@@ -97,6 +97,7 @@ body {
 	margin-right: 10px;
 	font-size: 16pt;
 	overflow-y: hidden; /* Safari/Webkit browsers have an issue displaying the icons. At least here they won't create massive elements */
+	vertical-align: baseline;
 }
 
 .table {
