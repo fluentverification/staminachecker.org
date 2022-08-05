@@ -154,7 +154,7 @@ function copyCitation(id) {
 function fixIconsOnMacAndIos() {
 	var isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 	var isIOS = /(iPhone|iPod|iPad)/i.test(navigator.platform);
-	var isFirefoxLike = $.browser.mozilla;
+	var isFirefoxLike = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 	if ((isMacLike || isIOS) && !isFirefoxLike) {
 		// Fix le icons
