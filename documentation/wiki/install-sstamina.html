@@ -132,7 +132,7 @@ sudo apt-get install build-essential libboost-all-dev git cmake clang </pre>
 mkdir build && cd build
 export STAMINA_HOME=$(pwd)
 cmake .. -DCMAKE_CXX_COMPILER=$(which clang++) -DSTORM_PATH=$STORM_DIR
-make -j$(nproc -all)</pre>
+make -j$(nproc --all)</pre>
 <div class="note">
 	The environment variable <span class="inline-code-note">STORM_DIR</span> should be set during the STORM install process. If not, it is just the root directory of STORM.
 </div>
