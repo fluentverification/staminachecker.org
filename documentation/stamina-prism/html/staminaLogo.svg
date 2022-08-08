@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
-   width="143.9778mm"
-   height="44.711121mm"
-   viewBox="0 0 143.9778 44.711121"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="68.37178mm"
+   height="21.232294mm"
+   viewBox="0 0 68.371781 21.232294"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
    sodipodi:docname="staminaLogo.svg"
    inkscape:export-filename="/home/josh/Documents/Work/stamina-cplusplus/doc/staminaLogo.png"
    inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
@@ -31,44 +44,45 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.69990138"
-     inkscape:cx="285.75454"
-     inkscape:cy="170.02395"
+     inkscape:cx="142.87703"
+     inkscape:cy="125.65455"
      inkscape:window-width="1920"
-     inkscape:window-height="1026"
+     inkscape:window-height="1016"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-19.14786,-94.689934)">
+     transform="translate(-56.950867,-106.42934)">
     <rect
-       style="fill:#1d1d1d;stroke-width:0.180643;stroke-linecap:round;paint-order:markers fill stroke;fill-opacity:1"
+       style="fill:#1d1d1d;fill-opacity:1;stroke-width:0.0857833;stroke-linecap:round;paint-order:markers fill stroke"
        id="rect140"
-       width="143.9778"
-       height="44.711121"
-       x="19.14786"
-       y="94.689934"
+       width="68.37178"
+       height="21.232294"
+       x="56.950867"
+       y="106.42934"
        ry="0" />
     <text
        xml:space="preserve"
-       style="font-size:23.086px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.578061;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="37.681099"
-       y="125.28719"
+       style="font-size:10.963px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.274508;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="65.751884"
+       y="120.95929"
        id="text1244"><tspan
          sodipodi:role="line"
          id="tspan1242"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.578061;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         x="37.681099"
-         y="125.28719"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.274508;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="65.751884"
+         y="120.95929"
          dy="0">STAMINA</tspan></text>
     <path
-       style="color:#000000;fill:#fefefe;fill-opacity:1;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers fill stroke"
-       d="m 23.912109,99.138672 v 1.492188 34.32031 H 158.36133 V 99.138672 Z m 2.982422,2.982418 H 155.37891 v 29.84766 H 26.894531 Z"
+       style="color:#000000;fill:#fefefe;fill-opacity:1;stroke-width:0.474877;stroke-linecap:round;paint-order:markers fill stroke"
+       d="m 59.213302,108.54195 v 0.70861 16.29793 h 63.846878 v -17.00654 z m 1.416285,1.41628 h 61.014303 v 14.17398 H 60.629587 Z"
        id="rect181" />
   </g>
 </svg>
