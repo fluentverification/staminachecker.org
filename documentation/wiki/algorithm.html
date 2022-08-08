@@ -105,9 +105,6 @@ if (bttButton != null) {
 </noscript>
 <div class="content">
 <!-- CONTENT -->
-	<div class="error">
-		This page is unfinished.
-	</div>
 	<h1>The STAMINA Algorithm(s)</h1>
 	<p>STAMINA contains multiple algorithms to perform state-space truncation. This page will provide an overview of them</p>
 
@@ -126,10 +123,16 @@ if (bttButton != null) {
 	<p>
 		In order to make STAMINA/STORM faster, in addition to memory pooling and decreased use of <span class="inline-code">std::unordered_map</span> and <span class="inline-code">std::unordered_set</span> (which after much testing, were determined to be far slower than the Java equivalent), certain dynamic programming improvements were devised to the STAMINA 2.0 algorithm. Please note that these are implemented exclusively in the STORM integration. The improvements simply keep track of the reachability that would have been lost in previous iterations and enqueue "lost" states to be explored alongside terminal states of the last iteration, rather than either the initial state (STAMINA 2.0) or the previous terminal states (STAMINA 1.0).
 	</p>
-	<h3>Custom Multithreading Protocol</h3>
+	<h3>STAMINA's Multithreading Protocol</h3>
 	<p>
 		Another major novel improvement slated to be released with STAMINA 2.5 is the use of multi-threading, and a custom protocol for the control thread to grant access without having to store mutual-exclusions for every state (extremely memory intensive), or having to lock all or part of the state space every time a thread requests control of a state (reduces the improvement of multithreading). This new protocol is among the improvements we are looking to include in a paper this fall.
 	</p>
+	<p>
+		The STAMINA multithreading protocol is based on two main ideas: first, that threads can "own" states and only explore states that they own, and second, that ownership of states can expire after a certain amount of time. Threads can ask who owns a state without locking the mutex on the datastructure keeping track of that, but they must lock that mutex in order to request ownership of the state. A single control thread mantains the governing data structure, and state ownership expires based on a LRU (least-recently used) policy.
+	</p>
+	<div class=note>
+		STAMINA's multithreading protocol has not yet been functionally implemented in STAMINA yet. That is slated to be released next month.
+	</div>
 	<h2>The STAMINA 3.0 Algorithm</h2>
 	<p>
 		STAMINA 3.0 (not yet released) reduces complexity of the algorithm further. Rather than using &kappa; and r<sub>&kappa;</sub> to conditionally truncate states, all states, as they are explored, are inserted into a priority queue on the value &pi;[s], the estimated reachability of that state. States are explored in order of their estimated reachability. If a current state transitions into a state that is already enqueued, we do not force the queue to re-order until that state is dequeued and explored.
