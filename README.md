@@ -4,4 +4,4 @@ Hosted by GitHub Pages :)
 
 Please visit the live site at:
 
-[https://fluentverification.github.io/stamina-checker/](https://fluentverification.github.io/stamina-checker/)
+[https://staminachecker.org](https://staminachecker.org)
