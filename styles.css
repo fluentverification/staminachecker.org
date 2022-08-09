@@ -506,7 +506,8 @@ ul.navbar li.right {
 #query {
 	padding: 12px;
 	padding-left: 24px;
-	border: 1px solid #888888;
+	border: none;
+	background-color: var(--background-two);
 }
 
 @media screen and (max-width: 900px) {
