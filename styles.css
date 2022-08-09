@@ -110,6 +110,8 @@ body {
 	overflow: hidden;
 	border-collapse: collapse;
 	font-size: 10pt;
+	display: inline-block;
+	overflow: auto;
 }
 
 .table th, .table td {
