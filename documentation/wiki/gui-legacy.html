@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="../../scripts/scripts.js"></script>
 	<script type="text/javascript" src="../../scripts/search.js"></script>
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/popout.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
 </head>
@@ -111,7 +112,11 @@ if (bttButton != null) {
 	<h1>STAMINA GUI (Legacy)</h1>
 	<p>While STAMINA/STORM contains a work-in-progress full GUI that allows you to edit model files and build CSL properties, in order to access both STAMINA/STORM and STAMINA/PRISM from a GUI, we provide a <i>very</i> minimal dialog box that allows you to edit some basic settings and select and run model files. This GUI provides access to both STAMINA/STORM and STAMINA/PRISM, but it is recommended for STAMINA/PRISM as STAMINA/STORM provides a more fleshed-out, fully-featured GUI.</p>
 <!-- 	<div class="graphic"> -->
-		<img src="images/legacyGui1.png">
+	<div class="popout" id="mw-popout" onclick="popout('mw-popout')">
+	<img class="inline-graphic" src="images/legacyGui1.png">
+	</div>
+	<small>(Click to expand)</small>
+	<div id="mw-popout-close" class="close-popup button" onclick="closePopup('mw-popout')">&times;</div>
 	<ol>
 		<li>Model/Modules file. The file which contains the modules which in their entirety, describe the PRISM model.</li>
 		<li>Properties file: The file with the list of CSL properties to use</li>
@@ -122,7 +127,10 @@ if (bttButton != null) {
 		<li>Opens the "More Options" window</li>
 		<li>Analyzes the model</li>
 	</ol>
-	<img src="images/legacyGui2.png">
+	<div class="popout" id="p-popout" onclick="popout('p-popout')">
+	<img class="inline-graphic" src="images/legacyGui2.png">
+	<small>(Click to expand)</small>
+	<div id="p-popout-close" class="close-popup button" onclick="closePopup('p-popout')">&times;</div>
 	<ol>
 <li>Reduction factor (κ)</li>
 <li>Kappa reduction factor (r<sub>κ</sub>)</li>
