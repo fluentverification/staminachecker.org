@@ -503,6 +503,12 @@ ul.navbar li.right {
 	height: 60px;
 }
 
+#query {
+	padding: 12px;
+	padding-left: 24px;
+	border: 1px solid #888888;
+}
+
 @media screen and (max-width: 900px) {
 	.navbar {
 		border-bottom: 4px solid var(--accent-medium);
