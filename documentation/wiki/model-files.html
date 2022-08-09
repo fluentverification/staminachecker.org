@@ -138,7 +138,7 @@ if (bttButton != null) {
 <span class="keyword">module</span> SpeciesA_Def
 <div class="indent">
 <span class="comment">// This variable is "bounded"</span><br>
-[<span class="number">0..100</span>] SpeciesA <span class="keyword">init</span> <span class="number">0</span>;<br><br>
+SpeciesA : [<span class="number">0..100</span>] <span class="keyword">init</span> <span class="number">0</span>;<br><br>
 <span class="comment">// We cannot decrement in species A if the value is 0<br>
 // This basically says "if SpeciesA is equal to 0, you may choose from two transitions:
 <br>// 1. Increment by 1 with transition rate 5, or,<br>
@@ -151,7 +151,7 @@ if (bttButton != null) {
 <span class="keyword">module</span> SpeciesB_Def
 <div class="indent">
 <span class="comment">// This variable is "unbounded"</span><br>
-<span class="keyword">int</span> SpeciesB <span class="keyword">init</span> <span class="number">0</span>;<br><br>
+SpeciesB : <span class="keyword">int</span> <span class="keyword">init</span> <span class="number">0</span>;<br><br>
 <span class="comment">// This species has only one increment and one decrement</span><br>
 [] (SpeciesB = <span class="number">0</span>) -> <span class="number">1</span> : (SpeciesB'=SpeciesB+<span class="number">1</span>);<br><br>
 <span class="comment">// Again, if there is a nonzero amount of this species, there can be a decrement.</span><br>
