@@ -62,6 +62,21 @@ if __name__=='__main__':
 		json = True
 	if "-r" in sys.argv or "--recurse" in sys.argv:
 		recurse = True
+	# Get base URL. Yeah this is ugly but I'm lazy
+	try:
+		try:
+			bIndex = sys.argv.index("--base")
+		except ValueError:
+			pass
+		bIndex = sys.argv.index("-b")
+		try:
+			baseURL = sys.argv[bIndex + 1]
+		except IndexError:
+			print("Missing base URL after -b/--base param!")
+			sys.exit(1)
+	except ValueError:
+		# Does not exist
+		pass
 	if not ("-h" in sys.argv or "--help" in sys.argv):
 		searchAllFiles(os.getcwd())
 	else:
@@ -69,5 +84,6 @@ if __name__=='__main__':
 		print("\t--recurse/-r:   Recurses subdirectories")
 		print("\t--help/-h:      Shows this message")
 		print("\t--json/-j:      Exports in JSON")
+		print("\t--base/-b:      Base URL (default https://staminachecker.org")
 		
 # https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
