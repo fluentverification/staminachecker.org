@@ -7,4 +7,7 @@
 	, "algorithm.html":"The STAMINA Algorithm(s)"
 	, "options.html":"Options"
 	, "cli-args.html":"Command-Line Arguments"
+	, "gui.html":"GUI Introduction"
+	, "gui-new.html":"XStamina GUI"
+	, "gui-legacy.html":"Legacy GUI"
 }
