@@ -164,6 +164,9 @@ pre {
 }
 
 .popout-expanded .inline-graphic {
+	display: block;
+	position: fixed;
+	top: 10%;
 	width: 80%;
 }
 

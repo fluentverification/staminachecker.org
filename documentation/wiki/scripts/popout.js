@@ -6,6 +6,7 @@ function popout(popoutId) {
 }
 
 function closePopup(popoutId) {
+	console.log("Closing popout: " + popoutId);
 	let popElem = document.getElementById(popoutId);
 	popElem.classList.remove("popout-expanded");
 	let closeButton = document.getElementById(popoutId + "-close");
