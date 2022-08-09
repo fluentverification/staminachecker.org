@@ -275,9 +275,9 @@ body {
 	color: var(--color);
 	background: var(--background);
 	width: 100%; /* Full width */
-	padding: 12px; /* Some padding */
+	padding: 16px; /* Some padding */
 	border: 1px solid #cccccc; /* Gray border */
-	border-radius: 6px; /* Rounded borders */
+	border-left: 4px solid var(--link-base);
 	box-sizing: border-box; /* Make sure that padding and width stays in place */
 	margin-top: 6px; /* Add a top margin */
 	margin-bottom: 16px; /* Bottom margin */
