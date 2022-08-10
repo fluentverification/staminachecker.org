@@ -135,14 +135,15 @@ if (bttButton != null) {
 	</div>
 	<p>The following diagram demonstrates how data is passed around in STAMINA's multithreading protocol.</p>
 	<img class="inline-graphic" src="images/staminaMultithreading.png">
+	<h5>Legend:</h5>
 	<ol>
 		<li>The main loop of the ModelBuilder class explores in a single-thread until the number of terminal states is greater than or equal to the number of exploration threads.</li>
-		<li>The main loop of the ExplorationThread class checks if there are cross-exploration requests and explores them, prioritizing slightly above its own queue</li>
-		<li>If the state reachability is above kappa, we enqueue the successors of a state.</li>
-		<li>For each successor, we check which thread owns the state. This check does not lock the mutex because it is not a write</li>
-		<li>If the state is owned by another ExplorationThread, we request cross exploration from that thread with the path probability we have, called Δπ</li>
-		<li>If the state is new, then we request ownership. If successful, we put in our main exploration queue</li>
-		<li>If the state we are exploring has a reachability below kappa, we set it as terminal and send it to the builder class</li>
+		<li>The main loop of the ExplorationThread class checks if there are cross-exploration requests and explores them, prioritizing slightly above its own queue.</li>
+		<li>If the state reachability is above &kappa;, we enqueue the successors of a state.</li>
+		<li>For each successor, we check which thread owns the state. This check does not lock the mutex because it is not a write.</li>
+		<li>If the state is owned by another ExplorationThread, we request cross exploration from that thread with the path probability we have, called &Delta;&pi;.</li>
+		<li>If the state is new, then we request ownership. If successful, we put in our main exploration queue.</li>
+		<li>If the state we are exploring has a reachability below &kappa;, we set it as terminal and send it to the builder class</li>
 	</ol>
 	<h2>The STAMINA 3.0 Algorithm</h2>
 	<p>
