@@ -7,8 +7,16 @@
 	padding: 10%;
 	width: 80%;
 	height: 80%;
-	background-color: #000000cc;
+	background-color: rgba(var(--background-two), 0.8);
 	overflow: auto;
+}
+
+.close-button {
+	border: none;
+}
+
+.close-button:hover {
+	background-color: var(--link-base);
 }
 </style>
 <script type="text/javascript" src="../../scripts/searchIndex.js"></script>
@@ -17,12 +25,19 @@
 function closeOverlay() {
 	document.getElementById('search-overlay-fullpage').style.display = "none";
 }
+function searchOnThisPage() {
+	let q = document.getElementById('query').value;
+	searchCustom(q);
+}
 </script>
-	<button class="button" style="float: right;" onclick="closeOverlay()">&times;</button>
+	<button class="close-button" style="float: right;" onclick="closeOverlay()">&times;</button>
 	<form action="javascript:search('query')">
-	<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search...">
+	<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search..."   onchange   = "searchOnThisPage();"
+		onkeypress = "this.onchange();"
+		onpaste    = "this.onchange();"
+		oninput    = "this.onchange();">
 	</form>
-	<button class="submit-search" onclick="search('query')"><i class="icon icon_edit-find just-icon" id="search-icon"></i></button>
+<!-- 	<button class="submit-search" onclick="search('query')"><i class="icon icon_edit-find just-icon" id="search-icon"></i></button> -->
 	<h1>Search Results</h1>
 	<div id="search-results"></div>
 </div>
