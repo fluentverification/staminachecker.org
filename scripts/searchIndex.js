@@ -1,5 +1,6 @@
 function grabData() {
-	return fetch("./scripts/searchIndex.json").then(response => response.json());
+	let origin = window.location.origin;
+	return fetch(origin + "/scripts/searchIndex.json").then(response => response.json());
 }
 
 async function getPages() {
