@@ -50,7 +50,7 @@ function searchWiki() {
 	// Check to see if element exists
 	let search = document.getElementById('search-overlay-fullpage');
 	if (search != null) {
-		search.innerHTML = "";
+		document.getElementById('search-results').innerHTML = "";
 		if (search.style.display == "block") {
 			search.style.display = "none";
 		}
