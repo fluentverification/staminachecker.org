@@ -142,7 +142,8 @@
 }
 
 pre {
-	white-space: pre-wrap;
+/* 	white-space: pre-wrap; */
+	overflow-x: auto;
 }
 
 .inline-graphic {
