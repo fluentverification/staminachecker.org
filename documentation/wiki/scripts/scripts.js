@@ -54,6 +54,7 @@ function searchWiki() {
 		}
 	}
 	xhttp.open(origin + "/documentation/wiki/searchOverlay.html");
+	xhttp.send();
 }
 
 function grabTree() {
