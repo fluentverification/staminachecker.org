@@ -50,7 +50,6 @@ function searchWiki() {
 	// Check to see if element exists
 	let search = document.getElementById('search-overlay-fullpage');
 	if (search != null) {
-		document.getElementById('search-results').innerHTML = "";
 		if (search.style.display == "block") {
 			search.style.display = "none";
 		}
@@ -106,6 +105,7 @@ function closeOverlay() {
 	document.getElementById('search-overlay-fullpage').style.display = "none";
 }
 function searchOnThisPage() {
+	document.getElementById('search-results').innerHTML = "";
 	let q = document.getElementById('query').value;
 	searchCustom(q);
 }
