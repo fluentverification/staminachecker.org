@@ -13,7 +13,8 @@
 
 .close-button {
 	border: none;
-	background-color: none;
+	background-color: #00000000;
+	color: var(--color);
 }
 
 .close-button:hover {
@@ -22,7 +23,35 @@
 
 .search-bar-full {
 	background-color: var(--background-three);
-	border-radius: 12px;
+	border-radius: 20px;
+	border: 1px solid var(--color);
+}
+.search-result {
+	display: block;
+	color: var(--color-two);
+	background-color: var(--background-two);
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.search-result:hover {
+	color: var(--color-two);
+	background-color: var(--background-three);
+}
+
+.search-result h2 {
+	color: var(--link-base);
+}
+
+.search-results p {
+	color: var(--color);
+}
+
+.rtext {
+	background-color: #67aa8a55;
+	padding: 2px;
+	margin: 2px;
+	font-weight: bold;
 }
 </style>
 <!-- <script type="text/javascript" src="../../scripts/searchIndex.js"></script> -->
