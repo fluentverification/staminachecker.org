@@ -1,5 +1,6 @@
 function grabData() {
 	let origin = window.location.origin;
+	console.log("Getting JSON index from :" + origin + "/scripts/searchIndex.json");
 	return fetch(origin + "/scripts/searchIndex.json").then(response => response.json());
 }
 
