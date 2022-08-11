@@ -44,6 +44,10 @@ function toggleNav() {
 }
 
 function searchWiki() {
+	// Import search script
+	const script = document.createElement('script');
+	script.src = '/scripts/searchIndex.js';
+	document.head.append(script);
 // 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
 	// Check to see if element exists
 	let search = document.getElementById('search-overlay-fullpage');
