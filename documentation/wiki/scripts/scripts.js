@@ -92,5 +92,11 @@ async function wikiTree() {
 	wikiTreePopulated = true;
 	openSidebar();
 }
-
+function closeOverlay() {
+	document.getElementById('search-overlay-fullpage').style.display = "none";
+}
+function searchOnThisPage() {
+	let q = document.getElementById('query').value;
+	searchCustom(q);
+}
 window.onload = function () { closeSidebar(); }

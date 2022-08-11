@@ -7,7 +7,7 @@
 	padding: 10%;
 	width: 80%;
 	height: 80%;
-	background-color: rgba(var(--background-two), 0.8);
+	background-color: var(--background-two);
 	overflow: auto;
 }
 
@@ -21,15 +21,6 @@
 </style>
 <script type="text/javascript" src="../../scripts/searchIndex.js"></script>
 <div class="fullpage-overlay" id="search-overlay-fullpage">
-<script>
-function closeOverlay() {
-	document.getElementById('search-overlay-fullpage').style.display = "none";
-}
-function searchOnThisPage() {
-	let q = document.getElementById('query').value;
-	searchCustom(q);
-}
-</script>
 	<button class="close-button" style="float: right;" onclick="closeOverlay()">&times;</button>
 	<form action="javascript:search('query')">
 	<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search..."   onchange   = "searchOnThisPage();"
