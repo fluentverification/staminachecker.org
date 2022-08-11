@@ -53,7 +53,7 @@ function searchWiki() {
 			content.innerHTML += xhttp.responseText;
 		}
 	}
-	xhttp.open(origin + "/documentation/wiki/searchOverlay.html");
+	xhttp.open("GET", origin + "/documentation/wiki/searchOverlay.html", true);
 	xhttp.send();
 }
 
