@@ -45,11 +45,17 @@ function toggleNav() {
 
 function searchWiki() {
 // 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+	// Check to see if element exists
+	let search = document.getElementById('search-overlay');
+	if (search != null) {
+		search.style.display = "block";
+		return;
+	}
 	let origin = window.location.origin;
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			let content = document.querySelector('content');
+			let content = document.querySelector('.content');
 			content.innerHTML += xhttp.responseText;
 		}
 	}
