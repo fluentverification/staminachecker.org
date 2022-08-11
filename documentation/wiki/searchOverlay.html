@@ -1,0 +1,28 @@
+<style>
+.fullpage-overlay {
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: #000000cc;
+	overflow: auto;
+}
+</style>
+<script type="text/javascript" src="../../scripts/searchIndex.js"></script>
+<div class="fullpage-overlay" id="search-overlay">
+<script>
+function closeOverlay() {
+	document.getElementById('search-overlay').style.display = "none";
+}
+</script>
+	<button class="button" style="float: right;" onclick="closeOverlay()">&times;</button>
+	<form action="javascript:search('query')">
+	<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search...">
+	</form>
+	<button class="submit-search" onclick="search('query')"><i class="icon icon_edit-find just-icon" id="search-icon"></i></button>
+	<h1>Search Results</h1>
+	<div id="search-results"></div>
+</div>
