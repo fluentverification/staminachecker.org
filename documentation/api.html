@@ -7,21 +7,23 @@
 	<link rel="stylesheet" href="../styles.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../scripts/search.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
 <body>
 <!-- Navigation Bar -->
 <ul class="navbar" id="navbar">
-	<li><a class="stamina-name" id="stamina" href="../index.html"><div id="slogo">STAMINA</div></a></li>
+	<li><a class="stamina-name" id="stamina" href="/index.html"><div id="slogo">STAMINA</div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
-	<li><a class="navbutton" id="active" href="../index.html">Home</a></li>
-	<li><a class="navbutton" href="../about.html">About</a></li>
-	<li>
-		<a href="../get.html" class="navbutton" class="navbutton">Get</a>
-		<!--<div class="dropdown-content">
-			<a href="download.html">Download</a>
-			<a href="https://github.com/fluentverification/stamina">Source Code</a>
-		</div>-->
+	<li><a class="navbutton" href="/index.html">Home</a></li>
+	<li><a class="navbutton" href="/about.html">About</a></li>
+	<li id="get">
+		<a href="get.html" class="navbutton" class="navbutton">Get</a>
+		<div class="dropdown-content" id="get-dropdown">
+			<a href="/get.html#download">Download</a>
+			<a href="/source.html">Source Code</a>
+		</div>
 	</li>
 	<li id="documentation">
 		<a class="navbutton" href="/documentation.html">Documentation</a>
@@ -30,8 +32,18 @@
 			<a href="/documentation/api.html">API Documentation</a>
 		</div>
 	</li>
-	<li><a class="navbutton" href="../benchmarks.html">Benchmarks</a></li>
-	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li>
+	<li><a class="navbutton" href="/benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="/images/icons/darkLight.svg" height="15px"></a></li>
+<!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
+<li>
+	<div class="search-overlay" id="search-overlay">
+		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
+		<form action="javascript:search()">
+		<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search...">
+		</form>
+	</div>
+</li>
 </ul>
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="content">
