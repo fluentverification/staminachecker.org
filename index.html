@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Home - STAMINA Model Checker</title>
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@
 	<li><a class="active" id="active" href="index.html">Home</a></li>
 	<li><a class="navbutton" href="about.html">About</a></li>
 	<li id="get">
-		<a href="get.html" class="navbutton" class="navbutton">Get</a>
+		<a href="get.html" class="navbutton">Get</a>
 		<div class="dropdown-content" id="get-dropdown">
 			<a href="get.html#download">Download</a>
 			<a href="source.html">Source Code</a>
@@ -33,7 +33,7 @@
 		</div>
 	</li>
 	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
-	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height=15 alt="Toggle light/dark mode"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
 	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 <li>
@@ -91,18 +91,18 @@ if (bttButton != null) {
 </div>
 <div class="content">
 <!-- CONTENT -->
-	<img src="images/staminaGraphic.svg" class="graphic">
+	<img src="images/staminaGraphic.svg" class="graphic" alt="A graph with truncated elements">
 	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
 	<p>
 		STAMINA can analyze unbounded and infinite-sized models, as well as models with very large state spaces, and provide an accurate bound of probabilities for CSL properties. It has been tested on genetic circuit and biological models, and has been the subject of multiple papers.
 	</p>
-	<a class="button" href="about.html"><i class="icon icon_go-jump" height="20px"></i> Learn More</a>
+	<a class="button" href="about.html"><i class="icon icon_go-jump"></i> Learn More</a>
 	<div id="acknowledgements">
 		<h2>Acknowledgements</h2>
 		The development of STAMINA (and all FLUENT projects) is generously funded by grants 1856733, 1856740, and 1900542 from the National Science Foundation. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation. STAMINA is developed at the Utah State University College of Engineering, in the Electrical and Computer Engineering Department.<br>
 		<div class="logos" style="vertical-align: center; padding-top: 20px;">
-			<a href="https://www.nsf.gov/"><img height=100px class="ack-logo" src="images/nsfLogo.svg"></a>
-			<a href="https://www.usu.edu/"><img height=60px id="usu-logo" class="ack-logo" style="padding: 20px;" src="images/u-state-aggie-blue.png"></a>
+			<a href="https://www.nsf.gov/"><img height=100 class="ack-logo" src="images/nsfLogo.svg"></a>
+			<a href="https://www.usu.edu/"><img height=60 id="usu-logo" class="ack-logo" style="padding: 20px;" src="images/u-state-aggie-blue.png"></a>
 		</div>
 		<script>
 			// Assume someone isn't going to change their color scheme preference mid-session
