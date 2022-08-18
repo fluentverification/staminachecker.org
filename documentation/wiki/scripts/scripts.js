@@ -44,7 +44,32 @@ function toggleNav() {
 }
 
 function searchWiki() {
-	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+	// Import search script
+	let origin = window.location.origin;
+// 	alert("The STAMINA wiki is still under development. This has not been implemeted yet.");
+	// Check to see if element exists
+	let search = document.getElementById('search-overlay-fullpage');
+	if (search != null) {
+		if (search.style.display == "block") {
+			search.style.display = "none";
+		}
+		else {
+			search.style.display = "block";
+		}
+		return;
+	}
+	const script = document.createElement('script');
+	script.src = origin + '/scripts/searchIndex.js';
+	document.head.append(script);
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			let content = document.querySelector('.content');
+			content.innerHTML += xhttp.responseText;
+		}
+	}
+	xhttp.open("GET", origin + "/documentation/wiki/searchOverlay.html", true);
+	xhttp.send();
 }
 
 function grabTree() {
@@ -76,5 +101,12 @@ async function wikiTree() {
 	wikiTreePopulated = true;
 	openSidebar();
 }
-
+function closeOverlay() {
+	document.getElementById('search-overlay-fullpage').style.display = "none";
+}
+function searchOnThisPage() {
+	document.getElementById('search-results').innerHTML = "";
+	let q = document.getElementById('query').value;
+	searchCustom(q);
+}
 window.onload = function () { closeSidebar(); }

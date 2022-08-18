@@ -1,0 +1,27 @@
+ctmc
+
+// We define our variables and their reactions in a module
+module SpeciesA_Def
+	// This variable is "bounded"
+	SpeciesA : [0..100] init 0;
+
+	// We cannot decrement in species A if the value is 0
+	// This basically says "if SpeciesA is equal to 0, you may choose from two transitions:
+	// 1. Increment by 1 with transition rate 5, or,
+	// 2. Increment by 5 with transition rate 1.
+	[] (SpeciesA = 0) -> 5 : (SpeciesA'=SpeciesA+1) + 1 : (SpeciesA'=SpeciesA+5);
+
+	// However, if there is a nonzero amount of SpeciesA, we have one more transition: we can decrement by 1 with transition rate 2.
+	[] (SpeciesA > 0) -> 5 : (SpeciesA'=SpeciesA+1) + 1 : (SpeciesA'=SpeciesA+5) + 2 : (SpeciesA'=SpeciesA-1);
+endmodule
+
+module SpeciesB_Def
+	// This variable is "unbounded"
+	SpeciesB : int init 0;
+
+	// This species has only one increment and one decrement
+	[] (SpeciesB = 0) -> 1 : (SpeciesB'=SpeciesB+1);
+
+	// Again, if there is a nonzero amount of this species, there can be a decrement.
+	[] (SpeciesB > 0) -> 1 : (SpeciesB'=SpeciesB+1) + 0.5 : (SpeciesB'=SpeciesB-1)
+endmodule 

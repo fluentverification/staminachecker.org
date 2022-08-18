@@ -1,0 +1,29 @@
+{
+"feed":[
+	{
+		"title":"STAMINA/STORM 2.0 Released"
+		, "date":"May 26, 2022 (approx)"
+		, "description":"TODO"
+	}
+	, {
+		"title":"STAMINA/STORM Integration has dedicated developer: Josh Jeppson"
+		, "date":"Jun 1, 2021 (approx)"
+		, "description":"TODO"
+	}
+	, {
+		"title":"STAMINA 2.0 Accepted into VMCAI'22"
+		, "date":"Jan 1, 2022 (approx)"
+		, "description":"Riley Roberts improves the STAMINA algorithm to"
+	}
+	, {
+		"title":"New STAMINA Maintainer: Riley Roberts"
+		, "date":"July 25, 2021 (approx)"
+		, "description":"TODO"
+	}
+	, {
+		"title":"STAMINA 1.0 Accepted into CAV'19"
+		, "date":"April 17, 2019"
+		, "description":"STAMINA 1.0 (integrated with PRISM) was accepted to CAV 2019 on April 17. This version of STAMINA is developed by Thakur Neupane"
+	}
+]
+}

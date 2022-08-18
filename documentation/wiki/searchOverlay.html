@@ -1,0 +1,75 @@
+<style>
+.fullpage-overlay {
+	display: block;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: var(--background-two);
+	overflow: auto;
+	padding-top: 85px;
+}
+
+.close-button {
+	border: none;
+	background-color: #00000000;
+	color: var(--color);
+	padding: 10px;
+}
+
+.close-button:hover {
+	color: var(--link-base);
+}
+
+.search-bar-full {
+	background-color: var(--background-three);
+	border-radius: 20px;
+	border: 1px solid var(--color);
+}
+.search-result {
+	display: block;
+	color: var(--color-two);
+	background-color: var(--background-two);
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.search-result:hover {
+	color: var(--color-two);
+	background-color: var(--background-three);
+}
+
+.search-result h2 {
+	color: var(--link-base);
+}
+
+.search-results p {
+	color: var(--color);
+}
+
+.search-results {
+	overflow-y: auto;
+}
+
+.rtext {
+	background-color: #67aa8a55;
+	padding: 2px;
+	margin: 2px;
+	font-weight: bold;
+}
+</style>
+<!-- <script type="text/javascript" src="../../scripts/searchIndex.js"></script> -->
+<div class="fullpage-overlay" id="search-overlay-fullpage">
+	<button class="close-button" style="float: right;" onclick="closeOverlay()">&times;</button>
+	<form action="javascript:search('query')">
+	<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search..."   onchange   = "searchOnThisPage();"
+		onkeypress = "this.onchange();"
+		onpaste    = "this.onchange();"
+		oninput    = "this.onchange();">
+	</form>
+<!-- 	<button class="submit-search" onclick="search('query')"><i class="icon icon_edit-find just-icon" id="search-icon"></i></button> -->
+	<h1>Search Results</h1>
+	<div id="search-results"></div>
+</div>
