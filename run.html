@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Run STAMINA - STAMINA Model Checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
+	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/collapsible.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<ul class="navbar" id="navbar">
+	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA</div></a></li>
+	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
+	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
+	<li><a class="active" id="active" href="index.html">Home</a></li>
+	<li><a class="navbutton" href="about.html">About</a></li>
+	<li id="get">
+		<a href="get.html" class="navbutton">Get</a>
+		<div class="dropdown-content" id="get-dropdown">
+			<a href="get.html#download">Download</a>
+			<a href="source.html">Source Code</a>
+		</div>
+	</li>
+	<li id="documentation">
+		<a class="navbutton" href="documentation.html">Documentation</a>
+		<div class="dropdown-content" id="documentation-dropdown">
+			<a href="documentation/wiki/index.html">Wiki</a>
+			<a href="documentation/api.html">API Documentation</a>
+		</div>
+	</li>
+	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
+<!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
+<li>
+	<div class="search-overlay" id="search-overlay">
+		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
+		<form action="javascript:search()">
+		<input type="text" id="search" class="search-bar gcse-searchbox-only" placeholder="Search...">
+		</form>
+	</div>
+</li>
+</ul>
+<script type="text/javascript" src="scripts/search.js"></script>
+<div class="top-buffer" id="top-buffer"><br></div>
+<!-- Back to top button -->
+<a class="btt-button" id="btt-button" href="#" style="color: white;">
+<i class="icon  icon_go-up-skip just-icon"></i></a>
+<script>
+let bttButton = document.getElementById('btt-button');
+
+if (bttButton != null) {
+	window.onscroll = function() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			bttButton.style.display = "block";
+		}
+		else {
+			bttButton.style.display = "none";
+		}
+	}
+}
+</script>
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookie-banner">
+	<table>
+		<tr>
+		<td>
+	The STAMINA Website saves only <i>one</i> cookie on your browser with the purpose of remembering whether you prefer dark or light mode. Naturally, <b>we do not track you</b>, store excessive cookies, advertise on this site, or anything of the sort. That would be extremely unprofessional of us. You will not see this message on future visits. <a href="privacy.html">More...</a>
+	</td><td>
+	<a style="color:black; padding: 10px; font-size: 20pt; cursor: pointer;" onclick="closeCookieBanner()">&times;</a></td><tr>
+	</table>
+	<script>
+		function closeCookieBanner() {
+			let cookieBanner = document.getElementById('cookie-banner');
+			cookieBanner.style.display = "none";
+		}
+	</script>
+</div>
+<div class="content">
+<!-- CONTENT -->
+<h1>Run STAMINA/STORM on the cloud</h1>
+<style>
+#options {
+	font-size: 16px;
+}
+/*#options input[type="text"] {
+	border: 1px solid var(--color-two);
+	border-radius: 24px;
+}*/
+.file-open {
+	position: relative;
+	display: block;
+	background: none;
+	right: 10px;
+	top: -55px;
+	border: 0px;
+	float: right;
+}
+.file-open:hover {
+	color: var(--link-base);
+}
+#options .auto-width {
+	width: auto;
+	display: inline-block;
+}
+
+#options label {
+	font-size: 16pt;
+	display: inline-block;
+	padding-right: 15px;
+	width: 50%;
+}
+.help {
+	color: var(--color);
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+.help:hover {
+	color: var(--link-base);
+}
+</style>
+<div class="note">This page is not active yet! It will do <i>nothing</i></div>
+<form id=options> <!-- TODO: Add an action when we dockerize/REST STAMINA onto Azure -->
+	<label for="model-file">Model File:</label>
+	<input type=text id="model-file">
+	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
+	<label for="properties-file">Properties File:</label>
+	<input type=text id="properties-file">
+	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
+	<label for="kappa">Reachability Threshold (&kappa;):</label>
+	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<label for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
+	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<label for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
+	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<h3 class="collapsible-header" id="advanced-header" onclick="openCollapsible('advanced', 'advanced-header')">
+		<div id="advanced-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
+		Advanced Options
+	</h3>
+	<div class="collapsible" id="advanced">
+		<label for="method">Exploration method:</label>
+		<select name="method" id="method" class="auto-width">
+			<option>STAMINA Re-Exploring (STAMINA 2.0)</option>
+			<option>STAMINA Iterative (STAMINA 2.5)</option>
+			<option>STAMINA Priority (STAMINA 3.0)</option>
+		</select>
+		<input type="checkbox">Use multithreading protocol (may prevent timeout)</input>
+	</div>
+	<input type="submit" value="Run STAMINA!">
+</form>
+</div>
+<!-- Footer -->
+<div class="footer">
+	<div class="footer-links">
+		<table style="width:80%">
+			<tr>
+				<th>STAMINA Information</th>
+				<th>FLUENT Information</th>
+				<th>Papers and Research</th>
+			</tr>
+			<tr>
+				<td><a href="https://github.com/fluentverification/stamina-cplusplus">STAMINA/STORM</a></td>
+				<td><a href="index.html">State-space truncation (STAMINA)</a></td>
+				<td><a href="https://scholar.google.com/citations?hl=en&user=1bpMdpUAAAAJ">Google Scholar</a></td>
+			</tr>
+			<tr>
+				<td><a href="https://github.com/fluentverification/stamina">STAMINA/PRISM</a></td>
+				<td><a href="#">Property-Directed Reachability</a></td>
+			</tr>
+			<tr>
+				<td><a href="about.html#contact">Contact Developers</a></td>
+				<td><a href="#">Counterexample Generation</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="https://fluentverification.github.io">Fluent Website</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="https://fluentverification.github.io/contact/">Contact Fluent</a></td>
+			</tr>
+		</table>
+	</div>
+	<div style="padding-top: 30px;" >
+		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
+	</div>
+	<div style="padding-top: 10px; font-size: 8pt;" >
+		This website is designed and developed by hand by Josh Jeppson. The content and design of this website is licensed under the CC-BY-SA license. This website uses the <a href="https://develop.kde.org/frameworks/breeze-icons/">Breeze Icons</a> from KDE licensed under the GPL3.
+	</div>
+</div>
+</body>
