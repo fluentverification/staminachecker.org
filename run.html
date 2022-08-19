@@ -16,7 +16,7 @@
 	<li><a class="stamina-name" id="stamina" href="index.html"><div id="slogo">STAMINA</div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
-	<li><a class="active" id="active" href="index.html">Home</a></li>
+	<li><a class="navbutton" href="index.html">Home</a></li>
 	<li><a class="navbutton" href="about.html">About</a></li>
 	<li id="get">
 		<a href="get.html" class="navbutton">Get</a>
@@ -99,6 +99,7 @@ if (bttButton != null) {
 	top: -55px;
 	border: 0px;
 	float: right;
+	cursor: pointer;
 }
 .file-open:hover {
 	color: var(--link-base);
@@ -106,6 +107,11 @@ if (bttButton != null) {
 #options .auto-width {
 	width: auto;
 	display: inline-block;
+}
+
+#options small {
+	display: inline-block;
+	padding-bottom: 15px;
 }
 
 #options label {
@@ -123,12 +129,46 @@ if (bttButton != null) {
 .help:hover {
 	color: var(--link-base);
 }
+
+#advanced-header, .collapsible {
+/* 	background: var(--background-two); */
+	padding: 10px;
+	padding-left: 25px;
+	border: 1px solid var(--background-three);
+/* 	border-radius: 24px; */
+}
+
+.collapsible {
+	padding-bottom: 40px;
+}
+
+#advanced-header {
+	cursor: pointer;
+}
+
+#inline-text-input {
+	width: auto;
+	display: inline;
+	padding: 2px;
+	border: 1px solid var(--background-three);
+}
+
+#options input[type="submit"] {
+	width: 100%;
+	font-size: 16pt;
+/* 	font-weight: bold; */
+	padding: 20px;
+	border-radius: 48px;
+	border: none;
+}
 </style>
 <div class="note">This page is not active yet! It will do <i>nothing</i></div>
 <form id=options> <!-- TODO: Add an action when we dockerize/REST STAMINA onto Azure -->
+	<input type="submit" value="RUN STAMINA">
 	<label for="model-file">Model File:</label>
 	<input type=text id="model-file">
 	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
+	<small><a href="documentation/wiki/model-files.html">Learn how to write a model file</a></small><br>
 	<label for="properties-file">Properties File:</label>
 	<input type=text id="properties-file">
 	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
@@ -138,20 +178,22 @@ if (bttButton != null) {
 	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
 	<label for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
 	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
-	<h3 class="collapsible-header" id="advanced-header" onclick="openCollapsible('advanced', 'advanced-header')">
-		<div id="advanced-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
+	<h4 id="advanced-header" onclick="openCollapsible('advanced', 'advanced-header')">
+		<span id="advanced-header-icon" style="padding-right: 20px; display: inline-block; width: 20px;">&#9776;</span>
 		Advanced Options
-	</h3>
+	</h4>
 	<div class="collapsible" id="advanced">
 		<label for="method">Exploration method:</label>
 		<select name="method" id="method" class="auto-width">
 			<option>STAMINA Re-Exploring (STAMINA 2.0)</option>
 			<option>STAMINA Iterative (STAMINA 2.5)</option>
 			<option>STAMINA Priority (STAMINA 3.0)</option>
-		</select>
-		<input type="checkbox">Use multithreading protocol (may prevent timeout)</input>
+		</select><br>
+		<input type="checkbox" value="true">Use multithreading protocol (may prevent timeout).</input><br>
+		<input type="checkbox">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</input><br>
+		<input type="checkbox">Report the labels created and the number of states created with each label.</input><br>
+		<input type="checkbox">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</input>
 	</div>
-	<input type="submit" value="Run STAMINA!">
 </form>
 </div>
 <!-- Footer -->
