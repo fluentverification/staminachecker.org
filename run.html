@@ -87,11 +87,13 @@ if (bttButton != null) {
 #options {
 	font-size: 16px;
 }
-/*#options input[type="text"] {
-	border: 1px solid var(--color-two);
-	border-radius: 24px;
-}*/
+#options input[type="text"] {
+/* 	border: 1px solid var(--color-two); */
+/*	border-radius: 24px;*/
+
+}
 .file-open {
+	color: var(--color);
 	position: relative;
 	display: block;
 	background: none;
@@ -107,6 +109,7 @@ if (bttButton != null) {
 #options .auto-width {
 	width: auto;
 	display: inline-block;
+	padding: 10px;
 }
 
 #options small {
@@ -150,7 +153,7 @@ if (bttButton != null) {
 	width: auto;
 	display: inline;
 	padding: 2px;
-	border: 1px solid var(--background-three);
+	border: 1px solid var(--background-two);
 }
 
 #options input[type="submit"] {
@@ -158,8 +161,31 @@ if (bttButton != null) {
 	font-size: 16pt;
 /* 	font-weight: bold; */
 	padding: 20px;
-	border-radius: 48px;
-	border: none;
+/* 	border-radius: 48px; */
+/* 	border: none; */
+}
+
+.icon-small {
+	font-size: 9pt;
+}
+
+.help-overlay {
+	display: block;
+	position: relative;
+	background-color: var(--accent-light);
+	border: 1px solid var(--accent-dark);
+	border-radius: 12px;
+	width: auto;
+	padding: 10px;
+	font-size: 9pt;
+	float: right;
+	z-index: 20;
+	top: -70px;
+	display: none;
+}
+
+#kappa-help-icon:hover #kappa-help {
+	display: block;
 }
 </style>
 <div class="note">This page is not active yet! It will do <i>nothing</i></div>
@@ -168,12 +194,16 @@ if (bttButton != null) {
 	<label for="model-file">Model File:</label>
 	<input type=text id="model-file">
 	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
-	<small><a href="documentation/wiki/model-files.html">Learn how to write a model file</a></small><br>
+	<small><a href="documentation/wiki/model-files.html"><i class="icon icon_go-next icon-small"></i>Learn how to write a model file</a></small><br>
 	<label for="properties-file">Properties File:</label>
 	<input type=text id="properties-file">
 	<button class="file-open"><i class="icon just-icon icon_document-open"></i></button>
+	<small><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small><br>
 	<label for="kappa">Reachability Threshold (&kappa;):</label>
-	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
+	<span class="help-overlay" id="kappa-help">
+		The reachability threshold, also called &kappa;
+	</span>
 	<label for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
 	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
 	<label for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
