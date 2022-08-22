@@ -122,7 +122,7 @@ border: 1px solid var(--color-two);
 	padding-bottom: 15px;
 }
 
-#options label {
+#options .label {
 	font-size: 16pt;
 	display: inline-block;
 	padding-right: 15px;
@@ -162,7 +162,7 @@ border: 1px solid var(--color-two);
 }
 
 #options input[type="submit"] {
-	width: 100%;
+/* 	width: 100%; */
 	font-size: 16pt;
 /* 	font-weight: bold; */
 	padding: 20px;
@@ -175,38 +175,39 @@ border: 1px solid var(--color-two);
 }
 
 .help-overlay {
-	display: block;
-	position: relative;
+	display: none;
 	background-color: var(--accent-light);
 	border: 1px solid var(--accent-dark);
 	border-radius: 12px;
-/* 	width: 50%; */
+	width: 50%;
 	padding: 10px;
 	font-size: 9pt;
-	float: left;
+	margin-left: 49%;
 	z-index: 20;
 	left: 50%;
-/* 	top: -70px; */
-	display: none;
+	color: black;
 }
 
 #kappa-help-icon:hover #kappa-help {
-	display: block;
+	display: inline-block;
 }
 .path {
 	display: inline-block;
-	width: auto;
+/* 	width: auto; */
 	margin-left: 0px;
+	margin-top: 1px;
 	border: 1px solid var(--color);
 	border-left: none;
 	padding: 14px;
-	padding-right: 350px;
+/* 	padding-right: 350px; */
 	color: #99999999;
+	width: calc(100% - 200px);
 }
 
 .find-file {
 	display: block;
 	width: 100%;
+	float: right;
 }
 
 .browse {
@@ -217,35 +218,78 @@ border: 1px solid var(--color-two);
 	background-color: var(--color);
 	color: var(--background-two);
 	border-left: none;
+	width: 100px;
+/* 	z-index: -1; */
+}
+
+.navbar {
+	z-index: 100;
 }
 #browse-model-file:hover #model-file-path
 , #browse-properties-file:hover #properties-file-path {
 	border: 1px solid var(--accent-two);
 }
+
+.full {
+	display: inline-block;
+	width: 100%;
+}
 </style>
 <div class="note">This page is not active yet! It will do <i>nothing</i></div>
 <form id=options> <!-- TODO: Add an action when we dockerize/REST STAMINA onto Azure -->
-	<input type="submit" value="RUN STAMINA">
-	<label for="model-file">Model File:</label>
+	<label class="label">Model File:</label>
 	<div class="find-file">
-	<button class="button browse" id="browse-model-file">Browse</button><span class="path" id="model-file-path">No File Selected...</span>
-		<input type=file id="model-file"/>
+	<label class="button browse" id="browse-model-file" for="model-file">Browse</label><span class="path" id="model-file-path">No File Selected...</span>
+		<input type=file id="model-file" name="model-file"/>
 	</div>
-	<small><a href="documentation/wiki/model-files.html"><i class="icon icon_go-next icon-small"></i>Learn how to write a model file</a></small><br>
-	<label for="properties-file">Properties File:</label>
+	<small class="full"><a href="documentation/wiki/model-files.html"><i class="icon icon_go-next icon-small"></i>Learn how to write a model file</a></small>
+	<label class="label">Properties File:</label>
 	<div class="find-file">
-	<button class="button browse" id="browse-properties-file">Browse</button><span class="path" id="properties-file-path">No File Selected...</span>
+	<label class="button browse" id="browse-properties-file" for="properties-file">Browse</label><span class="path" id="properties-file-path">No File Selected...</span>
 	<input type=file id="properties-file">
 	</div>
-	<small><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small><br>
+	<script>
+let modelFilePath = document.getElementById('model-file-path');
+let modelFileInput = document.getElementById('model-file');
+
+modelFileInput.onchange = function() {
+	console.log(this.files);
+	console.log(this.files[0]);
+	let input = this.files['0'];
+	var text;
+	if (input) {
+		text = input.name;
+	}
+	else {
+		text = "No file selected";
+	}
+	modelFilePath.innerHTML = text;
+}
+
+let propFilePath = document.getElementById('properties-file-path');
+let propFileInput = document.getElementById('properties-file');
+
+propFileInput.onchange = function() {
+	let input = this.files[0];
+	var text;
+	if (input) {
+		text = input.name;
+	}
+	else {
+		text = "No file selected";
+	}
+	propFilePath.innerHTML = text;
+}
+	</script>
+	<small class="full"><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small><br>
+	<label class="label" for="kappa">Reachability Threshold (&kappa;):</label>
+	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
 	<div class="help-overlay" id="kappa-help">
 		The reachability threshold, also called &kappa;
 	</div>
-	<label for="kappa">Reachability Threshold (&kappa;):</label>
-	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
-	<label for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
+	<label class="label" for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
 	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
-	<label for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
+	<label class="label" for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
 	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
 	<h4 id="advanced-header" onclick="openCollapsible('advanced', 'advanced-header')">
 		<span id="advanced-header-icon" style="padding-right: 20px; display: inline-block; width: 20px;">&#9776;</span>
@@ -254,16 +298,20 @@ border: 1px solid var(--color-two);
 	<div class="collapsible" id="advanced">
 		<label for="method">Exploration method:</label>
 		<select name="method" id="method" class="auto-width">
-			<option>STAMINA Re-Exploring (STAMINA 2.0)</option>
 			<option>STAMINA Iterative (STAMINA 2.5)</option>
 			<option>STAMINA Priority (STAMINA 3.0)</option>
+			<option>STAMINA Re-Exploring (STAMINA 2.0)</option>
 		</select><br>
 		<input type="checkbox" value="true">Use multithreading protocol (may prevent timeout).</input><br>
 		<input type="checkbox">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</input><br>
 		<input type="checkbox">Report the labels created and the number of states created with each label.</input><br>
 		<input type="checkbox">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</input>
 	</div>
+	<input type="submit" value="Run">
 </form>
+<small>
+	For online users, STAMINA will time-out after 5 seconds. If you wish to check larger models than that, please download and <a href="documentation/wiki/install-sstamina.html">install STAMINA</a>.
+</small>
 </div>
 <!-- Footer -->
 <div class="footer">
