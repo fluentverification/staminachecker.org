@@ -244,15 +244,39 @@ border: 1px solid var(--color-two);
 }
 #browse-model-file:hover #model-file-path
 , #browse-properties-file:hover #properties-file-path {
-	border: 1px solid var(--accent-two);
+	border: 1px solid var(--accent-medium);
 }
 
 .full {
 	display: inline-block;
 	width: 100%;
 }
+
+.tab-bar {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	background-color: var(--background-two);
+	padding: 10px;
+}
+
+.tab-bar a {
+	display: inline-block;
+	padding: 5px;
+	color: var(--color);
+	cursor: pointer;
+}
+
+.tab-bar .active-tab, .tab-bar a:hover {
+	border-bottom: 4px solid var(--link-base);
+	color: var(--link-base);
+}
 </style>
 <div class="note">This page is not active yet! It will do <i>nothing</i></div>
+<div class="tab-bar">
+	<a class="active-tab">Upload your own...</a>
+	<a onclick="javascript:alert('Tab bar has not been implemented yet!')">Use a preset...</a>
+</div>
 <form id=options> <!-- TODO: Add an action when we dockerize/REST STAMINA onto Azure -->
 	<label class="label">Model File:</label>
 	<div class="find-file">
@@ -385,9 +409,9 @@ w.onchange = function() {
 	<div class="collapsible" id="advanced">
 		<label for="method">Exploration method:</label>
 		<select name="method" id="method" class="auto-width">
-			<option>STAMINA Iterative (STAMINA 2.5)</option>
-			<option>STAMINA Priority (STAMINA 3.0)</option>
-			<option>STAMINA Re-Exploring (STAMINA 2.0)</option>
+			<option value="-I">STAMINA Iterative (STAMINA 2.5)</option>
+			<option value="-P">STAMINA Priority (STAMINA 3.0)</option>
+			<option value="-J">STAMINA Re-Exploring (STAMINA 2.0)</option>
 		</select><br>
 		<input type="checkbox" value="true">Use multithreading protocol (may prevent timeout).</input><br>
 		<input type="checkbox">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</input><br>
