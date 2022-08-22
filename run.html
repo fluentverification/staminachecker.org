@@ -84,6 +84,23 @@ if (bttButton != null) {
 <!-- CONTENT -->
 <h1>Run STAMINA/STORM on the cloud</h1>
 <style>
+.good-input {
+	border: 1px solid var(--accent-medium) !important;
+}
+.bad-input {
+	border: 1px solid #ff4444 !important;
+}
+
+.bad-input-err-msg {
+	float: left;
+	margin-left: 55%;
+	display: block;
+	color: #ff4444;
+	font-size: 10pt;
+/*	font-weight: bold;*/
+	padding-bottom: 5px;
+}
+
 #options {
 	font-size: 16px;
 }
@@ -284,13 +301,83 @@ propFileInput.onchange = function() {
 	<small class="full"><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small><br>
 	<label class="label" for="kappa">Reachability Threshold (&kappa;):</label>
 	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="bad-input-err-msg" id="kappa-error">
+	</div>
 	<div class="help-overlay" id="kappa-help">
 		The reachability threshold, also called &kappa;
 	</div>
 	<label class="label" for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
 	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="bad-input-err-msg" id="rkappa-error">
+	</div>
 	<label class="label" for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
 	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="bad-input-err-msg" id="w-error">
+	</div>
+	<script>
+
+function isNumber(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+}
+// Set up validators for all of the inputs
+let k = document.getElementById('kappa');
+let rk = document.getElementById('rkappa');
+let w = document.getElementById('w');
+
+k.onchange = function() {
+	let kVal = k.value;
+	let kErr = document.getElementById('kappa-error');
+	if (!isNumber(kVal)) {
+		k.classList.add('bad-input');
+		kErr.innerHTML = "&kappa; must be a number!";
+	}
+	else if (parseFloat(kVal) > 1 || parseFloat(kVal) <= 0) {
+		k.classList.add('bad-input');
+		kErr.innerHTML = "&kappa; must be less than or equal to 1 and greater than 0!";
+	}
+	else {
+		k.classList.remove('bad-input');
+		k.classList.add('good-input');
+		kErr.innerHTML = "";
+	}
+}
+
+rk.onchange = function() {
+	let rkVal = rk.value;
+	let rkErr = document.getElementById('rkappa-error');
+	if (!isNumber(rkVal)) {
+		rk.classList.add('bad-input');
+		rkErr.innerHTML = "r<sub>&kappa;</sub> must be a number!";
+	}
+	else if (parseFloat(rkVal) <= 1) {
+		rk.classList.add('bad-input');
+		rkErr.innerHTML = "r<sub>&kappa;</sub> must be greater than 1!";
+	}
+	else {
+		rk.classList.remove('bad-input');
+		rk.classList.add('good-input');
+		rkErr.innerHTML = "";
+	}
+}
+
+w.onchange = function() {
+	let wVal = w.value;
+	let wErr = document.getElementById('w-error');
+	if (!isNumber(wVal)) {
+		w.classList.add('bad-input');
+		wErr.innerHTML = "w must be a number!";
+	}
+	else if (parseFloat(wVal) >= 1) {
+		w.classList.add('bad-input');
+		wErr.innerHTML = "w must be less than 1!";
+	}
+	else {
+		w.classList.remove('bad-input');
+		w.classList.add('good-input');
+		wErr.innerHTML = "";
+	}
+}
+	</script>
 	<h4 id="advanced-header" onclick="openCollapsible('advanced', 'advanced-header')">
 		<span id="advanced-header-icon" style="padding-right: 20px; display: inline-block; width: 20px;">&#9776;</span>
 		Advanced Options
