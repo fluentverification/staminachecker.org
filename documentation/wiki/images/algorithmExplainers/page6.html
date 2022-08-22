@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Algorithm: Step 6 - STAMINA Wiki</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../../../styles.css">
+	<link rel="stylesheet" href="algo.css">
+	<link rel="stylesheet" href="wikistyles.css">
+	<link rel="icon" type="image/x-icon" href="../../../../images/favicon.svg">
+	<script type="text/javascript" src="../../../../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../../scripts/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<script async src="https://cse.google.com/cse.js?cx=49e907332c026e3ba"></script>
+</head>
+<body>
+<div class="content">
+<a href="page5.html" class="slide-navigation">Previous</a> <span class="right slide-navigation" style="opacity: 50%">Next</span><br>
+<img class="half-width figure" src="exp5.png">
+<div class="half-width right">
+	<h2>Step 5</h2>
+	<ul>
+		<li>We truncate that state, and move to the next one.</li>
+		<li>This continues until we cannot explore further.</li>
+	</ul>
+	<h3>After the inner loop of the algorithm finishes:</h3>
+	<ul>
+		<li>If perimeter reachability is greater than the desired window, &kappa; is reduced to expand exploration</li>
+		<li>STAMINA 2.0: Exploration continues from the initial state</li>
+		<li>STAMINA 2.5: Exploration continues from the list of truncated states, in the order they were truncated.</li>
+		<li>STAMINA 2.5 also lets multiple threads perform this exploration asynchronously.</li>
+	</ul>
+</div>
+<a class="right slide-navigation" href="/documentation/wiki/index.html">Back to Wiki</a>
+</div>
+</body>
+</html>

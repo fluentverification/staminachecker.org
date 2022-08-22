@@ -1,0 +1,26 @@
+.half-width {
+	position: relative;
+	display: block;
+	width: 49%;
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.figure {
+	background-color: white;
+}
+
+.slide-navigation {
+	display: inline-block;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid var(--background-three);
+}
+
+.slide-navigation:hover {
+	background-color: var(--background-two);
+	border: 1px solid var(--color);
+}
