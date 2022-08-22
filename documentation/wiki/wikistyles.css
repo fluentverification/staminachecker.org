@@ -185,6 +185,12 @@ pre {
 	background-color: var(--background);
 }
 
+.fill {
+	display: inline-block;
+	width: 100%;
+	border: 1px solid var(--background-three);
+}
+
 #wiki-tree, #sidebar-light-dark {
 	display: none;
 }
