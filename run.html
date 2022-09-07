@@ -255,14 +255,14 @@ border: 1px solid var(--color-two);
 .tab-bar {
 	display: block;
 	width: 100%;
-	margin-bottom: 10px;
-	background-color: var(--background-two);
-	padding: 10px;
+/* 	margin-bottom: 10px; */
+/* 	background-color: var(--background-two); */
+/* 	padding: 10px; */
 }
 
 .tab-bar a {
 	display: inline-block;
-	padding: 5px;
+	padding: 15px;
 	color: var(--color);
 	cursor: pointer;
 }
@@ -271,58 +271,126 @@ border: 1px solid var(--color-two);
 	border-bottom: 4px solid var(--link-base);
 	color: var(--link-base);
 }
+
+.tab-body {
+	display: none;
+	border: 1px solid var(--background-three);
+	padding: 20px;
+}
+
+.active-tab-body {
+	display: block !important;
+}
+
+.divider {
+	border-left: 1px solid var(--background-three);
+}
+
+/* Checkbox stuff */
+input[type=checkbox] {
+	visibility: hidden;
+}
+.checkbox-styled {
+	width: 45px;
+	height: 15px;
+	border: 1px solid var(--color-two);
+	margin: 20px 10px;
+	position: relative;
+	border-radius: 12px;
+	display: inline-block;
+}
+.checkbox-styled label {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: -5px;
+	left: -3px;
+	background: var(--color-two);
+}
+.checkbox-styled input[type=checkbox]:checked + label {
+	left: 27px;
+	background: var(--link-base);
+}
+
+.check-label {
+	display: inline-block;
+	width: calc(100% - 100px);
+}
 </style>
+<script>
+function setActiveTab(tabId) {
+	// Switch what tab is visible
+	let allTabBodies = document.querySelectorAll(".tab-body");
+	allTabBodies.forEach(tab => tab.classList.remove("active-tab-body"));
+	document.getElementById(tabId).classList.add("active-tab-body");
+	// Switch the tab bar
+	let allTabs = document.querySelectorAll(".tab-bar a");
+	allTabs.forEach(tab => tab.classList.remove("active-tab"));
+	document.getElementById(tabId + "-tab").classList.add("active-tab");
+}
+</script>
 <div class="note">This page is not active yet! It will do <i>nothing</i></div>
 <div class="tab-bar">
-	<a class="active-tab">Upload your own...</a>
-	<a onclick="javascript:alert('Tab bar has not been implemented yet!')">Use a preset...</a>
+	<a onclick="setActiveTab('tab1')" class="active-tab" id="tab1-tab">Upload your own...</a>
+	<span class="divider"></span>
+	<a onclick="setActiveTab('tab2')" id="tab2-tab">Use a preset...</a>
 </div>
 <form id=options> <!-- TODO: Add an action when we dockerize/REST STAMINA onto Azure -->
-	<label class="label">Model File:</label>
-	<div class="find-file">
-	<label class="button browse" id="browse-model-file" for="model-file">Browse</label><span class="path" id="model-file-path">No File Selected...</span>
-		<input type=file id="model-file" name="model-file"/>
+	<div class="tab-body active-tab-body" id="tab1">
+		<label class="label">Model File:</label>
+		<div class="find-file">
+		<label class="button browse" id="browse-model-file" for="model-file">Browse</label><span class="path" id="model-file-path">No File Selected...</span>
+			<input type=file id="model-file" name="model-file"/>
+		</div>
+		<small class="full"><a href="documentation/wiki/model-files.html"><i class="icon icon_go-next icon-small"></i>Learn how to write a model file</a></small>
+		<label class="label">Properties File:</label>
+		<div class="find-file">
+		<label class="button browse" id="browse-properties-file" for="properties-file">Browse</label><span class="path" id="properties-file-path">No File Selected...</span>
+		<input type=file id="properties-file">
+		</div>
+		<script>
+	let modelFilePath = document.getElementById('model-file-path');
+	let modelFileInput = document.getElementById('model-file');
+
+	modelFileInput.onchange = function() {
+		console.log(this.files);
+		console.log(this.files[0]);
+		let input = this.files['0'];
+		var text;
+		if (input) {
+			text = input.name;
+		}
+		else {
+			text = "No file selected";
+		}
+		modelFilePath.innerHTML = text;
+	}
+
+	let propFilePath = document.getElementById('properties-file-path');
+	let propFileInput = document.getElementById('properties-file');
+
+	propFileInput.onchange = function() {
+		let input = this.files[0];
+		var text;
+		if (input) {
+			text = input.name;
+		}
+		else {
+			text = "No file selected";
+		}
+		propFilePath.innerHTML = text;
+	}
+		</script>
+		<small class="full"><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small>
 	</div>
-	<small class="full"><a href="documentation/wiki/model-files.html"><i class="icon icon_go-next icon-small"></i>Learn how to write a model file</a></small>
-	<label class="label">Properties File:</label>
-	<div class="find-file">
-	<label class="button browse" id="browse-properties-file" for="properties-file">Browse</label><span class="path" id="properties-file-path">No File Selected...</span>
-	<input type=file id="properties-file">
+	<div class="tab-body" id="tab2">
+		<div style="padding-top: 50px; padding-bottom: 50px;">Presets coming soon! For now, you can download our case study files from <a href="https://github.com/fluentverification/stamina/tree/master/case-studies">here.</a></div>
 	</div>
-	<script>
-let modelFilePath = document.getElementById('model-file-path');
-let modelFileInput = document.getElementById('model-file');
-
-modelFileInput.onchange = function() {
-	console.log(this.files);
-	console.log(this.files[0]);
-	let input = this.files['0'];
-	var text;
-	if (input) {
-		text = input.name;
-	}
-	else {
-		text = "No file selected";
-	}
-	modelFilePath.innerHTML = text;
-}
-
-let propFilePath = document.getElementById('properties-file-path');
-let propFileInput = document.getElementById('properties-file');
-
-propFileInput.onchange = function() {
-	let input = this.files[0];
-	var text;
-	if (input) {
-		text = input.name;
-	}
-	else {
-		text = "No file selected";
-	}
-	propFilePath.innerHTML = text;
-}
-	</script>
-	<small class="full"><a href="documentation/wiki/properties-files.html"><i class="icon icon_go-next icon-small"></i>Learn about the types of properties STAMINA can check</a></small><br>
+	<br>
 	<label class="label" for="kappa">Reachability Threshold (&kappa;):</label>
 	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
 	<div class="bad-input-err-msg" id="kappa-error">
@@ -413,10 +481,24 @@ w.onchange = function() {
 			<option value="-P">STAMINA Priority (STAMINA 3.0)</option>
 			<option value="-J">STAMINA Re-Exploring (STAMINA 2.0)</option>
 		</select><br>
-		<input type="checkbox" value="true">Use multithreading protocol (may prevent timeout).</input><br>
-		<input type="checkbox">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</input><br>
-		<input type="checkbox">Report the labels created and the number of states created with each label.</input><br>
-		<input type="checkbox">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</input>
+		<div class="checkbox-styled">
+			<input type="checkbox" value="1" id="multithreading"></input>
+			<label for="multithreading"></label>
+		</div>
+		<span class="check-label">Use multithreading protocol (may prevent timeout).</span>
+		<div class="checkbox-styled">
+			<input type="checkbox" id="transitionFiles"></input>
+			<label for="transitionFiles"></label>
+		</div>
+		<span class="check-label">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</span>
+		<div class="checkbox-styled">
+			<input type="checkbox" id="reportLabels"></input><label for="reportLabels"></label><br>
+		</div>
+		<span class="check-label">Report the labels created and the number of states created with each label.</span>
+		<div class="checkbox-styled">
+			<input type="checkbox" id="stateLabels"></input><label for="stateLabels"></label>
+		</div>
+		<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 	</div>
 	<input type="submit" value="Run">
 </form>
