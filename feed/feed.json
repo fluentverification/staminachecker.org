@@ -18,7 +18,7 @@
 	, {
 		"title":"STAMINA 2.0 Accepted into VMCAI'22"
 		, "date":"Jan 1, 2022 (approx)"
-		, "description":"Riley Roberts improves the STAMINA algorithm to"
+		, "description":"Riley Roberts improves the STAMINA algorithm to allow for more efficient re-exploration of states and prevention of \"lost\" probability."
 	}
 	, {
 		"title":"New STAMINA Maintainer: Riley Roberts"
