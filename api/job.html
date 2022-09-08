@@ -85,6 +85,7 @@ if (bttButton != null) {
 	border: 1px solid #444444;
 	padding: 10px;
 	margin-top: 20px;
+	margin-top: 20px;
 }
 .geninfo {
 	display: inline-block;
@@ -118,6 +119,13 @@ if (bttButton != null) {
 		This page is not implemented yet! It will do nothing!
 	</div>
 <!-- CONTENT -->
+	<div class="results">
+		<h1>Results</h1>
+		<span class="geninfo geninfo-label">P<sub>MIN</sub>: </span><span class="geninfo" id="pmin">UNDEFINED</span><br>
+		<span class="geninfo geninfo-label">P<sub>MAX</sub>: </span><span class="geninfo" id="pmax">UNDEFINED</span><br>
+		<span class="geninfo geninfo-label">Window: </span><span class="geninfo" id="w">UNDEFINED</span><br>
+		<span class="geninfo geninfo-label">N<sub>STATES</sub>: </span><span class="geninfo" id="n">UNDEFINED</span><br>
+	</div>
 	<h1>Running job</h1>
 	<span class="geninfo geninfo-label">Job UID: </span><span class="geninfo" id="uid">UNDEFINED</span><br>
 	<span class="geninfo geninfo-label">Model File: </span><span class="geninfo" id="model">UNDEFINED</span><br>
@@ -125,6 +133,7 @@ if (bttButton != null) {
 	<div class="output" id="output">
 		<span class="info" id="first-info">Starting STAMINA/STORM through REST API with query: </span>
 	</div>
+	<a href="#" class="button">Save to file...</a>
 </div>
 <!-- Footer -->
 <div class="footer">
