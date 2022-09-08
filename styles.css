@@ -388,12 +388,16 @@ p {
 	float: right;
 	width: 45%;
 	padding: 20px;
-/* 	background-color: var(--background-two); */
 	border-left: 1px solid #444444;
 	margin-left: 20px;
 }
 
+.feed h1 {
+	margin: 0px;
+}
+
 .feedbox {
+	background-color: var(--background-two);
 	border-top: 1px solid #444444;
 	border-bottom: 1px solid #444444;
 	padding-top: 25px;
@@ -406,7 +410,7 @@ p {
 	color: var(--color);
 	display: block;
 	padding: 10px;
-	border: 1px solid #444444;
+	border-top: 1px solid #444444;
 }
 
 .feedbox a:hover {
