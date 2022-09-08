@@ -115,16 +115,7 @@ if (bttButton != null) {
 		</div>
 	</div>
 <script>
-const feedJson = (await getFeedJSON());
-let feedbox = document.getElementById('feedbox');
-feedbox.innerHTML = "";
-feedJson.feed.forEach(function(feedItem) {
-	feedbox.innerHTML += "<a href='#'>" + 
-		"<h3>" + feedItem.title + "</h3>" +
-		"<h4>" + feedItem.date + "</h4>" +
-		feedItem.description
-	+ "</a>";
-});
+populateFeed();
 </script>
 	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
 	<p>
