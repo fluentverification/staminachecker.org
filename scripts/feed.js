@@ -8,9 +8,9 @@ async function getFeedJSON() {
 }
 
 function populateRSSFeed() {
-	const feedJson = (await getFeedJSON()).feed;
+	const feedJson = (await getFeedJSON());
 	let feedbox = document.getElementById('feedbox');
-	feedJson.forEach(function(feedItem) {
+	feedJson.feed.forEach(function(feedItem) {
 		feedbox.innerHTML += "<a href='#'>" + 
 			"<h3>" + feedItem.title + "</h3>" +
 			"<h4>" + feedItem.date + "</h4>" +
