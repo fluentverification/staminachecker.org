@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="loading.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
@@ -113,6 +114,10 @@ if (bttButton != null) {
 	font-weight: bold;
 	margin-right: 10px;
 }
+
+.results {
+	display: none;
+}
 </style>
 <div class="content">
 	<div class="note">
@@ -126,7 +131,8 @@ if (bttButton != null) {
 		<span class="geninfo geninfo-label">Window: </span><span class="geninfo" id="w">UNDEFINED</span><br>
 		<span class="geninfo geninfo-label">N<sub>STATES</sub>: </span><span class="geninfo" id="n">UNDEFINED</span><br>
 	</div>
-	<h1>Running job</h1>
+	<div class="lds-ripple"><div></div><div></div><h1>Running job</h1></div>
+	
 	<span class="geninfo geninfo-label">Job UID: </span><span class="geninfo" id="uid">UNDEFINED</span><br>
 	<span class="geninfo geninfo-label">Model File: </span><span class="geninfo" id="model">UNDEFINED</span><br>
 	<span class="geninfo geninfo-label">Properties File: </span><span class="geninfo" id="properties">UNDEFINED</span><br>
