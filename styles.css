@@ -278,7 +278,7 @@ body {
 	background: var(--background);
 	width: 100%;
 	padding: 16px;
-	border: 1px solid #aaaaaa;
+	border: 1px solid #555555;
 /* 	border-radius: 24px; */
 /* 	border-left: 4px solid #aaaaaa; */
 	box-sizing: border-box; /* Make sure that padding and width stays in place */
@@ -324,6 +324,7 @@ body {
 .button:hover, input[type=submit]:hover, .btt-button:hover {
 	color: white;
 	background-color: var(--accent-low-sat);
+	transition: all 0.15s ease;
 }
 .graphic {
 	float: right;
@@ -400,6 +401,7 @@ p {
 	padding: 20px 16px;
 	text-decoration: none;
 	border-bottom: 4px solid var(--navbar-background);
+	transition: all 0.1s ease;
 }
 
 #stamina {
@@ -407,6 +409,7 @@ p {
 	padding-left: 40px;
 	padding-right: 40px;
 	background-color: var(--navbar-background);
+	transition: all 0.1s ease;
 }
 
 #stamina:hover {
@@ -458,9 +461,11 @@ ul.navbar li.right {
 }
 
 .dropdown-content {
-	display: none;
+	display: block;
+	height: 0px;
 	position: fixed;
 	background-color: var(--navbar-background);
+	overflow-y: hidden;
 }
 
 .dropdown-content a {
@@ -468,7 +473,10 @@ ul.navbar li.right {
 }
 
 #get:hover #get-dropdown, #documentation:hover #documentation-dropdown {
+	transition: all 0.2s ease;
 	display: block;
+	opacity: 100%;
+	height: auto;
 }
 
 .footer {
