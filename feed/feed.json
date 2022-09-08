@@ -1,14 +1,19 @@
 {
 "feed":[
 	{
+		"title":"STAMINA/STORM 2.2.5 Released"
+		, "date":"Jun 14, 2022"
+		, "description":"Included code cleanup, namespace reorganization, and speed improvements."
+	}
+	, {
 		"title":"STAMINA/STORM 2.0 Released"
 		, "date":"May 26, 2022 (approx)"
-		, "description":"TODO"
+		, "description":"First usable version of STAMINA 2.0 algorithm implemented in STAMINA/STORM."
 	}
 	, {
 		"title":"STAMINA/STORM Integration has dedicated developer: Josh Jeppson"
 		, "date":"Jun 1, 2021 (approx)"
-		, "description":"TODO"
+		, "description":"Josh Jeppson takes over STAMINA/STORM codebase."
 	}
 	, {
 		"title":"STAMINA 2.0 Accepted into VMCAI'22"
@@ -18,7 +23,7 @@
 	, {
 		"title":"New STAMINA Maintainer: Riley Roberts"
 		, "date":"July 25, 2021 (approx)"
-		, "description":"TODO"
+		, "description":"Riley Roberts takes over STAMINA codebase."
 	}
 	, {
 		"title":"STAMINA 1.0 Accepted into CAV'19"
