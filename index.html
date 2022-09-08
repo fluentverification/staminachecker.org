@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
+	<script type="text/javascript" src="scripts/feed.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
 <body>
@@ -95,8 +96,8 @@ if (bttButton != null) {
 	<div class="feed">
 		<h1>STAMINA News:</h1>
 		<div class="feedbox" id="feedbox">
-<!-- 			No Feed items -->
-			<a href="#">
+			No feed items yet!
+<!--			<a href="#">
 				<h3>Test Feed Item</h3>
 				<h4>Thu Sep 08 15:52:57 2022 UTC</h4>
 				<p>STAMINA did not yet exist at the UNIX expoch</p>
@@ -110,9 +111,12 @@ if (bttButton != null) {
 				<h3>Test Feed Item</h3>
 				<h4>Thu Sep 08 15:52:57 2022 UTC</h4>
 				<p>STAMINA did not yet exist at the UNIX expoch</p>
-			</a>
+			</a>-->
 		</div>
 	</div>
+<script>
+populateRSSFeed();
+</script>
 	<h1>STAMINA: STochastic Approximate Model-checker for INfinite-state Analysis</h1>
 	<p>
 		STAMINA can analyze unbounded and infinite-sized models, as well as models with very large state spaces, and provide an accurate bound of probabilities for CSL properties. It has been tested on genetic circuit and biological models, and has been the subject of multiple papers.
