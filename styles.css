@@ -287,6 +287,18 @@ body {
 	resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
+.noscript {
+	position: fixed;
+	width: 100%;
+	color: #140505;
+	background-color: #e08d8d;
+	border-top: 4px solid #c83737;
+	bottom: 0px;
+	z-index: 500;
+	padding: 30px;
+	font-family: "Noto Sans", sans-serif;
+}
+
 /*.content input[type=text]:hover {
 	border-left: 4px solid #777777;
 }*/

@@ -68,17 +68,7 @@
 	z-index: 500;
 }
 
-.noscript {
-	position: fixed;
-	width: 100%;
-	color: #140505;
-	background-color: #e08d8d;
-	border-top: 4px solid #c83737;
-	bottom: 0px;
-	z-index: 500;
-	padding: 30px;
-	font-family: "Noto Sans", sans-serif;
-}
+
 
 .wiki-text {
 	padding-left: 5px;

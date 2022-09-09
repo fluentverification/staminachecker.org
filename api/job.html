@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="loading.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../scripts/search.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
 <body>
@@ -64,6 +65,12 @@ if (bttButton != null) {
 	}
 }
 </script>
+<noscript>
+<div class="noscript">
+	<b>Alert!</b>
+	This page requires JavaScript to function properly.
+</div>
+</noscript>
 <!-- Cookie Banner -->
 <div class="cookie-banner" id="cookie-banner">
 	<table>
@@ -103,21 +110,49 @@ if (bttButton != null) {
 	font-family: 'Noto Sans Mono' monospace;
 	font-size: 10pt;
 }
-.info {
+.info, .err, .good, .warn {
 	display: inline-block;
 	width: 100%;
+	padding-bottom: 3px;
+	margin-bottom: 5px;
+	border-bottom: 2px solid #00000000;
+}
+
+.info:hover, .err:hover, .good:hover, .warn:hover {
+	border-bottom: 2px solid var(--accent-medium);
+}
+
+.info::before, .err::before, .good::before, .warn::before {
+	display: inline-block;
+	min-width: 100px;
+	font-weight: bold;
+	margin-right: 10px;
 }
 
 .info::before {
 	content: "[INFO]:";
 	color: #1b91ca;
-	font-weight: bold;
-	margin-right: 10px;
 }
 
 .results {
 	display: none;
 }
+
+.err:before {
+	content: "[ERROR]:";
+	color: #ca1b1b;
+}
+
+.warn:before {
+	content: "[WARNING]:";
+	color: #ccc123;
+}
+
+.good::before {
+	content: "[GOOD]:";
+	color: var(--accent-medium);
+}
+
 </style>
 <div class="content">
 	<div class="note">
@@ -134,10 +169,22 @@ if (bttButton != null) {
 	<div class="lds-ripple"><div></div><div></div><h1>Running job</h1></div>
 	
 	<span class="geninfo geninfo-label">Job UID: </span><span class="geninfo" id="uid">UNDEFINED</span><br>
+<script>
+let uid = getParameterByName('uid');
+if (uid != null && uid != "") {
+	document.getElementById('uid').innerHTML = uid;
+}
+else {
+	alert("STAMINA job UID not defined!");
+}
+</script>
 	<span class="geninfo geninfo-label">Model File: </span><span class="geninfo" id="model">UNDEFINED</span><br>
 	<span class="geninfo geninfo-label">Properties File: </span><span class="geninfo" id="properties">UNDEFINED</span><br>
 	<div class="output" id="output">
 		<span class="info" id="first-info">Starting STAMINA/STORM through REST API with query: </span>
+		<span class="warn">A test warning </span>
+		<span class="err">A test error. </span>
+		<span class="good">Good message</span>
 	</div>
 	<a href="#" class="button">Save to file...</a>
 </div>
