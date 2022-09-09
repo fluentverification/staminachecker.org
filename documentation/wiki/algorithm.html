@@ -124,7 +124,7 @@ if (bttButton != null) {
 		In order to make STAMINA/STORM faster, in addition to memory pooling and decreased use of <span class="inline-code">std::unordered_map</span> and <span class="inline-code">std::unordered_set</span> (which after much testing, were determined to be far slower than the Java equivalent), certain dynamic programming improvements were devised to the STAMINA 2.0 algorithm. Please note that these are implemented exclusively in the STORM integration. The improvements simply keep track of the reachability that would have been lost in previous iterations and enqueue "lost" states to be explored alongside terminal states of the last iteration, rather than either the initial state (STAMINA 2.0) or the previous terminal states (STAMINA 1.0).
 	</p>
 	<h2>See a Visual Explainer of the STAMINA Algorithm:</h2>
-	<iframe class="fill" height=500 src="images/algorithmExplainers/page1.html">Your browser does not support inline frames</iframe>
+	<iframe class="fill" height=700 src="images/algorithmExplainers/page1.html">Your browser does not support inline frames</iframe>
 	<h3>STAMINA's Multithreading Protocol</h3>
 	<p>
 		Another major novel improvement slated to be released with STAMINA 2.5 is the use of multi-threading, and a custom protocol for the control thread to grant access without having to store mutual-exclusions for every state (extremely memory intensive), or having to lock all or part of the state space every time a thread requests control of a state (reduces the improvement of multithreading). This new protocol is among the improvements we are looking to include in a paper this fall.
