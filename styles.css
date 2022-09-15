@@ -217,19 +217,19 @@ body {
 
 .note {
 /* 	color: #1e3229; */
-	background-color: #48ce9422;
+	background-color: #48ce9444;
 	border-left: 4px solid var(--accent-dark);
 }
 
 .warning {
-	color: #1B1B1B;
-	background-color: #ffdc74;
+/* 	color: #1B1B1B; */
+	background-color: #ffdc7444;
 	border-left: 4px solid #8e5c26;
 }
 
 .error, .error-small {
-	color: #1B1B1B;
-	background-color: #ff7474;
+/* 	color: #1B1B1B; */
+	background-color: #ff747444;
 	border-left: 4px solid #8e2626;
 }
 
