@@ -185,6 +185,25 @@ pre {
 	display: none;
 }
 
+.copy-button {
+	color: var(--color);
+	background-color: var(--background-color);
+	border: none;
+	float: right;
+	padding: 5px;
+	position: relative;
+	right: 10px;
+	top: 8px;
+/* 	border-radius: 6px; */
+	cursor: pointer;
+	display: block;
+	z-index: 50;
+}
+.copy-button:hover {
+	background-color: var(--background-three);
+	/* 	border: 1px solid var(--color-two); */
+}
+
 @media screen and (max-width: 900px) {
 	.quick-nav-label {
 		display: none;
