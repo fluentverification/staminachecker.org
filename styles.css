@@ -216,8 +216,8 @@ body {
 }
 
 .note {
-	color: #1e3229;
-	background-color: var(--accent-light);
+/* 	color: #1e3229; */
+	background-color: #48ce9422;
 	border-left: 4px solid var(--accent-dark);
 }
 
@@ -244,15 +244,15 @@ body {
 	font-size: 10pt;
 	white-space: nowrap;
 	padding: 5px;
-}
-
-.inline-code {
 	background-color: var(--background-two);
 }
 
-.inline-code-note {
+/*.inline-code {
+}*/
+
+/*.inline-code-note {
 	background-color: #efefef;
-}
+}*/
 
 .code {
 	border-color: #969696;

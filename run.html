@@ -155,10 +155,12 @@ border: 1px solid var(--color-two);
 	color: var(--color);
 	padding-left: 15px;
 	cursor: pointer;
+	display: inline-block;
 }
 
 .help:hover {
 	color: var(--link-base);
+	animation: all 1s ease;
 }
 
 #advanced-header, .collapsible {
@@ -199,22 +201,17 @@ border: 1px solid var(--color-two);
 }
 
 .help-overlay {
-	display: none;
-	background-color: var(--accent-light);
-	border: 1px solid var(--accent-dark);
-	border-radius: 12px;
-	width: 50%;
-	padding: 10px;
-	font-size: 9pt;
-	margin-left: 49%;
-	z-index: 20;
-	left: 50%;
-	color: black;
+	display: block;
+	overflow: hidden;
+	width: 0px;
+	height: 0px;
+	background-color: #48ce9422;
+	border-left: 4px solid var(--accent-dark);
+/* 	border-radius: 12px; */
+
+/* 	color: black; */
 }
 
-#kappa-help-icon:hover #kappa-help {
-	display: inline-block;
-}
 .path {
 	display: inline-block;
 /* 	width: auto; */
@@ -328,8 +325,21 @@ input[type=checkbox] {
 	display: inline-block;
 	width: calc(100% - 100px);
 }
-#kappa-help-icon:hover #kappa-help {
+
+#kappa-help-icon:hover + #kappa-help
+, #rkappa-help-icon:hover + #rkappa-help
+, #w-help-icon:hover + #w-help {
 	display: block !important;
+	width: auto;
+	height: auto;
+	width: 50%;
+	padding: 10px;
+	font-size: 9pt;
+	margin-left: 49%;
+	z-index: 20;
+	left: 50%;
+	animation: all 1s ease;
+/* 	color: red; */
 }
 </style>
 <script>
@@ -404,17 +414,23 @@ function setActiveTab(tabId) {
 	<br>
 	<label class="label" for="kappa">Reachability Threshold (&kappa;):</label>
 	<input type="text" class="auto-width" id="kappa" value="1.0"><a class="help" id="kappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="help-overlay" id="kappa-help">
+		The reachability threshold, also called &kappa;, is the threshold by which states are either fully included in the model, or truncated (their successors ignored and an artificial transition sent to an absorbing state). <a href="documentation/wiki/options.html#reachability-threshold-κ">Read more...</a>
+	</div>
 	<div class="bad-input-err-msg" id="kappa-error">
 	</div>
-	<div class="help-overlay" id="kappa-help">
-		The reachability threshold, also called &kappa;, is
-	</div>
 	<label class="label" for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
-	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help" id="rkappa-help-icon"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="help-overlay" id="rkappa-help">
+		Between iterations of truncation, &kappa; is reduced to allow for more states to be explored if the results are not accurate enough. The next &kappa; is calculated as &kappa; / r<sub>&kappa;</sub>. <a href="documentation/wiki/options.html#kappa-κ-reduction-factor-rκ">Read more...</a>
+	</div>
 	<div class="bad-input-err-msg" id="rkappa-error">
 	</div>
 	<label class="label" for="w">Accuracy Bound (P<sub>max</sub> - P<sub>min</sub>):</label>
-	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
+	<input type="text" class="auto-width" id="w" value="1e-3"><a class="help" id="w-help-icon"><i class="icon just-icon icon_help-about"></i></a>
+	<div class="help-overlay" id="w-help">
+		The accuracy bound, <i>w</i> is defined as P<sub>max</sub> - P<sub>min</sub>. When this window is specified, STAMINA <i>guarantees</i> that the actual probability will be somewhere within that window. <a href="documentation/wiki/options.html#probability-error-window-w">Read more...</a>
+	</div>
 	<div class="bad-input-err-msg" id="w-error">
 	</div>
 	<script>
