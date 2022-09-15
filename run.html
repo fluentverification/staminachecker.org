@@ -203,12 +203,11 @@ border: 1px solid var(--color-two);
 .help-overlay {
 	display: block;
 	overflow: hidden;
-	width: 0px;
+/* 	width: 0px; */
 	height: 0px;
 	background-color: #48ce9422;
 	border-left: 4px solid var(--accent-dark);
 /* 	border-radius: 12px; */
-
 /* 	color: black; */
 }
 
@@ -338,8 +337,21 @@ input[type=checkbox] {
 	margin-left: 49%;
 	z-index: 20;
 	left: 50%;
-	animation: all 1s ease;
+	animation: expand 0.2s ease;
 /* 	color: red; */
+}
+
+@keyframes expand {
+	from {
+/* 		padding: 0px; */
+		height: 0px;
+		font-size: 0pt;
+	}
+	to {
+		padding: 10px;
+		height: auto;
+		font-size: 9pt;
+	}
 }
 </style>
 <script>
