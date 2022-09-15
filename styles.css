@@ -278,7 +278,8 @@ body {
 	background: var(--background);
 	width: 100%;
 	padding: 16px;
-	border: 1px solid #555555;
+	border: none;
+	border-bottom: 1px solid #555555;
 /* 	border-radius: 24px; */
 /* 	border-left: 4px solid #aaaaaa; */
 	box-sizing: border-box; /* Make sure that padding and width stays in place */

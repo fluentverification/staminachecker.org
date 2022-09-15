@@ -91,10 +91,10 @@ if (bttButton != null) {
 <h1>Run STAMINA/STORM on the cloud</h1>
 <style>
 .good-input {
-	border: 1px solid var(--accent-medium) !important;
+	border-bottom: 1px solid var(--accent-medium) !important;
 }
 .bad-input {
-	border: 1px solid #ff4444 !important;
+	border-bottom: 1px solid #ff4444 !important;
 }
 
 .bad-input-err-msg {
@@ -181,7 +181,8 @@ border: 1px solid var(--color-two);
 	width: auto;
 	display: inline;
 	padding: 2px;
-	border: 1px solid var(--background-two);
+	border: none;
+	border-bottom: 1px solid #555555;
 }
 
 #options input[type="submit"] {
@@ -327,6 +328,9 @@ input[type=checkbox] {
 	display: inline-block;
 	width: calc(100% - 100px);
 }
+#kappa-help-icon:hover #kappa-help {
+	display: block !important;
+}
 </style>
 <script>
 function setActiveTab(tabId) {
@@ -403,7 +407,7 @@ function setActiveTab(tabId) {
 	<div class="bad-input-err-msg" id="kappa-error">
 	</div>
 	<div class="help-overlay" id="kappa-help">
-		The reachability threshold, also called &kappa;
+		The reachability threshold, also called &kappa;, is
 	</div>
 	<label class="label" for="rkappa">Reduction Factor (r<sub>&kappa;</sub>):</label>
 	<input type="text" class="auto-width" id="rkappa" value="1.25"><a class="help"><i class="icon just-icon icon_help-about"></i></a>
