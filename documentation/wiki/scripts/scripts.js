@@ -111,8 +111,26 @@ function searchOnThisPage() {
 }
 
 function escapeString(string) {
+	
 	let escapedString = string.replaceAll('\n', '\\n').replaceAll('"', '\\"').replaceAll("'", "\\'").replaceAll("/", "\\/");
 	return btoa(string);
+}
+
+function copyAndConfirm(textToCopy) {
+	navigator.clipboard.writeText(textToCopy);
+	// Show the "copied" element
+	let copyConfirm = document.getElementById("copy-confirmation");
+	copyConfirm.style.display = "block";
+	copyConfirm.style.opacity = "100%";
+	copyConfirm.style.animation = "fade-in 1s ease";
+	let hideButton = function() {
+		copyConfirm.style.animationDirection = "reverse";
+		copyConfirm.style.animation = "fade-in 2s ease";
+		copyConfirm.style.display = "none";
+		copyConfirm.style.opacity = "0%";
+	}
+	
+	setTimeout(hideButton, 1500);
 }
 
 function addCopyButtons() {
@@ -121,7 +139,7 @@ function addCopyButtons() {
 		let innerHTML = block.innerHTML;
 		let command = block.innerText || block.textContent;
 // 		console.log(command);
-		let copyButton = "<button class=\"copy-button\" onclick=\"navigator.clipboard.writeText(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
+		let copyButton = "<button class=\"copy-button\" onclick=\"copyAndConfirm(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
 		block.innerHTML = copyButton + innerHTML;
 	});
 	// Add confirmation button
