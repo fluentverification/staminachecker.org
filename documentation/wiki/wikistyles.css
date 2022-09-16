@@ -214,6 +214,34 @@ pre {
 	to { opacity: 100%; }
 }
 
+.copy-confirmation, #copy-confirmation {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: var(--background);
+	padding: 20px;
+	border: 1px solid var(--background-three);
+	display: block;
+	opacity: 0%;
+/* 	animation: in-in-out 4s ease; */
+}
+
+@keyframes in-n-out {
+	from { opacity: 0%; display: block; }
+	20% { opacity: 100%; }
+	80% { opacity: 100%; }
+	to { opacity: 0%; display: none; }
+}
+
+#copy-confirmation .close-button {
+	display: inline-block;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+#copy-confirmation .close-button:hover {
+	color: var(--background-three);
+}
 @media screen and (max-width: 900px) {
 	.quick-nav-label {
 		display: none;

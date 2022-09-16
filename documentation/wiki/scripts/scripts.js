@@ -111,19 +111,22 @@ function searchOnThisPage() {
 }
 
 function escapeString(string) {
-	let escapedString = string.replace('\n', '\\n').replace('"', '\\"');
-// 	console.log(escapedString);
-	return escapedString;
+	let escapedString = string.replaceAll('\n', '\\n').replaceAll('"', '\\"').replaceAll("'", "\\'").replaceAll("/", "\\/");
+	return btoa(string);
 }
 
 function addCopyButtons() {
 	let allCodeBlocks = document.querySelectorAll('.code');
 	allCodeBlocks.forEach(block => {
-		let command = block.innerHTML;
+		let innerHTML = block.innerHTML;
+		let command = block.innerText || block.textContent;
 // 		console.log(command);
-		let copyButton = "<button class=\"copy-button\" onclick=\"navigator.clipboard.writeText(\'" + escapeString(command) + "\')\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
-		block.innerHTML = copyButton + command;
+		let copyButton = "<button class=\"copy-button\" onclick=\"navigator.clipboard.writeText(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
+		block.innerHTML = copyButton + innerHTML;
 	});
+	// Add confirmation button
+	let content = document.querySelector('.content');
+	content.innerHTML += '<div class="copy-confirmation" id="copy-confirmation">Copied successfully!<span class="close-button" onclick="document.getElementById(\'copy-confirmation\').style.display = \'none\';">&times;</span></div>';
 }
 
 window.onload = function () { 
