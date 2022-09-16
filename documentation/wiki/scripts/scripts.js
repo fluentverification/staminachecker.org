@@ -109,4 +109,24 @@ function searchOnThisPage() {
 	let q = document.getElementById('query').value;
 	searchCustom(q);
 }
-window.onload = function () { closeSidebar(); }
+
+function escapeString(string) {
+	let escapedString = string.replace('\n', '\\n').replace('"', '\\"');
+// 	console.log(escapedString);
+	return escapedString;
+}
+
+function addCopyButtons() {
+	let allCodeBlocks = document.querySelectorAll('.code');
+	allCodeBlocks.forEach(block => {
+		let command = block.innerHTML;
+// 		console.log(command);
+		let copyButton = "<button class=\"copy-button\" onclick=\"navigator.clipboard.writeText(\'" + escapeString(command) + "\')\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
+		block.innerHTML = copyButton + command;
+	});
+}
+
+window.onload = function () { 
+	closeSidebar(); 
+	addCopyButtons();
+}

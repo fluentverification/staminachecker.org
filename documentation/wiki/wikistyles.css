@@ -192,16 +192,26 @@ pre {
 	float: right;
 	padding: 5px;
 	position: relative;
-	right: 10px;
-	top: 8px;
-/* 	border-radius: 6px; */
+	right: -10px;
+	margin-top: -10px;
 	cursor: pointer;
 	display: block;
 	z-index: 50;
+	opacity: 0%;
 }
 .copy-button:hover {
 	background-color: var(--background-three);
-	/* 	border: 1px solid var(--color-two); */
+/* 	background-color: var(--link-base); */
+}
+
+.code:hover .copy-button {
+	opacity: 100%;
+	animation: fade-in 1s ease;
+}
+
+@keyframes fade-in {
+	from { opacity: 0%; }
+	to { opacity: 100%; }
 }
 
 @media screen and (max-width: 900px) {
