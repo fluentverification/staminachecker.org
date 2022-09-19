@@ -272,7 +272,9 @@ pre {
 		width: auto;
 	}
 
-	.btt-button {
+	/* Bring the necessary buttons up on mobile when nav is on bottom */
+	.btt-button, .copy-confirmation, #copy-confirmation {
 		bottom: 75px;
 	}
+
 }
