@@ -394,6 +394,7 @@ p {
 	font-family: 'Noto Sans', sans-serif;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	transition: all 0.5s ease;
 }
 
 .feed {
@@ -520,11 +521,17 @@ ul.navbar li.right {
 	border-bottom: 4px solid var(--navbar-background);
 }
 
+@keyframes drop-down {
+	from { height: 0px; opacity: 0%; overflow-y: hidden; }
+	to { height: auto; opacity: 100%; overflow-y: hidden; }
+}
+
 #get:hover #get-dropdown, #documentation:hover #documentation-dropdown {
 	transition: all 0.2s ease;
 	display: block;
 	opacity: 100%;
 	height: auto;
+	animation: drop-down 0.65s ease;
 }
 
 .footer {
@@ -573,6 +580,19 @@ ul.navbar li.right {
 	padding-left: 24px;
 	border: none;
 	background-color: var(--background-two);
+}
+
+.fadein, .fadeout {
+	animation: fade-in 0.6s ease;
+}
+
+.fadeout {
+	animation-direction: reverse;
+}
+
+@keyframes fade-in {
+	from { opacity: 0%; }
+	to { opacity: 100%; }
 }
 
 @media screen and (max-width: 900px) {

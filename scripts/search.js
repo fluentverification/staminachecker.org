@@ -5,11 +5,15 @@ function showSearchBar() {
 		search.style.display = "none";
 		searchIcon.classList.remove("icon_go-next");
 		searchIcon.classList.add("icon_edit-find");
+		search.classList.remove("fadein");
+		search.classList.add("fadeout");
 	}
 	else {
 		search.style.display = "block";
 		searchIcon.classList.add("icon_go-next");
 		searchIcon.classList.remove("icon_edit-find");
+		search.classList.add("fadein");
+		search.classList.remove("fadeout");
 	}
 }
 function search(id='search') {
