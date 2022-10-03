@@ -122,9 +122,9 @@ chmod +x install.sh && install.sh</pre>
 	<h2>Method 2: The Perl Script (Legacy)</h2>
 	The Perl script clones both STAMINA and PRISM, so it should be directly passed into the Perl executable from <span class="inline-code">curl</span> or <span class="inline-code">wget</span>.<br>
 	Using <span class="inline-code">curl</span>:
-	<pre class="code">perl -e "$(curl https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl)"</pre>
+	<pre class="code">perl -e "$(curl https://raw.githubusercontent.com/fluentverification/stamina-prism/master/install.pl)"</pre>
 	Using <span class="inline-code">wget</span>:
-	<pre class="code">wget https://raw.githubusercontent.com/fluentverification/stamina/master/install.pl && perl install.pl && rm install.pl</pre>
+	<pre class="code">wget https://raw.githubusercontent.com/fluentverification/stamina-prism/master/install.pl && perl install.pl && rm install.pl</pre>
 	<h2>Method 3: Installing Manually</h2>
 	First, you will need to install PRISM. STAMINA <i>requires</i> the installed version of PRISM to be version 4.5.
 	<pre class="code">git clone https://github.com/prismmodelchecker/prism prism
