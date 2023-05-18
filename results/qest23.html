@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../styles.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
+	<script type="text/javascript" src="../scripts/table.js"></script>
 	<meta name="keywords" content="STAMINA,Model-Checker,Infinite-State,markov,markov-chain,formal-verification,formal-methods">
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
@@ -85,20 +86,25 @@ if (bttButton != null) {
 	<h1>QEST 2023 STAMINA Full Results</h1>
 	<p>On this page, you will find a full listing of the results. Results are also downloadable in <a href="qest23/csv">csv</a> and <a href="qest23/results.xlsx">OOXML Spreadsheet (XLSX)</a> format. Results are delineated by <i>Runtime</i>, <i>P<sub>min</sub>/P<sub>max</sub></i> and <i>number of states generated</i>.</p>
 	<h2>Runtime</h2>
-	<a class="button" href="qest23/csv/runtime.json">Download CSV</a>
+	<a class="button" href="qest23/csv/times.csv">Download CSV</a>
 	<table id="runtime-table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
 	<h2>Probabilities (P<sub>Min</sub> and P<sub>max</sub>)</h2>
-	<a class="button" href="qest23/csv/probabilities.json">Download CSV</a>
+	<a class="button" href="qest23/csv/results.csv">Download CSV</a>
 	<table id="probabilities-table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
 	<h2>State Count</h2>
-	<a class="button" href="qest23/csv/states.json">Download CSV</a>
+	<a class="button" href="qest23/csv/states.csv">Download CSV</a>
 	<table id="state-table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
+	<script>
+		getCSVDataAndAppendToTable("results/qest23/csv/times.csv", "runtime-table", []);
+		getCSVDataAndAppendToTable("results/qest23/csv/results.csv", "probabilities-table", []);
+		getCSVDataAndAppendToTable("results/qest23/csv/states.csv", "state-table", []);
+	</script>
 </div>
 <!-- Footer -->
 <div class="footer">
