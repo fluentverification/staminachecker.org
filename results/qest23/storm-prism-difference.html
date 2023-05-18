@@ -16,7 +16,7 @@
 	<li><a class="stamina-name" id="stamina" href="/index.html"><div id="slogo">STAMINA</div></a></li>
 	<li><a class="openbutton" id="openbutton" onclick="openNav()">&#9776;</a></li>
 	<li><a class="closebutton" id="closebutton" onclick="closeNav()">&times;</a></li>
-	<li><a class="active" id="active" href="/index.html">Home</a></li>
+	<li><a class="navbutton" href="/index.html">Home</a></li>
 	<li><a class="navbutton" href="/about.html">About</a></li>
 	<li id="get">
 		<a href="/get.html" class="navbutton">Get</a>
@@ -33,7 +33,7 @@
 		</div>
 	</li>
 	<li><a class="navbutton" href="../benchmarks.html">Benchmarks</a></li>
-	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="../images/icons/darkLight.svg" height="15px"></a></li>
+	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="../../images/icons/darkLight.svg" height="15px"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
 	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon icon_edit-find" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 <li>
@@ -93,11 +93,12 @@ if (bttButton != null) {
 		<tr><td>Toy 2 (Combined) 4</td><td>0.6263694968</td><td>0.626369457942353</td><td>3.88576472110103E-08</td></tr>
 		<tr><td>Toy 2 (Combined) 1</td><td>0.6953953213</td><td>0.69539527920791</td><td>4.20920902577393E-08</td></tr>
 		<tr><td>Toy 2 (Separate)</td><td>0.6953953213</td><td>0.69539527920791</td><td>4.20920902577393E-08</td></tr>
-		<tr><td>Jackson 5 N 4</td><td>None</td><td>None</td><td></td></tr>
-		<tr><td>Jackson 5 N 5</td><td>None</td><td>None</td><td></td></tr>
+		<tr><td>Jackson 5 N 4</td><td>None (OOM Error)</td><td>None (OOM Error)</td><td></td></tr>
+		<tr><td>Jackson 5 N 5</td><td>None (OOM Error)</td><td>None (OOM Error)</td><td></td></tr>
 		<tr><td>Tandem c2047</td><td>0.4989665901</td><td>0.498966574855377</td><td>1.52446226753256E-08</td></tr>
 		<tr><td>Tandem c4095</td><td>0.4992677454</td><td>0.499267709080004</td><td>3.63199963993033E-08</td></tr>
 	</table>
+	<p>The Jackson models did not finish for either model checker, and ended with OOM errors.</p>
 </div>
 <!-- Footer -->
 <div class="footer">
