@@ -86,7 +86,7 @@ if (bttButton != null) {
 <!-- CONTENT -->
 	<h1>Benchmarks</h1>
 	<p>
-		In most cases, STAMINA/STORM performed better in general than STAMINA/PRISM, even without the dynamic programming. However, with dynamic programming, many of the runtimes STAMINA/STORM has are substantially better than STAMINA/PRISM.
+		Benchmarking was done for our submission to QEST'23, and the results for those benchmarks are available <a href="results/qest23">here</a>. More benchmarks will be available with future submissions.
 	</p>
 	<div class="note">
 		Benchmarking was done on an NZXT computer running Debian 11 (Linux 5.10) with the following properties:<br>
@@ -95,98 +95,6 @@ if (bttButton != null) {
 			<li> RAM: 64 GiB DDR4</li>
 			<li> Graphics Card: SAPPHIRE</li>
 		</ul>
-	</div>
-	You may also <a onclick="expandAll()">expand all</a> or <a onclick="collapseAll()">collapse all</a>.
-	<script>
-		function expandAll() {
-			openCollapsible('runtimes', 'runtimes-header');
-			openCollapsible('results', 'results-header');
-			openCollapsible('states', 'states-header');
-		}
-		function collapseAll() {
-			closeCollapsible('runtimes', 'runtimes-header');
-			closeCollapsible('results', 'results-header');
-			closeCollapsible('states', 'states-header');
-		}
-	</script>
-	<h3 class="collapsible-header" id="runtimes-header" onclick="openCollapsible('runtimes', 'runtimes-header')">
-		<div id="runtimes-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
-		STAMINA Runtimes vs. Other Model Checkers
-	</h3>
-	<div class="collapsible" id="runtimes">
-	<p>
-		STAMINA/STORM 2.5 was compared in runtime to other versions of the STAMINA algorithm, integrated with both PRISM and STORM. Additionally, when the final results for STAMINA compared against itself are finished testing, STAMINA will be compared with other model checkers, such as Modest and Infamy. We cannot directly compare to PRISM or STORM since the models used for testing were unbounded, so both PRISM and STORM would not terminate during the model construction phase.
-	</p>
-	<p>
-		The results below are <i>preliminary</i> results, and don't yet include the Hazard Circuit models, which are the most interesting as they are the largest and often have nested properties. However, even with the existing results, it is evident that STAMINA/STORM 2.5 is substantially faster in general than STAMINA/PRISM or even STAMINA/STORM 2.0. We plan to include full results against all models we will test against in a paper that will be submitted to VMCAI in September.
-	</p>
-	<h4>Runtimes Against Other STAMINA Algorithms (in Seconds)</h4>
-
-	<select id="times-select">
-		<option value="hazard">Hazard Circuit</option>
-		<option value="jackson">Jackson Circuit</option>
-		<option value="polling">Polling System</option>
-		<option value="robot">Robot World</option>
-		<option value="tandem">Tandem Queue</option>
-		<option value="toggle">Toggle Switch</option>
-		<option value="toy">Toy Model</option>
-	</select>
-	<script>
-function putTimesInTable() {
-	let s = document.getElementById("times-select");
-	var url = "data/results/preliminary/" + s.value + "/times.csv";
-	getCSVDataAndAppendToTable(url, "times-table", ["Model", "STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0", "Winning Checker"]);
-}
-	</script>
-	<button class="button" onclick="putTimesInTable()">Update</button>
-	<p style="font-size: 9pt">Please note that these results are <i>preliminary</i>. Full results are expected to be published in a paper this fall. The word "fail" next to a runtime means that particular model checker was unable to produce a bound, either because of an OOM (out of memory) error, or another error.</p>
-	<table class="table table-bordered table-hover table-condensed" id="times-table">
-		<tbody><th>Please select a model class above and click "update".</th></tbody>
-	</table>
-	</div>
-	<h3 class="collapsible-header" id="results-header" onclick="openCollapsible('results', 'results-header')">
-		<div id="results-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
-		STAMINA Probability Results vs. Other Model Checkers
-	</h3>
-	<div class="collapsible" id="results">
-	<p>
-		STAMINA/STORM was able to consistently and accurately predict probability windows for CSL properties for all tests in the preliminary testing. Again, when full testing is complete (i.e., comparison against other model estimation tools including <a href=https://www.modestchecker.net/>MODEST</a> and <a href=https://www.academia.edu/994229/INFAMY_An_infinite_state_Markov_model_checker>INFAMY</a>), they will be published in a paper, probably sometime in Fall 2022.
-	<select id="results-select">
-		<option value="hazard">Hazard Circuit</option>
-		<option value="jackson">Jackson Circuit</option>
-		<option value="polling">Polling System</option>
-		<option value="robot">Robot World</option>
-		<option value="tandem">Tandem Queue</option>
-		<option value="toggle">Toggle Switch</option>
-		<option value="toy">Toy Model</option>
-	</select>
-	<button class="button" onclick="putResultsInTable()">Update</button>
-	<p style="font-size: 9pt">
-	The values in this table are the probability windows, i.e., <i>P<sub>MAX</sub> - P<sub>MIN</sub></i>. The closer they are to 0.0, the more accurate bound STAMINA was able to produce. An empty value means that this model checker was unable to produce a probability bound.
-	</p>
-	<script>
-function putResultsInTable() {
-	let s = document.getElementById("results-select");
-	var url = "data/results/preliminary/" + s.value + "/windows.csv";
-	getCSVDataAndAppendToTable(url, "results-table", ["Model", "STAMINA/STORM 2.0", "STAMINA/STORM 2.5 (Single Thread)", "STAMINA/PRISM 2.0", "STAMINA/PRISM 1.0"]);
-}
-	</script>
-	</p>
-	<table class="table table-bordered table-hover table-condensed" id="results-table">
-		<tbody><th>Please select a model class above and click "update".</th></tbody>
-	</table>
-	</div>
-	<h3 class="collapsible-header" id="states-header" onclick="openCollapsible('states', 'states-header')">
-		<div id="states-header-icon" style="width: 40px; display: inline-block; overflow: hidden;">&#9776;</div>
-		STAMINA Number of States Generated vs. Other Model Checkers
-	</h3>
-	<div class="collapsible" id="states">
-	<p>
-		According to the preliminary results, the state-counts were fairly similar between STAMINA/STORM and STAMINA/PRISM, however, STAMINA/STORM was able to explore more states quicker and with less memory impact than STAMINA/PRISM. Additionally, because STAMINA/STORM builds the transition matrix within its own code (relying on STORM classes to do so), rather than requiring the STORM API to do so, even within STAMINA/STORM, the same number of states can be explored with less work than STAMINA/PRISM.
-	</p>
-	<p>
-		Full results will be published here after testing is complete.
-	</p>
 	</div>
 </div>
 
