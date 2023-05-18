@@ -50,7 +50,7 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
-<i class="icon  icon_go-up-skip just-icon"></i></a>
+<i class="icon icon_go-up-skip just-icon"></i></a>
 <script>
 let bttButton = document.getElementById('btt-button');
 
@@ -87,17 +87,17 @@ if (bttButton != null) {
 	<p>On this page, you will find a full listing of the results. Results are also downloadable in <a href="qest23/csv">csv</a> and <a href="qest23/results.xlsx">OOXML Spreadsheet (XLSX)</a> format. Results are delineated by <i>Runtime</i>, <i>P<sub>min</sub>/P<sub>max</sub></i> and <i>number of states generated</i>.</p>
 	<h2>Runtime</h2>
 	<a class="button" href="qest23/csv/times.csv">Download CSV</a>
-	<table id="runtime-table">
+	<table id="runtime-table" class="table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
 	<h2>Probabilities (P<sub>Min</sub> and P<sub>max</sub>)</h2>
 	<a class="button" href="qest23/csv/results.csv">Download CSV</a>
-	<table id="probabilities-table">
+	<table id="probabilities-table" class="table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
 	<h2>State Count</h2>
 	<a class="button" href="qest23/csv/states.csv">Download CSV</a>
-	<table id="state-table">
+	<table id="state-table" class="table">
 		<!-- TODO: populate this table via JavaScript -->
 	</table>
 	<script>
