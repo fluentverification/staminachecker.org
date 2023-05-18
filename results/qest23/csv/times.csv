@@ -1,0 +1,23 @@
+,STAMINA 2.0 (PRISM),STAMINA 2.0 (Storm),
+Model,Total Time,Total Time,Percent improvement
+Circuit 010 to 100,47.79,28.57,40.23
+Circuit 010 to 111,3337.96,2846.65,14.72
+Circuit 100 to 111,3280.53,2863.92,12.70
+Circuit 111 to 010,283.53,236.49,16.59
+Circuit 100 to 010,100.78,73.81,26.76
+Circuit 111 to 100,216.10,204.51,5.36
+Circuit 000 to 011,2393.88,2142.35,10.51
+Circuit 011 to 101,2612.57,1866.81,28.55
+Circuit 000 to 101,2417.28,2089.91,13.54
+Circuit 101 to 000,193.00,138.85,28.06
+Circuit 011 to 000,230.41,154.66,32.88
+Circuit 101 to 011,2896.84,2441.37,15.72
+Tandem 2047,15.59,3.42,78.09
+Tandem 4095,52.80,6.86,87.01
+Polling N = 12*,N/A,N/A,N/A
+Polling N = 16*,N/A,N/A,N/A
+Polling N = 20*,N/A,N/A,N/A
+Jackson (5 N 4),33.38,62.64,-87.65
+Jackson (5 N 5),419.47,588.40,-40.27
+Toggle 0,1.53,1.01,33.88
+Toggle 100,2.27,1.49,34.43
