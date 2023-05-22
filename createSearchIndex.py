@@ -6,7 +6,7 @@ import os
 import time
 
 from bs4 import BeautifulSoup
-''' 
+'''
 Searches files and creates a search index
 '''
 
@@ -52,10 +52,12 @@ def searchFile(filename, out=sys.stdout):
 		print("]", file=out)
 	f.close()
 
-def searchAllFiles(cwd, out=sys.stdout):
+def searchAllFiles(cwd, out=sys.stdout, recurse=False):
 	for fileName in os.listdir(cwd):
 		if fileName.endswith('.html'):
-			searchFile(fileName, out)
+			searchFile(f"{cwd}/{fileName}", out)
+		elif recurse and os.path.isdir(fileName):
+			searchAllFiles(f"{cwd}/{fileName}")
 
 if __name__=='__main__':
 	if "--json" in sys.argv or "-j" in sys.argv:
@@ -78,12 +80,12 @@ if __name__=='__main__':
 		# Does not exist
 		pass
 	if not ("-h" in sys.argv or "--help" in sys.argv):
-		searchAllFiles(os.getcwd())
+		searchAllFiles(os.getcwd(), recurse=recurse)
 	else:
 		print("Options:")
 		print("\t--recurse/-r:   Recurses subdirectories")
 		print("\t--help/-h:      Shows this message")
 		print("\t--json/-j:      Exports in JSON")
 		print("\t--base/-b:      Base URL (default https://staminachecker.org")
-		
+
 # https://www.tutorialspoint.com/how-to-import-local-json-file-data-to-my-javascript-variable
