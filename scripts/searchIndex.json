@@ -106,7 +106,7 @@
 "title":"Storm and PRISM differences QEST'23 results - STAMINA Model Checker"
 , "date":"Mon May 22 16:01:24 2023"
 , "url":"https://staminachecker.org/results/qest23/storm-prism-difference.html"
-, "content":"STORM vs PRISM Probability Difference The following table quantifies the difference (albeit small one) between Storm and Prism on some small tests."
+, "content":"STORM vs PRISM Probability Difference The following table quantifies the difference (albeit small one) between Storm and Prism on some small tests. The Jackson models did not finish for either model checker, and ended with OOM errors."
 }
 ]
 }
