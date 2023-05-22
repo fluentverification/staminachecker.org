@@ -102,5 +102,11 @@
 , "url":"https://staminachecker.org/results/qest23.html"
 , "content":"  QEST 2023 STAMINA Full Results On this page, you will find a full listing of the results. Results are also downloadable in csv and OOXML Spreadsheet (XLSX) format. Results are delineated by Runtime, Pmin/Pmax and number of states generated.    Note, a summary in the differences we found between PRISM and STORM, without STAMINA involved, can be found here  Runtime Download CSV    Probabilities (PMin and Pmax) Download CSV    State Count Download CSV     "
 }
+, {
+"title":"Storm and PRISM differences QEST'23 results - STAMINA Model Checker"
+, "date":"Mon May 22 16:01:24 2023"
+, "url":"https://staminachecker.org/results/qest23/storm-prism-difference.html"
+, "content":"STORM vs PRISM Probability Difference The following table quantifies the difference (albeit small one) between Storm and Prism on some small tests."
+}
 ]
 }
