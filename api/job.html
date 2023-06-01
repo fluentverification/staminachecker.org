@@ -9,6 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
 	<script type="text/javascript" src="../scripts/search.js"></script>
+	<script type="text/javascript" src="job.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
 <body>
@@ -110,7 +111,7 @@ if (bttButton != null) {
 	font-family: 'Noto Sans Mono' monospace;
 	font-size: 10pt;
 }
-.info, .err, .good, .warn {
+.info, .err, .good, .warn, .line, .hline {
 	display: inline-block;
 	width: 100%;
 	padding-bottom: 3px;
@@ -118,11 +119,15 @@ if (bttButton != null) {
 	border-bottom: 2px solid #00000000;
 }
 
-.info:hover, .err:hover, .good:hover, .warn:hover {
+.info:hover, .err:hover, .good:hover, .warn:hover, .line:hover {
 	border-bottom: 2px solid var(--accent-medium);
 }
 
-.info::before, .err::before, .good::before, .warn::before {
+.hline {
+	border-bottom: 2px solid var(--background-three);
+}
+
+.info::before, .err::before, .good::before, .warn::before, .line:before {
 	display: inline-block;
 	min-width: 100px;
 	font-weight: bold;
@@ -153,40 +158,34 @@ if (bttButton != null) {
 	color: var(--accent-medium);
 }
 
+.line:before {
+	content: " ";
+}
+
 </style>
 <div class="content">
-	<div class="note">
+	<!--<div class="note">
 		This page is not implemented yet! It will do nothing!
-	</div>
+	</div>-->
 <!-- CONTENT -->
 	<div class="results">
 		<h1>Results</h1>
 		<span class="geninfo geninfo-label">P<sub>MIN</sub>: </span><span class="geninfo" id="pmin">UNDEFINED</span><br>
 		<span class="geninfo geninfo-label">P<sub>MAX</sub>: </span><span class="geninfo" id="pmax">UNDEFINED</span><br>
 		<span class="geninfo geninfo-label">Window: </span><span class="geninfo" id="w">UNDEFINED</span><br>
-		<span class="geninfo geninfo-label">N<sub>STATES</sub>: </span><span class="geninfo" id="n">UNDEFINED</span><br>
+<!-- 		<span class="geninfo geninfo-label">N<sub>STATES</sub>: </span><span class="geninfo" id="n">UNDEFINED</span><br> -->
 	</div>
 	<div class="lds-ripple"><div></div><div></div><h1>Running job</h1></div>
 	
 	<span class="geninfo geninfo-label">Job UID: </span><span class="geninfo" id="uid">UNDEFINED</span><br>
-<script>
-let uid = getParameterByName('uid');
-if (uid != null && uid != "") {
-	document.getElementById('uid').innerHTML = uid;
-}
-else {
-	alert("STAMINA job UID not defined!");
-}
-</script>
-	<span class="geninfo geninfo-label">Model File: </span><span class="geninfo" id="model">UNDEFINED</span><br>
-	<span class="geninfo geninfo-label">Properties File: </span><span class="geninfo" id="properties">UNDEFINED</span><br>
+
+<!-- 	<span class="geninfo geninfo-label">P<sub>MIN</sub>: </span><span class="geninfo" id="pmin">UNDEFINED</span><br> -->
+<!-- 	<span class="geninfo geninfo-label">P<sub>MAX</sub>: </span><span class="geninfo" id="pmax">UNDEFINED</span><br> -->
+	<h4>Full Logs:</h4>
 	<div class="output" id="output">
-		<span class="info" id="first-info">Starting STAMINA/STORM through REST API with query: </span>
-		<span class="warn">A test warning </span>
-		<span class="err">A test error. </span>
-		<span class="good">Good message</span>
+		<noscript>JavaScript is required to query the REST API</noscript>
 	</div>
-	<a href="#" class="button">Save to file...</a>
+	<a href="#" class="button" id="save-logs">Save Logs to file...</a>
 </div>
 <!-- Footer -->
 <div class="footer">
@@ -220,6 +219,17 @@ else {
 			</tr>
 		</table>
 	</div>
+<script>
+let uid = getParameterByName('uid');
+if (uid != null && uid != "") {
+	document.getElementById('uid').innerHTML = uid;
+	uid_global = uid;
+	getLogData();
+}
+else {
+	alert("STAMINA job UID not defined!");
+}
+</script>
 	<div style="padding-top: 30px;" >
 		STAMINA is developed at <a href="https://www.usu.edu/">Utah State University</a> and is part of the tools developed by the FLUENT Team. The STAMINA tool is licensed under the MIT license, and the model checkers it integrates with, STORM and PRISM, are under the GPL 3.0 and 2.0 licenses respectively.
 	</div>
