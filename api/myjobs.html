@@ -12,6 +12,49 @@
 	<script type="text/javascript" src="job.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
+<style>
+.job {
+	display: block;
+	cursor: pointer;
+	padding: 20px;
+	transition: all 0.25s ease;
+}
+
+.job:hover {
+	background-color: var(--background-two);
+	border-left: 4px solid var(--color-two);
+}
+
+.button-small, .button-small-error {
+	color: var(--color);
+	display: inline-block;
+	padding: 10px;
+	background-color: var(--background-three);
+	margin: 5px;
+	margin-left: 0px;
+	transition: all 0.5s ease;
+}
+
+.button-small:hover {
+	color: white;
+	background-color: var(--accent-medium);
+}
+
+.button-small-error:hover {
+	color: white;
+	background-color: #c13232;
+}
+
+.disabled {
+	opacity: 50% !important;
+/* 	color: var(--background-three) !important; */
+}
+
+.disabled:hover {
+/* 	color: var(--background-three) !important; */
+	background-color: var(--background-three) !important;
+}
+</style>
 <body>
 <!-- Navigation Bar -->
 <ul class="navbar" id="navbar">
@@ -95,9 +138,9 @@ if (bttButton != null) {
 	</div>-->
 <!-- CONTENT -->
 	<h1>My Jobs</h1>
-	<ul id="jobs">
-	
-	</ul>
+	<div id="jobs">
+		<noscript>You need JavaScript to view jobs</noscript>
+	</div>
 <script>
 getMyJobs();
 </script>

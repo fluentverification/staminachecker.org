@@ -18,6 +18,9 @@ const H_LINE="==================================================================
 
 // var logs = "";
 
+/**
+ * Does some really hackey text-parsing to present some information to the user.
+ * */
 async function getLogData() {
 	console.log("Making request to " + API_URL + "/checkjob" + " for uid: " + uid_global)
 	fetch(API_URL + "/checkjob", {
@@ -50,6 +53,11 @@ async function getLogData() {
 					out.innerHTML += "<span class=good>"
 					+ t.replace(MSG_HEADER, "")
 					+ "</span>";
+					// I should probably do something a little better this.
+					// This is really hackey
+					if (t.includes("Finished running!")) {
+						document.getElementById("status").innerHTML = "Finished";
+					}
 				}
 				else if (t.startsWith(WARN_HEADER)) {
 					out.innerHTML += "<span class=warn>"
@@ -60,6 +68,9 @@ async function getLogData() {
 					out.innerHTML += "<span class=err>"
 					+ t.replace(ERR_HEADER, "")
 					+ "</span>";
+					if (t.includes("exit")) {
+						document.getElementById("status").innerHTML = "Exited with error";
+					}
 				}
 				else if (t == H_LINE) {
 					out.innerHTML += "<span class=hline></span>"
@@ -75,13 +86,13 @@ async function getLogData() {
 // 					console.log(t);
 					if (t.includes("Probability Minimum:")) {
 						console.log(t);
-						var tToAdd = t.replace("Probability Minimum:", "");
+						var tToAdd = t.replace("Probability Minimum:", "").replaceAll(BOLD_END, "").replace(PURPLE_START, "").replace(BOLD_START, "");
 						console.log(tToAdd);
 						document.getElementById("pmin").innerHTML = tToAdd;
 						document.querySelectorAll(".results").forEach(t => t.style.display = "block");
 					}
 					else if (t.includes("Probability Maximum:")) {
-						document.getElementById("pmax").innerHTML = t.replace("Probability Maximum:", "").replace(BOLD_END, "");
+						document.getElementById("pmax").innerHTML = t.replace("Probability Maximum:", "").replaceAll(BOLD_END, "").replace(PURPLE_START , "").replace(BOLD_START, "");
 					}
 					else if (t.includes("Window:")) {
 						document.getElementById("w").innerHTML = t.replace("Window:", "").replace(BOLD_END, "");
@@ -106,8 +117,27 @@ async function getMyJobs() {
 			}
 			else {
 				json.forEach((job) => {
-					jobs.innerHTML += "<ul>UID:" + job.uid + " <a href=job.html?uid=" + job.uid + ">link</a></ul>";
+					jobs.innerHTML += "<div class=job>UID:" + job.uid + "<br> <a class=button-small href=job.html?uid=" + job.uid + ">View</a>"
+					+ "<a class=button-small-error onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + ">Kill</a>"
+					+ "</div>";
 				});
 			}
 		}));
+}
+
+function killJob(uid) {
+	fetch(API_URL + "/kill", {
+		method: "POST"
+		, mode: "cors"
+		, body: uid
+	}).then((response) => response.text()
+		.then((text) => {
+			console.log(text);
+			// Should really do some kind of flag here
+			if (text == "Success") {
+				let btn = document.getElementById("kill-job-"+uid);
+				btn.classList.add("disabled");
+				btn.onclick = "";
+			}
+	}));
 }
