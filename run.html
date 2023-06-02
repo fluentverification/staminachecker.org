@@ -373,8 +373,10 @@ function setActiveTab(tabId) {
 	<a onclick="setActiveTab('tab2')" id="tab2-tab">Use a preset...</a>
 </div>
 <form id=options method="POST" action=http://127.0.0.1:5000/jobs enctype="multipart/form-data"> <!-- TODO: Add actual action when we dockerize/REST STAMINA onto Azure -->
-	<input type="checkbox" value="true" name="create" id="create-box" style="visibility: visible;">Create job</input>
-	<input type="checkbox" value="true" name="from_web" style="visibility: visible;">Web user</input>
+	<div style="display: none;">
+	<input type="checkbox" checked="true" name="create" id="create-box" style="visibility: visible;">Create job</input>
+	<input type="checkbox" checked="true" name="from_web" style="visibility: visible;">Web user</input>
+	</div>
 	<div class="tab-body active-tab-body" id="tab1">
 		<label class="label">Model File:</label>
 		<div class="find-file">
