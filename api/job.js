@@ -41,7 +41,7 @@ async function getLogData() {
 			let saveLogs = document.getElementById("save-logs");
 			var logFile = new Blob([text], {type:"text/plain"});
 			saveLogs.href = URL.createObjectURL(logFile);
-			saveLogs.download = "stamina_logs.txt"
+			saveLogs.download = "stamina_logs_" + uid_global + ".txt"
 			text.split("\n").forEach(t => {
 // 				console.log(t);
 				// This is an "info" text
@@ -103,6 +103,8 @@ async function getLogData() {
 				}
 			});
 		}));
+	let now = new Date();
+	document.getElementById("check-time").innerHTML = now.toLocaleString();
 }
 
 async function getMyJobs() {
