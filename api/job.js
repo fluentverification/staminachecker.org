@@ -20,6 +20,8 @@ const H_LINE="==================================================================
 
 /**
  * Does some really hackey text-parsing to present some information to the user.
+ * 
+ * This is so hackey I understand why people make their code proprietary. Please don't think the actual STAMINA codebase is this hackey.
  * */
 async function getLogData() {
 	console.log("Making request to " + API_URL + "/checkjob" + " for uid: " + uid_global)
@@ -76,6 +78,7 @@ async function getLogData() {
 					out.innerHTML += "<span class=hline></span>"
 				}
 				else {
+					if (t.trim() == "") { return; }
 					out.innerHTML += "<span class=line>" 
 					// This is soo hacky
 					+ t.replace(BOLD_START + PURPLE_START, "<b><span style='color:#bb1cbb'>")
