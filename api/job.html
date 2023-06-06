@@ -47,7 +47,7 @@
 	</div>
 </li>
 </ul>
-<script type="text/javascript" src="scripts/search.js"></script>
+<script type="text/javascript" src="/scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
@@ -95,6 +95,8 @@ if (bttButton != null) {
 	padding: 10px;
 	margin-top: 20px;
 	margin-top: 20px;
+	overflow: auto;
+	height: 400px;
 }
 .geninfo {
 	display: inline-block;
@@ -117,10 +119,36 @@ if (bttButton != null) {
 	padding-bottom: 3px;
 	margin-bottom: 5px;
 	border-bottom: 2px solid #00000000;
+	cursor: pointer;
 }
 
-.info:hover, .err:hover, .good:hover, .warn:hover, .line:hover {
+.good:hover {
 	border-bottom: 2px solid var(--accent-medium);
+}
+
+.line:hover {
+	border-bottom: 2px solid #44444444;
+}
+
+.info:hover {
+	border-bottom: 2px solid #1b91ca;
+}
+
+.warn:hover {
+	border-bottom: 2px solid #ccc123;
+}
+
+.killed:hover, .err:hover {
+	border-bottom: 2px solid #ca1b1b !important;
+}
+
+.killed, .err {
+	background-color: #ca1b1b33;
+}
+
+.killed {
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
 .hline {
@@ -226,6 +254,10 @@ if (uid != null && uid != "") {
 	document.getElementById('uid').innerHTML = uid;
 	uid_global = uid;
 	getLogData();
+	setTimeout(
+		getLogData
+		, 10 * 1000 // 10 seconds
+	);
 }
 else {
 	alert("STAMINA job UID not defined!");

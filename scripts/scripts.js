@@ -11,7 +11,7 @@ window.onload = function() {
 		setDarkMode();
 	}
 	else {
-		document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure=true";
+		document.cookie = "color-scheme=light; " + expireCookie + "; SameSite=none; Secure=true";
 	}
 	// If showCookieInfo
 	if (showCookieInfo) {
@@ -58,7 +58,7 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	document.cookie = "color-scheme=dark " + expireCookie + " SameSite=none Secure=true";
+	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', 'white');
 	rt.style.setProperty('--color-two', '#f7f7f7');

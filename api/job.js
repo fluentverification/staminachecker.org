@@ -61,9 +61,9 @@ async function getLogData() {
 						document.getElementById("status").innerHTML = "Finished";
 					}
 				}
-				else if (t.startsWith(WARN_HEADER)) {
+				else if (t.startsWith(WARN_HEADER) || t.includes("WARN")) {
 					out.innerHTML += "<span class=warn>"
-					+ t.replace(WARN_HEADER, "")
+					+ t.replace(WARN_HEADER, "").replace("WARN", "")
 					+ "</span>";
 				}
 				else if (t.startsWith(ERR_HEADER)) {
@@ -76,6 +76,13 @@ async function getLogData() {
 				}
 				else if (t == H_LINE) {
 					out.innerHTML += "<span class=hline></span>"
+				}
+				else if (t == "Killed.")
+				{
+					document.getElementById("status").innerHTML = "Killed (by user or by timeout)";
+					out.innerHTML += "<span class=\"err killed\">"
+					+ t
+					+ "</span>";
 				}
 				else {
 					if (t.trim() == "") { return; }
@@ -116,20 +123,46 @@ async function getMyJobs() {
 		.then((json) => {
 			console.log(json);
 			let jobs = document.getElementById("jobs");
+			jobs.innerHTML = "";
 			if ("error" in json) {
 				jobs.innerHTML += "<div class=error>Got the following error when attempting to access jobs:<br>"
 				+ json["error"] + "</div>";
 			}
 			else {
 				json.forEach((job) => {
-					jobs.innerHTML += "<div class=job>UID:" + job.uid + "<br> <a class=button-small href=job.html?uid=" + job.uid + ">View</a>"
-					+ "<a class=button-small-error onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + ">Kill</a>"
+					let jobKilled = job.status == "killed";
+					let jobExited = job.status == "exited";
+					var addlClass = "";
+					if (jobKilled || jobExited) {
+						addlClass = "disabled";
+					}
+					jobs.innerHTML += "<div class=job>"
+					// Job name
+					+ "<h2 id=job-name-" + job.uid + ">" + job.name 
+					+ "<span onclick=requestRenameJob('" + job.uid + "')><i class=\"clickable-icon icon icon_document-edit\"></i></span>"
+					+ "</h2>"
+					// UID
+					+ "<div>UID: " + job.uid + "</div>"
+					// Status
+					+ "<div>Status: " + job.status + "</div>"
+					// Pmin and Pmax, if applicable
+					+ getPminPmaxIfApplicable(job)
+					// View Button
+					+ "<a class=button-small href=job.html?uid=" + job.uid + " target=_blank rel=\"noopener noreferrer\">View</a>"
+					// Kill Button
+					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + ">Kill</a>"
 					+ "</div>";
 				});
 			}
 		}));
+	let now = new Date();
+	document.getElementById("check-time").innerHTML = now.toLocaleString();
 }
 
+/**
+ * Sends an HTTP request to the /kill endpoint for the STAMINA to stop
+ * a job with a certain UID.
+ * */
 function killJob(uid) {
 	fetch(API_URL + "/kill", {
 		method: "POST"
@@ -145,4 +178,63 @@ function killJob(uid) {
 				btn.onclick = "";
 			}
 	}));
+}
+
+/**
+ * Sends an HTTP request to the /rename endpoint for STAMINA to rename a job
+ * with a certain UID.
+ * */
+function renameJob(uid, newName) {
+	fetch(API_URL + "/rename", {
+		method: "POST"
+		, mode: "cors"
+// 		, headers: new Headers({
+// 			"Content-Type": "application/json"
+// 			, "Access-Control-Allow-Origin":"*"
+// 			, "Access-Control-Allow-Headers": "*"
+// 		})
+		, body: JSON.stringify({
+			id: uid
+			, name: newName
+		})
+	}).then((response) => {
+		if (response.status == 200) {
+			document.getElementById("job-name-" + uid).innerHTML = newName;
+		}
+		else {
+			alert("Got status \"" + response.status + "\" when trying to rename Job!");
+		}
+	});
+}
+
+function requestRenameJob(uid) {
+	let name = prompt("New name for job:");
+	renameJob(uid, name);
+}
+
+function getPminPmaxIfApplicable(job) {
+	var toReturn = "";
+	var pMin = null;
+	var pMax = null;
+	job.logs.split("\n").forEach((line) => {
+		if (line.includes("Probability Minimum:")) {
+			pMin = line.replace("Probability Minimum:", "")
+					.replaceAll(BOLD_END, "")
+					.replace(PURPLE_START, "")
+					.replace(BOLD_START, "");
+		}
+		else if (line.includes("Probability Maximum:")) {
+			pMax = line.replace("Probability Maximum:", "")
+					.replaceAll(BOLD_END, "")
+					.replace(PURPLE_START, "")
+					.replace(BOLD_START, "");
+		}
+	});
+	if (pMin != null) {
+		toReturn += "<div>P<sub>min</sub>:" + pMin + "</div>";
+	}
+	if (pMax != null) {
+		toReturn += "<div>P<sub>max</sub>:" + pMax + "</div>";
+	}
+	return toReturn;
 }

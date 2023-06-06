@@ -522,28 +522,34 @@ w.onchange = function() {
 	<div class="collapsible" id="advanced">
 		<label for="method">Exploration method:</label>
 		<select name="method" id="method" class="auto-width">
+			<option value="-J">STAMINA Re-Exploring (STAMINA 2.0)</option>
 			<option value="-I">STAMINA Iterative (STAMINA 2.5)</option>
 			<option value="-P">STAMINA Priority (STAMINA 3.0)</option>
-			<option value="-J">STAMINA Re-Exploring (STAMINA 2.0)</option>
 		</select><br>
-		<div class="checkbox-styled">
-			<input type="checkbox" value="1" id="multithreading"></input>
-			<label for="multithreading"></label>
+		<div class="disabled-box">
+			<div class="checkbox-styled">
+				<input type="checkbox" value="1" id="multithreading"></input>
+				<label for="multithreading"></label>
+			</div>
+			<span class="check-label">Use multithreading protocol (may prevent timeout).</span>
 		</div>
-		<span class="check-label">Use multithreading protocol (may prevent timeout).</span>
+		<div class="disabled-box">
 		<div class="checkbox-styled">
 			<input type="checkbox" id="transitionFiles"></input>
 			<label for="transitionFiles"></label>
 		</div>
 		<span class="check-label">Create <code class="inline-code">.tra</code> file which contains all of the states used in the final model.</span>
+		</div>
 		<div class="checkbox-styled">
 			<input type="checkbox" id="reportLabels"></input><label for="reportLabels"></label><br>
 		</div>
 		<span class="check-label">Report the labels created and the number of states created with each label.</span>
-		<div class="checkbox-styled">
-			<input type="checkbox" id="stateLabels"></input><label for="stateLabels"></label>
+		<div class="disabled-box">
+			<div class="checkbox-styled">
+				<input type="checkbox" id="stateLabels"></input><label for="stateLabels"></label>
+			</div>
+			<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 		</div>
-		<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 	</div>
 	<input type="submit" value="Run">
 </form>

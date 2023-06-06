@@ -575,6 +575,15 @@ ul.navbar li.right {
 	height: 60px;
 }
 
+.clickable-icon {
+	display: inline-block;
+	padding: 5px;
+}
+
+.clickable-icon:hover {
+	color: var(--link-base);
+}
+
 #query {
 	padding: 12px;
 	padding-left: 24px;
@@ -588,6 +597,11 @@ ul.navbar li.right {
 
 .fadeout {
 	animation-direction: reverse;
+}
+
+.disabled-box {
+	pointer-events: none;
+	opacity: 20%;
 }
 
 @keyframes fade-in {

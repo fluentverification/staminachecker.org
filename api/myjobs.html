@@ -90,7 +90,7 @@
 	</div>
 </li>
 </ul>
-<script type="text/javascript" src="scripts/search.js"></script>
+<script type="text/javascript" src="/scripts/search.js"></script>
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#" style="color: white;">
@@ -138,6 +138,7 @@ if (bttButton != null) {
 	</div>-->
 <!-- CONTENT -->
 	<h1>My Jobs</h1>
+	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getMyJobs() style="cursor: pointer;">Refresh</a><br>
 	<div id="jobs">
 		<noscript>You need JavaScript to view jobs</noscript>
 	</div>
