@@ -1,5 +1,5 @@
 // When debugging, use Flask on Port 5000
-const API_URL = "http://127.0.0.1:5000";
+var API_URL = "http://127.0.0.1:5000";
 // const API_URL = "https://api.staminachecker.org/"
 var uid_global = null;
 
@@ -136,10 +136,13 @@ async function getMyJobs() {
 					if (jobKilled || jobExited) {
 						addlClass = "disabled";
 					}
-					jobs.innerHTML += "<div class=job>"
+					jobs.innerHTML += "<div class=job id=job-card-" + job.uid + ">"
 					// Job name
-					+ "<h2 id=job-name-" + job.uid + ">" + job.name 
+					+ "<h2><span id=job-name-" + job.uid + ">" + job.name + "</span>"
+					// Edit button
 					+ "<span onclick=requestRenameJob('" + job.uid + "')><i class=\"clickable-icon icon icon_document-edit\"></i></span>"
+					// Delete Button
+					+ "<span onclick=requestDeleteJob('" + job.uid + "')><i class=\"clickable-icon icon icon_edit-delete\"></i></span>"
 					+ "</h2>"
 					// UID
 					+ "<div>UID: " + job.uid + "</div>"
@@ -212,6 +215,35 @@ function requestRenameJob(uid) {
 	renameJob(uid, name);
 }
 
+function requestDeleteJob(uid) {
+	fetch(API_URL + "/jobs", {
+		method: "DELETE"
+		, mode: "cors"
+		, body: uid
+	}).then((response) => {
+		if (response.status == 200) {
+			document.getElementById("job-card-" + uid).remove();
+		}
+		else {
+			alert("Could not delete job");
+		}
+	});
+}
+
+function requestDeleteAllJobs() {
+	fetch(API_URL + "/myjobs", {
+		method: "DELETE"
+		, mode: "cors"
+	}).then((response) => {
+		if (response.status == 200) {
+			alert("Success!");
+		}
+		else {
+			alert("Failed");
+		}
+	});
+}
+
 function getPminPmaxIfApplicable(job) {
 	var toReturn = "";
 	var pMin = null;
@@ -237,4 +269,13 @@ function getPminPmaxIfApplicable(job) {
 		toReturn += "<div>P<sub>max</sub>:" + pMax + "</div>";
 	}
 	return toReturn;
+}
+
+function changeApiUrl() {
+	API_URL = prompt("Please insert a new API URL (current one is " + API_URL + "):");
+	refreshApiUrl();
+}
+
+function refreshApiUrl() {
+	document.getElementById("api-url").innerHTML = API_URL;
 }
