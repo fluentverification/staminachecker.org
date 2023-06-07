@@ -54,6 +54,10 @@
 /* 	color: var(--background-three) !important; */
 	background-color: var(--background-three) !important;
 }
+
+.icon {
+	margin-bottom: -5px;
+}
 </style>
 <body>
 <!-- Navigation Bar -->
@@ -141,7 +145,7 @@ if (bttButton != null) {
 	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getMyJobs() style="cursor: pointer;">Refresh</a><br>
 	<div class=disabled-box>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
-	</div>
+	</div><br>
 	<div id="jobs">
 		<noscript>You need JavaScript to view jobs</noscript>
 	</div>

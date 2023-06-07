@@ -147,13 +147,15 @@ async function getMyJobs() {
 					// UID
 					+ "<div>UID: " + job.uid + "</div>"
 					// Status
-					+ "<div>Status: " + job.status + "</div>"
+					+ "<div id=job-" + job.uid + "-status>Status: " + job.status + "</div>"
 					// Pmin and Pmax, if applicable
 					+ getPminPmaxIfApplicable(job)
 					// View Button
-					+ "<a class=button-small href=job.html?uid=" + job.uid + " target=_blank rel=\"noopener noreferrer\">View</a>"
+					+ "<a class=button-small href=job.html?uid=" + job.uid 
+					+ "&api_url=" + API_URL
+					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
 					// Kill Button
-					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + ">Kill</a>"
+					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
 					+ "</div>";
 				});
 			}
@@ -179,6 +181,7 @@ function killJob(uid) {
 				let btn = document.getElementById("kill-job-"+uid);
 				btn.classList.add("disabled");
 				btn.onclick = "";
+				let statusLabel = document.getElementById("job-"+uid+"-status").innerHTML = "Status: killed";
 			}
 	}));
 }
@@ -237,11 +240,18 @@ function requestDeleteAllJobs() {
 	}).then((response) => {
 		if (response.status == 200) {
 			alert("Success!");
+			document.getElementById("jobs").innerHTML = "";
 		}
 		else {
 			alert("Failed");
 		}
 	});
+}
+
+function confirmRequestDeleteAllJobs() {
+	if (confirm("Are you sure? This will delete ALL jobs.\nYou will NOT be able to access job logs after this.")) {
+		requestDeleteAllJobs();
+	}
 }
 
 function getPminPmaxIfApplicable(job) {
@@ -277,5 +287,31 @@ function changeApiUrl() {
 }
 
 function refreshApiUrl() {
+	let apiURLQuery = getParameterByName("api_url");
+	if (apiURLQuery != null) {
+		API_URL = apiURLQuery;
+	}
 	document.getElementById("api-url").innerHTML = API_URL;
+	updateFieldInCookie("api-url", API_URL);
+	let options = document.getElementById("options")
+	if (options != null) { options.action = API_URL + "/jobs"; }
+}
+
+function updateFieldInCookie(fieldName, value) {
+	let curCookie = document.cookie;
+	document.cookie = "";
+	var foundField = false;
+	curCookie.split(";").forEach((c) => {
+		if (curCookie.startsWith(fieldName)) {
+			document.cookie += fieldName + "=" + value;
+			foundField = true;
+		}
+		else {
+			document.cookie += c + ";";
+		}
+	});
+	if (!foundField) {
+		document.cookie += fieldName + "=" + value;
+	}
+	return document.cookie;
 }

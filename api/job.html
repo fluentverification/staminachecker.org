@@ -190,6 +190,34 @@ if (bttButton != null) {
 	content: " ";
 }
 
+#back-button {
+	color: var(--color);
+	display: none;
+/* 	position: relative; */
+	right: 0px;
+	transition: all 0.5s ease;
+/* 	padding: 10px; */
+	margin-right: 10px;
+	cursor: pointer;
+	width: 0px;
+}
+
+#jobinfo-title:hover #back-button {
+	display: inline-block;
+	width: auto;
+}
+
+.lds-ripple:hover .ripple {
+	display: none;
+}
+
+.lds-ripple:hover h1 {
+	margin-left: 0px;
+}
+
+#back-button:hover {
+	color: var(--link-base);
+}
 </style>
 <div class="content">
 	<!--<div class="note">
@@ -203,8 +231,7 @@ if (bttButton != null) {
 		<span class="geninfo geninfo-label">Window: </span><span class="geninfo" id="w">UNDEFINED</span><br>
 <!-- 		<span class="geninfo geninfo-label">N<sub>STATES</sub>: </span><span class="geninfo" id="n">UNDEFINED</span><br> -->
 	</div>
-	<div class="lds-ripple"><div></div><div></div><h1>Job Information</h1></div>
-	
+	<div class="lds-ripple"><div class=ripple></div><div class=ripple></div><h1 id=jobinfo-title><a id="back-button" href="myjobs.html"><i class="icon icon_go-previous"></i></a>Job Information</h1></div>
 	<span class="geninfo geninfo-label">Job Status: </span><span class="geninfo" id="status">Unfinished</span><br>
 	<span class="geninfo geninfo-label">Job UID: </span><span class="geninfo" id="uid">UNDEFINED</span><br>
 	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getLogData() style="cursor: pointer;">Refresh</a><br>
