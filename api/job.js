@@ -125,8 +125,14 @@ async function getMyJobs() {
 			let jobs = document.getElementById("jobs");
 			jobs.innerHTML = "";
 			if ("error" in json) {
-				jobs.innerHTML += "<div class=error>Got the following error when attempting to access jobs:<br>"
-				+ json["error"] + "</div>";
+				let error = json["error"];
+				if (error.includes("no active jobs")) {
+					jobs.innerHTML += "<div class=card>You have no active jobs. Try creating a job at <a href=https://staminachecker.org/run>https://staminachecker.org/run</a></div>";
+				}
+				else {
+					jobs.innerHTML += "<div class=error>Got the following error when attempting to access jobs:<br>"
+				+ error + "</div>";
+				}
 			}
 			else {
 				let apiUrlNoHttp = API_URL.replace("http://", "").replace("https://", "");
