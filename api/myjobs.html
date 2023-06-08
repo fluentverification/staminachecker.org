@@ -58,6 +58,15 @@
 .icon {
 	margin-bottom: -5px;
 }
+
+h1 .clickable-icon {
+	display: none;
+	cursor: pointer;
+}
+
+h1:hover .clickable-icon {
+	display: inline-block;
+}
 </style>
 <body>
 <!-- Navigation Bar -->
@@ -141,7 +150,7 @@ if (bttButton != null) {
 		This page is not implemented yet! It will do nothing!
 	</div>-->
 <!-- CONTENT -->
-	<h1>My Jobs</h1>
+	<h1>My Jobs<span onclick=requestDeleteAllJobs()><i class="clickable-icon icon icon_edit-delete"></i></span></h1>
 	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getMyJobs() style="cursor: pointer;">Refresh</a><br>
 	<div class=disabled-box>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>

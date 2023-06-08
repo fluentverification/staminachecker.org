@@ -220,6 +220,9 @@ function requestRenameJob(uid) {
 }
 
 function requestDeleteJob(uid) {
+	if (!confirm("Are you sure? This will delete your job with UID: " + uid)) {
+		return;
+	}
 	fetch(API_URL + "/jobs", {
 		method: "DELETE"
 		, mode: "cors"
@@ -235,6 +238,7 @@ function requestDeleteJob(uid) {
 }
 
 function requestDeleteAllJobs() {
+	if (!confirm("Are you sure? This will delete ALL of your jobs!")) { return; }
 	fetch(API_URL + "/myjobs", {
 		method: "DELETE"
 		, mode: "cors"
@@ -249,11 +253,11 @@ function requestDeleteAllJobs() {
 	});
 }
 
-function confirmRequestDeleteAllJobs() {
-	if (confirm("Are you sure? This will delete ALL jobs.\nYou will NOT be able to access job logs after this.")) {
-		requestDeleteAllJobs();
-	}
-}
+// function confirmRequestDeleteAllJobs() {
+// 	if (confirm("Are you sure? This will delete ALL jobs.\nYou will NOT be able to access job logs after this.")) {
+// 		requestDeleteAllJobs();
+// 	}
+// }
 
 function getPminPmaxIfApplicable(job) {
 	var toReturn = "";
@@ -307,43 +311,4 @@ function refreshApiUrl() {
 	updateFieldInCookie("api-url", API_URL);
 	let options = document.getElementById("options")
 	if (options != null) { options.action = API_URL + "/jobs"; }
-}
-
-function updateFieldInCookie(fieldName, value) {
-	let curCookie = document.cookie;
-	document.cookie = "";
-	var foundField = false;
-	curCookie.split(";").forEach((c) => {
-		if (curCookie.startsWith(fieldName)) {
-			document.cookie += fieldName + "=" + value + ";";
-			foundField = true;
-		}
-		else {
-			document.cookie += c + ";";
-		}
-	});
-	if (!foundField) {
-		document.cookie += fieldName + "=" + value + ";";
-	}
-	return document.cookie;
-}
-
-function findFieldInCookie(searchField) {
-	if (document.cookie == "") { return; }
-	let cookieFields = document.cookie.split(";");
-	// can't use Array.forEach.
-	for (const c of cookieFields) {
-		let [field, value] = c.split("=");
-		field = field.trim();
-		value = value.trim();
-// 		console.log(field + " : " + value);
-		if (searchField == field) {
-// 			console.log("\"" + searchField + "\" is the the same as \"" + field + "\"");
-			return value;
-		}
-// 		else {
-// 			console.log("\"" + searchField + "\" is not the the same as \"" + field + "\"");
-// 		}
-	}
-	return null;
 }

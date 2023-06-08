@@ -6,12 +6,51 @@ var expirationDate = new Date();
 expirationDate.setFullYear(expirationDate.getFullYear() + 1);
 var expireCookie = "expires=" + expirationDate.toUTCString();
 
+function updateFieldInCookie(fieldName, value) {
+	let curCookie = document.cookie;
+	document.cookie = "";
+	var foundField = false;
+	curCookie.split(";").forEach((c) => {
+		if (curCookie.startsWith(fieldName)) {
+			document.cookie += fieldName + "=" + value + ";";
+			foundField = true;
+		}
+		else {
+			document.cookie += c + ";";
+		}
+	});
+	if (!foundField) {
+		document.cookie += fieldName + "=" + value + ";";
+	}
+	return document.cookie;
+}
+
+function findFieldInCookie(searchField) {
+	if (document.cookie == "") { return; }
+	let cookieFields = document.cookie.split(";");
+	// can't use Array.forEach.
+	for (const c of cookieFields) {
+		let [field, value] = c.split("=");
+		field = field.trim();
+		value = value.trim();
+		// 		console.log(field + " : " + value);
+		if (searchField == field) {
+			// 			console.log("\"" + searchField + "\" is the the same as \"" + field + "\"");
+			return value;
+		}
+		// 		else {
+		// 			console.log("\"" + searchField + "\" is not the the same as \"" + field + "\"");
+		// 		}
+	}
+	return null;
+}
+
 window.onload = function() {
 	if (darkMode) {
 		setDarkMode();
 	}
 	else {
-		document.cookie = "color-scheme=light; " + expireCookie + "; SameSite=none; Secure=true";
+		document.cookie = "color-scheme=light; " + expireCookie + "; SameSite=none; Secure=true;";
 	}
 	// If showCookieInfo
 	if (showCookieInfo) {
@@ -58,7 +97,7 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true";
+	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true;";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', 'white');
 	rt.style.setProperty('--color-two', '#f7f7f7');
