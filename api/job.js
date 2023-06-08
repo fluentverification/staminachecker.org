@@ -129,6 +129,7 @@ async function getMyJobs() {
 				+ json["error"] + "</div>";
 			}
 			else {
+				let apiUrlNoHttp = API_URL.replace("http://", "").replace("https://", "");
 				json.forEach((job) => {
 					let jobKilled = job.status == "killed";
 					let jobExited = job.status == "exited";
@@ -152,7 +153,7 @@ async function getMyJobs() {
 					+ getPminPmaxIfApplicable(job)
 					// View Button
 					+ "<a class=button-small href=job.html?uid=" + job.uid 
-					+ "&api_url=" + API_URL
+					+ "&api_url=" + apiUrlNoHttp
 					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
 					// Kill Button
 					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
@@ -286,11 +287,22 @@ function changeApiUrl() {
 	refreshApiUrl();
 }
 
-function refreshApiUrl() {
+function getAPIUrlFromCookieOrURL() {
 	let apiURLQuery = getParameterByName("api_url");
 	if (apiURLQuery != null) {
-		API_URL = apiURLQuery;
+		console.log("Found API URL in URL Query.");
+		API_URL = "http://" + apiURLQuery.replace("http://", "").replace("https://", "");
 	}
+	else {
+		let apiCookie = findFieldInCookie("api-url");
+		if (apiCookie != null) {
+			console.log("Found API URL in cookie");
+			API_URL = apiCookie;
+		}
+	}
+}
+
+function refreshApiUrl() {
 	document.getElementById("api-url").innerHTML = API_URL;
 	updateFieldInCookie("api-url", API_URL);
 	let options = document.getElementById("options")
@@ -303,7 +315,7 @@ function updateFieldInCookie(fieldName, value) {
 	var foundField = false;
 	curCookie.split(";").forEach((c) => {
 		if (curCookie.startsWith(fieldName)) {
-			document.cookie += fieldName + "=" + value;
+			document.cookie += fieldName + "=" + value + ";";
 			foundField = true;
 		}
 		else {
@@ -311,7 +323,27 @@ function updateFieldInCookie(fieldName, value) {
 		}
 	});
 	if (!foundField) {
-		document.cookie += fieldName + "=" + value;
+		document.cookie += fieldName + "=" + value + ";";
 	}
 	return document.cookie;
+}
+
+function findFieldInCookie(searchField) {
+	if (document.cookie == "") { return; }
+	let cookieFields = document.cookie.split(";");
+	// can't use Array.forEach.
+	for (const c of cookieFields) {
+		let [field, value] = c.split("=");
+		field = field.trim();
+		value = value.trim();
+// 		console.log(field + " : " + value);
+		if (searchField == field) {
+// 			console.log("\"" + searchField + "\" is the the same as \"" + field + "\"");
+			return value;
+		}
+// 		else {
+// 			console.log("\"" + searchField + "\" is not the the same as \"" + field + "\"");
+// 		}
+	}
+	return null;
 }

@@ -150,8 +150,10 @@ if (bttButton != null) {
 		<noscript>You need JavaScript to view jobs</noscript>
 	</div>
 <script>
-getMyJobs();
+// We have to refresh the API URL before trying to check it!
+getAPIUrlFromCookieOrURL();
 refreshApiUrl();
+getMyJobs();
 </script>
 </div>
 <!-- Footer -->

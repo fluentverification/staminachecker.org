@@ -553,7 +553,8 @@ w.onchange = function() {
 			<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 		</div>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
-		<script>refreshApiUrl();</script>
+		<script>getAPIUrlFromCookieOrURL();
+		refreshApiUrl();</script>
 	</div>
 	<input type="submit" value="Run">
 </form>
