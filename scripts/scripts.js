@@ -1,10 +1,12 @@
-var darkMode = (document.cookie.includes("color-scheme=dark")) || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+let colorScheme = localStorage.getItem("color-scheme");
 
-var showCookieInfo = document.cookie == "";
+var darkMode = (colorScheme != null && colorScheme == "dark") || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-var expirationDate = new Date();
-expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-var expireCookie = "expires=" + expirationDate.toUTCString();
+var showPrivacyInfo = colorScheme == null;
+
+// var expirationDate = new Date();
+// expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+// var expireCookie = "expires=" + expirationDate.toUTCString();
 
 function updateFieldInCookie(fieldName, value) {
 	let curCookie = document.cookie;
@@ -50,10 +52,12 @@ window.onload = function() {
 		setDarkMode();
 	}
 	else {
-		document.cookie = "color-scheme=light; " + expireCookie + "; SameSite=none; Secure=true;";
+		setLightMode();
+		// localStorage("color-scheme", "light");
+// 		document.cookie = "color-scheme=light; " + expireCookie + "; SameSite=none; Secure=true;";
 	}
-	// If showCookieInfo
-	if (showCookieInfo) {
+	// If showPrivacyInfo
+	if (showPrivacyInfo) {
 		let cookieBanner = document.getElementById('cookie-banner');
 		if (cookieBanner != null) {
 			cookieBanner.style.display = "block";
@@ -65,11 +69,11 @@ window.onload = function() {
  * */
 console.log("Adding event listener for window");
 window.addEventListener('resize', function(event) {
-	console.log(screen.width);
+// 	console.log(screen.width);
 	if (screen.width > 900) {
-		console.log("Setting navbar to normal full-width");
+// 		console.log("Setting navbar to normal full-width");
 		let elements = document.getElementsByClassName("navbutton");
-		console.log(elements);
+// 		console.log(elements);
 		Array.prototype.forEach.call(elements, e => e.style.display = "block");
 		// active may be null
 		let ac = document.getElementById("active");
@@ -97,7 +101,8 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true;";
+	localStorage("color-scheme", "dark");
+// 	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true;";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', 'white');
 	rt.style.setProperty('--color-two', '#f7f7f7');
@@ -113,7 +118,8 @@ function setDarkMode() {
 
 function setLightMode() {
 	console.log("Setting light mode");
-	document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure=true";
+	localStorage("color-scheme", "light");
+// 	document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure=true";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', '#363636');
 	rt.style.setProperty('--color-two', '#515151');
