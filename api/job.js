@@ -122,7 +122,7 @@ async function getLogData() {
 						logFileText += "Window: " + tToAdd + "\n";
 					}
 					else {
-						logFileText += t;
+						logFileText += t.replace(BOLD_START, "").replace(BOLD_END, "") + "\n";
 					}
 				}
 			});

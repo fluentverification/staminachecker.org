@@ -4,7 +4,11 @@
 		<title>STAMINA Updates</title>
 		<description>Updates and news regarding STAMINA development</description>
 		<link>http://www.staminachecker.org</link>
-		
+		<item>
+			<title>STAMINA/STORM Submitted to QEST'23</title>
+			<description>Included code cleanup, namespace reorganization, and speed improvements.</description>
+			<pubDate>May 2023</pubDate>
+		</item>
 		<item>
 			<title>STAMINA/STORM 2.2.5 Released</title>
 			<description>Included code cleanup, namespace reorganization, and speed improvements.</description>

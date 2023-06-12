@@ -1,6 +1,11 @@
 {
 "feed":[
 	{
+		"title":"STAMINA/STORM Submitted to QEST'23"
+		, "date":"May 2023"
+		, "description":"Included code cleanup, namespace reorganization, and speed improvements."
+	}
+	, {
 		"title":"STAMINA/STORM 2.2.5 Released"
 		, "date":"Jun 14, 2022"
 		, "description":"Included code cleanup, namespace reorganization, and speed improvements."
