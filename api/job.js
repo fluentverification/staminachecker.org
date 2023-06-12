@@ -91,7 +91,7 @@ async function getLogData() {
 					out.innerHTML += "<span class=\"err killed\">"
 					+ t
 					+ "</span>";
-					logFileText = "Killed.\n";
+					logFileText += "Killed.\n";
 				}
 				else {
 					if (t.trim() == "") { return; }
