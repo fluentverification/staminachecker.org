@@ -121,6 +121,9 @@ async function getLogData() {
 						document.getElementById("w").innerHTML = tToAdd;
 						logFileText += "Window: " + tToAdd + "\n";
 					}
+					else {
+						logFileText += t;
+					}
 				}
 			});
 			let saveLogs = document.getElementById("save-logs");
