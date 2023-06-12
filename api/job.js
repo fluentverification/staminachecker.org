@@ -300,23 +300,34 @@ function changeApiUrl() {
 }
 
 function getAPIUrlFromCookieOrURL() {
+	// Highest priority is URL parameter
 	let apiURLQuery = getParameterByName("api_url");
 	if (apiURLQuery != null) {
 		console.log("Found API URL in URL Query.");
-		API_URL = "http://" + apiURLQuery.replace("http://", "").replace("https://", "");
+		API_URL = "https://" + apiURLQuery.replace("http://", "").replace("https://", "");
 	}
 	else {
-		let apiCookie = findFieldInCookie("api-url");
-		if (apiCookie != null) {
-			console.log("Found API URL in cookie");
-			API_URL = apiCookie;
+		// Next priority is local storage
+		let apiStorage = localStorage.getItem("api-url");
+		if (apiStorage != null) {
+			API_URL = apiStorage;
+		}
+		else {
+			// Final priority is in the cookie
+			let apiCookie = findFieldInCookie("api-url");
+			if (apiCookie != null) {
+				console.log("Found API URL in cookie");
+				API_URL = apiCookie;
+			}
 		}
 	}
 }
 
 function refreshApiUrl() {
 	document.getElementById("api-url").innerHTML = API_URL;
-	updateFieldInCookie("api-url", API_URL);
+	localStorage.setItem("api-url", API_URL);
+	// We don't use the cookie anymore
+// 	updateFieldInCookie("api-url", API_URL);
 	let options = document.getElementById("options")
 	if (options != null) { options.action = API_URL + "/jobs"; }
 }
