@@ -40,44 +40,50 @@ async function getLogData() {
 			let out = document.getElementById("output");
 			out.innerHTML = "";
 // 			logs = text;
-			let saveLogs = document.getElementById("save-logs");
-			var logFile = new Blob([text], {type:"text/plain"});
-			saveLogs.href = URL.createObjectURL(logFile);
-			saveLogs.download = "stamina_logs_" + uid_global + ".txt"
+			var logFileText = "";
 			text.split("\n").forEach(t => {
 // 				console.log(t);
 				// This is an "info" text
 				if (t.startsWith(INFO_HEADER)) {
+					let lineText = t.replace(INFO_HEADER, "");
 					out.innerHTML += "<span class=info>"
-					+ t.replace(INFO_HEADER, "")
+					+ lineText
 					+ "</span>";
+					logFileText += "[INFO] " + lineText + "\n";
 				}
 				// This is a "good" msg text
 				else if (t.startsWith(MSG_HEADER)) {
+					let lineText = t.replace(MSG_HEADER, "");
 					out.innerHTML += "<span class=good>"
-					+ t.replace(MSG_HEADER, "")
+					+ lineText
 					+ "</span>";
 					// I should probably do something a little better this.
 					// This is really hackey
 					if (t.includes("Finished running!")) {
 						document.getElementById("status").innerHTML = "Finished";
 					}
+					logFileText += "[MESSAGE] " + lineText + "\n";
 				}
 				else if (t.startsWith(WARN_HEADER) || t.includes("WARN")) {
+					let lineText = t.replace(WARN_HEADER, "").replace("WARN", "");
 					out.innerHTML += "<span class=warn>"
-					+ t.replace(WARN_HEADER, "").replace("WARN", "")
+					+ lineText
 					+ "</span>";
+					logFileText += "[WARNING] " + lineText + "\n";
 				}
 				else if (t.startsWith(ERR_HEADER)) {
+					let lineText = t.replace(ERR_HEADER, "");
 					out.innerHTML += "<span class=err>"
-					+ t.replace(ERR_HEADER, "")
+					+ lineText
 					+ "</span>";
 					if (t.includes("exit")) {
 						document.getElementById("status").innerHTML = "Exited with error";
 					}
+					logFileText += "[ERROR] " + lineText + "\n";
 				}
 				else if (t == H_LINE) {
 					out.innerHTML += "<span class=hline></span>"
+					logFileText += H_LINE + "\n";
 				}
 				else if (t == "Killed.")
 				{
@@ -85,6 +91,7 @@ async function getLogData() {
 					out.innerHTML += "<span class=\"err killed\">"
 					+ t
 					+ "</span>";
+					logFileText = "Killed.\n";
 				}
 				else {
 					if (t.trim() == "") { return; }
@@ -102,15 +109,24 @@ async function getLogData() {
 						console.log(tToAdd);
 						document.getElementById("pmin").innerHTML = tToAdd;
 						document.querySelectorAll(".results").forEach(t => t.style.display = "block");
+						logFileText += "Probability Minimum: " + tToAdd + "\n";
 					}
 					else if (t.includes("Probability Maximum:")) {
-						document.getElementById("pmax").innerHTML = t.replace("Probability Maximum:", "").replaceAll(BOLD_END, "").replace(PURPLE_START , "").replace(BOLD_START, "");
+						var tToAdd = t.replace("Probability Maximum:", "").replaceAll(BOLD_END, "").replace(PURPLE_START , "").replace(BOLD_START, "");
+						document.getElementById("pmax").innerHTML = tToAdd;
+						logFileText += "Probability Maximum: " + tToAdd + "\n";
 					}
 					else if (t.includes("Window:")) {
-						document.getElementById("w").innerHTML = t.replace("Window:", "").replace(BOLD_END, "");
+						var tToAdd = t.replace("Window:", "").replace(BOLD_END, "");
+						document.getElementById("w").innerHTML = tToAdd;
+						logFileText += "Window: " + tToAdd + "\n";
 					}
 				}
 			});
+			let saveLogs = document.getElementById("save-logs");
+			var logFile = new Blob([logFileText], {type:"text/plain"});
+			saveLogs.href = URL.createObjectURL(logFile);
+			saveLogs.download = "stamina_logs_" + uid_global + ".txt"
 		}));
 	let now = new Date();
 	document.getElementById("check-time").innerHTML = now.toLocaleString();
@@ -224,6 +240,13 @@ function renameJob(uid, newName) {
 
 function requestRenameJob(uid) {
 	let name = prompt("New name for job:");
+	if (name == null) {
+		return;
+	}
+	else if (name == "") {
+		alert("Job name cannot be empty!");
+		return;
+	}
 	renameJob(uid, name);
 }
 
