@@ -86,6 +86,9 @@ if (bttButton != null) {
 		We don't store any data about you, track you, or include any cross-site trackers. We do include fonts from the Google font API and use Kwes as our form backend on <a href="about.html">the about page</a>, and although we tried to choose these services such that they will respect your privacy as well, we can't guarantee that they aren't tracking you either.
 	</p>
 	<p>
+		We do store two cookies via the JavaScript <code class="inline-code">localStorage</code> API. These are non-identifiable and store only your color scheme preference (light or dark mode) and any custom API URL you use for the STAMINA API. This is so that you can use our online portal to run STAMINA on either the instance(s) that we host, or an instance you host yourself. You can set up your own instance of the STAMINA API from the code on <a href="https://github.com/fluentverification/stamina-server">its GitHub</a>.
+	</p>
+	<p>
 		Additionally, this website is hosted on <a href="https://pages.github.com/">GitHub Pages</a>, which has a privacy policy that can be accessed <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">here</a>. Again, since this is a third-party service, we cannot guarantee that they aren't tracking you. Because we care about your online privacy, we'd like to include some tips for online privacy that you can use.
 	</p>
 <!--	<p>
@@ -98,7 +101,7 @@ if (bttButton != null) {
 		<li>Configure your browser to erase cookies and cache data periodically. (I do it on browser exit).</li>
 		<li>Install <a href="https://ublockorigin.com/">uBlock Origin</a>. Seriously. This thing is S-tier. I personally use it to disable scripting on all sites except for sites which I whitelist.</li>
 		<li>Check your browser's fingerprint on EFF's <a href="https://coveryourtracks.eff.org/">Cover Your Tracks</a> website. EFF is an interest group that fights for online privacy. Your browser will probably have a unique fingerprint, but virtually all modern browsers do.</li>
-		<li>To see what types of cookies a website is storing about you, open up your <a href="https://www.geeksforgeeks.org/console-in-javascript/">JavaScript console</a>, and enter <code class="inline-code">document.cookie</code> into the console. The cookie element is a string that is space-delimited and contains values in the format <code class="inline-code">name=value</code>. For this site, your cookie will look something like this: <code class="inline-code"> "color-scheme=dark expires=Fri, 16 Jun 2023 23:02:44 GMT" </code>
+		<li>To see what types of cookies a website is storing about you, open up your <a href="https://www.geeksforgeeks.org/console-in-javascript/">JavaScript console</a>, and enter <code class="inline-code">document.cookie</code> into the console. The cookie element is a string that is space-delimited and contains values in the format <code class="inline-code">name=value</code>. <s>For this site, your cookie will look something like this: <code class="inline-code"> "color-scheme=dark expires=Fri, 16 Jun 2023 23:02:44 GMT" </code></s> This site now uses the JavaScript <code class="inline-code">localStorage</code> object, which stores cookie-esq objects in a key-value pair. We store two things: <code class="inline-code">color-scheme</code>, which can take either the value <code class="inline-code">light</code> or <code class="inline-code">dark</code>, and, if you use the STAMINA online API, we also store a <code class="inline-code">api-url</code> value, which stores the URL at which the STAMINA API is hosted.
 	</ul>
 </div>
 <!-- Footer -->
