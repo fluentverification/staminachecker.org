@@ -101,7 +101,7 @@ function toggleDarkMode() {
 
 function setDarkMode() {
 	console.log("Setting dark mode");
-	localStorage("color-scheme", "dark");
+	localStorage.setItem("color-scheme", "dark");
 // 	document.cookie = "color-scheme=dark; " + expireCookie + "; SameSite=none; Secure=true;";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', 'white');
@@ -118,7 +118,7 @@ function setDarkMode() {
 
 function setLightMode() {
 	console.log("Setting light mode");
-	localStorage("color-scheme", "light");
+	localStorage.setItem("color-scheme", "light");
 // 	document.cookie = "color-scheme=light " + expireCookie + " SameSite=none Secure=true";
 	var rt = document.querySelector(':root');
 	rt.style.setProperty('--color', '#363636');

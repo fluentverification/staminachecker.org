@@ -84,6 +84,42 @@ body {
 	border: 2px solid var(--accent-medium);
 }
 
+.alert {
+	color: var(--color);
+	background-color: var(--background);
+	font-family: 'Noto Sans', sans-serif;
+	padding: 25px 10% 20px 10%;
+	position: relative;
+	border-bottom: 2px solid var(--accent-medium);
+/* 	bottom: 0px; */
+}
+
+.alert-button {
+	display: inline-block;
+	color: white;
+	background: var(--accent-dark);
+	padding: 10px;
+	cursor: pointer;
+	margin-left: 10px;
+	transition: all 0.5s ease;
+}
+
+.alert-button:hover {
+	color: white;
+	background: var(--accent-medium);
+}
+
+.right-box {
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+}
+
+.alert .right-box {
+	right: 10%;
+	top: 15px;
+}
+
 .search-bar {
 	color: var(--color);
 	background-color: var(--background);
@@ -320,7 +356,7 @@ body {
 	text-align: center;
 	padding: 16px;
 	text-decoration: none;
-	background-color: var(--accent-medium);
+	background-color: var(--accent-dark);
 /* 	border-radius: 6px; */
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -330,13 +366,13 @@ body {
 	line-height: 20px;
 	cursor: pointer;
 	vertical-align: center;
-	border-left: 4px solid var(--accent-low-sat);
 	font-variant: small-caps;
 }
 
 .button:hover, input[type=submit]:hover, .btt-button:hover {
+	border-left: 4px solid var(--accent-low-sat);
 	color: white;
-	background-color: var(--accent-low-sat);
+	background-color: var(--accent-medium); 
 	transition: all 0.15s ease;
 }
 .graphic {

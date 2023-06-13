@@ -1,7 +1,7 @@
 // When debugging, use Flask on Port 5000
 // var API_URL = "http://127.0.0.1:5000";
 // This has not actually yet been deployed.
-var API_URL = "https://staminamodelchecker.azurewebsites.net"; // "https://api.staminachecker.org";
+var API_URL = "https://left.engr.usu.edu/stamina"; // "https://api.staminachecker.org";
 // const API_URL = "https://api.staminachecker.org/"
 var uid_global = null;
 
