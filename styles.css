@@ -90,7 +90,7 @@ body {
 	font-family: 'Noto Sans', sans-serif;
 	padding: 25px 10% 20px 10%;
 	position: relative;
-	border-bottom: 2px solid var(--accent-medium);
+	border-bottom: 4px solid var(--accent-medium);
 /* 	bottom: 0px; */
 }
 
