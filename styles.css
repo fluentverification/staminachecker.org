@@ -370,9 +370,9 @@ body {
 }
 
 .button:hover, input[type=submit]:hover, .btt-button:hover {
-	border-left: 4px solid var(--accent-low-sat);
-	color: white;
-	background-color: var(--accent-medium); 
+	border-left: 4px solid var(--accent-medium);
+	color: var(--accent-medium);
+	background-color: var(--backround); 
 	transition: all 0.15s ease;
 }
 .graphic {
