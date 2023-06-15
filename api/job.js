@@ -322,6 +322,13 @@ function getPminPmaxIfApplicable(job) {
 
 function changeApiUrl() {
 	API_URL = prompt("Please insert a new API URL (current one is " + API_URL + "):");
+	if (API_URL == "") {
+		alert("API URL cannot be empty. Will use old one: " + API_URL);
+		return;
+	}
+	else if (API_URL == null) {
+		return;
+	}
 	refreshApiUrl();
 }
 
