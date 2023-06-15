@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+	<title>STAMINA API</title>
+	<link rel="stylesheet" href="/styles.css">
+	<script type="text/javascript" src="job.js"></script>
+</head>
+<body>
+	<div class="content">
+		<h1>Log into the admin page</h1>
+		<form method="POST" action="" enctype="multipart/form-data">
+			<label for="username">Username</label>
+			<input type="text" name="username" />
+			<label for="password">Password</label>
+			<input type="password" name="password"/>
+			<a href="#">Forgot your username or password?</a><br>
+			<input type="submit" value="Log In"/>
+		</form>
+		API Instance: <span id="api-url"></span>
+	</div>
+	<div class=footer>
+		<div id="slogo"><b>STAMINA</b></div> is provided as a free service and funded via NSF Grants 1856733, 1856740, and 1900542
+	</div>
+	<script>
+	refreshApiUrl();
+	</script>
+</body>
