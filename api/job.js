@@ -180,7 +180,8 @@ async function getMyJobs() {
 					+ getPminPmaxIfApplicable(job)
 					// View Button
 					+ "<a class=button-small href=job.html?uid=" + job.uid 
-					+ "&api_url=" + apiUrlNoHttp
+					// API URL
+// 					+ "&api_url=" + apiUrlNoHttp
 					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
 					// Kill Button
 					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
