@@ -25,6 +25,7 @@ const H_LINE="==================================================================
  * 
  * This is so hackey I understand why people make their code proprietary. Please don't think the actual STAMINA codebase is this hackey.
  * */
+
 async function getLogData() {
 	console.log("Making request to " + API_URL + "/checkjob" + " for uid: " + uid_global)
 	fetch(API_URL + "/checkjob", {
@@ -160,13 +161,14 @@ async function getMyJobs() {
 				json.forEach((job) => {
 					let jobKilled = job.status == "killed";
 					let jobExited = job.status == "exited";
+					let jobPruned = job.status == "pruned";
 					var addlClass = "";
-					if (jobKilled || jobExited) {
+					if (jobKilled || jobExited || jobPruned) {
 						addlClass = "disabled";
 					}
 					jobs.innerHTML += "<div class=job id=job-card-" + job.uid + ">"
 					// Job name
-					+ "<h2><span id=job-name-" + job.uid + ">" + job.name + "</span>"
+					+ "<h2><span id=job-name-" + job.uid + ">" + job.name + "</span>&nbsp;"
 					// Edit button
 					+ "<span onclick=requestRenameJob('" + job.uid + "')><i class=\"clickable-icon icon icon_document-edit\"></i></span>"
 					// Delete Button
@@ -185,6 +187,17 @@ async function getMyJobs() {
 					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
 					// Kill Button
 					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
+					// Hidden logs 
+					+ "<div class=job-card-logs>" + job.logs
+							.replaceAll(INFO_HEADER, "[INFO] ")
+							.replaceAll(WARN_HEADER, "[WARN] ")
+							.replaceAll(MSG_HEADER, "[MESSAGE] ")
+							.replaceAll(ERR_HEADER, "[ERROR] ")
+							.replaceAll(BOLD_START, "")
+							.replaceAll(BOLD_END, "")
+							.replaceAll(PURPLE_START, "")
+							.replaceAll("\n", "<br>")
+					+ "</div>"
 					+ "</div>";
 				});
 			}
