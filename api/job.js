@@ -250,7 +250,10 @@ function renameJob(uid, newName) {
 			document.getElementById("job-name-" + uid).innerHTML = newName;
 		}
 		else {
-			alert("Got status \"" + response.status + "\" when trying to rename Job!");
+			response.text()
+				.then((text) => {
+					alert("Got status \"" + response.status + "\" when trying to rename Job!\nError: " + text);
+				});
 		}
 	});
 }
