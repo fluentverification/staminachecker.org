@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="jobs.css">
 	<link rel="stylesheet" href="loading.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
@@ -12,79 +13,6 @@
 	<script type="text/javascript" src="job.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
 </head>
-<style>
-.job {
-	display: block;
-	cursor: pointer;
-	padding: 20px;
-	transition: all 0.25s ease;
-}
-
-.job:hover {
-	background-color: var(--background-two);
-	border-left: 4px solid var(--color-two);
-}
-
-.button-small, .button-small-error {
-	color: var(--color);
-	display: inline-block;
-	padding: 10px;
-	background-color: var(--background-three);
-	margin: 5px;
-	margin-left: 0px;
-	transition: all 0.5s ease;
-}
-
-.button-small:hover {
-	color: white;
-	background-color: var(--accent-medium);
-}
-
-.button-small-error:hover {
-	color: white;
-	background-color: #c13232;
-}
-
-.disabled {
-	opacity: 50% !important;
-/* 	color: var(--background-three) !important; */
-}
-
-.disabled:hover {
-/* 	color: var(--background-three) !important; */
-	background-color: var(--background-three) !important;
-}
-
-.icon {
-	margin-bottom: -5px;
-}
-
-h1 .clickable-icon {
-	display: none;
-	cursor: pointer;
-}
-
-h1:hover .clickable-icon {
-	display: inline-block;
-}
-
-.job-card-logs {
-	font-family: "Noto Sans Mono", monospace;
-	font-size: 10pt;
-	height: 0px;
-	overflow-y: hidden;
-	transition: all 0.5s ease;
-	background-color: var(--background);
-}
-
-.job:hover .job-card-logs {
-	border: 1px solid var(--color);
-	max-height: 200px;
-	height: auto;
-	overflow-y: auto;
-	padding: 5px;
-}
-</style>
 <body>
 <!-- Navigation Bar -->
 <ul class="navbar" id="navbar">
@@ -176,6 +104,14 @@ if (bttButton != null) {
 	<a class="button-small" href="/run.html"><i class="icon just-icon icon_list-add"></i>New Job</a><br>
 	<div id="jobs">
 		<noscript>You need JavaScript to view jobs</noscript>
+	</div>
+	<div id=status-info>
+	<h3>Status Messages and Their Meanings</h3>
+	<p><b>Running:</b> If you get this status message, it means the docker container hosting STAMINA is still running, and it has neither timed out nor finished.</p>
+	<p><b>Exited:</b> This message means that the job has finished, and that a P<sub>min</sub> and P<sub>max</sub> have been found.</p>
+	<p><b>Killed:</b> Either the container has been killed by the user, or timed out on the server.</p>
+	<p><b>Pruned:</b> While we are keeping records that the job existed, its creation time, who created it, and some other basic info, we are not keeping the results or logs on our system.</p>
+	<p><i>If you are expecting to see a job that you do not see, either it has been deleted or it is associated with a different IP address than you are currently looking at. If you kept the UID of the job, please visit <a href="https://staminachecker.org/api/job">https://staminachecker.org/api/job?=[YOUR UID]</a> to manually check.</i></p>
 	</div>
 <script>
 // We have to refresh the API URL before trying to check it!

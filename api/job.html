@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../styles.css">
 	<link rel="stylesheet" href="loading.css">
+	<link rel="stylesheet" href="jobs.css">
 	<link rel="icon" type="image/x-icon" href="../images/favicon.svg">
 	<script type="text/javascript" src="../scripts/scripts.js"></script>
 	<script type="text/javascript" src="../scripts/search.js"></script>
@@ -89,137 +90,6 @@ if (bttButton != null) {
 		}
 	</script>
 </div>
-<style>
-.output {
-	display: block;
-	border: 1px solid #444444;
-	padding: 10px;
-	margin-top: 20px;
-	margin-top: 20px;
-	overflow: auto;
-	height: 400px;
-}
-.geninfo {
-	display: inline-block;
-	font-size: 14pt;
-	padding-bottom: 5px;
-	margin-right: 10px;
-}
-.geninfo-label {
-	font-weight: bold;
-	width: 150px;
-}
-
-.output {
-	font-family: 'Noto Sans Mono' monospace;
-	font-size: 10pt;
-}
-.info, .err, .good, .warn, .line, .hline {
-	display: inline-block;
-	width: 100%;
-	padding-bottom: 3px;
-	margin-bottom: 5px;
-	border-bottom: 2px solid #00000000;
-	cursor: pointer;
-}
-
-.good:hover {
-	border-bottom: 2px solid var(--accent-medium);
-}
-
-.line:hover {
-	border-bottom: 2px solid #44444444;
-}
-
-.info:hover {
-	border-bottom: 2px solid #1b91ca;
-}
-
-.warn:hover {
-	border-bottom: 2px solid #ccc123;
-}
-
-.killed:hover, .err:hover {
-	border-bottom: 2px solid #ca1b1b !important;
-}
-
-.killed, .err {
-	background-color: #ca1b1b33;
-}
-
-.killed {
-	padding-bottom: 5px;
-	padding-top: 5px;
-}
-
-.hline {
-	border-bottom: 2px solid var(--background-three);
-}
-
-.info::before, .err::before, .good::before, .warn::before, .line:before {
-	display: inline-block;
-	min-width: 100px;
-	font-weight: bold;
-	margin-right: 10px;
-}
-
-.info::before {
-	content: "[INFO]:";
-	color: #1b91ca;
-}
-
-.results {
-	display: none;
-}
-
-.err:before {
-	content: "[ERROR]:";
-	color: #ca1b1b;
-}
-
-.warn:before {
-	content: "[WARNING]:";
-	color: #ccc123;
-}
-
-.good::before {
-	content: "[GOOD]:";
-	color: var(--accent-medium);
-}
-
-.line:before {
-	content: " ";
-}
-
-#back-button {
-	color: var(--color);
-	display: none;
-/* 	position: relative; */
-	right: 0px;
-	transition: all 0.5s ease;
-/* 	padding: 10px; */
-	margin-right: 10px;
-	cursor: pointer;
-	width: 0px;
-}
-
-#jobinfo-title:hover #back-button {
-	display: inline-block;
-	width: auto;
-}
-
-.lds-ripple:hover .ripple {
-	display: none;
-}
-
-.lds-ripple:hover h1 {
-	margin-left: 0px;
-}
-
-#back-button:hover {
-	color: var(--link-base);
-}
-</style>
 <div class="content">
 	<!--<div class="note">
 		This page is not implemented yet! It will do nothing!
