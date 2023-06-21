@@ -105,6 +105,7 @@ if (bttButton != null) {
 	<div id="jobs">
 		<noscript>You need JavaScript to view jobs</noscript>
 	</div>
+	<span id="jobs-hover"><i class="icon icon_question"></i>Wondering how to interpret the "Status" line?
 	<div id=status-info>
 	<h3>Status Messages and Their Meanings</h3>
 	<p><b>Running:</b> If you get this status message, it means the docker container hosting STAMINA is still running, and it has neither timed out nor finished.</p>
@@ -113,6 +114,7 @@ if (bttButton != null) {
 	<p><b>Pruned:</b> While we are keeping records that the job existed, its creation time, who created it, and some other basic info, we are not keeping the results or logs on our system.</p>
 	<p><i>If you are expecting to see a job that you do not see, either it has been deleted or it is associated with a different IP address than you are currently looking at. If you kept the UID of the job, please visit <a href="https://staminachecker.org/api/job">https://staminachecker.org/api/job?=[YOUR UID]</a> to manually check.</i></p>
 	</div>
+	</span>
 <script>
 // We have to refresh the API URL before trying to check it!
 getAPIUrlFromCookieOrURL();
