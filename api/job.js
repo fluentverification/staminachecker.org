@@ -381,3 +381,17 @@ function refreshApiUrl() {
 	let options = document.getElementById("options")
 	if (options != null) { options.action = API_URL + "/jobs"; }
 }
+
+function checkApiUrl() {
+	// Check the status of the easter egg of the API URL to ensure it's up
+	fetch(API_URL + "/egg", {
+		method: "GET"
+		, mode: "cors"
+	}).then((response) => {
+		if (response.status != 200) {
+			if (confirm("[WARNING] The API URL\"" + API_URL + "\" appears to be down. Would you like to choose a new API URL?")) {
+				changeApiUrl();
+			}
+		}
+	});
+}

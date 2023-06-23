@@ -51,3 +51,14 @@ function getCSVDataAndAppendToTable(url, tableId, headerInfo, clearTable=true) {
 	tableFile.open("GET", requestURL, true);
 	tableFile.send();
 }
+
+sortableTablesData = {};
+
+/**
+ * Assumes the first row of the table id given is header data
+ * */
+function makeTableSortable(id) {
+	let table = document.getElementById(id);
+	var headers = [];
+// 	for
+}
