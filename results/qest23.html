@@ -89,21 +89,28 @@ if (bttButton != null) {
 	<p>
 		Note, a summary in the differences we found between PRISM and STORM, without STAMINA involved, can be found <a href=https://staminachecker.org/results/qest23/storm-prism-difference>here.</a>
 	</p>
-	<p>Model files available <a href="https://github.com/fluentverification/stamina/tree/main/case-studies">here</a></p>
+	<p>Model files available <a href="https://github.com/fluentverification/stamina/tree/main/case-studies">here</a>.</p>
+	<p>If you wish to replicate the results yourself, you may do so using the OVA Virtual Machine Appliance available <a href="https://usu.box.com/s/os1n4xp8reawv9svd66zjtqfsj9gip5k">here</a>.</p>
 	<h2>Runtime</h2>
 	<a class="button" href="qest23/csv/times.csv">Download CSV</a>
 	<table id="runtime-table" class="table">
-		<!-- TODO: populate this table via JavaScript -->
+		<noscript>
+			JavaScript must be enabled to populate this table.
+		</noscript>
 	</table>
 	<h2>Probabilities (P<sub>Min</sub> and P<sub>max</sub>)</h2>
 	<a class="button" href="qest23/csv/results.csv">Download CSV</a>
 	<table id="probabilities-table" class="table">
-		<!-- TODO: populate this table via JavaScript -->
+		<noscript>
+			JavaScript must be enabled to populate this table.
+		</noscript>
 	</table>
 	<h2>State Count</h2>
 	<a class="button" href="qest23/csv/states.csv">Download CSV</a>
 	<table id="state-table" class="table">
-		<!-- TODO: populate this table via JavaScript -->
+		<noscript>
+			JavaScript must be enabled to populate this table.
+		</noscript>
 	</table>
 	<script>
 		getCSVDataAndAppendToTable("results/qest23/csv/times.csv", "runtime-table", []);
