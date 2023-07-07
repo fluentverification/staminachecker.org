@@ -93,7 +93,12 @@ if (bttButton != null) {
 <div class="content">
 <!-- CONTENT -->
 	<h1>API Home</h1>
+	<h2>Actions</h2>
+	<a class=button href="/run.html"><i class="icon icon_list-add"></i>Create new job</a>
+	<a class=button href="myjobs.html"><i class="icon icon_go-next"></i>See active jobs</a>
+	<a class=button onclick=viewSpecificJob()><i class="icon icon_document-preview-archive"></i>View Specific Job</a>
 	<div>
+		<h2>API Settings</h2>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
 		<script>
 		getAPIUrlFromCookieOrURL();
@@ -102,10 +107,6 @@ if (bttButton != null) {
 		// document.getElementById("back-button").href += "?api_url=" + API_URL.replace("http://", "");
 		</script>
 	</div>
-	<ul>
-		<li><a href="/run.html">Create new job</a></li>
-		<li><a href="myjobs.html">See active jobs</a></li>
-	</ul>
 </div>
 <!-- Footer -->
 <div class="footer">

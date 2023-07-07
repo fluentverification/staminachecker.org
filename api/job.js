@@ -22,7 +22,7 @@ const H_LINE="==================================================================
 
 /**
  * Does some really hackey text-parsing to present some information to the user.
- * 
+ *
  * This is so hackey I understand why people make their code proprietary. Please don't think the actual STAMINA codebase is this hackey.
  * */
 
@@ -96,7 +96,7 @@ async function getLogData() {
 				}
 				else {
 					if (t.trim() == "") { return; }
-					out.innerHTML += "<span class=line>" 
+					out.innerHTML += "<span class=line>"
 					// This is soo hacky
 					+ t.replace(BOLD_START + PURPLE_START, "<b><span style='color:#bb1cbb'>")
 						.replace(BOLD_END + BOLD_END, "</span></b>")
@@ -181,13 +181,13 @@ async function getMyJobs() {
 					// Pmin and Pmax, if applicable
 					+ getPminPmaxIfApplicable(job)
 					// View Button
-					+ "<a class=button-small href=job.html?uid=" + job.uid 
+					+ "<a class=button-small href=job.html?uid=" + job.uid
 					// API URL
 // 					+ "&api_url=" + apiUrlNoHttp
 					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
 					// Kill Button
 					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
-					// Hidden logs 
+					// Hidden logs
 					+ "<div class=job-card-logs>" + job.logs
 							.replaceAll(INFO_HEADER, "[INFO] ")
 							.replaceAll(WARN_HEADER, "[WARN] ")
@@ -394,4 +394,12 @@ function checkApiUrl() {
 			}
 		}
 	});
+}
+
+function viewSpecificJob() {
+	let jid = prompt("Please input the UID of the job you wish to view:");
+	if (jid == null || jid == "") {
+		return;
+	}
+	window.location = "https://staminachecker.org/api/job?uid=" + jid;
 }
