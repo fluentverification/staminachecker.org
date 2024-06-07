@@ -86,7 +86,7 @@
 	</li>
 	<li><a class="navbutton" href="benchmarks.html">Benchmarks</a></li>
 	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="images/icons/darkLight.svg" height="15px"></a></li>
-	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="bi-search" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon bi-search" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 <li>
 	<div class="search-overlay" id="search-overlay">
 		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
@@ -100,7 +100,7 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#">
-<i class="bi-arrow-bar-up just-icon"></i></a>
+<i class="icon bi-arrow-bar-up just-icon"></i></a>
 <script>
 let bttButton = document.getElementById('btt-button');
 
@@ -136,7 +136,7 @@ if (bttButton != null) {
 	<form action="javascript:search('query')">
 		<input type="text" id="query" name="query" class="search-bar-full" placeholder="Search...">
 	</form>
-		<button class="submit-search" onclick="search('query')"><i class="bi-search just-icon" id="search-icon"></i></button>
+		<button class="submit-search" onclick="search('query')"><i class="icon bi-search just-icon" id="search-icon"></i></button>
 	<h1>Search Results</h1>
 <!--	<p>
 		Unfortunately, since we use the Google custom search API, we can't control whether or not Google shows ads in these search results. This is the <i>only</i> place on this website you will see ads. Sorry :(.

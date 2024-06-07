@@ -3,15 +3,15 @@ function showSearchBar() {
 	let searchIcon = document.getElementById('search-icon');
 	if (search.style.display == "block") {
 		search.style.display = "none";
-		searchIcon.classList.remove("bi-arrow-bar-right");
-		searchIcon.classList.add("bi-search");
+		searchIcon.classList.remove("icon bi-arrow-bar-right");
+		searchIcon.classList.add("icon bi-search");
 		search.classList.remove("fadein");
 		search.classList.add("fadeout");
 	}
 	else {
 		search.style.display = "block";
-		searchIcon.classList.add("bi-arrow-bar-right");
-		searchIcon.classList.remove("bi-search");
+		searchIcon.classList.add("icon bi-arrow-bar-right");
+		searchIcon.classList.remove("icon bi-search");
 		search.classList.add("fadein");
 		search.classList.remove("fadeout");
 	}

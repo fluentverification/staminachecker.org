@@ -139,7 +139,7 @@ function addCopyButtons() {
 		let innerHTML = block.innerHTML;
 		let command = block.innerText || block.textContent;
 // 		console.log(command);
-		let copyButton = "<button class=\"copy-button\" onclick=\"copyAndConfirm(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-bi-copy\"></i></button>";
+		let copyButton = "<button class=\"copy-button\" onclick=\"copyAndConfirm(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-icon bi-copy\"></i></button>";
 		block.innerHTML = copyButton + innerHTML;
 	});
 	// Add confirmation button

@@ -42,7 +42,7 @@
 	<li><a class="navbutton" href="/benchmarks.html">Benchmarks</a></li>
 	<li class="right"><a title="Toggle Light/Dark Mode" onclick="toggleDarkMode()"><img src="../../images/icons/darkLight.svg" height="15px"></a></li>
 <!-- 	<li class="right"><a class="fluent" href="https://fluentverification.github.io">FLUENT Verification</a></li> -->
-	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="bi-search" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
+	<li class="right"><a title="Show Search Bar" onclick="showSearchBar()" class="navbutton"><i class="icon bi-search" style="font-size: 12pt; margin-right: 0px;" id="search-icon"></i></a></li>
 <li>
 	<div class="search-overlay" id="search-overlay">
 		<a onclick="showSearchBar()" id="search-overlay-button">&times;</a>
@@ -56,21 +56,21 @@
 <div class="top-buffer" id="top-buffer"><br></div>
 <div class="side-nav" id="side-nav">
 	<div class="quick-buttons">
-	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon bi-diagram-2 just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
-	<a id="go-back" class="quick-nav" href="install-pstamina.html"><i class="bi-skip-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
-	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="bi-house just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
-	<a id="go-forward" class="quick-nav" href="properties-files.html"><i class="bi-fast-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
-	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="bi-search just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
-	<a id="sidebar-light-dark" class="quick-nav" onclick="toggleDarkMode()"><i class="icon bi-palette just-icon"></i><span class="quick-nav-label">Toggle Dark Mode</span></a>
+	<a id="wiki-tree" onclick="wikiTree()" class="quick-nav" ><i class="icon icon bi-diagram-2 just-icon"></i><span class="quick-nav-label">Sitemap</span></a>
+	<a id="go-back" class="quick-nav" href="install-pstamina.html"><i class="icon bi-skip-backward just-icon"></i><span class="quick-nav-label">Go Back</span></a>
+	<a id="go-home" class="quick-nav" href="/documentation/wiki/index.html"><i class="icon bi-house just-icon"></i><span class="quick-nav-label">Wiki Home</span></a>
+	<a id="go-forward" class="quick-nav" href="properties-files.html"><i class="icon bi-fast-forward just-icon"></i><span class="quick-nav-label">Go Forward</span></a>
+	<a id="search-wiki" class="quick-nav" onclick="searchWiki()"><i class="icon bi-search just-icon"></i><span class="quick-nav-label">Search Wiki</span></a>
+	<a id="sidebar-light-dark" class="quick-nav" onclick="toggleDarkMode()"><i class="icon icon bi-palette just-icon"></i><span class="quick-nav-label">Toggle Dark Mode</span></a>
 	</div>
 	<ul id="side-nav-list">
 		<li id="nav-list-title"><b>Wiki Navigation</b></li>
 	</ul>
-	<a id="toggle-sidenav" onclick="toggleNav()"><i id="toggle-icon" class="icon bi-layout-text-sidebar-reverse"></i><span class="quick-nav-label">Close Navbar</span></a> <!--  bi-layout-text-sidebar-reverse -->
+	<a id="toggle-sidenav" onclick="toggleNav()"><i id="toggle-icon" class="icon icon bi-layout-text-sidebar-reverse"></i><span class="quick-nav-label">Close Navbar</span></a> <!--  icon bi-layout-text-sidebar-reverse -->
 </div>
 <!-- Back to top button -->
 <a class="btt-button" id="btt-button" href="#">
-<i class="bi-arrow-bar-up just-icon"></i></a>
+<i class="icon bi-arrow-bar-up just-icon"></i></a>
 <script>
 let bttButton = document.getElementById('btt-button');
 
@@ -123,7 +123,7 @@ if (bttButton != null) {
 	<p>STAMINA/STORM supports both CTMC and DTMC models, and STAMINA/PRISM only supports CTMCs. Both versions of STAMINA support bounded and unbounded models, as well as only deterministic models. Nondeterministic models will throw an error.</p>
 	<h2>PRISM Models</h2>
 	<p>
-		PRISM models are a type of model format designed for the <a href="https://prismmodelchecker.org">PRISM model checker <i class="icon bi-globe icon-tiny"></i></a>. They allow for many types of models to be specified, and are composed of modules and variables. PRISM has documentation for the entire language specification, located <a href="https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction">here <i class="icon bi-globe icon-tiny"></i></a>.
+		PRISM models are a type of model format designed for the <a href="https://prismmodelchecker.org">PRISM model checker <i class="icon icon bi-globe icon-tiny"></i></a>. They allow for many types of models to be specified, and are composed of modules and variables. PRISM has documentation for the entire language specification, located <a href="https://www.prismmodelchecker.org/manual/ThePRISMLanguage/Introduction">here <i class="icon icon bi-globe icon-tiny"></i></a>.
 	</p>
 	<p>
 		Because full documentation for the PRISM language exists on their website, STAMINA will only provide a brief overview of the syntax. All PRISM models must <i>first</i> contain a line which says what type of model they are. For STAMINA, that line is most likely to be <span class="inline-code">ctmc</span>. From there, globally-accessible variables and modules may be declared from the supported types. Modules are a way of encapsulating certain elements of a model. Generally a module contains a variable, and all of the reactions that can affect that variable. <i>Reactions</i> are in the format:
@@ -170,9 +170,9 @@ Click this link to <a href="downloadable/example.prism">download this file</a>.
 </p>
 <h2>JANI Model Files</h2>
 <p>
-	<a href="https://jani-spec.org/">JANI <i class="icon bi-globe icon-tiny"></i></a> is a JSON-based model-specification language designed to be easily parsable and versatile. STAMINA/PRISM currently does not support JANI, but STAMINA/STORM is slated to use STORM's JANI-parser to add support in the next major release.
+	<a href="https://jani-spec.org/">JANI <i class="icon icon bi-globe icon-tiny"></i></a> is a JSON-based model-specification language designed to be easily parsable and versatile. STAMINA/PRISM currently does not support JANI, but STAMINA/STORM is slated to use STORM's JANI-parser to add support in the next major release.
 </p>
-<p>JANI provides a complete language specification which is easy to read and understand. We recommend you view that <a href="https://docs.google.com/document/d/1BDQIzPBtscxJFFlDUEPIo8ivKHgXT8_X6hz5quq7jK0/edit">here <i class="icon bi-globe icon-tiny"></i></a>.</p>
+<p>JANI provides a complete language specification which is easy to read and understand. We recommend you view that <a href="https://docs.google.com/document/d/1BDQIzPBtscxJFFlDUEPIo8ivKHgXT8_X6hz5quq7jK0/edit">here <i class="icon icon bi-globe icon-tiny"></i></a>.</p>
 <div class="error">
 Currently, no version of STAMINA supports JANI, but STAMINA/STORM will support it (by making use of STORM's already-built JANI parser) in STAMINA v3.0. If you need to check a JANI model, it is recommended to bound all variables and check in pure STORM, or use STORM's JANI-to-PRISM converter before sending the model to STAMINA.
 </div>
