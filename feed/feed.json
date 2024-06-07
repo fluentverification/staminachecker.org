@@ -3,7 +3,7 @@
 	{
 		"title":"Published work: STAMINA in C++: Modernizing an Infinite-State Probabilistic Model Checker"
 		, "date":"September 22, 2023"
-		, "description":"STAMINA has been published in QEST and is available on <a href=https://link.springer.com/chapter/10.1007/978-3-031-43835-6_7>Springer</a>"
+		, "description":"STAMINA has been published in QEST and is available on <a href=\"https://link.springer.com/chapter/10.1007/978-3-031-43835-6_7\">Springer</a>"
 	}
 	, {
 		"title":"STAMINA/STORM accepted to QEST'23"
