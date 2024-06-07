@@ -170,9 +170,9 @@ async function getMyJobs() {
 					// Job name
 					+ "<h2><span id=job-name-" + job.uid + ">" + job.name + "</span>&nbsp;"
 					// Edit button
-					+ "<span onclick=requestRenameJob('" + job.uid + "')><i class=\"clickable-icon icon icon_document-edit\"></i></span>"
+					+ "<span onclick=requestRenameJob('" + job.uid + "')><i class=\"clickable-icon icon bi-pencil\"></i></span>"
 					// Delete Button
-					+ "<span onclick=requestDeleteJob('" + job.uid + "')><i class=\"clickable-icon icon icon_edit-delete\"></i></span>"
+					+ "<span onclick=requestDeleteJob('" + job.uid + "')><i class=\"clickable-icon icon bi-trash\"></i></span>"
 					+ "</h2>"
 					// UID
 					+ "<div>UID: " + job.uid + "</div>"
@@ -184,9 +184,9 @@ async function getMyJobs() {
 					+ "<a class=button-small href=job.html?uid=" + job.uid
 					// API URL
 // 					+ "&api_url=" + apiUrlNoHttp
-					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-icon icon_go-next\"></i>View</a>"
+					+ " target=_blank rel=\"noopener noreferrer\"><i class=\"icon just-bi-caret-right\"></i>View</a>"
 					// Kill Button
-					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon icon_process-stop\"></i>Kill</a>"
+					+ "<a class=\"button-small-error " + addlClass + "\" onclick='killJob(\"" + job.uid + "\")' id=kill-job-" + job.uid + "><i class=\"icon just-icon bi-stop-circle\"></i>Kill</a>"
 					// Hidden logs
 					+ "<div class=job-card-logs>" + job.logs
 							.replaceAll(INFO_HEADER, "[INFO] ")

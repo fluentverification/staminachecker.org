@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.svg">
 	<script type="text/javascript" src="scripts/scripts.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.kde.org/breeze-icons/icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<meta name="keywords" content="STAMINA,Model-Checker,Infinite-State,markov,markov-chain,formal-verification,formal-methods">
 	<style>
 .source-overlay {
@@ -63,22 +63,22 @@
 	<div class="source-overlay" id="source-overlay">
 		<button class="close" onclick="window.history.back()">&times;</button>
 		<h1>Which version of STAMINA do you want?</h1>
-		<a class="button" href="https://github.com/fluentverification/stamina-storm"><i class="icon icon_gnumeric-link-url"></i>STAMINA/STORM</a>
-		<a class="button" href="https://github.com/fluentverification/stamina-prism"><i class="icon icon_gnumeric-link-url"></i>STAMINA/PRISM</a>
+		<a class="button" href="https://github.com/fluentverification/stamina-storm"><i class="bi-braces-asterisk"></i>STAMINA/STORM</a>
+		<a class="button" href="https://github.com/fluentverification/stamina-prism"><i class="bi-braces-asterisk"></i>STAMINA/PRISM</a>
 		<p style="font-size: 9pt">
 			Please note that both of these links are external. They will take you to our GitHub pages.
 		</p>
 		<p>
 			To get STAMINA/STORM, please clone the following GitHub URL:
 		</p>
-		<button class="copy-button" onclick="copyCitation('sstamina-source')"><i class="icon icon_edit-copy just-icon""></i></button>
+		<button class="copy-button" onclick="copyCitation('sstamina-source')"><i class="bi-copy just-icon""></i></button>
 		<div class="code" id="sstamina-source">
 			git clone https://github.com/fluentverification/stamina-storm stamina-storm
 		</div>
 		<p>
 			To get STAMINA/PRISM, please clone the following GitHub URL:
 		</p>
-		<button class="copy-button" onclick="copyCitation('pstamina-source')"><i class="icon icon_edit-copy just-icon"></i></button>
+		<button class="copy-button" onclick="copyCitation('pstamina-source')"><i class="bi-copy just-icon"></i></button>
 		<div class="code" id="pstamina-source">
 			git clone https://github.com/fluentverification/stamina-prism stamina-prism
 		</div>
@@ -89,10 +89,10 @@
 			<b>STAMINA/PRISM</b> is the legacy version of STAMINA, integrating with the PRISM model checker. It is written in Java and supports the STAMINA 1.0 and 2.0 algorithms.
 		</p>
 		<button class="back-button" onclick="window.history.back()">
-			<i class="icon icon_go-previous"></i>Go Back
+			<i class="bi-skip-backward"></i>Go Back
 		</button>
 		<button class="back-button" onclick="window.location = 'https://staminachecker.org'">
-			<i class="icon icon_go-home"></i>Go to Homepage
+			<i class="bi-house"></i>Go to Homepage
 		</button>
 	</div>
 </div>

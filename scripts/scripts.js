@@ -196,7 +196,7 @@ function copyCitation(id) {
  *
  * The bug only appears on MacOS/iOS and ONLY if NOT using Firefox.
  * */
-function fixIconsOnMacAndIos() {
+/*function fixIconsOnMacAndIos() {
 	var isMacLike = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 	var isIOS = /(iPhone|iPod|iPad)/i.test(navigator.platform);
 	var isFirefoxLike = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -208,6 +208,6 @@ function fixIconsOnMacAndIos() {
 		styleSheet.innerText = styles;
 		document.head.appendChild(styleSheet);
 	}
-}
+}*/
 
 fixIconsOnMacAndIos();

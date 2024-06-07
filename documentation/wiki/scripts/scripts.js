@@ -9,8 +9,8 @@ function closeSidebar() {
 // 	let closeButtonLabel = document.getElementById('togglenav-label');
 	let r = document.querySelector(':root');
 	navbarList.style.display = "none";
-	closeButtonIcon.classList.remove('icon_sidebar-collapse-left');
-	closeButtonIcon.classList.add('icon_sidebar-expand-left');
+	closeButtonIcon.classList.remove('bi-layout-text-sidebar-reverse');
+	closeButtonIcon.classList.add('bi-layout-text-sidebar-reverse');
 	r.style.setProperty("--sidebar-width", "50px");
 	r.style.setProperty("--sidebar-width-padded", "100px");
 	r.style.setProperty("--label-display", "none");
@@ -25,8 +25,8 @@ function openSidebar() {
 // 	let closeButtonLabel = document.getElementById('togglenav-label');
 	let r = document.querySelector(':root');
 	navbarList.style.display = "block";
-	closeButtonIcon.classList.add('icon_sidebar-collapse-left');
-	closeButtonIcon.classList.remove('icon_sidebar-expand-left');
+	closeButtonIcon.classList.add('bi-layout-text-sidebar-reverse');
+	closeButtonIcon.classList.remove('bi-layout-text-sidebar-reverse');
 	r.style.setProperty("--sidebar-width", "200px");
 	r.style.setProperty("--sidebar-width-padded", "250px");
 	r.style.setProperty("--label-display", "inline");
@@ -111,7 +111,7 @@ function searchOnThisPage() {
 }
 
 function escapeString(string) {
-	
+
 	let escapedString = string.replaceAll('\n', '\\n').replaceAll('"', '\\"').replaceAll("'", "\\'").replaceAll("/", "\\/");
 	return btoa(string);
 }
@@ -129,7 +129,7 @@ function copyAndConfirm(textToCopy) {
 		copyConfirm.style.display = "none";
 		copyConfirm.style.opacity = "0%";
 	}
-	
+
 	setTimeout(hideButton, 1500);
 }
 
@@ -139,7 +139,7 @@ function addCopyButtons() {
 		let innerHTML = block.innerHTML;
 		let command = block.innerText || block.textContent;
 // 		console.log(command);
-		let copyButton = "<button class=\"copy-button\" onclick=\"copyAndConfirm(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-icon icon_edit-copy\"></i></button>";
+		let copyButton = "<button class=\"copy-button\" onclick=\"copyAndConfirm(atob(\'" + escapeString(command) + "\'))\"><i class=\"icon just-bi-copy\"></i></button>";
 		block.innerHTML = copyButton + innerHTML;
 	});
 	// Add confirmation button
@@ -147,7 +147,7 @@ function addCopyButtons() {
 	content.innerHTML += '<div class="copy-confirmation" id="copy-confirmation">Copied successfully!<span class="close-button" onclick="document.getElementById(\'copy-confirmation\').style.display = \'none\';">&times;</span></div>';
 }
 
-window.onload = function () { 
-	closeSidebar(); 
+window.onload = function () {
+	closeSidebar();
 	addCopyButtons();
 }
