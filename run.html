@@ -90,8 +90,11 @@ if (bttButton != null) {
 </div>
 <div class="content">
 <!-- CONTENT -->
+<div class="error">
+	STAMINA/Storm online is currently down due to server maintainence. Please check back later this week. 
+</div>
 <h1>Run STAMINA/STORM on the cloud</h1>
-<p>Looking for a job you already started? Try <a href="/api/myjobs.html">this page</a>.</p>
+<p>Looking for a job you already started? Try <a href="/api/myjobs.html" class=disabled-box>this page</a>.</p>
 <style>
 .good-input {
 	border-bottom: 1px solid var(--accent-medium) !important;
@@ -378,7 +381,7 @@ function setActiveTab(tabId) {
 	<span class="divider"></span>
 	<a onclick="setActiveTab('tab2')" id="tab2-tab">Use a preset...</a>
 </div>
-<form id=options method="POST" action=http://127.0.0.1:5000/jobs enctype="multipart/form-data"> <!-- TODO: Add actual action when we dockerize/REST STAMINA onto Azure -->
+<form id=options method="POST" action=http://127.0.0.1:5000/jobs enctype="multipart/form-data" class=disabled-box> <!-- TODO: Add actual action when we dockerize/REST STAMINA onto Azure -->
 	<div style="display: none;">
 	<input type="checkbox" checked="true" name="create" id="create-box" style="visibility: visible;">Create job</input>
 	<input type="checkbox" checked="true" name="from_web" style="visibility: visible;">Web user</input>
