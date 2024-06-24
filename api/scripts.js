@@ -9,7 +9,7 @@ function toggleAllAPIEnabled(enabled) {
 	}
 }
 
-window.onload = function() {
+window.onload = async function() {
 	// Assume API_URL is defined here.
 	let response = await fetch(API_URL + "/egg");
 	if (response.status === 200) { toggleAllAPIEnabled(true); }
