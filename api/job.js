@@ -389,9 +389,13 @@ function checkApiUrl() {
 		, mode: "cors"
 	}).then((response) => {
 		if (response.status != 200) {
+			// toggleAllAPIEnabled(false);
 			if (confirm("[WARNING] The API URL\"" + API_URL + "\" appears to be down. Would you like to choose a new API URL?")) {
 				changeApiUrl();
 			}
+		}
+		else {
+			toggleAllAPIEnabled(true);
 		}
 	});
 }

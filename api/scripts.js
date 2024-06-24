@@ -14,11 +14,3 @@ function toggleAllAPIEnabled(enabled) {
 		document.querySelector("#api-url-down").style.display = "block";
 	}
 }
-
-window.onload = async function() {
-	// Assume API_URL is defined here.
-	// document.querySelectorAll(".api-necc").forEach(e => e.classList.add("disabled-box"));
-	let response = await fetch(API_URL + "/egg");
-	if (response.status === 200) { toggleAllAPIEnabled(true); }
-	else { toggleAllAPIEnabled(false); }
-};

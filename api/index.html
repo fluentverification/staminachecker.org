@@ -99,6 +99,9 @@ if (bttButton != null) {
 	<a class=button href="myjobs.html"><i class="icon bi-caret-right"></i>See active jobs</a>
 	<a class=button onclick=viewSpecificJob()><i class="icon bi-binoculars"></i>View Specific Job</a>
 	<div>
+	<div class="error" id="api-url-down" style="display: none">
+	The API URL you have chosen is down. Please select a different API URL.
+	</div>
 		<h2>API Settings</h2>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
 		<script>
