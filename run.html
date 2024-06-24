@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="scripts/scripts.js"></script>
 	<script type="text/javascript" src="/api/job.js"></script>
 	<script type="text/javascript" src="scripts/collapsible.js"></script>
+	<script type="text/javascript" src="api/scripts.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -90,11 +91,11 @@ if (bttButton != null) {
 </div>
 <div class="content">
 <!-- CONTENT -->
-<div class="error">
-	STAMINA/Storm online is currently down due to server maintainence. Please check back later this week. 
+<div class="error" id="api-url-down" style="display: none">
+	The API URL you have chosen is down. Please select a different API URL.
 </div>
 <h1>Run STAMINA/STORM on the cloud</h1>
-<p>Looking for a job you already started? Try <a href="/api/myjobs.html" class=disabled-box>this page</a>.</p>
+<p>Looking for a job you already started? Try <a href="/api/myjobs.html" class=api-necc>this page</a>.</p>
 <style>
 .good-input {
 	border-bottom: 1px solid var(--accent-medium) !important;
@@ -381,7 +382,7 @@ function setActiveTab(tabId) {
 	<span class="divider"></span>
 	<a onclick="setActiveTab('tab2')" id="tab2-tab">Use a preset...</a>
 </div>
-<form id=options method="POST" action=http://127.0.0.1:5000/jobs enctype="multipart/form-data" class=disabled-box> <!-- TODO: Add actual action when we dockerize/REST STAMINA onto Azure -->
+<form id=options method="POST" action=http://127.0.0.1:5000/jobs enctype="multipart/form-data" class=api-necc> <!-- TODO: Add actual action when we dockerize/REST STAMINA onto Azure -->
 	<div style="display: none;">
 	<input type="checkbox" checked="true" name="create" id="create-box" style="visibility: visible;">Create job</input>
 	<input type="checkbox" checked="true" name="from_web" style="visibility: visible;">Web user</input>

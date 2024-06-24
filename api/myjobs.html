@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="../scripts/search.js"></script>
 	<script type="text/javascript" src="job.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -96,12 +97,15 @@ if (bttButton != null) {
 		This page is not implemented yet! It will do nothing!
 	</div>-->
 <!-- CONTENT -->
+	<div class="error" id="api-url-down" style="display: none">
+	The API URL you have chosen is down. Please select a different API URL.
+	</div>
 	<h1>My Jobs<span onclick=requestDeleteAllJobs()><i class="clickable-icon icon icon bi-trash"></i></span></h1>
-	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getMyJobs() style="cursor: pointer;">Refresh</a><br>
+	<span class="geninfo geninfo-label">Last checked: </span><span class="geninfo" id="check-time">UNDEFINED</span>&nbsp;<a onclick=getMyJobs() style="cursor: pointer;" class="api-necc">Refresh</a><br>
 	<div>
 		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
 	</div><br>
-	<a class="button-small" href="/run.html"><i class="icon icon bi-plus-circle"></i>New Job</a><br>
+	<a class="button-small api-necc" href="/run.html"><i class="icon icon bi-plus-circle"></i>New Job</a><br>
 	<div id="jobs">
 		<noscript>You need JavaScript to view jobs</noscript>
 	</div>
