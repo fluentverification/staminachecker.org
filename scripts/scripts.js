@@ -167,14 +167,6 @@ function closeNav() {
 // 	document.getElementById("navbar").style.display = "none";
 }
 
-function copyIeee() {
-	copyCitation('ieee');
-}
-
-function copyMla() {
-	copyCitation('mla');
-}
-
 function copyCitation(id) {
 	console.log("Copying citation " + id);
 	var citation = document.getElementById(id);

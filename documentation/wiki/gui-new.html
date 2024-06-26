@@ -128,6 +128,72 @@ if (bttButton != null) {
 		<li>Quick model information</li>
 		<li>Tab-bar: gives acces to the model editor, properties editor, results viewer and log window.</li>
 	</ol>
+	<h2 id="using-xstamina">Using xSTAMINA</h2>
+<h3 id="editing">Editing</h3>
+<p>Model files, in the PRISM language, are edited in the Model Editor
+tab. An autocomplete is provided which contains PRISM keywords, module
+and variable names, constants, and other useful model information. This
+autocomplete is updated when the model is parsed (i.e., the model tree
+is rebuilt). This can only happen when the model has no syntax
+errors.</p>
+<p>Property files are similarly edited in the Properties Editor tab.</p>
+<p>Both editors provide the following syntax highlighting scheme (colors
+are editable):</p>
+<ul>
+<li><strong>Keywords</strong>: any keyword in the PRISM language, by
+default highlighted in a deep blue. The following keywords are
+highligted and therefore cannot be used as identifiers:</li>
+</ul>
+<pre class="code"><code >A, clock, const, ctmc, C, double, dtmc, E, endinit, endinvariant, endmodule, endobservables, endrewards, endsystem, false, formula, filter, func, F, global, G, init, invariant, I, label, max, mdp, min, module, X, nondeterministic, observable, observables, of, Pmax, Pmin, P, pomdp, popta, probabilistic, prob, pta, rate, rewards, Rmax, Rmin, R, S, stochastic, system, true, U, W</code></pre>
+<p>(see <a
+href="https://www.prismmodelchecker.org/manual/ThePRISMLanguage/ModulesAndVariables">https://www.prismmodelchecker.org/manual/ThePRISMLanguage/ModulesAndVariables</a>)</p>
+<ul>
+<li><strong>Comments</strong>: Single-line comments, which start with
+<code class="inline-code">//</code>, or multi-line comments, which begin with
+<code class="inline-code">/*</code> and end with <code class="inline-code">*/</code>. Generally a muted
+grey.</li><br>
+<li><strong>Numerics</strong>: PRISM by default does not allow floating
+point variables (only natural numbers), but does allow floating point
+values in constant expressions. Both will highlight in red by
+default.</li><br>
+<li><strong>Datatypes</strong>: Any datatype supported by PRISM,
+specifically <code class="inline-code">int</code>, <code class="inline-code">double</code>, or
+<code class="inline-code">bool</code>. Additionally, <code class="inline-code">formula</code>,
+<code class="inline-code">invariant</code>, and <code class="inline-code">label</code> are also highlighted by
+this.</li><br>
+<li><strong>Functions</strong>: Anything which looks like an invocation
+of a function, namely ending with <code class="inline-code">(.*)</code>.</li><br>
+<li><strong>Strings</strong>: PRISM only supports double-quote separated
+strings, so <code class="inline-code">"foo"</code> is valid, but <code class="inline-code">'foo'</code> is
+not.</li><br>
+<li><strong>Constants</strong>: Constants may be defined by any
+identifier, but by convention, they are in all caps, so xSTAMINA
+highlights anything in <code class="inline-code">UPPER_SNAKE_CASE</code> as a constant.</li><br>
+</ul>
+<p>By default, the editor uses tabs, and has a tab width of 4
+characters. This, the typeface of the main editor, and the colors used
+in syntax highlighting can be edited in the General tab of the Edit
+&#8594; Preferences dialog, shown below. Colors and font size and typeface are stored in a
+preferences file</p>
+<figure>
+<img src="images/colorScheme.png" alt="xSTAMINA Color Scheme Editor" />
+<figcaption aria-hidden="true">xSTAMINA Color Scheme Editor</figcaption>
+</figure>
+<p>Both the model and properties file can be edited using a find and
+replace editor, accessible via <code class="inline-code">Ctl+F</code> or <code class="inline-code">Ctl+R</code>
+for find and replace respectively.</p>
+<p><img src="images/find.png" alt="Text find, accessible by Ctl+F" />
+<img src="images/findReplace.png"
+alt="Find and replace, accessible by Ctl+R" /></p>
+<p>Text size can be changed via <code class="inline-code">Ctl++</code> and
+<code class="inline-code">Ctl+-</code>.</p>
+<h2>Model Checking</h2>
+Parameters such as &kappa;, r<sub>&kappa;</sub>, and w can be found in the preferences window. These are not saved in a configuration file and can be changed before each model checking. All properties in the property file can be checked via <code class=inline-code>Ctl+Shift+Return</code>, or the Build Model and Check Properties button on the Model Editor tab.
+
+<h2>Known Bugs</h2>
+
+xSTAMINA has some known bugs not present in the CLI version. First and foremost, <b>it behaves strangely with multiple properties in the same file</b>. This is something we are working to fix, but have not yet found the source of.
+
 </div>
 <!-- Footer -->
 <div class="footer">
