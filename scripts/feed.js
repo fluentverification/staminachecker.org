@@ -12,10 +12,10 @@ async function populateFeed() {
 	let feedbox = document.getElementById('feedbox');
 	feedbox.innerHTML = "";
 	feedJson.feed.forEach(function(feedItem) {
-		feedbox.innerHTML += "<a href='#'>" + 
+		feedbox.innerHTML += "<div>" +
 		"<h3>" + feedItem.title + "</h3>" +
 		"<h4>" + feedItem.date + "</h4>" +
 		feedItem.description
-		+ "</a>";
+		+ "</div>";
 	});
 }

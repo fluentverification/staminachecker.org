@@ -456,14 +456,14 @@ p {
 	max-height: 400px;
 }
 
-.feedbox a {
+.feedbox div {
 	color: var(--color);
 	display: block;
 	padding: 10px;
 	border-top: 1px solid #444444;
 }
 
-.feedbox a:hover {
+.feedbox div:hover {
 	background-color: var(--background-two);
 	transition: all 0.2s ease;
 }
