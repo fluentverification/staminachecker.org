@@ -175,16 +175,26 @@ characters. This, the typeface of the main editor, and the colors used
 in syntax highlighting can be edited in the General tab of the Edit
 &#8594; Preferences dialog, shown below. Colors and font size and typeface are stored in a
 preferences file</p>
-<figure>
-<img src="images/colorScheme.png" alt="xSTAMINA Color Scheme Editor" />
+<figure class="popout" id="cs-popout" onclick="popout('cs-popout')">
+<img src="images/colorScheme.png" alt="xSTAMINA Color Scheme Editor" class="inline-graphic" />
+<small>(Click to expand)</small>
 <figcaption aria-hidden="true">xSTAMINA Color Scheme Editor</figcaption>
 </figure>
+<div id="cs-popout-close" class="close-popup button" onclick="closePopup('cs-popout')">&times;</div>
 <p>Both the model and properties file can be edited using a find and
 replace editor, accessible via <code class="inline-code">Ctl+F</code> or <code class="inline-code">Ctl+R</code>
 for find and replace respectively.</p>
-<p><img src="images/find.png" alt="Text find, accessible by Ctl+F" />
+<figure class="popout" id="f-popout" onclick="popout('f-popout')">
+<img src="images/find.png" alt="Text find, accessible by Ctl+F" class="inline-graphic" />
+<small>(Click to expand)</small>
+</figure>
+<div id="f-popout-close" class="close-popup button" onclick="closePopup('f-popout')">&times;</div>
+<figure class="popout" id="fr-popout" onclick="popout('fr-popout')">
 <img src="images/findReplace.png"
-alt="Find and replace, accessible by Ctl+R" /></p>
+alt="Find and replace, accessible by Ctl+R" class="inline-graphic" /></p>
+<small>(Click to expand)</small>
+</figure>
+<div id="fr-popout-close" class="close-popup button" onclick="closePopup('fr-popout')">&times;</div>
 <p>Text size can be changed via <code class="inline-code">Ctl++</code> and
 <code class="inline-code">Ctl+-</code>.</p>
 <h2>Model Checking</h2>
