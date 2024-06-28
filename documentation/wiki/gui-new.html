@@ -108,8 +108,10 @@ if (bttButton != null) {
 </noscript>
 <div class="content">
 <!-- CONTENT -->
-	<div class="error">
-		This page is unfinished.
+	<div class=error>
+	<h2>Known Bugs</h2>
+
+	xSTAMINA has some known bugs not present in the CLI version. First and foremost, <b>it behaves strangely with multiple properties in the same file</b>. This is something we are working to fix, but have not yet found the source of.
 	</div>
 	<h1>XSTAMINA GUI (STAMINA/STORM Only)</h1>
 	<p>The XStamina GUI requires a few more dependencies as opposed to the CLI version of STAMINA/STORM. In addition to the dependencies required for STAMINA/STORM, the following packages are required for XStamina:</p>
@@ -200,9 +202,56 @@ alt="Find and replace, accessible by Ctl+R" class="inline-graphic" /></p>
 <h2>Model Checking</h2>
 Parameters such as &kappa;, r<sub>&kappa;</sub>, and w can be found in the preferences window. These are not saved in a configuration file and can be changed before each model checking. All properties in the property file can be checked via <code class=inline-code>Ctl+Shift+Return</code>, or the Build Model and Check Properties button on the Model Editor tab.
 
-<h2>Known Bugs</h2>
+<h2>Keyboard Shortcuts</h2>
 
-xSTAMINA has some known bugs not present in the CLI version. First and foremost, <b>it behaves strangely with multiple properties in the same file</b>. This is something we are working to fix, but have not yet found the source of.
+The following keyboard shortcuts are available in the GUI:
+
+<h3>File Shortcuts</h3>
+<ul>
+	<li>Ctl+N: Creates a new model file</li>
+	<li>Ctl+Shift+N: Creates a new properties file</li>
+	<li>Ctl+O: Opens a model or properties file</li>
+	<li>Ctl+S: Saves the active file (model or properties) to the current filename</li>
+	<li>Ctl+Shift+S: Saves the active file (model or properties) as a new filename</li>
+	<li>Ctl+Shift+I: Imports SBML (not yet implemented)</li>
+	<li>Ctl+Shift+E: Exports model to an explicit format</li>
+</ul>
+
+<h3>Editing Shortcuts</h3>
+<ul>
+	<li>Ctl+C, Ctl+V, Ctl+X: Copy, Paste, and Cut text</li>
+	<li>Ctl+Alt+M: Inserts the skeleton code for a PRISM module</li>
+	<li>Ctl+Alt+V: Inserts the skeleton code for a PRISM variable</li>
+	<li>Alt+F: Inserts the skeleton code for a PRISM formula</li>
+	<li>Alt+L: Inserts the skeleton code for a PRISM label</li>
+	<li>Ctl+Alt+F: Inserts a skeleton for a global CSL or PCTL property</li>
+	<li>Ctl+Alt+Shift+U: Inserts a skeleton for an until CSL or PCTL property</li>
+	<li>Alt+Shift+E: Inserts a skeleton for an eventually CSL or PCTL property</li>
+	<li>Alt+Shift+S: Inserts a skeleton for a steady state CSL or PCTL query</li>
+	<li>Ctl+F, Ctl+R: Find or find and replace text</li>
+	<li>Ctl+Z, Ctl+Shift+Z: Undo and Redo</li>
+	<li>Ctl+Tab, Ctl+Shift+Tab: Increase and decrease indent</li>
+	<li>Ctl+/, Ctl+Shift+/: Toggle and untoggle comment</li>
+	<li>Ctl+Shift+Space: Trims whitespace</li>
+	<li>Ctl+Alt+U, Ctl+Shift+U, Ctl+U: Set text as Title Case, lower case, or ALL CAPS respectively</li>
+	<li>Alt+Shift+P: Show preferences dialog</li>
+</ul>
+
+<h3>Viewing and Visualization Shortcuts</h3>
+<ul>
+	<li>Ctl+M: Shows the model editor</li>
+	<li>Ctl+Shift+P: Shows the properties editor</li>
+	<li>Ctl+Shift+R: Shows the results editor</li>
+	<li>Ctl++: Zooms in on the editor</li>
+	<li>Ctl+-: Zooms out on the editor</li>
+</ul>
+
+<h3>Other Keyboard Shortcuts</h3>
+<ul>
+	<li>Ctl+Shift+B: Builds model and checks properties</li>
+	<li>Ctl+Enter: Checks all properties with built model</li>
+	<li>Ctl+Shift+Enter: Checks current property with built model</li>
+</ul>
 
 </div>
 <!-- Footer -->
