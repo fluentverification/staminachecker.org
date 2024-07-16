@@ -335,6 +335,14 @@ input[type=checkbox] {
 	width: calc(100% - 100px);
 }
 
+.horizontal-line {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid var(--background-three);
+}
+
 #kappa-help-icon:hover + #kappa-help
 , #rkappa-help-icon:hover + #rkappa-help
 , #w-help-icon:hover + #w-help {
@@ -561,14 +569,15 @@ w.onchange = function() {
 			</div>
 			<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 		</div>
-		<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
-		<script>getAPIUrlFromCookieOrURL();
-		refreshApiUrl();checkApiUrl();</script>
 	</div>
 	<input type="submit" value="Run">
 </form>
 <small>
-	Different STAMINA hosts may have different rate limitations and timeouts. If you wish to check larger models than the current host will allow, please download and <a href="documentation/wiki/install-sstamina.html">install STAMINA</a>.
+	Different STAMINA hosts may have different rate limitations and timeouts. If you wish to check larger models than the current host will allow, please download and <a href="documentation/wiki/install-sstamina.html">install STAMINA</a>.<br>
+	<div class="horizontal-line"></div>
+	<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
+	<script>getAPIUrlFromCookieOrURL();
+	refreshApiUrl();checkApiUrl();</script><br>
 </small>
 </div>
 <!-- Footer -->
