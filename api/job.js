@@ -384,7 +384,7 @@ function refreshApiUrl() {
 
 function checkApiUrl() {
 	// Check the status of the easter egg of the API URL to ensure it's up
-	toggleAllAPIEnabled(false);
+	toggleAllAPIEnabled(false, false);
 	fetch(API_URL + "/egg", {
 		method: "GET"
 		, mode: "cors"
