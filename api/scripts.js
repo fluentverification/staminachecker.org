@@ -4,7 +4,7 @@ function toggleAllAPIEnabled(enabled) {
 			e.classList.remove("api-necc");
 			e.classList.add("api-necc2");
 		});
-		document.querySelector("#api-url-down").style.display = "hidden";
+		document.querySelector("#api-url-down").style.display = "none";
 	}
 	else {
 		document.querySelectorAll(".api-necc2").forEach(e => {
