@@ -396,6 +396,8 @@ function setActiveTab(tabId) {
 	<input type="checkbox" checked="true" name="from_web" style="visibility: visible;">Web user</input>
 	</div>
 	<div class="tab-body active-tab-body" id="tab1">
+		<div id=mod-error class=error style="display: none;"></div>
+		<div id=prop-error class=error style="display: none;"></div>
 		<label class="label">Model File:</label>
 		<div class="find-file">
 		<label class="button browse" id="browse-model_file" for="model_file">Browse</label><span class="path" id="model_file-path">No File Selected...</span>
@@ -416,10 +418,33 @@ function setActiveTab(tabId) {
 		console.log(this.files);
 		console.log(this.files[0]);
 		let input = this.files['0'];
-		var text;
+		var text; // the text the widget displays. Either the filename or "no file selected"
 		if (input) {
 			text = input.name;
-			document.getElementById("create-box").checked = true;
+			// Do a little file type validation
+			let allowedExtensions = /(\.prism|\.sm|\.pm)$/i;
+			if (!allowedExtensions.exec(input.name)) {
+				// Check for some common errors
+				let sbmlExtensions = /(\.sbml|\.xml|\.sbol)$/i;
+				var errHTML = null;
+				if (sbmlExtensions.exec(input.name)) {
+					// Tell the user it looks like they've uploaded an SBML file
+					errHTML = "It looks like you've tried to upload an <a href=\"https://sbml.org/\">SBML</a> (System's Biology Markup Language) or <a href=\"https://sbolstandard.org/\">SBOL</a> (Synthetic Biology Open Language) file. Unfortunately, we can't parse SBML files with this tool, however our friends over at <a href=\"https://async.ece.utah.edu/tools/ibiosim/\">IBioSim</a> have put together a lovely SBML-to-PRISM converter, which you should check out.<br>We have a converter of our own planned for a later release of STAMINA, however.";
+				}
+				else {
+					// Just say we don't recognize the file type
+					errHTML = "Model file type unrecognized";
+				}
+				let errElem = document.getElementById("mod-error");
+				errElem.innerHTML = errHTML;
+				errElem.style.display = "block";
+			}
+			else {
+				document.getElementById("create-box").checked = true;
+				let errElem = document.getElementById("mod-error");
+				errElem.innerHTML = "";
+				errElem.style.display = "none";
+			}
 		}
 		else {
 			text = "No file selected";
@@ -435,7 +460,19 @@ function setActiveTab(tabId) {
 		var text;
 		if (input) {
 			text = input.name;
-			document.getElementById("create-box").checked = true;
+			// Validate
+			let allowedExtensions = /(\.pctl|\.prop|\.csl)$/i;
+			if (!allowedExtensions.exec(input.name)) {
+				let errElem = document.getElementById("prop-error");
+				errElem.innerHTML = "Properties file type unrecognized";
+				errElem.style.display = "block";
+			}
+			else {
+				document.getElementById("create-box").checked = true;
+				let errElem = document.getElementById("prop-error");
+				errElem.innerHTML = "";
+				errElem.style.display = "none";
+			}
 		}
 		else {
 			text = "No file selected";
