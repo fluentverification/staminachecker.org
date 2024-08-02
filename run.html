@@ -413,11 +413,17 @@ function setActiveTab(tabId) {
 	document.getElementById("options").action = API_URL + "/jobs";
 	let modelFilePath = document.getElementById('model_file-path');
 	let modelFileInput = document.getElementById('model_file');
+	var submitButton = null;
+
+	var validModelFile = false;
+	var validPropFile = false;
 
 	modelFileInput.onchange = function() {
 		console.log(this.files);
 		console.log(this.files[0]);
 		let input = this.files['0'];
+		validModelFile = false;
+		submitButton.classList.add("disabled-box");
 		var text; // the text the widget displays. Either the filename or "no file selected"
 		if (input) {
 			text = input.name;
@@ -440,10 +446,14 @@ function setActiveTab(tabId) {
 				errElem.style.display = "block";
 			}
 			else {
+				validModelFile = true;
 				document.getElementById("create-box").checked = true;
 				let errElem = document.getElementById("mod-error");
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
+				if (validPropFile) {
+					submitButton.classList.remove("disabled-box");
+				}
 			}
 		}
 		else {
@@ -458,6 +468,8 @@ function setActiveTab(tabId) {
 	propFileInput.onchange = function() {
 		let input = this.files[0];
 		var text;
+		validPropFile = false;
+		submitButton.classList.add("disabled-box");
 		if (input) {
 			text = input.name;
 			// Validate
@@ -468,10 +480,14 @@ function setActiveTab(tabId) {
 				errElem.style.display = "block";
 			}
 			else {
+				validPropFile = true;
 				document.getElementById("create-box").checked = true;
 				let errElem = document.getElementById("prop-error");
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
+				if (validModelFile) {
+					submitButton.classList.remove("disabled-box");
+				}
 			}
 		}
 		else {
@@ -607,14 +623,14 @@ w.onchange = function() {
 			<span class="check-label">Enforce absolute state limit at <input type="text" id=inline-text-input value="10000"></input> states.</span>
 		</div>
 	</div>
-	<input type="submit" value="Run">
+	<input type="submit" value="Run" class="disabled-box" id="submit-button">
 </form>
 <small>
 	Different STAMINA hosts may have different rate limitations and timeouts. If you wish to check larger models than the current host will allow, please download and <a href="documentation/wiki/install-sstamina.html">install STAMINA</a>.<br>
 	<div class="horizontal-line"></div>
 	<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
 	<script>getAPIUrlFromCookieOrURL();
-	refreshApiUrl();checkApiUrl();</script><br>
+	refreshApiUrl();checkApiUrl();submitButton=document.getElementById('submit-button');</script><br>
 </small>
 </div>
 <!-- Footer -->
