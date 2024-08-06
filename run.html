@@ -343,6 +343,29 @@ input[type=checkbox] {
 	border-bottom: 1px solid var(--background-three);
 }
 
+.err-label {
+	color: #cc4242;
+}
+
+.err-label a {
+	color: #ff4a4a !important;
+/* 	text-decoration: underline; */
+}
+
+.err-label a:hover {
+ 	text-decoration: underline;
+}
+
+.err-label a:after {
+	.bi-link:before;
+}
+
+.err-border {
+	border: 2px solid #cc4242;
+	border-left: 0px !important;
+	color: #cc4242 !important;
+}
+
 #kappa-help-icon:hover + #kappa-help
 , #rkappa-help-icon:hover + #rkappa-help
 , #w-help-icon:hover + #w-help {
@@ -396,18 +419,18 @@ function setActiveTab(tabId) {
 	<input type="checkbox" checked="true" name="from_web" style="visibility: visible;">Web user</input>
 	</div>
 	<div class="tab-body active-tab-body" id="tab1">
-		<div id=mod-error class=error style="display: none;"></div>
-		<div id=prop-error class=error style="display: none;"></div>
 		<label class="label">Model File:</label>
 		<div class="find-file">
 		<label class="button browse" id="browse-model_file" for="model_file">Browse</label><span class="path" id="model_file-path">No File Selected...</span>
 			<input type=file id="model_file" name="model_file"/>
+			<div id=mod-error class="err-label" style="display: none;"></div>
 		</div>
 		<small class="full"><a href="documentation/wiki/model-files.html"><i class="icon bi-caret-right icon-small"></i>Learn how to write a model file</a></small>
 		<label class="label">Properties File:</label>
 		<div class="find-file">
 		<label class="button browse" id="browse-prop_file" for="prop_file">Browse</label><span class="path" id="prop_file-path">No File Selected...</span>
 		<input type=file id="prop_file" name="prop_file">
+		<div id=prop-error class="err-label" style="display: none;"></div>
 		</div>
 		<script>
 	document.getElementById("options").action = API_URL + "/jobs";
@@ -444,6 +467,7 @@ function setActiveTab(tabId) {
 				let errElem = document.getElementById("mod-error");
 				errElem.innerHTML = errHTML;
 				errElem.style.display = "block";
+				modelFilePath.classList.add("err-border");
 			}
 			else {
 				validModelFile = true;
@@ -451,6 +475,7 @@ function setActiveTab(tabId) {
 				let errElem = document.getElementById("mod-error");
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
+				modelFilePath.classList.remove("err-border");
 				if (validPropFile) {
 					submitButton.classList.remove("disabled-box");
 				}
@@ -478,6 +503,7 @@ function setActiveTab(tabId) {
 				let errElem = document.getElementById("prop-error");
 				errElem.innerHTML = "Properties file type unrecognized";
 				errElem.style.display = "block";
+				propFilePath.classList.add("err-border");
 			}
 			else {
 				validPropFile = true;
@@ -485,6 +511,7 @@ function setActiveTab(tabId) {
 				let errElem = document.getElementById("prop-error");
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
+				propFilePath.classList.remove("err-border");
 				if (validModelFile) {
 					submitButton.classList.remove("disabled-box");
 				}
