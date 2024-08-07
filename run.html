@@ -174,12 +174,15 @@ border: 1px solid var(--color-two);
 /* 	background: var(--background-two); */
 	padding: 10px;
 	padding-left: 25px;
-	border: 1px solid var(--background-three);
+/* 	border: 1px solid var(--background-three); */
 /* 	border-radius: 24px; */
 }
 
 .collapsible {
 	padding-bottom: 40px;
+	transition: all 2s ease;
+	height: 0px;
+	overflow-y: hidden;
 }
 
 #advanced-header {
@@ -222,13 +225,14 @@ border: 1px solid var(--color-two);
 	display: inline-block;
 /* 	width: auto; */
 	margin-left: 0px;
-	margin-top: 1px;
-	border: 1px solid var(--color);
-	border-left: none;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid var(--background-three);
 	padding: 14px;
 /* 	padding-right: 350px; */
 	color: #99999999;
-	width: calc(100% - 200px);
+/* 	width: calc(100% - 200px); */
+	width: calc(100% - 100px);
 }
 
 .find-file {
@@ -241,15 +245,22 @@ border: 1px solid var(--color-two);
 	margin-right: 0px;
 	display: inline-block;
 	position: relative;
-	top: -1px;
-	background-color: var(--color);
-	color: var(--background-two);
+/* 	top: -1px; */
+/* 	background-color: var(--color); */
+	color: var(--color);
 	border-left: none;
-	width: 100px;
-	padding: 15px;
+/* 	width: 100px; */
+	padding: 14px;
 /* 	z-index: -1; */
-	border-top: 1px solid var(--color);
-	border-bottom: 1px solid var(--color);
+	border-bottom: 1px solid var(--background-three);
+/* 	border-right: none; */
+	transition: all 0.15s ease;
+}
+
+.browse:hover {
+	background-color: var(--color);
+	cursor: pointer;
+	color: var(--background);
 }
 
 .navbar {
@@ -268,9 +279,6 @@ border: 1px solid var(--color-two);
 .tab-bar {
 	display: block;
 	width: 100%;
-/* 	margin-bottom: 10px; */
-/* 	background-color: var(--background-two); */
-/* 	padding: 10px; */
 }
 
 .tab-bar a {
@@ -361,9 +369,33 @@ input[type=checkbox] {
 }
 
 .err-border {
-	border: 2px solid #cc4242;
-	border-left: 0px !important;
+	border-bottom: 1px solid #cc4242;
 	color: #cc4242 !important;
+}
+
+.err-border-browse {
+	border-bottom: 1px solid #cc4242;
+	color: #cc4242 !important;
+}
+
+.err-border-browse:hover {
+	background-color: #cc4242;
+	color: white !important;
+}
+
+.good-border {
+	border-bottom: 1px solid var(--accent-medium);
+	color: var(--accent-medium) !important;
+}
+
+.good-border-browse {
+	border-bottom: 1px solid var(--accent-medium);
+	color: var(--accent-medium) !important;
+}
+
+.good-border-browse:hover {
+	background-color: var(--accent-medium);
+	color: white !important;
 }
 
 #kappa-help-icon:hover + #kappa-help
@@ -421,14 +453,14 @@ function setActiveTab(tabId) {
 	<div class="tab-body active-tab-body" id="tab1">
 		<label class="label">Model File:</label>
 		<div class="find-file">
-		<label class="button browse" id="browse-model_file" for="model_file">Browse</label><span class="path" id="model_file-path">No File Selected...</span>
+		<label class="browse bi-upload" id="browse-model_file" for="model_file"></label><span class="path" id="model_file-path">No File Selected...</span>
 			<input type=file id="model_file" name="model_file"/>
 			<div id=mod-error class="err-label" style="display: none;"></div>
 		</div>
 		<small class="full"><a href="documentation/wiki/model-files.html"><i class="icon bi-caret-right icon-small"></i>Learn how to write a model file</a></small>
 		<label class="label">Properties File:</label>
 		<div class="find-file">
-		<label class="button browse" id="browse-prop_file" for="prop_file">Browse</label><span class="path" id="prop_file-path">No File Selected...</span>
+		<label class="browse bi-upload" id="browse-prop_file" for="prop_file"></label><span class="path" id="prop_file-path">No File Selected...</span>
 		<input type=file id="prop_file" name="prop_file">
 		<div id=prop-error class="err-label" style="display: none;"></div>
 		</div>
@@ -436,6 +468,8 @@ function setActiveTab(tabId) {
 	document.getElementById("options").action = API_URL + "/jobs";
 	let modelFilePath = document.getElementById('model_file-path');
 	let modelFileInput = document.getElementById('model_file');
+	let browseModel = document.getElementById('browse-model_file');
+	let browseProp = document.getElementById('browse-prop_file');
 	var submitButton = null;
 
 	var validModelFile = false;
@@ -468,6 +502,9 @@ function setActiveTab(tabId) {
 				errElem.innerHTML = errHTML;
 				errElem.style.display = "block";
 				modelFilePath.classList.add("err-border");
+				browseModel.classList.add("err-border-browse");
+				modelFilePath.classList.remove("good-border");
+				browseModel.classList.remove("good-border-browse");
 			}
 			else {
 				validModelFile = true;
@@ -476,6 +513,9 @@ function setActiveTab(tabId) {
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
 				modelFilePath.classList.remove("err-border");
+				browseModel.classList.remove("err-border-browse");
+				modelFilePath.classList.add("good-border");
+				browseModel.classList.add("good-border-browse");
 				if (validPropFile) {
 					submitButton.classList.remove("disabled-box");
 				}
@@ -504,6 +544,9 @@ function setActiveTab(tabId) {
 				errElem.innerHTML = "Properties file type unrecognized";
 				errElem.style.display = "block";
 				propFilePath.classList.add("err-border");
+				browseProp.classList.add("err-border-browse");
+				propFilePath.classList.remove("good-border");
+				browseProp.classList.remove("good-border-browse");
 			}
 			else {
 				validPropFile = true;
@@ -512,6 +555,9 @@ function setActiveTab(tabId) {
 				errElem.innerHTML = "";
 				errElem.style.display = "none";
 				propFilePath.classList.remove("err-border");
+				browseProp.classList.remove("err-border-browse");
+				propFilePath.classList.add("good-border");
+				browseProp.classList.add("good-border-browse");
 				if (validModelFile) {
 					submitButton.classList.remove("disabled-box");
 				}
