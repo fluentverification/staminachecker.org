@@ -538,7 +538,7 @@ function setActiveTab(tabId) {
 		if (input) {
 			text = input.name;
 			// Validate
-			let allowedExtensions = /(\.pctl|\.prop|\.csl)$/i;
+			let allowedExtensions = /(\.pctl|\.prop|\.csl|\.props)$/i;
 			if (!allowedExtensions.exec(input.name)) {
 				let errElem = document.getElementById("prop-error");
 				errElem.innerHTML = "Properties file type unrecognized";
