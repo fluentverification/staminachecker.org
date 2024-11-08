@@ -89,6 +89,10 @@ if (bttButton != null) {
 		}
 	</script>
 </div>
+<div class="alert" id="online-alert">
+STAMINA Online is currently down for maintanence.
+	<a onclick="document.getElementById('online-alert').style.display = 'None'" class="alert-button" >Close</a></span>
+</div> 
 <div class="content">
 <!-- CONTENT -->
 <div class="error" id="api-url-down" style="display: none">
@@ -702,8 +706,8 @@ w.onchange = function() {
 	Different STAMINA hosts may have different rate limitations and timeouts. If you wish to check larger models than the current host will allow, please download and <a href="documentation/wiki/install-sstamina.html">install STAMINA</a>.<br>
 	<div class="horizontal-line"></div>
 	<span class="geninfo geninfo-label">API URL:</span> <span class="geninfo" id=api-url></span> <a onclick=changeApiUrl()>Change</a>
-	<script>getAPIUrlFromCookieOrURL();
-	refreshApiUrl();checkApiUrl();submitButton=document.getElementById('submit-button');</script><br>
+	<!--<script>getAPIUrlFromCookieOrURL();
+		refreshApiUrl();checkApiUrl();submitButton=document.getElementById('submit-button');</script>--><br>
 </small>
 </div>
 <!-- Footer -->
